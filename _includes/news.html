@@ -2,10 +2,17 @@
 <div class="well">
 <h4>News</h4>
 
-{% for article in site.data.news limit:9 %}
+<!-- {% for article in site.data.news limit:9 %}
 <p>{{ article.date }}<br>{{ article.headline | markdownify}}</p>
+{% endfor %} -->
+{% for article in site.data.news limit:9 %}
+<div style="margin-bottom: 20px;">
+    <p style="margin-bottom: 2px; font-family: 'Arial', sans-serif;"><em>{{ article.date }}</em><br>{{ article.headline
+        | markdownify }}</p>
+</div>
 {% endfor %}
 
-<h4><a href="{{ site.url }}{{ site.baseurl }}/allnews.html">... see all News</a></h4>
+
+<h5><a href="{{ site.url }}{{ site.baseurl }}/allnews.html">... see all News</a></h5>
 
     </div>
