@@ -6,7 +6,7 @@ sitemap: false
 permalink: /
 ---
 
-We are a dynamic research group, in the [Cognitive Science Department](https://cogsci.jhu.edu) at Johns Hopkins University led by Professor Mick Bonner.
+We are a dynamic research group, in the [Cognitive Science Department](https://cogsci.jhu.edu) at Johns Hopkins University led by Professor Mick Bonner. By comparing how biological and artificial vision represent and process information, we gain mutual insights into both natural and machine intelligence. 
 
 <div markdown="0" id="carousel" class="carousel slide" data-ride="carousel" data-interval="4000" data-pause="hover" >
     <!-- Menu -->
@@ -51,9 +51,7 @@ We are a dynamic research group, in the [Cognitive Science Department](https://c
   </a>
 </div>
 
-
-
-The goal of our work is to understand how the fundamental cognitive functions of natural scene perception are implemented in the computations of the human brain. Specifically, our research seeks to reverse engineer the representations and algorithms of human visual cognition through neuroimaging, computational modeling, and behavioral experiments. Our work relies heavily on deep artificial neural networks as theoretical models of information processing in the human brain, and we broadly make use of large-scale computational methods to characterize how the human visual system makes sense of real-world visual scenes.
+Our work combines neuroimaging, computational modeling, and behavioral experiments to reverse-engineer the algorithms of human vision. It is heavily reliant on deep artifical neural networks as theoretical models of information processing in the brain. We employ large-scale analytics to elucidate how the human visual system perceives its world. This two-way exchange between neuroscience and AI advances our understanding of the mind and drives more human-like artificial sight.
 
  **We are  looking for passionate new PhD students, Postdocs, and Master students to join the team** [(more info)]({{ site.url }}{{ site.baseurl }}/vacancies) **!**
 

@@ -43,11 +43,6 @@ Jump to [Staff](#staff), [Hopkins students](#hopkins-students), [Alumni](#alumni
     <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/website.png" alt="Personal Website" style="width: 25px; height: 25px; margin-right: 15px; box-shadow: none;"/>
   </a>
   {% endif %}
-  {% if member.email %}
-  <a href="mailto:{{ member.email }}">
-      <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/gmail.png" alt="Email" style="width: 40px; height: 28px; margin-right: 15px; box-shadow: none;"/>
-    </a>
-  {% endif %}
   {% if member.twitter %}
   <a href="https://twitter.com/{{ member.twitter }}">
       <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/x_logo.svg" alt="X" style="width: 22px; height: 22px; margin-right: 15px; box-shadow: none;"/>
@@ -56,6 +51,11 @@ Jump to [Staff](#staff), [Hopkins students](#hopkins-students), [Alumni](#alumni
   {% if member.cv %}
   <a href="{{ site.url }}{{ site.baseurl }}/downloads/{{member.cv}}">
       <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/cv_logo.png" alt="CV" style="width: 27px; height: 27px; box-shadow: none;"/>
+    </a>
+  {% endif %}
+  {% if member.github %}
+  <a href="{{ site.url }}{{ site.baseurl }}/images/logopic/github_logo.png">
+      <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/github_logo.png" alt="Github" style="width: 27px; height: 27px; box-shadow: none;"/>
     </a>
   {% endif %}
 </div>
@@ -91,7 +91,7 @@ Jump to [Staff](#staff), [Hopkins students](#hopkins-students), [Alumni](#alumni
 
 
 <div class="col-sm-6 clearfix">
-<img src="{{ site.url }}{{ site.baseurl }}/images/teampic/{{ member.photo }}" class="img-responsive" width="25%" style="float: left" />
+<img src="{{ site.url }}{{ site.baseurl }}/images/teampic/{{ member.photo }}" class="img-responsive" width="30%" style="float: left" />
 <h4>{{ member.name }}</h4>
 <i>{{ member.role }}</i>
 <div style="display: flex; align-items: center;">

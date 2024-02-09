@@ -3,20 +3,22 @@
   role: Postdoc, started Aug 2023
   gscholar: https://scholar.google.com/citations?user=6tCow3oAAAAJ&hl=en&inst=7575085548378563675
   website: https://colinconwell.github.io/
-  number_educ: 1
-  education1: PhD, Harvard University with <a href="https://visionlab.harvard.edu/members.current.php?memberID=PI">George Alvarez</a> 
+  github: https://github.com/colinconwell
 
 
 - name: Emalie McMahon
   photo: emalie.jpg
   role: PhD Student
   website: https://emaliemcmahon.github.io/
+  gscholar: https://scholar.google.com/citations?user=mOTMCr4AAAAJ&hl=&inst=7575085548378563675
+  twitter: https://twitter.com/emaliemcmahon
 
 
 - name: Raj Magesh Gauthaman
   photo: raj.jpg
   role: PhD Student
   website: https://raj-magesh.org/
+  email: rgautha1@jh.edu
 
 
 - name: Kelsey Han
@@ -41,10 +43,11 @@
 - name: Zirui Chen
   photo: ray.jpg
   role: PhD Student
+  email: zchen160@jhu.edu
 
 
 - name: Ananya Passi
-  photo: rock.jpg
+  photo: ananya.jpg
   role: PhD student
   website: https://scholar.google.com/citations?user=qbvt7EUAAAAJ&hl=en&inst=7575085548378563675
   email: apassi1@jhu.edu
@@ -55,8 +58,4 @@
   role: Lab Manager
   website: https://akazemian.github.io/personal_profile/
   email: atlaskazemian@gmail.com
-
-
-- name: "This could be you !"
-  photo: rock.jpg
-  role: See <a href="http://www.bonnerlab.org/vacancies">openings</a> for more role
+  twitter: AtlasKazemian
