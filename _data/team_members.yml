@@ -1,66 +1,62 @@
 - name: Colin Conwell
   photo: colin.jpg
-  info: Postdoc, started Aug 2023
+  role: Postdoc, started Aug 2023
   gscholar: https://scholar.google.com/citations?user=6tCow3oAAAAJ&hl=en&inst=7575085548378563675
   website: https://colinconwell.github.io/
   number_educ: 1
   education1: PhD, Harvard University with <a href="https://visionlab.harvard.edu/members.current.php?memberID=PI">George Alvarez</a> 
 
+
 - name: Emalie McMahon
   photo: emalie.jpg
-  info: PhD Student
-  number_educ: 0
-  education1: Master Applied Physics, TU Delft
-  education2: Casimir/Nanofront PhD fellowship
-  education3:
-  education4:
+  role: PhD Student
+  website: https://emaliemcmahon.github.io/
+
 
 - name: Raj Magesh Gauthaman
   photo: raj.jpg
-  info: PhD Student
-  number_educ: 1
-  education1: Indian Institute of Science (IISc.)
-  education3:
-  education4:
+  role: PhD Student
+  website: https://raj-magesh.org/
+
 
 - name: Kelsey Han
   photo: kelsey.jpg
-  info: PhD Student
-  number_educ: 1
-  education1: KAIST
+  role: PhD Student
+  website: https://kelseyhan-jhu.github.io/
+  email: chan21@jhu.edu
+  gscholar: https://scholar.google.com/citations?hl=en&user=ZN77OiqrzrIC&inst=7575085548378563675
+  twitter: ckelseyhan
+
+
 
 - name: Yash Mehta
   photo: yash.jpg
-  info: PhD student
-  email: yashsmehta95@gmail.com
-  number_educ: 1
-  education1: BTech Computer Science, BITS Pilani, India
+  role: PhD student
+  website: https://yashsmehta.github.io/
+  gscholar: https://scholar.google.com/citations?user=zFqBbIkAAAAJ&hl=en
+  twitter: y_mehtu
+  cv: yash_resume.pdf
+
 
 - name: Zirui Chen
   photo: ray.jpg
-  info: PhD Student
-  number_educ: 0
-  education1: 
-  education2:
+  role: PhD Student
 
 
 - name: Ananya Passi
   photo: rock.jpg
-  info: PhD student
-  number_educ: 1
-  education1: IISc.
+  role: PhD student
+  website: https://scholar.google.com/citations?user=qbvt7EUAAAAJ&hl=en&inst=7575085548378563675
+  email: apassi1@jhu.edu
+
 
 - name: Atlas Kazemian
   photo: atlasd.jpg
-  info: Lab Manager
-  number_educ: 0
-  education1: 
+  role: Lab Manager
+  website: https://akazemian.github.io/personal_profile/
+  email: atlaskazemian@gmail.com
+
 
 - name: "This could be you !"
   photo: rock.jpg
-  info: See <a href="http://www.bonnerlab.org/vacancies">openings</a> for more info
-  email: mfbonner@jhu.edu
-  number_educ: 0
-  education1:
-  education2:
-  education3:
+  role: See <a href="http://www.bonnerlab.org/vacancies">openings</a> for more role

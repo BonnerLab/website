@@ -27,18 +27,39 @@ Jump to [Staff](#staff), [Hopkins students](#hopkins-students), [Alumni](#alumni
 
 <div class="col-sm-6 clearfix">
 <img src="{{ site.url }}{{ site.baseurl }}/images/teampic/{{ member.photo }}" class="img-responsive" width="35%" style="float: left" />
-<h4>{{ member.name }}</h4>
-{% if member.email %}
-  <i>{{ member.designation }}<br>email: <a href="mailto:{{ member.email }}">{{ member.email }}</a></i>
-{% else %}
-  <i>{{ member.designation }}</i>
-{% endif %}
-<a href="{{ member.gscholar }}">
-  <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/gscholar.png" alt="Google Scholar Logo" style="width: 25px; height: 25px; margin-right: 10px; box-shadow: none;"/>
-</a>
-<a href="{{ member.website }}">
-    <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/website.png" alt="Personal Website" style="width: 25px; height: 25px; box-shadow: none;"/>
+<h3>{{ member.name }}</h3>
+  <i>{{ member.role }}<br>
+  <i>{{ member.info }}</i><br>
+  email: <a href="mailto:{{ member.email }}">{{ member.email }}</a></i>
+  
+<div style="display: flex; align-items: center;">
+  {% if member.gscholar %}
+  <a href="{{ member.gscholar }}">
+    <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/gscholar.png" alt="Google Scholar Logo" style="width: 25px; height: 25px; margin-right: 15px; box-shadow: none;"/>
   </a>
+  {% endif %}
+  {% if member.website %}
+  <a href="{{ member.website }}">
+    <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/website.png" alt="Personal Website" style="width: 25px; height: 25px; margin-right: 15px; box-shadow: none;"/>
+  </a>
+  {% endif %}
+  {% if member.email %}
+  <a href="mailto:{{ member.email }}">
+      <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/gmail.png" alt="Email" style="width: 40px; height: 28px; margin-right: 15px; box-shadow: none;"/>
+    </a>
+  {% endif %}
+  {% if member.twitter %}
+  <a href="https://twitter.com/{{ member.twitter }}">
+      <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/x_logo.svg" alt="X" style="width: 22px; height: 22px; margin-right: 15px; box-shadow: none;"/>
+    </a>
+  {% endif %}
+  {% if member.cv %}
+  <a href="{{ site.url }}{{ site.baseurl }}/downloads/{{member.cv}}">
+      <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/cv_logo.png" alt="CV" style="width: 27px; height: 27px; box-shadow: none;"/>
+    </a>
+  {% endif %}
+</div>
+
 <ul style="overflow: hidden">
 </ul>
 </div>
@@ -72,22 +93,37 @@ Jump to [Staff](#staff), [Hopkins students](#hopkins-students), [Alumni](#alumni
 <div class="col-sm-6 clearfix">
 <img src="{{ site.url }}{{ site.baseurl }}/images/teampic/{{ member.photo }}" class="img-responsive" width="25%" style="float: left" />
 <h4>{{ member.name }}</h4>
-{% if member.email %}
-  <i>{{ member.info }}<br>email: <a href="mailto:{{ member.email }}">{{ member.email }}</a></i>
-{% else %}
-  <i>{{ member.info }}</i>
-{% endif %}
-<a href="{{ member.gscholar }}">
-  <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/gscholar.png" alt="Google Scholar Logo" style="width: 25px; height: 25px; margin-right: 10px; box-shadow: none;"/>
-</a>
-<a href="{{ member.website }}">
-    <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/website.png" alt="Personal Website" style="width: 25px; height: 25px; box-shadow: none;"/>
+<i>{{ member.role }}</i>
+<div style="display: flex; align-items: center;">
+  {% if member.gscholar %}
+  <a href="{{ member.gscholar }}">
+    <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/gscholar.png" alt="Google Scholar Logo" style="width: 25px; height: 25px; margin-right: 14px; box-shadow: none;"/>
   </a>
+  {% endif %}
+  {% if member.website %}
+  <a href="{{ member.website }}">
+    <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/website.png" alt="Personal Website" style="width: 25px; height: 25px; margin-right: 10px; box-shadow: none;"/>
+  </a>
+  {% endif %}
+  {% if member.email %}
+  <a href="mailto:{{ member.email }}">
+      <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/gmail.png" alt="Email" style="width: 40px; height: 28px; margin-right: 6px; box-shadow: none;"/>
+    </a>
+  {% endif %}
+  {% if member.twitter %}
+  <a href="https://twitter.com/{{ member.twitter }}">
+      <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/x_logo.svg" alt="X" style="width: 22px; height: 22px; margin-right: 6px; box-shadow: none;"/>
+    </a>
+  {% endif %}
+  {% if member.cv %}
+  <a href="{{ site.url }}{{ site.baseurl }}/downloads/{{member.cv}}">
+      <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/cv_logo.png" alt="CV" style="width: 25px; height: 25px; box-shadow: none;"/>
+    </a>
+  {% endif %}
+</div>
+
 <ul style="overflow: hidden">
-
-
-
-  </ul>
+</ul>
 </div>
 
 {% assign number_printed = number_printed | plus: 1 %}
