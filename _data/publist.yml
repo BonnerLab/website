@@ -1,40 +1,18 @@
-- title: "Single-electron charge transfer into putative Majorana and trivial modes in individual vortices"
-  image: imageaward_edited.png
-  description: Shot noise has been suggested for a long time as a tell-tale probe for Majorana bound states. We are the first to carry out local tunneling shot noise measurements on the putative vortex Majorana states.
-  authors: J-F Ge, KM Bastiaans, D Chatzopoulos, D Cho, WO Tromp, T Benschop, J Niu, G Gu, MP Allan
+- title: "Contextual coherence increases perceived numerosity independent of semantic content."
+  image: context_coherence.png
+  description: Characterizing visual features that systematically bias our numerosity perception promises to uncover the processes that form ANS representations. Recent work demonstrated that reducing coherence of low-level visual attributes such as color and orientation systematically reduces perceived numerosity. Here we ask whether the coherence effect is exclusive to low-level visual features or instead whether it can be driven by higher-level features.
+  authors: Chuyan Qu; Michael F. Bonner; Elizabeth M. Brannon 
   link:
-    url: https://www.nature.com/articles/s41467-023-39109-w
-    display: Nature Communications 4, 3341 (2023)
+    url: https://jov.arvojournals.org/article.aspx?articleid=2792646
+    display: VSS (2023)
   highlight: 1
-  news2: See [news item](https://www.universiteitleiden.nl/en/news/2023/06/new-method-to-find-majoranas-tested-for-the-first-time) by Michelle Willebrands
 
-- title: "Why shot noise does not generally detect pairing in mesoscopic superconducting tunnel junctions"
-  image: imageaward_edited.png
-  description: Shot noise has been suggested for a long time as a tell-tale probe for Majorana bound states. We are the first to carry out local tunneling shot noise measurements on the putative vortex Majorana states.
-  authors: JJiasen Niu, Koen M. Bastiaans, Jianfeng Ge, Ruchi Tomar, John Jesudasan, Pratap Raychaudhuri, Max Karrer, Reinhold Kleiner, Dieter Koelle, Arnaud Barbier, Eduard F.C. Driessen, Yaroslav M. Blanter, Milan P. Allan
+- title: "High-performing neural network models of visual cortex benefit from high latent dimensionality"
+  image: high_dimensionality.png
+  description: Surprisingly, we found a strong trend in the opposite direction—neural networks with highdimensional image subspaces tended to have better generalization performance when predicting cortical responses to held-out stimuli in both monkey electrophysiology and human fMRI data. Moreover, we found that high dimensionality was associated with better performance when learning new categories of stimuli, suggesting that higher dimensional representations are better suited to generalize beyond their training domains.
+  authors: Eric Elmoznino, Michael F. Bonner
   link:
-    url: https://arxiv.org/abs/2306.02397
-    display: arXiv
-  highlight: 0
-
-- title: "Puddle formation, persistent gaps, and non-mean-field breakdown of superconductivity in overdoped (Pb,Bi)2Sr2CuO6+δ"
-  image: BSCCOgap.png
-  description: Why does cuprate superconductivity break down at a certain doping level? Using scanning tunneling spectroscopy we find that an emerging metallic matrix inside the superconducting state is responsible for the overall reduction of Tc and the superfluid density, while leaving the gapsize unchanged. The formation of the matrix is tied to a pair breaking process violating a core principle of mean-field theories.
-  authors: WO Tromp, T Benschop, J-F Ge, I Battisti, KM Bastiaans, D Chatzopoulos, A Vervloet, S Smit, E van Heumen, MS Golden, Y Huang, T Kondo, Y Yin, JE Hoffman, MA Sulangi, J Zaanen, MP Allan
-  link:
-    url: https://www.nature.com/articles/s41563-023-01497-1
-    display: Nature Materials 22, 703 (2023)
-  highlight: 1
-  news1: See [News and Views](https://www.nature.com/articles/s41563-023-01552-x) by Yu He.
-
-
-- title: "Direct evidence for Cooper pairing without a spectral gap in a disordered superconductor above Tc"
-  image: Pairs3.png
-  description: We use our atomic-scale scanning tunneling noise setup on a disordered superconductor, and discover a state above TC that, much like an ordinary metal, has no (pseudo)gap, but carries charge via paired electrons.
-  authors: KM Bastiaans, D Chatzopoulos, J-F Ge, D Cho, WO Tromp, JM van Ruitenbeek, MH Fischer, PJ de Visser, DJ Thoen, EFC Driessen, TM Klapwijk, MP Allan
-  link:
-    url: https://www.science.org/doi/10.1126/science.abe3987
-    display: Science 374, 608 (2021)
-  highlight: 1
-  news1:   <a style="color:#FF0000" href="https://www.nature.com/articles/s41567-021-01468-w">Featured as 'Research Highlight' in Nature Physics by David Abergel</a>
-  news2: See [Physics World](https://physicsworld.com/a/cooper-pairs-spotted-above-critical-temperature-for-superconductivity/), [SRON news](https://www.sron.nl/news/5169-elektronparen-blijven-stabiel-boven-kritische-temperatuur-supergeleiding), [TU Delft news](https://www.tudelft.nl/en/2021/eemcs/inexplicably-stable-electron-pairs-without-superconductivity), [Leiden news](https://www.universiteitleiden.nl/en/news/2021/10/new-quantum-liquid-discovered).
+    url: https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1011792
+    display: PLOS Computational Biology (2023)
+  highlight: 1 
+  news1: Also checkout CCN tutorial

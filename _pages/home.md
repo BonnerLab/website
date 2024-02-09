@@ -8,7 +8,7 @@ permalink: /
 
 We are a dynamic research group, in the [Cognitive Science Department](https://cogsci.jhu.edu) at Johns Hopkins University led by Professor Mick Bonner.
 
-<div markdown="0" id="carousel" class="carousel slide" data-ride="carousel" data-interval="3000" data-pause="hover" >
+<div markdown="0" id="carousel" class="carousel slide" data-ride="carousel" data-interval="4000" data-pause="hover" >
     <!-- Menu -->
     <ol class="carousel-indicators">
         <li data-target="#carousel" data-slide-to="0" class="active"></li>
@@ -26,7 +26,7 @@ We are a dynamic research group, in the [Cognitive Science Department](https://c
             <img src="{{ site.url }}{{ site.baseurl }}/images/slider7001400/jhu_gilman.jpg" alt="Slide 1" />
         </div>
         <div class="item">
-            <img src="{{ site.url }}{{ site.baseurl }}/images/slider7001400/paper_fig.jpg" alt="Slide 2" />
+            <img src="{{ site.url }}{{ site.baseurl }}/images/slider7001400/paper_fig2.png" alt="Slide 2" />
         </div>
         <div class="item">
             <img src="{{ site.url }}{{ site.baseurl }}/images/slider7001400/paper_fig.jpg" alt="Slide 3" />

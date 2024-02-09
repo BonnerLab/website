@@ -1,5 +1,5 @@
 - name: Alon Hafri
-  photo: rock.jpg
+  photo: alon.jpg
   duration: PostDoc the Bonner Lab 2019 - 2021
   info: Assistant Professor, UoDelaware
   website: https://pal.lingcogsci.udel.edu/
@@ -10,21 +10,21 @@
   education4:
 
 - name: Eric Elmoznino
-  photo: rock.jpg
+  photo: eric.jpg
   duration: Lab Manager of Bonner Lab Jan 2018 to June 2022
   info: PhD student with Yoshua Bengio at MILA
   website: https://ericelmoznino.github.io/
   number_educ: 0
 
 - name: Donald Li
-  photo: rock.jpg
+  photo: donald.jpg
   duration: PhD student in the Bonner Lab May 2019 to June 2021
   info: Visiting Assistant Professor, Johns Hopkins
   website: https://cogsci.jhu.edu/directory/shi-pui-donald-li/
   number_educ: 0
 
 - name: Caterina Magri
-  photo: rock.jpg
+  photo: cat.png
   duration: PostDoc in the Bonner Lab December 2019 to February 2021
   website: https://catmagri.wixsite.com/caterinamagri
   info: Quant UX researcher, Google

@@ -40,6 +40,13 @@ pubtit {
 firstp {
 }
 
+#carousel .carousel-inner .item img {
+	width: 100%;
+	height: 325px;
+	object-fit: contain;
+	object-position: center;
+}
+
 .container-fluid {
   margin-right: auto;
   margin-left: auto;

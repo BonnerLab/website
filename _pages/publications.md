@@ -6,10 +6,7 @@ sitemap: false
 permalink: /publications/
 ---
 
-
-
-
-# Highlighted Publications
+# Highlighted Work
 
 Below are some highlighted publications from the group. Check out [Google scholar](https://scholar.google.com/citations?hl=en&user=zMTnSe8AAAAJ&view_op=list_works&inst=7575085548378563675) for the full list of publications and patents. 
 

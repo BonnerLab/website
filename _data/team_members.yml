@@ -1,19 +1,13 @@
-- name: Mick Bonner
-  photo: rock.jpg
-  info: Assistant professor
-  email: mfbonner@jhu.edu
-  number_educ: 2
-  education1: PhD, UPenn with <a href="https://almanac.upenn.edu/articles/murray-grossman-neurology">Murray Grossman</a>
-  education2: Postdoc UPenn
-
 - name: Colin Conwell
-  photo: rock.jpg
+  photo: colin.jpg
   info: Postdoc, started Aug 2023
+  gscholar: https://scholar.google.com/citations?user=6tCow3oAAAAJ&hl=en&inst=7575085548378563675
+  website: https://colinconwell.github.io/
   number_educ: 1
   education1: PhD, Harvard University with <a href="https://visionlab.harvard.edu/members.current.php?memberID=PI">George Alvarez</a> 
 
 - name: Emalie McMahon
-  photo: rock.jpg
+  photo: emalie.jpg
   info: PhD Student
   number_educ: 0
   education1: Master Applied Physics, TU Delft
@@ -22,7 +16,7 @@
   education4:
 
 - name: Raj Magesh Gauthaman
-  photo: rock.jpg
+  photo: raj.jpg
   info: PhD Student
   number_educ: 1
   education1: Indian Institute of Science (IISc.)
@@ -30,20 +24,20 @@
   education4:
 
 - name: Kelsey Han
-  photo: rock.jpg
+  photo: kelsey.jpg
   info: PhD Student
   number_educ: 1
   education1: KAIST
 
 - name: Yash Mehta
-  photo: rock.jpg
+  photo: yash.jpg
   info: PhD student
   email: yashsmehta95@gmail.com
   number_educ: 1
   education1: BTech Computer Science, BITS Pilani, India
 
 - name: Zirui Chen
-  photo: rock.jpg
+  photo: ray.jpg
   info: PhD Student
   number_educ: 0
   education1: 
@@ -57,7 +51,7 @@
   education1: IISc.
 
 - name: Atlas Kazemian
-  photo: rock.jpg
+  photo: atlasd.jpg
   info: Lab Manager
   number_educ: 0
   education1: 

@@ -13,6 +13,51 @@ permalink: /team/
 
 Jump to [Staff](#staff), [Hopkins students](#hopkins-students), [Alumni](#alumni), [Collaborators](#collaborators), [Former students](#former-hopkins-students), [Administrative support](#administrative-support)
 
+
+## Principal Investigator
+{% assign number_printed = 0 %}
+{% for member in site.data.team_lead %}
+
+{% assign even_odd = number_printed | modulo: 2 %}
+
+{% if even_odd == 0 %}
+<div class="row">
+{% endif %}
+
+
+<div class="col-sm-6 clearfix">
+<img src="{{ site.url }}{{ site.baseurl }}/images/teampic/{{ member.photo }}" class="img-responsive" width="35%" style="float: left" />
+<h4>{{ member.name }}</h4>
+{% if member.email %}
+  <i>{{ member.designation }}<br>email: <a href="mailto:{{ member.email }}">{{ member.email }}</a></i>
+{% else %}
+  <i>{{ member.designation }}</i>
+{% endif %}
+<a href="{{ member.gscholar }}">
+  <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/gscholar.png" alt="Google Scholar Logo" style="width: 25px; height: 25px; margin-right: 10px; box-shadow: none;"/>
+</a>
+<a href="{{ member.website }}">
+    <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/website.png" alt="Personal Website" style="width: 25px; height: 25px; box-shadow: none;"/>
+  </a>
+<ul style="overflow: hidden">
+</ul>
+</div>
+
+
+{% assign number_printed = number_printed | plus: 1 %}
+
+{% if even_odd == 1 %}
+</div>
+{% endif %}
+
+{% endfor %}
+
+{% assign even_odd = number_printed | modulo: 2 %}
+{% if even_odd == 1 %}
+</div>
+{% endif %}
+
+
 ## Staff
 {% assign number_printed = 0 %}
 {% for member in site.data.team_members %}
@@ -32,39 +77,15 @@ Jump to [Staff](#staff), [Hopkins students](#hopkins-students), [Alumni](#alumni
 {% else %}
   <i>{{ member.info }}</i>
 {% endif %}
+<a href="{{ member.gscholar }}">
+  <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/gscholar.png" alt="Google Scholar Logo" style="width: 25px; height: 25px; margin-right: 10px; box-shadow: none;"/>
+</a>
+<a href="{{ member.website }}">
+    <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/website.png" alt="Personal Website" style="width: 25px; height: 25px; box-shadow: none;"/>
+  </a>
 <ul style="overflow: hidden">
 
 
-
-  {% if member.number_educ == 1 %}
-  <li> {{ member.education1 }} </li>
-  {% endif %}
-
-  {% if member.number_educ == 2 %}
-  <li> {{ member.education1 | markdownify}} </li>
-  <li> {{ member.education2 | markdownify}} </li>
-  {% endif %}
-
-  {% if member.number_educ == 3 %}
-  <li> {{ member.education1 }} </li>
-  <li> {{ member.education2 }} </li>
-  <li> {{ member.education3 }} </li>
-  {% endif %}
-
-  {% if member.number_educ == 4 %}
-  <li> {{ member.education1 }} </li>
-  <li> {{ member.education2 }} </li>
-  <li> {{ member.education3 }} </li>
-  <li> {{ member.education4 }} </li>
-  {% endif %}
-
-  {% if member.number_educ == 5 %}
-  <li> {{ member.education1 }} </li>
-  <li> {{ member.education2 }} </li>
-  <li> {{ member.education3 }} </li>
-  <li> {{ member.education4 }} </li>
-  <li> {{ member.education5 }} </li>
-  {% endif %}
 
   </ul>
 </div>
@@ -84,7 +105,7 @@ Jump to [Staff](#staff), [Hopkins students](#hopkins-students), [Alumni](#alumni
 
 
 
-## Hopkins Students
+## Bsc / Master students
 {% assign number_printed = 0 %}
 {% for member in site.data.students %}
 

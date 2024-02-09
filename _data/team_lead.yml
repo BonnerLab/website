@@ -1,0 +1,10 @@
+- name: Mick Bonner
+  photo: mick.jpg
+  designation: Assistant professor
+  info: At the University of Pennsylvania, I completed postdoctoral training in psychology and neurology, developing a foundation for my current investigations into neural mechanisms underlying cognitive functions. I hold a Ph.D. in Neuroscience, underpinning my expertise in dissecting complex brain networks. I'm excited about the intersection of neuroscience and deep learning.
+  email: mfbonner@jhu.edu
+  gscholar: https://scholar.google.com/citations?user=zMTnSe8AAAAJ&hl=en&inst=7575085548378563675
+  website: https://colinconwell.github.io/
+  number_educ: 2
+  education1: PhD, UPenn with <a href="https://almanac.upenn.edu/articles/murray-grossman-neurology">Murray Grossman</a>
+  education2: Postdoc UPenn

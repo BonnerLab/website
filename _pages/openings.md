@@ -6,27 +6,22 @@ sitemap: false
 permalink: /vacancies
 ---
 
-# Open positions
+Our lab prioritizes creating a diverse and inclusive environment, embracing scientists from all genders, races, sexual orientations, and backgrounds. We strive to be a supportive community, aiming to recruit individuals who will contribute to sustaining a nurturing and productive atmosphere.
 
-**We are currently open for PhD and postdoc applications..**
+### PostDocs
+**We are recruiting a postdoctoral fellow** to work on scientific explorations at the interface of computational neuroscience and machine learning at Johns Hopkins University. The fellow will join a collaborative team led by Profs Mick Bonner (dpt of Cognitive Science) and Brice Ménard (dpt of Physics) investigating the fundamental principles that govern neural representations in high dimensions, with a focus on vision.
+Applicants should have a PhD in neuroscience, cognitive science, physics, computer science, engineering, or related disciplines, with some expertise in scientific programming and statistical analyses. Specific expertise in computational neuroscience and/or machine learning is a plus. 
 
-We are  looking for new group members with passion, talent, and grit!
+To apply or learn more about the position, send an email to [mfbonner@jhu.edu](mailto:mfbonner@jhu.edu).
 
-You will have the chance to work on the grand challenges of biological vision perception, often at the interface of deep learning and computational neuroscience. You will be involved in determining the important and interesting questions, performing measurements, and making discoveries.
+### Graduate students
+**We are actively seeking graduate students** to join our lab in Fall 2024, as part of the [**Cognitive Science PhD and MA program**](https://cogsci.jhu.edu/graduate/). When applying, please specify Mick as a preferred advisor. While Mick welcomes inquiries and is available for questions via email, he typically does not conduct meetings or interviews prior to the application review process. We recommend familiarizing yourself with our lab's recent publications to gain insights into our research focus. If you believe your interests align with our lab's endeavors, ensure to highlight this alignment in your application.
 
-### Applications for PhD and Postdoc positions
-If you are interested in working with us as a PhD student or postdoc, please send me an [email](mailto:mfbonner@jhu.edu). State briefly why you are interested and attach a CV, including information about the grades you had as an undergraduate. No need for a separate cover letter or certificates. **Important**: please insert _"Application PhD"_ or _"Application Postdoc"_ in the subject line. If you are applying to a specific advertisement, note this in your email.
+Additionally, we offer an [application mentoring program](https://cogsci.jhu.edu/event/phd-application-mentoring-2/) spearheaded by our current students, designed to guide prospective PhD students through the application process. Exploring collaborations within our department is encouraged; Mick is open to both co-advising and acting as a secondary advisor, reflecting our department's collaborative spirit. We invite you to also consider our diverse faculty team in your application.
 
-We especially welcome postdocs with fellowships. I'd be happy to support you, also after you apply to our group.
+### Bsc / Master students
+#### Hopkins
+If you are a Master student at Hopkins looking for a Master project, please fill out this Google Form.
 
-
-### Master projects for Hopkins students
-If you are a Master student at Hopkins looking for a Master project, contact me (or any group member) per email or stop by my office.
-
-### Bsc / Master students from elsewhere
+#### Elsewhere
 If you are interested in pursuing a Cognitive Science MA degree at Hopkins, see [ma.cogsci.jhu](https://cogsci.jhu.edu/graduate/ma-program/). Sometimes, we take master students or summer interns if we get exceptional applicants (this usually means very good grades and a personal recommendation).
-
-
-<figure>
-<img src="{{ site.url }}{{ site.baseurl }}/images/picpic/Gallery/DSC_0696.jpg" width="95%">
-</figure>
