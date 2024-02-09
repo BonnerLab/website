@@ -1,10 +1,20 @@
+- title: "TUTORIAL: A High-Dimensional View of Neuroscience."
+  image: mick_ccn.png
+  description: Advances in technology enable us to record neural responses to many thousands of stimuli from a huge number of channels (e.g. fMRI in humans, two-photon imaging in mice, neuropixel probes in monkeys). Given the unprecedented scale of these data – collected with incredible effort at enormous expense – what computational tools can we use to study neural representations in high dimensions? What theoretical insights can we gain about the nature of neural representations from large-scale datasets?
+  authors: Raj Magesh Gauthaman, Florentin Guth, Atlas Kazemian, Zirui Chen, Michael F. Bonner
+  link:
+    url: https://bonnerlab.github.io/ccn-tutorial/
+    display: Cognitive Computational Neuroscience (2023)
+  highlight: 1
+  news1: Visit ^website for tutorial materials.
+
 - title: "Contextual coherence increases perceived numerosity independent of semantic content."
   image: context_coherence.png
   description: Characterizing visual features that systematically bias our numerosity perception promises to uncover the processes that form ANS representations. Recent work demonstrated that reducing coherence of low-level visual attributes such as color and orientation systematically reduces perceived numerosity. Here we ask whether the coherence effect is exclusive to low-level visual features or instead whether it can be driven by higher-level features.
   authors: Chuyan Qu; Michael F. Bonner; Elizabeth M. Brannon 
   link:
     url: https://jov.arvojournals.org/article.aspx?articleid=2792646
-    display: VSS (2023)
+    display: Vision Sciences Society (2023)
   highlight: 1
 
 - title: "High-performing neural network models of visual cortex benefit from high latent dimensionality"
@@ -15,4 +25,4 @@
     url: https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1011792
     display: PLOS Computational Biology (2023)
   highlight: 1 
-  news1: Also checkout CCN tutorial
+  

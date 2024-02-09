@@ -21,7 +21,7 @@ Additionally, we offer an [application mentoring program](https://cogsci.jhu.edu
 
 ### Bsc / Master students
 #### Hopkins
-If you are a Master student at Hopkins looking for a Master project, please fill out this Google Form.
+If you are a Master student at Hopkins looking for a Master project, please fill out [**this Google Form**](https://docs.google.com/forms/d/1MyAK26TtNcqrYamh9NuAOtRnkT9zmgLPN4-xTFO2kb4/edit).
 
 #### Elsewhere
-If you are interested in pursuing a Cognitive Science MA degree at Hopkins, see [ma.cogsci.jhu](https://cogsci.jhu.edu/graduate/ma-program/). Sometimes, we take master students or summer interns if we get exceptional applicants (this usually means very good grades and a personal recommendation).
+If you are interested in pursuing a Cognitive Science MA degree at Hopkins, see [ma.cogsci.jhu](https://cogsci.jhu.edu/graduate/ma-program/). Sometimes, we take students from outside Hopkins or summer interns if we get exceptional applicants (this usually means very good grades and a personal recommendation). Please fill out [**this Google Form**](https://docs.google.com/forms/d/1MyAK26TtNcqrYamh9NuAOtRnkT9zmgLPN4-xTFO2kb4/edit).
