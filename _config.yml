@@ -7,7 +7,7 @@
 
 # Site settings
 title: The Bonner Lab
-email: your-email@domain.com
+email: mfbonner@jhu.edu
 description: > # this means to ignore newlines until "baseurl:"
   Website of the BonnerLab.
 baseurl: ""
