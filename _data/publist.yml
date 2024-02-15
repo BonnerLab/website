@@ -1,6 +1,6 @@
 - title: "TUTORIAL: A High-Dimensional View of Neuroscience."
   image: mick_ccn.png
-  description: Advances in technology enable us to record neural responses to many thousands of stimuli from a huge number of channels (e.g. fMRI in humans, two-photon imaging in mice, neuropixel probes in monkeys). Given the unprecedented scale of these data – collected with incredible effort at enormous expense – what computational tools can we use to study neural representations in high dimensions? What theoretical insights can we gain about the nature of neural representations from large-scale datasets?
+  description: With technological advances allowing us to capture neural responses to thousands of stimuli across numerous channels (e.g., human fMRI, mouse two-photon imaging, monkey neuropixel probes), we face the challenge of analyzing vast, costly datasets. We must consider which computational tools are best suited for high-dimensional neural representation studies and what theoretical insights we can derive about neural representations from these large-scale datasets.
   authors: Raj Magesh Gauthaman, Florentin Guth, Atlas Kazemian, Zirui Chen, Michael F. Bonner
   link:
     url: https://bonnerlab.github.io/ccn-tutorial/
@@ -8,18 +8,16 @@
   highlight: 1
   news1: Visit ^website for tutorial materials.
 
-
 - title: "High-performing neural network models of visual cortex benefit from high latent dimensionality"
   image: high_dimensionality.png
-  description: Surprisingly, we found a strong trend in the opposite direction—neural networks with highdimensional image subspaces tended to have better generalization performance when predicting cortical responses to held-out stimuli in both monkey electrophysiology and human fMRI data. Moreover, we found that high dimensionality was associated with better performance when learning new categories of stimuli, suggesting that higher dimensional representations are better suited to generalize beyond their training domains.
+  description: Investigating deep neural networks (DNNs) as models for the visual cortex, we found that higher-dimensional representations in these networks better predict cortical responses and improve learning of new stimuli, challenging the idea that lower dimensionality enhances performance. This indicates that high-dimensional geometries might be advantageous for DNN models of visual processing.
   authors: Eric Elmoznino, Michael F. Bonner
   link:
     url: https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1011792
     display: PLOS Computational Biology (2023)
   highlight: 1 
 
-
-  - title: "Contextual coherence increases perceived numerosity independent of semantic content."
+- title: "Contextual coherence increases perceived numerosity independent of semantic content."
   image: context_coherence.png
   description: Characterizing visual features that systematically bias our numerosity perception promises to uncover the processes that form ANS representations. Recent work demonstrated that reducing coherence of low-level visual attributes such as color and orientation systematically reduces perceived numerosity. Here we ask whether the coherence effect is exclusive to low-level visual features or instead whether it can be driven by higher-level features.
   authors: Chuyan Qu; Michael F. Bonner; Elizabeth M. Brannon 
@@ -28,34 +26,31 @@
     display: Vision Sciences Society (2023)
   highlight: 1
 
-  
 - title: Hierarchical organization of social action features along the lateral visual pathway
   authors: Emalie McMahon, Michael F. Bonner, Leyla Isik
   image: social_action_features.png
-  description: Like visual representations in the ventral and dorsal streams, representations in the lateral stream are thought to be hierarchically organized. However, no prior studies have comprehensively investigated the organization of naturalistic, social visual content in the lateral stream. To address this question, we curated a naturalistic stimulus set of 250 3-s videos of two people engaged in everyday actions. Each clip was richly annotated for its low-level visual features, mid-level scene and object properties, visual social primitives (including the distance between people and the extent to which they were facing), and high-level information about social interactions and affective content.
+  description: The lateral stream's organization, thought to be hierarchical like in the ventral and dorsal streams, has not been thoroughly studied for naturalistic, social visuals. We compiled 250 3-second videos of everyday interactions between two people, annotated for visual features from low-level to high-level, including scene properties, social dynamics, and emotional content.
   link:
     url: https://pubmed.ncbi.nlm.nih.gov/37918399/
     display: Cell Current Biology (2023)
   highlight: 1 
 
 
+- title: Perceived Distance Alters Memory for Scene Boundaries
+  authors: Alon Hafri, Shreya Wadhwa, Michael F. Bonner
+  image: perceived_distance.png
+  description: What factors determine when visual memories will include details that go beyond perceptual experience? Here, seven experiments (N = 1,100 adults) explored whether spatial scale-specifically, perceived viewing distance-drives boundary extension. We created fake miniatures by exploiting tilt shift, a photographic effect that selectively reduces perceived distance while preserving other scene properties (e.g., making a distant railway appear like a model train). We found that visual memory is modulated by the spatial scale at which the environment is viewed.
+  link:
+    url: https://pubmed.ncbi.nlm.nih.gov/36206190/
+    display: Psychological Science (2022)
+  highlight: 1
+
 - title: Object representations in the human brain reflect the co-occurrence statistics of vision and language
   authors: Michael F. Bonner, Russell Epstein
   image: obj_to_vec.png
-  description: We use machine learning and fMRI to test the hypothesis that object co-occurrence statistics are encoded in the human visual system and elicited by the perception of individual objects. We identified low-dimensional representations that capture the latent statistical structure of object co-occurrence in real-world scenes, and we mapped these statistical representations onto voxel-wise fMRI responses during object viewing. We found that cortical responses to single objects were predicted by the statistical ensembles in which they typically occur, and that this link between objects and their visual contexts was made most strongly in parahippocampal cortex, overlapping with the anterior portion of scene-selective parahippocampal place area.
+  description: Using machine learning and fMRI, we tested if the human visual system encodes object co-occurrence statistics, revealed through individual object perception. We identified low-dimensional representations of these statistics in real-world scenes and correlated them with voxel-wise fMRI responses during object viewing. Our findings indicate cortical responses to single objects are influenced by their typical statistical contexts, highlighting brain regions where this connection is strongest.
   link:
     url: https://www.nature.com/articles/s41467-021-24368-2
     display: Nature Communications (2021)
-  highlight: 1 
+  highlight: 1
 
-
-- title: Coding of navigational affordances in the human visual system
-  authors: Michael F. Bonner, Russell Epstein
-  image: navigational_affordances.png
-  description: A central component of spatial navigation is determining whereone can and cannot go in the immediate environment. We usedfMRI to test the hypothesis that the human visual system solvesthis problem by automatically identifying the navigational affor-dances of the local scene. Multivoxel pattern analyses showed thata scene-selective region of dorsal occipitoparietal cortex, known asthe occipital place area, represents pathways for movement inscenes in a manner that is tolerant to variability in other visualfeatures. 
-  link:
-    url: https://www.pnas.org/doi/full/10.1073/pnas.1618228114
-    display: PNAS 2017
-  highlight: 1 
-  
-  
