@@ -1,0 +1,55 @@
+- name: Colin Conwell
+  photo: colin.jpg
+  role: PostDoc, started Aug 2023
+  gscholar: https://scholar.google.com/citations?user=6tCow3oAAAAJ&hl=en&inst=7575085548378563675
+  website: https://colinconwell.github.io/
+  github: https://github.com/colinconwell
+
+- name: Emalie McMahon
+  photo: emalie.jpg
+  role: PhD Student, Cognitive Science
+  website: https://emaliemcmahon.github.io/
+  gscholar: https://scholar.google.com/citations?user=mOTMCr4AAAAJ&hl=&inst=7575085548378563675
+  twitter: https://twitter.com/emaliemcmahon
+
+- name: Raj Magesh Gauthaman
+  photo: raj.jpg
+  role: PhD Student, Cognitive Scienceeeeeeeeeeeeee
+  website: https://raj-magesh.org/
+  email: rgautha1@jh.edu
+
+- name: Kelsey Han
+  photo: kelsey.jpg
+  role: PhD Student, Cognitive Science
+  website: https://kelseyhan-jhu.github.io/
+  email: chan21@jhu.edu
+  gscholar: https://scholar.google.com/citations?hl=en&user=ZN77OiqrzrIC&inst=7575085548378563675
+  twitter: ckelseyhan
+
+- name: Yash Mehta
+  photo: yash.jpg
+  role: PhD Student, Cognitive Science
+  website: https://yashsmehta.github.io/
+  gscholar: https://scholar.google.com/citations?user=zFqBbIkAAAAJ&hl=en
+  twitter: y_mehtu
+  cv: yash_resume.pdf
+
+- name: Zirui Chen
+  photo: ray.jpg
+  role: PhD Student, Cognitive Science
+  website: https://zche377.github.io/
+  twitter: RayChen44
+  email: zchen160@jhu.edu
+
+- name: Ananya Passi
+  photo: ananya.jpg
+  role: PhD Student, Cognitive Science
+  website: https://scholar.google.com/citations?user=qbvt7EUAAAAJ&hl=en&inst=7575085548378563675
+  email: apassi1@jhu.edu
+
+- name: Atlas Kazemian
+  photo: atlasd.jpg
+  role: Lab Manager
+  website: https://akazemian.github.io/personal_profile/
+  email: atlaskazemian@gmail.com
+  twitter: AtlasKazemian

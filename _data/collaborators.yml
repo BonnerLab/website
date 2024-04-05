@@ -1,0 +1,9 @@
+- name: Brice Menard
+  photo: rock.jpg
+  info: Astrophysics, Hopkins
+  number_educ: 0
+
+- name: Russell Epstein
+  photo: rock.jpg
+  info: Psychology, UPenn
+  number_educ: 0
