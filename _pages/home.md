@@ -6,7 +6,8 @@ sitemap: false
 permalink: /
 ---
 
-We are a dynamic research group, in the [Cognitive Science Department](https://cogsci.jhu.edu) at Johns Hopkins University led by Professor Mick Bonner. By comparing how biological and artificial vision represent and process information, we gain mutual insights into both natural and machine intelligence. 
+Our research group, situated within the [Cognitive Science Department](https://cogsci.jhu.edu) at Johns Hopkins University, is spearheaded by [Professor Mick Bonner]({{ site.url }}{{ site.baseurl }}/mick). We engage in interdisciplinary research that lies at the intersection of **neuroscience**, **artificial intelligence**, and **computational vision**. Our primary objective is to decode the mechanisms underlying the representation and processing of visual information in biological vision systems. This endeavor aims to enrich our theoretical comprehension of natural intelligence and foster the developing more efficient and robust AI models for visual recognition and processing.
+
 
 <div markdown="0" id="carousel" class="carousel slide" data-ride="carousel" data-interval="4000" data-pause="hover" >
     <!-- Menu -->
@@ -51,7 +52,7 @@ We are a dynamic research group, in the [Cognitive Science Department](https://c
   </a>
 </div>
 
-Our work combines neuroimaging, computational modeling, and behavioral experiments to reverse-engineer the algorithms of human vision. It is heavily reliant on deep artifical neural networks as theoretical models of information processing in the brain. We employ large-scale analytics to elucidate how the human visual system perceives its world. This two-way exchange between neuroscience and AI advances our understanding of the mind and drives more human-like artificial sight.
+In pursuit of these objectives, our work synergistically combines advanced neuroimaging techniques with computational modeling, leveraging the power of deep neural networks. We are dedicated to uncovering the core statistical principles governing vision representation in the brain. Our recent investigations have unveiled that these representations are intrinsically high-dimensional. These findings challenge traditional views by suggesting that the brain's approach to processing visual information involves navigating through a vast, multidimensional representational space. This revelation has catalyzed further inquiry into the principles of neural encoding and decoding, particularly how these high-dimensional representations facilitate robust visual recognition and inference under varying conditions. Our ongoing research endeavors to translate these biological insights into computational principles, aiming to significantly enhance the capabilities of artificial vision systems through a deeper understanding of the brain's underlying mechanisms for processing visual information.
 
  **We are  looking for passionate new PhD students, Postdocs, and Master students to join the team** [(more info)]({{ site.url }}{{ site.baseurl }}/vacancies) **!**
 

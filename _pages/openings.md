@@ -1,7 +1,7 @@
 ---
 title: "Bonner Lab - Vacancies"
 layout: textlay
-excerpt: "Openings"
+excerpt: "Join Us"
 sitemap: false
 permalink: /vacancies
 ---
@@ -9,7 +9,7 @@ permalink: /vacancies
 Our lab prioritizes creating a diverse and inclusive environment, embracing scientists from all genders, races, sexual orientations, and backgrounds. We strive to be a supportive community, aiming to recruit individuals who will contribute to sustaining a nurturing and productive atmosphere.
 
 ### PostDocs
-**We are recruiting a postdoctoral fellow** to work on scientific explorations at the interface of computational neuroscience and machine learning at Johns Hopkins University. The fellow will join a collaborative team led by Profs Mick Bonner (dpt of Cognitive Science) and Brice Ménard (dpt of Physics) investigating the fundamental principles that govern neural representations in high dimensions, with a focus on vision.
+**We are recruiting a postdoctoral fellow** to work on scientific explorations at the interface of computational neuroscience and machine learning at Johns Hopkins University. The fellow will join a collaborative team led by Profs Mick Bonner (dept of Cognitive Science) and Brice Ménard (dept of Physics) investigating the fundamental principles that govern neural representations in high dimensions, with a focus on vision.
 Applicants should have a PhD in neuroscience, cognitive science, physics, computer science, engineering, or related disciplines, with some expertise in scientific programming and statistical analyses. Specific expertise in computational neuroscience and/or machine learning is a plus. 
 
 To apply or learn more about the position, send an email to [mfbonner@jhu.edu](mailto:mfbonner@jhu.edu).
