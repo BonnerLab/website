@@ -46,15 +46,17 @@ permalink: /publications/
 
 
 ## All Publications
-### Submitted
+### Preprints
 
+- A Kazemian, E Elmoznino, MF Bonner. (submitted) **Convolutional architectures are cortex-aligned de novo**. [*bioRxiv*](https://www.biorxiv.org/content/10.1101/2024.05.10.593623v2).
+  
 - Qu C, Bonner MF, DeWind NK, & Brannon EM (submitted). **Contextual coherence increases perceived numerosity independent of semantic content**. [*PsyArXiv*](https://psyarxiv.com/tcn8q/)
 
 - Li SPD & Bonner MF (submitted). **Emergent selectivity for scenes, object properties, and contour statistics in feedforward models of scene-preferring cortex**. [*bioRxiv*](https://www.biorxiv.org/content/10.1101/2021.09.24.461733v2)
 
 - Hafri AA, Bonner MF, Landau B, & Firestone C (submitted). **A phone in a basket looks like a knife in a cup: The perception of abstract relations**. [*PsyArXiv*](https://psyarxiv.com/jx4yg/)
 
-### Publications
+### Articles
 
 - Elmoznino E & Bonner MF (2024). **High-performing neural network models of visual cortex benefit from high latent dimensionality**. *PLOS Computational Biology*, 0(1): e1011792. [article](https://journals.plos.org/ploscompbiol/article?id=10.1371%2Fjournal.pcbi.1011792), [code and data](https://github.com/EricElmoznino/encoder_dimensionality).
 
