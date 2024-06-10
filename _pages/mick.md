@@ -18,8 +18,8 @@ permalink: /mick/
 
 
 <div class="col-sm-6 clearfix">
-<img src="{{ site.url }}{{ site.baseurl }}/images/teampic/{{ member.photo }}" class="img-responsive" width="35%" style="float: left" />
-<h3>{{ member.name }}</h3>
+<img src="{{ site.url }}{{ site.baseurl }}/images/teampic/{{ member.photo }}" class="img-responsive" width="60%" style="float: left" />
+<h3 style="margin-top: 40px;">{{ member.name }}</h3>
   <i>{{ member.role }}<br>
   <i>{{ member.info }}</i><br>
   email: <a href="mailto:{{ member.email }}">{{ member.email }}</a></i>
