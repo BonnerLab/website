@@ -48,11 +48,11 @@ permalink: /publications/
 ## All Publications
 ### Submitted
 
-- Qu C, Bonner MF, DeWind NK, & Brannon EM (submitted). **Contextual coherence increases perceived numerosity independent of semantic content**. *PsyArXiv*. https://psyarxiv.com/tcn8q/
+- Qu C, Bonner MF, DeWind NK, & Brannon EM (submitted). **Contextual coherence increases perceived numerosity independent of semantic content**. [*PsyArXiv*](https://psyarxiv.com/tcn8q/)
 
-- Li SPD & Bonner MF (submitted). **Emergent selectivity for scenes, object properties, and contour statistics in feedforward models of scene-preferring cortex**. *bioRxiv*. https://www.biorxiv.org/content/10.1101/2021.09.24.461733v2
+- Li SPD & Bonner MF (submitted). **Emergent selectivity for scenes, object properties, and contour statistics in feedforward models of scene-preferring cortex**. [*bioRxiv*](https://www.biorxiv.org/content/10.1101/2021.09.24.461733v2)
 
-- Hafri AA, Bonner MF, Landau B, & Firestone C (submitted). **A phone in a basket looks like a knife in a cup: The perception of abstract relations**. *PsyArXiv*. https://psyarxiv.com/jx4yg/
+- Hafri AA, Bonner MF, Landau B, & Firestone C (submitted). **A phone in a basket looks like a knife in a cup: The perception of abstract relations**. [*PsyArXiv*](https://psyarxiv.com/jx4yg/)
 
 ### Publications
 
