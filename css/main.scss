@@ -98,3 +98,13 @@ firstp {
     margin-right: 30px;
 }
 
+.publication-link {
+	display: inline-block;
+	margin-right: 15px;
+	text-decoration: none;
+	color: #333;
+}
+
+.publication-link:hover {
+	text-decoration: underline;
+}
