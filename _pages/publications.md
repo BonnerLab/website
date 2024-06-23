@@ -47,7 +47,7 @@ permalink: /publications/
 ## All Publications
 ### Preprints
 
-- A Kazemian, E Elmoznino, MF Bonner. (submitted) **Convolutional architectures are cortex-aligned de novo**. <span style="font-family: 'Arial', sans-serif; color: #FFA500;">*bioRxiv*</span>
+- A Kazemian, E Elmoznino, MF Bonner. (2024) **Convolutional architectures are cortex-aligned de novo**. <span style="font-family: 'Arial', sans-serif; color: #FFA500;">*bioRxiv*</span>
   <br>
   &nbsp;&nbsp;&nbsp;&nbsp;
   [<i class="fas fa-file-pdf" aria-hidden="true"></i> PDF](https://www.biorxiv.org/content/10.1101/2024.05.10.593623v2){:target="_blank"}
@@ -56,7 +56,7 @@ permalink: /publications/
   &nbsp;&nbsp;
   [<i class="fab fa-twitter" aria-hidden="true"></i> Twitter](https://x.com/AtlasKazemian/status/1792247850958754080){:target="_blank"}
 
-- K Garcia, E McMahon, C Conwell, MF Bonner, L Isik. **Modeling social vision highlights gaps between deep learning and humans**.
+- K Garcia, E McMahon, C Conwell, MF Bonner, L Isik. (2024) **Modeling social vision highlights gaps between deep learning and humans**.
   <br> <span style="font-family: 'Arial', sans-serif; color: #FFA500;">*bioRxiv*</span>
   <br>
   &nbsp;&nbsp;&nbsp;&nbsp;
@@ -64,22 +64,24 @@ permalink: /publications/
   &nbsp;&nbsp;
   [<i class="fab fa-twitter" aria-hidden="true"></i> Twitter](https://x.com/NeuroKathyG/status/1800918510639698227){:target="_blank"}
 
-- Qu C, Bonner MF, DeWind NK, & Brannon EM (submitted). **Contextual coherence increases perceived numerosity independent of semantic content**. <span style="font-family: 'Arial', sans-serif; color: #FFA500;">*PsyArXiv*</span>
+- Qu C, Bonner MF, DeWind NK, & Brannon EM (2024). **Contextual coherence increases perceived numerosity independent of semantic content**. <span style="font-family: 'Arial', sans-serif; color: #FFA500;">*PsyArXiv*</span>
   <br>
   &nbsp;&nbsp;&nbsp;&nbsp;
   [<i class="fas fa-file-pdf" aria-hidden="true"></i> PDF](https://psyarxiv.com/tcn8q/){:target="_blank"}
 
-- Li SPD & Bonner MF (submitted). **Emergent selectivity for scenes, object properties, and contour statistics in feedforward models of scene-preferring cortex**. <span style="font-family: 'Arial', sans-serif; color: #FFA500;">*bioRxiv*</span>
-  <br>
-  &nbsp;&nbsp;&nbsp;&nbsp;
-  [<i class="fas fa-file-pdf" aria-hidden="true"></i> PDF](https://www.biorxiv.org/content/10.1101/2021.09.24.461733v2){:target="_blank"}
-
-- Hafri AA, Bonner MF, Landau B, & Firestone C (submitted). **A phone in a basket looks like a knife in a cup: The perception of abstract relations**. <span style="font-family: 'Arial', sans-serif; color: #FFA500;">*PsyArXiv*</span>
+- Hafri AA, Bonner MF, Landau B, & Firestone C (2024). **A phone in a basket looks like a knife in a cup: The perception of abstract relations**. <span style="font-family: 'Arial', sans-serif; color: #FFA500;">*PsyArXiv*</span>
   <br>
   &nbsp;&nbsp;&nbsp;&nbsp;
   [<i class="fas fa-file-pdf" aria-hidden="true"></i> PDF](https://psyarxiv.com/jx4yg/){:target="_blank"}
   &nbsp;&nbsp;
   [<i class="fab fa-twitter" aria-hidden="true"></i> Twitter](https://x.com/AlonHafri/status/1780683523890053444){:target="_blank"}
+
+
+- Li SPD & Bonner MF (2023). **Emergent selectivity for scenes, object properties, and contour statistics in feedforward models of scene-preferring cortex**. <span style="font-family: 'Arial', sans-serif; color: #FFA500;">*bioRxiv*</span>
+  <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  [<i class="fas fa-file-pdf" aria-hidden="true"></i> PDF](https://www.biorxiv.org/content/10.1101/2021.09.24.461733v2){:target="_blank"}
+
 
 ### Articles
 
