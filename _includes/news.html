@@ -3,7 +3,9 @@
     {% for article in site.data.news limit:9 %}
     <div style="margin-bottom: 20px;">
         <p style="margin-bottom: 2px; font-family: 'Arial', sans-serif;">
-            <em>{{ article.date }}</em><br>
+            <span
+                style="font-family: 'Roboto', 'Open Sans', 'Lato', sans-serif; font-size: 0.9em; color: #f6630e;">{{
+                article.date }}</span><br>
             {{ article.headline | markdownify }}
         </p>
     </div>
