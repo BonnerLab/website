@@ -25,11 +25,13 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.1'
-          bundler-cache: true
-          cache-version: 0
+          bundler-cache: false # Changed to false to prevent premature bundle install
 
       - name: Add x86_64-linux platform to Gemfile.lock
         run: bundle lock --add-platform x86_64-linux
+
+      - name: Install dependencies
+        run: bundle install
 
       - name: Setup Pages
         id: pages
