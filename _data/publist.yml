@@ -1,3 +1,12 @@
+- title: "Convolutional architectures are cortex-aligned de novo"
+  image: untrained_cortex_alignment.png
+  description: Researchers found that untrained convolutional neural networks can produce brain-like visual representations. This challenges the view that extensive training is necessary for such similarities. The key factors are the networks' architecture, specifically how they compress spatial information and expand feature information. This suggests that the basic structure of convolutional networks mimics biological vision constraints, allowing for cortex-like representations even without learning from experience.
+  authors: Atlas Kazemian; Eric Elmoznino; Michael F. Bonner;
+  link:
+    url: https://www.biorxiv.org/content/biorxiv/early/2024/05/14/2024.05.10.593623.full.pdf
+    display: BioRxiv (2024)
+  highlight: 1
+
 - title: "TUTORIAL: A High-Dimensional View of Neuroscience."
   image: mick_ccn.png
   description: With technological advances allowing us to capture neural responses to thousands of stimuli across numerous channels (e.g., human fMRI, mouse two-photon imaging, monkey neuropixel probes), we face the challenge of analyzing vast, costly datasets. We must consider which computational tools are best suited for high-dimensional neural representation studies and what theoretical insights we can derive about neural representations from these large-scale datasets.
@@ -16,15 +25,6 @@
     url: https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1011792
     display: PLOS Computational Biology (2023)
   highlight: 1 
-
-- title: "Contextual coherence increases perceived numerosity independent of semantic content."
-  image: context_coherence.png
-  description: Characterizing visual features that systematically bias our numerosity perception promises to uncover the processes that form ANS representations. Recent work demonstrated that reducing coherence of low-level visual attributes such as color and orientation systematically reduces perceived numerosity. Here we ask whether the coherence effect is exclusive to low-level visual features or instead whether it can be driven by higher-level features.
-  authors: Chuyan Qu; Michael F. Bonner; Elizabeth M. Brannon 
-  link:
-    url: https://jov.arvojournals.org/article.aspx?articleid=2792646
-    display: Vision Sciences Society (2023)
-  highlight: 1
 
 - title: Hierarchical organization of social action features along the lateral visual pathway
   authors: Emalie McMahon, Michael F. Bonner, Leyla Isik

@@ -1,5 +1,5 @@
 ---
-title: "Bonner Lab - Home"
+title: "Bonner Lab JHU: Cognitive Neuroscience and Deep Learning"
 layout: homelay
 excerpt: "Bonner Lab at Johns Hopkins University."
 sitemap: false
