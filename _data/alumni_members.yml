@@ -1,3 +1,17 @@
+- name: Atlas Kazemian
+  photo: atlasd.jpg
+  duration: Lab Manager of Bonner Lab Jun 2022 - Jun 2024
+  info: PhD student, Stanford
+  website: https://akazemian.github.io/personal_profile/
+  number_educ: 0
+
+- name: Eric Elmoznino
+  photo: eric.jpg
+  duration: Lab Manager of Bonner Lab Jan 2018 to June 2022
+  info: PhD student with Yoshua Bengio at MILA
+  website: https://ericelmoznino.github.io/
+  number_educ: 0
+
 - name: Alon Hafri
   photo: alon.jpg
   duration: PostDoc the Bonner Lab 2019 - 2021
@@ -8,13 +22,6 @@
   education2:
   education3:
   education4:
-
-- name: Eric Elmoznino
-  photo: eric.jpg
-  duration: Lab Manager of Bonner Lab Jan 2018 to June 2022
-  info: PhD student with Yoshua Bengio at MILA
-  website: https://ericelmoznino.github.io/
-  number_educ: 0
 
 - name: Donald Li
   photo: donald.jpg
