@@ -1,3 +1,12 @@
+- title: "Universal dimensions of visual representation"
+  image: universal_dim.png
+  description: We examined whether visual neural networks align with brain representations due to shared constraints or universal features. Analysis of diverse networks revealed shared latent dimensions for image representation. Comparing these to human fMRI data showed brain-aligned representations are universal across networks. This suggests similarities between artificial and biological vision arise from core universal image representations learned convergently.
+  authors: Zirui Chen, Michael F. Bonner;
+  link:
+    url: https://arxiv.org/abs/2408.12804
+    display: Arxiv (2024)
+  highlight: 1
+
 - title: "Convolutional architectures are cortex-aligned de novo"
   image: untrained_cortex_alignment.png
   description: Researchers found that untrained convolutional neural networks can produce brain-like visual representations. This challenges the view that extensive training is necessary for such similarities. The key factors are the networks' architecture, specifically how they compress spatial information and expand feature information. This suggests that the basic structure of convolutional networks mimics biological vision constraints, allowing for cortex-like representations even without learning from experience.
@@ -5,7 +14,16 @@
   link:
     url: https://www.biorxiv.org/content/biorxiv/early/2024/05/14/2024.05.10.593623.full.pdf
     display: BioRxiv (2024)
-  highlight: 1
+  highlight: 1  
+
+- title: "High-performing neural network models of visual cortex benefit from high latent dimensionality"
+  image: high_dimensionality.png
+  description: Investigating deep neural networks (DNNs) as models for the visual cortex, we found that higher-dimensional representations in these networks better predict cortical responses and improve learning of new stimuli, challenging the idea that lower dimensionality enhances performance. This indicates that high-dimensional geometries might be advantageous for DNN models of visual processing.
+  authors: Eric Elmoznino, Michael F. Bonner
+  link:
+    url: https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1011792
+    display: PLOS Computational Biology (2023)
+  highlight: 1   
 
 - title: "TUTORIAL: A High-Dimensional View of Neuroscience."
   image: mick_ccn.png
@@ -17,14 +35,6 @@
   highlight: 1
   news1: Visit ^website for tutorial materials.
 
-- title: "High-performing neural network models of visual cortex benefit from high latent dimensionality"
-  image: high_dimensionality.png
-  description: Investigating deep neural networks (DNNs) as models for the visual cortex, we found that higher-dimensional representations in these networks better predict cortical responses and improve learning of new stimuli, challenging the idea that lower dimensionality enhances performance. This indicates that high-dimensional geometries might be advantageous for DNN models of visual processing.
-  authors: Eric Elmoznino, Michael F. Bonner
-  link:
-    url: https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1011792
-    display: PLOS Computational Biology (2023)
-  highlight: 1 
 
 - title: Hierarchical organization of social action features along the lateral visual pathway
   authors: Emalie McMahon, Michael F. Bonner, Leyla Isik

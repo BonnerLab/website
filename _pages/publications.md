@@ -47,6 +47,13 @@ permalink: /publications/
 ## All Publications
 ### Preprints
 
+- Z Chen, MF Bonner. (2024) **Universal dimensions of visual representation**. <span style="font-family: 'Arial', sans-serif; color: #FFA500;">*arxiv*</span>
+  <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  [<i class="fas fa-file-pdf" aria-hidden="true"></i> PDF](https://arxiv.org/abs/2408.12804){:target="_blank"}
+  &nbsp;&nbsp;
+  [<i class="fab fa-github" aria-hidden="true"></i> Code](https://github.com/zche377/universal_dimensions){:target="_blank"}
+  
 - A Kazemian, E Elmoznino, MF Bonner. (2024) **Convolutional architectures are cortex-aligned de novo**. <span style="font-family: 'Arial', sans-serif; color: #FFA500;">*bioRxiv*</span>
   <br>
   &nbsp;&nbsp;&nbsp;&nbsp;
