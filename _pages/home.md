@@ -60,7 +60,7 @@ For those intrigued by our work, we encourage you to explore our website for mor
 
 <figure class="fourth">
   <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/jhu_logo.jpg" style="width: 250px">
-  <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/nsf_logo.jpg" style="width: 90px">
+  <!-- <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/nsf_logo.jpg" style="width: 90px"> -->
   <!-- <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/Logo_Nanofront.jpg" style="width: 110px">
   <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/Logo_NWO.jpg" style="width: 120px">
   <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/Logo_ERC.jpg" style="width: 110px"> -->

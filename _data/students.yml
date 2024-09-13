@@ -7,22 +7,3 @@
 #  education2:
 #  education3:
 #  education4:
-
-- name: Tailai Shen
-  photo: tailai.jpg
-  info: MA student
-  number_educ: 0
-  education1:
-
-- name: Delilah Catron
-  photo: rosie.jpg
-  info: MA student
-  number_educ: 0
-  education1:
-
-
-- name: Yingqi Rong
-  photo: yingqi.jpg
-  info: MA student
-  number_educ: 0
-  education1:
