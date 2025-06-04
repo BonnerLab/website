@@ -45,7 +45,7 @@ bundle exec jekyll serve
 ```
 Open your browser and go to: [http://localhost:4000](http://localhost:4000)
 
-## 📝 How to Update Content (No Coding Required!)
+## 📝 How to Update Content
 
 ### Adding a New Team Member
 
@@ -195,36 +195,6 @@ bundle exec jekyll serve
 - You might have a typo in the YAML file
 - Check that all quotes are closed
 - Make sure indentation is consistent
-
-## 📚 Quick Reference
-
-### Markdown Basics (for editing pages)
-```markdown
-# Big Heading
-## Medium Heading
-### Small Heading
-
-**Bold text**
-*Italic text*
-[Link text](https://url.com)
-
-- Bullet point
-- Another point
-```
-
-### YAML Basics (for data files)
-```yaml
-- name: "Use quotes for safety"
-  info: Keep the same spacing
-  key: value
-```
-
-## 🆘 Need Help?
-
-1. Check this README again
-2. Ask a lab member who's done this before
-3. Email the web maintainer
-4. For bugs: Open an [issue on GitHub](https://github.com/bonnerlab/website/issues)
 
 ---
 
