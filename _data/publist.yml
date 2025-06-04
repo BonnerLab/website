@@ -1,11 +1,12 @@
 # Featured/Highlighted Publications (highlight: 1)
 - title: "High-dimensional structure underlying individual differences in naturalistic visual experience"
-  image: 
-  description: 
+  image: id_kelsey.png
+  description: We show that individual differences in visual experience emerge from high-dimensional neural activity patterns during naturalistic movie viewing, with distinct latent dimensions capturing behaviorally relevant aspects of perception. This multidimensional geometry, revealed through spectral decomposition, explains inter-individual variability beyond what conventional methods capture.
   authors: Chihye Han, Michael F. Bonner
   link:
     url: 
-    display: Preprint (2025)
+    display: Preprint
+  year: 2025
   highlight: 1
 
 - title: "Universal dimensions of visual representation"
@@ -14,7 +15,8 @@
   authors: Zirui Chen, Michael F. Bonner
   link:
     url: https://arxiv.org/abs/2408.12804
-    display: Science Advances (2025)
+    display: Science Advances
+  year: 2025
   highlight: 1
   code: https://github.com/zche377/universal_dimensions
 
@@ -24,7 +26,8 @@
   authors: Raj Magesh Gauthaman, Brice Ménard, Michael F. Bonner
   link:
     url: https://arxiv.org/abs/2409.06843
-    display: Arxiv (2024)
+    display: Preprint
+  year: 2024
   highlight: 1
 
 - title: "Convolutional architectures are cortex-aligned de novo"
@@ -33,7 +36,8 @@
   authors: Atlas Kazemian, Eric Elmoznino, Michael F. Bonner
   link:
     url: https://www.biorxiv.org/content/10.1101/2024.05.10.593623v2
-    display: BioRxiv (2024)
+    display: Preprint
+  year: 2024
   highlight: 1
   code: https://github.com/akazemian/untrained_models_of_visual_cortex
   twitter: https://x.com/AtlasKazemian/status/1792247850958754080
@@ -44,7 +48,8 @@
   authors: Eric Elmoznino, Michael F. Bonner
   link:
     url: https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1011792
-    display: PLOS Computational Biology (2024)
+    display: PLOS Computational Biology
+  year: 2024
   highlight: 1
   code: https://github.com/EricElmoznino/encoder_dimensionality
 
@@ -54,7 +59,8 @@
   description: The lateral stream's organization, thought to be hierarchical like in the ventral and dorsal streams, has not been thoroughly studied for naturalistic, social visuals. We compiled 250 3-second videos of everyday interactions between two people, annotated for visual features from low-level to high-level, including scene properties, social dynamics, and emotional content.
   link:
     url: https://pubmed.ncbi.nlm.nih.gov/37918399/
-    display: Cell Current Biology (2023)
+    display: Cell Current Biology
+  year: 2023
   highlight: 1
   pdf: papers/hierarchical_org.pdf
   code: https://osf.io/4j29y/
@@ -66,7 +72,8 @@
   authors: Emalie McMahon, Elizabeth Jiwon Im, Michael F. Bonner, Leyla Isik
   link:
     url: https://psyarxiv.com/
-    display: PsyArXiv (2025)
+    display: PsyArXiv
+  year: 2025
   highlight: 0
 
 - title: "Neural networks and brains share the gist but not the details: a surprising benefit of image ensembles for encoding models of visual cortex"
@@ -75,41 +82,9 @@
   authors: Yingqi Rong, Colin Conwell, Michael F. Bonner
   link:
     url: 
-    display: CCN Proceedings (in press)
+    display: CCN Proceedings
+  year: 2025
   highlight: 0
-
-- title: "TUTORIAL: A High-Dimensional View of Neuroscience."
-  image: mick_ccn.png
-  description: With technological advances allowing us to capture neural responses to thousands of stimuli across numerous channels (e.g., human fMRI, mouse two-photon imaging, monkey neuropixel probes), we face the challenge of analyzing vast, costly datasets. We must consider which computational tools are best suited for high-dimensional neural representation studies and what theoretical insights we can derive about neural representations from these large-scale datasets.
-  authors: Raj Magesh Gauthaman, Florentin Guth, Atlas Kazemian, Zirui Chen, Michael F. Bonner
-  link:
-    url: https://bonnerlab.github.io/ccn-tutorial/
-    display: Cognitive Computational Neuroscience (2023)
-  highlight: 0
-  news1: Visit ^website for tutorial materials.
-
-- title: Perceived Distance Alters Memory for Scene Boundaries
-  authors: Alon Hafri, Shreya Wadhwa, Michael F. Bonner
-  image: perceived_distance.png
-  description: What factors determine when visual memories will include details that go beyond perceptual experience? Here, seven experiments (N = 1,100 adults) explored whether spatial scale-specifically, perceived viewing distance-drives boundary extension. We created fake miniatures by exploiting tilt shift, a photographic effect that selectively reduces perceived distance while preserving other scene properties (e.g., making a distant railway appear like a model train). We found that visual memory is modulated by the spatial scale at which the environment is viewed.
-  link:
-    url: https://psyarxiv.com/hy3qs
-    display: Psychological Science (2022)
-  highlight: 0
-  pdf: https://osf.io/preprints/psyarxiv/hy3qs
-  code: https://osf.io/jrtqw/?view_only=975375af587143bead39dd01dc7307f8
-
-- title: Object representations in the human brain reflect the co-occurrence statistics of vision and language
-  authors: Michael F. Bonner, Russell Epstein
-  image: obj_to_vec.png
-  description: Using machine learning and fMRI, we tested if the human visual system encodes object co-occurrence statistics, revealed through individual object perception. We identified low-dimensional representations of these statistics in real-world scenes and correlated them with voxel-wise fMRI responses during object viewing. Our findings indicate cortical responses to single objects are influenced by their typical statistical contexts, highlighting brain regions where this connection is strongest.
-  link:
-    url: https://www.nature.com/articles/s41467-021-24368-2
-    display: Nature Communications (2021)
-  highlight: 0
-  pdf: https://www.nature.com/articles/s41467-021-24368-2
-  code: https://osf.io/ug5zd/
-  twitter: https://twitter.com/michaelfbonner/status/1412485639153414144?s=20
 
 - title: "Modeling social vision highlights gaps between deep learning and humans"
   authors: K. Garcia, E. McMahon, C. Conwell, M.F. Bonner, L. Isik
@@ -117,7 +92,8 @@
   description: 
   link:
     url: https://osf.io/4mpd9/download
-    display: ICLR (2025)
+    display: ICLR
+  year: 2025
   highlight: 0
   pdf: https://osf.io/4mpd9/download
   twitter: https://x.com/NeuroKathyG/status/1800918510639698227
@@ -128,7 +104,8 @@
   description: 
   link:
     url: https://psyarxiv.com/tcn8q/
-    display: Journal of Vision (2024)
+    display: Journal of Vision
+  year: 2024
   highlight: 0
   pdf: https://psyarxiv.com/tcn8q/
 
@@ -138,7 +115,8 @@
   description: 
   link:
     url: https://direct.mit.edu/opmi/article/doi/10.1162/opmi_a_00146/123216/A-Phone-in-a-Basket-Looks-Like-a-Knife-in-a-Cup
-    display: Open Mind (2024)
+    display: Open Mind
+  year: 2024
   highlight: 0
   pdf: https://psyarxiv.com/jx4yg/
   twitter: https://x.com/AlonHafri/status/1780683523890053444
@@ -149,7 +127,8 @@
   description: 
   link:
     url: https://www.biorxiv.org/content/10.1101/2021.09.24.461733v2
-    display: bioRxiv (2023)
+    display: bioRxiv
+  year: 2023
   highlight: 0
   pdf: https://www.biorxiv.org/content/10.1101/2021.09.24.461733v2
 
@@ -159,7 +138,8 @@
   description: 
   link:
     url: https://openreview.net/forum?id=GIuSksGwEp
-    display: NeurIPS UniReps Workshop (2023)
+    display: NeurIPS UniReps Workshop
+  year: 2023
   highlight: 0
   pdf: https://openreview.net/forum?id=GIuSksGwEp
 
@@ -169,9 +149,22 @@
   description: 
   link:
     url: https://www.sciencedirect.com/science/article/pii/S0010027723001695
-    display: Cognition (2023)
+    display: Cognition
+  year: 2023
   highlight: 0
   pdf: papers/scene_context.pdf
+
+- title: Perceived Distance Alters Memory for Scene Boundaries
+  authors: Alon Hafri, Shreya Wadhwa, Michael F. Bonner
+  image: perceived_distance.png
+  description: What factors determine when visual memories will include details that go beyond perceptual experience? Here, seven experiments (N = 1,100 adults) explored whether spatial scale-specifically, perceived viewing distance-drives boundary extension. We created fake miniatures by exploiting tilt shift, a photographic effect that selectively reduces perceived distance while preserving other scene properties (e.g., making a distant railway appear like a model train). We found that visual memory is modulated by the spatial scale at which the environment is viewed.
+  link:
+    url: https://psyarxiv.com/hy3qs
+    display: Psychological Science
+  year: 2022
+  highlight: 0
+  pdf: https://osf.io/preprints/psyarxiv/hy3qs
+  code: https://osf.io/jrtqw/?view_only=975375af587143bead39dd01dc7307f8
 
 - title: "Scene memories are biased toward high-probability views"
   authors: F. Lin, A.A. Hafri, M.F. Bonner
@@ -179,7 +172,8 @@
   description: 
   link:
     url: https://psyarxiv.com/c3r8j/
-    display: "Journal of Experimental Psychology: Human Perception and Performance (2022)"
+    display: "Journal of Experimental Psychology: Human Perception and Performance"
+  year: 2022
   highlight: 0
   pdf: https://psyarxiv.com/c3r8j/download
   code: https://osf.io/y9pue/
@@ -190,9 +184,23 @@
   description: 
   link:
     url: https://ieeexplore.ieee.org/document/9809913
-    display: Journal of Cognitive Neuroscience (2022)
+    display: Journal of Cognitive Neuroscience
+  year: 2022
   highlight: 0
   pdf: https://ieeexplore.ieee.org/document/9809913
+
+- title: Object representations in the human brain reflect the co-occurrence statistics of vision and language
+  authors: Michael F. Bonner, Russell Epstein
+  image: obj_to_vec.png
+  description: Using machine learning and fMRI, we tested if the human visual system encodes object co-occurrence statistics, revealed through individual object perception. We identified low-dimensional representations of these statistics in real-world scenes and correlated them with voxel-wise fMRI responses during object viewing. Our findings indicate cortical responses to single objects are influenced by their typical statistical contexts, highlighting brain regions where this connection is strongest.
+  link:
+    url: https://www.nature.com/articles/s41467-021-24368-2
+    display: Nature Communications
+  year: 2021
+  highlight: 0
+  pdf: https://www.nature.com/articles/s41467-021-24368-2
+  code: https://osf.io/ug5zd/
+  twitter: https://twitter.com/michaelfbonner/status/1412485639153414144?s=20
 
 - title: "Unveiling functions of the visual cortex using task-specific deep neural networks"
   authors: K. Dwivedi, M.F. Bonner, R.M. Cichy, G. Roig
@@ -200,7 +208,8 @@
   description: 
   link:
     url: https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1009267
-    display: PLOS Computational Biology (2021)
+    display: PLOS Computational Biology
+  year: 2021
   highlight: 0
   pdf: https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1009267
 
@@ -210,7 +219,8 @@
   description: 
   link:
     url: http://s/DeWind-2020-Similarly-oriented-objects-appear-more-numerous.PDF
-    display: Journal of Vision (2020)
+    display: Journal of Vision
+  year: 2020
   highlight: 0
   pdf: http://s/DeWind-2020-Similarly-oriented-objects-appear-more-numerous.PDF
 
@@ -220,7 +230,8 @@
   description: 
   link:
     url: 
-    display: NeurIPS SVRHM Workshop (2020)
+    display: NeurIPS SVRHM Workshop
+  year: 2020
   highlight: 0
 
 - title: "Curvature as an Organizing Principle of Mid-level Visual Representation: A Semantic-preference Mapping Approach"
@@ -229,7 +240,8 @@
   description: 
   link:
     url: 
-    display: NeurIPS SVRHM Workshop (2020)
+    display: NeurIPS SVRHM Workshop
+  year: 2020
   highlight: 0
 
 - title: "Computational mechanisms underlying cortical responses to the affordance properties of visual scenes"
@@ -238,7 +250,8 @@
   description: 
   link:
     url: http://s/Bonner-2018-Computational-mechanisms-underlying-cortical-responses-to-the-affordance-properties-of-v.PDF
-    display: PLOS Computational Biology (2018)
+    display: PLOS Computational Biology
+  year: 2018
   highlight: 0
   pdf: http://s/Bonner-2018-Computational-mechanisms-underlying-cortical-responses-to-the-affordance-properties-of-v.PDF
 
@@ -248,7 +261,8 @@
   description: 
   link:
     url: http://s/Bonner-2017-Coding-of-navigational-affordances-in-the-human-visual-system-y223.PDF
-    display: Proceedings of the National Academy of Sciences (2017)
+    display: Proceedings of the National Academy of Sciences
+  year: 2017
   highlight: 0
   pdf: http://s/Bonner-2017-Coding-of-navigational-affordances-in-the-human-visual-system-y223.PDF
   code: https://github.com/NeuromatchAcademy/course-content/blob/master/projects/fMRI/load_bonner_navigational_affordances.ipynb
@@ -259,7 +273,8 @@
   description: 
   link:
     url: https://www.biorxiv.org/content/early/2017/09/27/194829
-    display: bioRxiv (2017)
+    display: bioRxiv
+  year: 2017
   highlight: 0
   pdf: https://www.biorxiv.org/content/early/2017/09/27/194829
 
@@ -269,7 +284,8 @@
   description: 
   link:
     url: http://s/Price-2016-Causal-Evidence-for-a-Mechanism-of-Semantic-Integration-in-the-Angular-Gyrus-as-Revealed-sxhj.PDF
-    display: Journal of Neuroscience (2016)
+    display: Journal of Neuroscience
+  year: 2016
   highlight: 0
   pdf: http://s/Price-2016-Causal-Evidence-for-a-Mechanism-of-Semantic-Integration-in-the-Angular-Gyrus-as-Revealed-sxhj.PDF
 
@@ -279,7 +295,8 @@
   description: 
   link:
     url: http://s/Bonner-2016-Semantics-of-the-Visual-Environment-Encoded-in-Parahippocampal-Cortex-wylx.PDF
-    display: Journal of Cognitive Neuroscience (2016)
+    display: Journal of Cognitive Neuroscience
+  year: 2016
   highlight: 0
   pdf: http://s/Bonner-2016-Semantics-of-the-Visual-Environment-Encoded-in-Parahippocampal-Cortex-wylx.PDF
 
@@ -289,7 +306,8 @@
   description: 
   link:
     url: http://s/Price-2015-Semantic-memory-cognitive-and-neuroanatomic-perspectives.PDF
-    display: Brain Mapping - An Encyclopedic Reference (2015)
+    display: Brain Mapping - An Encyclopedic Reference
+  year: 2015
   highlight: 0
   pdf: http://s/Price-2015-Semantic-memory-cognitive-and-neuroanatomic-perspectives.PDF
 
@@ -299,7 +317,8 @@
   description: 
   link:
     url: http://s/Price-2015-Converging-Evidence-for-the-Neuroanatomic-Basis-of-Combinatorial-Semantics-in-the-Angular.PDF
-    display: Journal of Neuroscience (2015)
+    display: Journal of Neuroscience
+  year: 2015
   highlight: 0
   pdf: http://s/Price-2015-Converging-Evidence-for-the-Neuroanatomic-Basis-of-Combinatorial-Semantics-in-the-Angular.PDF
 
@@ -309,7 +328,8 @@
   description: 
   link:
     url: 
-    display: Dementia and Memory (2014)
+    display: Dementia and Memory
+  year: 2014
   highlight: 0
 
 - title: "Deficits in semantic memory associated with focal neurodegenerative diseases"
@@ -318,7 +338,8 @@
   description: 
   link:
     url: 
-    display: The Boston Process Approach to Neuropsychological Assessment - A Practitioner's Guide (2013)
+    display: The Boston Process Approach to Neuropsychological Assessment - A Practitioner's Guide
+  year: 2013
   highlight: 0
 
 - title: "Where is the anterior temporal lobe and what does it do?"
@@ -327,7 +348,8 @@
   description: 
   link:
     url: http://s/Bonner-2013-Where-Is-the-Anterior-Temporal-Lobe-and-What-Does-It-Do-ssdh.PDF
-    display: Journal of Neuroscience (2013)
+    display: Journal of Neuroscience
+  year: 2013
   highlight: 0
   pdf: http://s/Bonner-2013-Where-Is-the-Anterior-Temporal-Lobe-and-What-Does-It-Do-ssdh.PDF
 
@@ -337,7 +359,8 @@
   description: 
   link:
     url: http://s/Bonner-2013-Heteromodal-conceptual-processing-in-the-angular-gyrus-a8ft.PDF
-    display: NeuroImage (2013)
+    display: NeuroImage
+  year: 2013
   highlight: 0
   pdf: http://s/Bonner-2013-Heteromodal-conceptual-processing-in-the-angular-gyrus-a8ft.PDF
 
@@ -347,7 +370,8 @@
   description: 
   link:
     url: http://s/Grossman-2013-Category-specific-semantic-memory-Converging-evidence-from-BOLD-fMRI-and-Alzheimers-di-oqzb.PDF
-    display: NeuroImage (2013)
+    display: NeuroImage
+  year: 2013
   highlight: 0
   pdf: http://s/Grossman-2013-Category-specific-semantic-memory-Converging-evidence-from-BOLD-fMRI-and-Alzheimers-di-oqzb.PDF
 
@@ -357,7 +381,8 @@
   description: 
   link:
     url: http://s/Bonner-2012-Gray-Matter-Density-of-Auditory-Association-Cortex-Relates-to-Knowledge-of-Sound-Concept-mz6u.PDF
-    display: Journal of Neuroscience (2012)
+    display: Journal of Neuroscience
+  year: 2012
   highlight: 0
   pdf: http://s/Bonner-2012-Gray-Matter-Density-of-Auditory-Association-Cortex-Relates-to-Knowledge-of-Sound-Concept-mz6u.PDF
 
@@ -367,7 +392,8 @@
   description: 
   link:
     url: http://s/Grossman-2011-Music-and-semantic-dementia-reply-z4o7.PDF
-    display: Archives of Neurology (2011)
+    display: Archives of Neurology
+  year: 2011
   highlight: 0
   pdf: http://s/Grossman-2011-Music-and-semantic-dementia-reply-z4o7.PDF
 
@@ -377,7 +403,8 @@
   description: 
   link:
     url: http://s/Weinstein-2011-Preserved-musical-semantic-memory-in-semantic-dementia-c1iq.PDF
-    display: Archives of Neurology (2011)
+    display: Archives of Neurology
+  year: 2011
   highlight: 0
   pdf: http://s/Weinstein-2011-Preserved-musical-semantic-memory-in-semantic-dementia-c1iq.PDF
 
@@ -387,7 +414,8 @@
   description: 
   link:
     url: http://s/Bonner-2010-The-new-classification-of-PPA-33i6.PDF
-    display: Current Neurology and Neuroscience Reports (2010)
+    display: Current Neurology and Neuroscience Reports
+  year: 2010
   highlight: 0
   pdf: http://s/Bonner-2010-The-new-classification-of-PPA-33i6.PDF
 
@@ -397,7 +425,8 @@
   description: 
   link:
     url: http://s/Farag-2010-Hierarchical-organization-of-scripts-fqfh.PDF
-    display: Cerebral Cortex (2010)
+    display: Cerebral Cortex
+  year: 2010
   highlight: 0
   pdf: http://s/Farag-2010-Hierarchical-organization-of-scripts-fqfh.PDF
 
@@ -407,7 +436,8 @@
   description: 
   link:
     url: http://s/Bonner-2009-Reversal-of-the-concreteness-2yzf.PDF
-    display: Cognitive Neuropsychology (2009)
+    display: Cognitive Neuropsychology
+  year: 2009
   highlight: 0
   pdf: http://s/Bonner-2009-Reversal-of-the-concreteness-2yzf.PDF
 
@@ -417,7 +447,8 @@
   description: 
   link:
     url: 
-    display: Brain and Language (2007)
+    display: Brain and Language
+  year: 2007
   highlight: 0
 
 - title: "HP1 proteins are essential for a dynamic nuclear response that rescues the function of perturbed heterochromatin in primary human cells"
@@ -426,6 +457,7 @@
   description: 
   link:
     url: http://s/Zhang-2007-HP1-proteins-are-essential-for-a-dynamic-nuclear-response-that-rescues-the-function-of-pe-7aub.PDF
-    display: Molecular and Cellular Biology (2007)
+    display: Molecular and Cellular Biology
+  year: 2007
   highlight: 0
   pdf: http://s/Zhang-2007-HP1-proteins-are-essential-for-a-dynamic-nuclear-response-that-rescues-the-function-of-pe-7aub.PDF

@@ -105,7 +105,7 @@ permalink: /publications/
 
 .pub-year-badge {
 	background: transparent;
-	color: #999;
+	color: #ff6600;
 	padding: 4px 0;
 	border-radius: 0;
 	font-weight: 500;
@@ -190,7 +190,7 @@ permalink: /publications/
 	gap: 4px;
 	color: #888;
 	text-decoration: none;
-	font-size: 13px;
+	font-size: 10.4px;
 	transition: all 0.15s ease;
 }
 
@@ -361,7 +361,7 @@ h2#featured-research {
 	color: #888;
 	text-decoration: none;
 	transition: color 0.15s ease;
-	font-size: 16px;
+	font-size: 12.8px;
 }
 
 .featured-item .pub-links-inline a:hover {
@@ -495,18 +495,17 @@ h2#featured-research {
     <div class="pub-venue-line">
       <div class="venue-and-links">
         <div class="pub-venue">
-          <i class="fas fa-book"></i>
           <span>{{ publi.link.display }}</span>
         </div>
         <div class="pub-links-inline">
           {% if publi.link.url %}
           <a href="{{ publi.link.url }}" target="_blank" title="PDF">
-            <i class="fas fa-file-pdf"></i>
+            <i class="fas fa-file-pdf"></i> PDF
           </a>
           {% endif %}
           {% if publi.code %}
           <a href="{{ publi.code }}" target="_blank" title="Code">
-            <i class="fab fa-github"></i>
+            <i class="fab fa-github"></i> Code
           </a>
           {% endif %}
           {% if publi.twitter %}
@@ -554,12 +553,12 @@ h2#featured-research {
 <input type="text" class="pub-search" placeholder="Search publications by title, author, or keyword..." id="pub-search">
 <div class="pub-filters">
 <button class="pub-filter-btn active" data-filter="all">All</button>
+<button class="pub-filter-btn" data-filter="2025">2025</button>
 <button class="pub-filter-btn" data-filter="2024">2024</button>
 <button class="pub-filter-btn" data-filter="2023">2023</button>
 <button class="pub-filter-btn" data-filter="2022">2022</button>
 <button class="pub-filter-btn" data-filter="2021">2021</button>
-<button class="pub-filter-btn" data-filter="older">Before 2021</button>
-<button class="pub-filter-btn" data-filter="preprint">Preprints</button>
+<button class="pub-filter-btn" data-filter="older">2020 and Before</button>
 </div>
 <div class="pub-stats">
 <span id="result-count">Showing all publications</span>
@@ -570,22 +569,15 @@ h2#featured-research {
 document.addEventListener('DOMContentLoaded', function() {
 	const searchInput = document.getElementById('pub-search');
 	const filterButtons = document.querySelectorAll('.pub-filter-btn');
-	const publications = document.querySelectorAll('.pub-item');
+	const allPubItemsOnPage = document.querySelectorAll('.pub-item'); // All items, featured and in main list
+	const articlesListContainer = document.querySelector('.publications-list'); // The main list under "Articles"
 	const resultCount = document.getElementById('result-count');
 	
 	let activeFilter = 'all';
 	
-	// Search functionality
-	searchInput.addEventListener('input', function() {
-		filterPublications();
-	});
-	
-	// Filter buttons
 	filterButtons.forEach(button => {
 		button.addEventListener('click', function(event) {
-			// Prevent page jumping
 			event.preventDefault();
-			// Update active state
 			filterButtons.forEach(btn => btn.classList.remove('active'));
 			this.classList.add('active');
 			activeFilter = this.dataset.filter;
@@ -593,52 +585,81 @@ document.addEventListener('DOMContentLoaded', function() {
 		});
 	});
 	
+	searchInput.addEventListener('input', filterPublications);
+
 	function filterPublications() {
 		const searchTerm = searchInput.value.toLowerCase();
-		let visibleCount = 0;
-		
-		publications.forEach(pub => {
-			// Skip featured items - they should always be visible
-			if (pub.dataset.featured === 'true') {
-				return;
-			}
+		let visibleArticleCount = 0;
+
+		if (activeFilter === 'all' && !searchTerm) {
+			// Special sorting for the "All" filter with no search term for the .publications-list
+			const itemsInArticleList = Array.from(articlesListContainer.querySelectorAll('.pub-item'));
 			
-			const title = pub.querySelector('.pub-title')?.textContent.toLowerCase() || pub.querySelector('.pubtit')?.textContent.toLowerCase() || '';
-			const authors = pub.querySelector('.pub-authors')?.textContent.toLowerCase() || '';
-			const venue = pub.querySelector('.pub-venue')?.textContent.toLowerCase() || '';
-			const year = pub.dataset.year || '';
-			const type = pub.dataset.type || '';
-			const text = pub.textContent.toLowerCase();
-			
-			// Check search term
-			const matchesSearch = !searchTerm || text.includes(searchTerm);
-			
-			// Check filter
-			let matchesFilter = activeFilter === 'all';
-			if (activeFilter === 'preprint') {
-				matchesFilter = type === 'preprint';
-			} else if (activeFilter === 'older') {
-				matchesFilter = parseInt(year) < 2021;
-			} else if (activeFilter !== 'all') {
-				matchesFilter = year === activeFilter;
-			}
-			
-			// Show/hide publication
-			if (matchesSearch && matchesFilter) {
-				pub.classList.remove('hidden');
-				visibleCount++;
-			} else {
-				pub.classList.add('hidden');
-			}
-		});
-		
-		// Update result count
-		if (searchTerm || activeFilter !== 'all') {
-			resultCount.textContent = `Showing ${visibleCount} publication${visibleCount !== 1 ? 's' : ''}`;
+			itemsInArticleList.sort((a, b) => {
+				const yearA_str = a.dataset.year;
+				const yearB_str = b.dataset.year;
+
+				// Treat non-numeric years (e.g., "in press") as very recent for sorting
+				const yearA = isNaN(parseInt(yearA_str)) ? Number.MAX_SAFE_INTEGER : parseInt(yearA_str);
+				const yearB = isNaN(parseInt(yearB_str)) ? Number.MAX_SAFE_INTEGER : parseInt(yearB_str);
+
+				if (yearA !== yearB) {
+					return yearB - yearA; // Sort by year descending
+				}
+				// For items with the same year, original relative order is maintained by stable sort.
+				return 0; 
+			});
+
+			// Re-populate the .publications-list with sorted items
+			articlesListContainer.innerHTML = ''; // Clear current items
+			itemsInArticleList.forEach(pub => {
+				articlesListContainer.appendChild(pub);
+				pub.classList.remove('hidden'); // Ensure it's visible
+				visibleArticleCount++;
+			});
+
+			// Ensure all items in the dedicated "Featured Research" section are also visible
+			document.querySelectorAll('.featured-section .pub-item').forEach(pub => {
+				 pub.classList.remove('hidden');
+			});
+
 		} else {
-			resultCount.textContent = 'Showing all publications';
+			// Standard filtering for specific year filters or when a search term is present
+			// This applies to ALL .pub-item elements on the page
+			allPubItemsOnPage.forEach(pub => {
+				const title = pub.querySelector('.pub-title')?.textContent.toLowerCase() || pub.querySelector('.pubtit')?.textContent.toLowerCase() || '';
+				const authors = pub.querySelector('.pub-authors')?.textContent.toLowerCase() || '';
+				const year = pub.dataset.year || '';
+				const text = pub.textContent.toLowerCase();
+				
+				const matchesSearch = !searchTerm || text.includes(searchTerm);
+				let matchesFilterCriteria = activeFilter === 'all'; // Default for "All" if search term exists
+
+				if (activeFilter === 'older') {
+					const numericYear = parseInt(year);
+					matchesFilterCriteria = !isNaN(numericYear) && numericYear <= 2020;
+				} else if (activeFilter !== 'all') { // Specific year
+					matchesFilterCriteria = year === activeFilter;
+				}
+				
+				if (matchesSearch && matchesFilterCriteria) {
+					pub.classList.remove('hidden');
+					// Count visible items only if they are within the .publications-list
+					if (pub.closest('.publications-list')) {
+						visibleArticleCount++;
+					}
+				} else {
+					pub.classList.add('hidden');
+				}
+			});
 		}
+		
+		// Update result count based on items in .publications-list
+		resultCount.textContent = `Showing ${visibleArticleCount} publication${visibleArticleCount !== 1 ? 's' : ''}`;
 	}
+
+	// Initial filter application on load
+	filterPublications(); 
 });
 </script>
 
@@ -647,11 +668,8 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="publications-list">
 
 {% for publi in site.data.publist %}
-{% if publi.highlight != 1 %}
-
 {% comment %}
 Extract year from link.display if year field is not present
-Expected format: "Journal Name (2024)" or similar
 {% endcomment %}
 {% assign pub_year = publi.year %}
 {% unless pub_year %}
@@ -705,7 +723,7 @@ Extract venue name from link.display by removing year
 {% if publi.link.url and publi.link.url != "" %}
 <div class="pub-links">
 <a href="{{ publi.link.url }}" target="_blank" class="pub-link">
-<i class="fas fa-file-pdf"></i> Paper
+<i class="fas fa-file-pdf"></i> PDF
 </a>
 {% if publi.code %}
 <a href="{{ publi.code }}" target="_blank" class="pub-link">
@@ -725,7 +743,6 @@ Extract venue name from link.display by removing year
 </div>
 </div>
 
-{% endif %}
 {% endfor %}
 
 </div>
