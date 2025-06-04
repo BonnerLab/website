@@ -101,48 +101,103 @@ layout: default
     }
   }
   
-  // Brain formation - top view
+  // Brain formation - traced from reference image
   function getBrainPosition(index, total, centerX, centerY) {
-    const brainWidth = Math.min(canvas.width * 0.5, 150);
-    const brainHeight = Math.min(canvas.height * 0.6, 180);
+    const brainWidth = Math.min(canvas.width * 0.6, 180);
+    const brainHeight = Math.min(canvas.height * 0.5, 150);
     
     const t = index / total;
-    const angle = t * Math.PI * 2;
     
-    // Create brain shape from top view
-    let r, x, y;
+    let x, y;
     
-    // Main brain shape equation (peanut-like for two hemispheres)
-    r = brainHeight / 2.5;
-    
-    // Create figure-8 like shape for two hemispheres
-    const theta = angle;
-    const a = brainWidth / 2.5; // width of each lobe
-    const b = brainHeight / 2.2; // height
-    
-    // Parametric equations for a brain-like shape
-    if (theta < Math.PI) {
-      // Left hemisphere
-      x = centerX - a/4 + a * Math.cos(theta) * (0.8 + 0.2 * Math.cos(3 * theta));
-      y = centerY + b * Math.sin(theta) * (0.9 + 0.1 * Math.sin(2 * theta));
+    if (t < 0.7) {
+      // Main brain outline - manually traced points
+      const outlineT = t / 0.7;
+      
+      // Define key points for brain outline (normalized -0.5 to 0.5)
+      const brainPoints = [
+        // Start at front bottom (temporal lobe)
+        {x: 0.3, y: 0.25},
+        {x: 0.35, y: 0.15},
+        {x: 0.4, y: 0.05},
+        {x: 0.42, y: -0.05},
+        // Frontal lobe bulge
+        {x: 0.43, y: -0.15},
+        {x: 0.4, y: -0.25},
+        {x: 0.35, y: -0.35},
+        // Top front
+        {x: 0.25, y: -0.42},
+        {x: 0.15, y: -0.45},
+        // Top
+        {x: 0.05, y: -0.47},
+        {x: -0.05, y: -0.47},
+        {x: -0.15, y: -0.45},
+        // Back top
+        {x: -0.25, y: -0.4},
+        {x: -0.32, y: -0.32},
+        // Occipital lobe
+        {x: -0.38, y: -0.2},
+        {x: -0.4, y: -0.1},
+        {x: -0.4, y: 0},
+        {x: -0.38, y: 0.1},
+        // Bottom back (above cerebellum)
+        {x: -0.35, y: 0.2},
+        {x: -0.3, y: 0.25},
+        // Under temporal area
+        {x: -0.2, y: 0.3},
+        {x: -0.1, y: 0.32},
+        {x: 0, y: 0.33},
+        {x: 0.1, y: 0.32},
+        {x: 0.2, y: 0.3},
+        // Close the loop
+        {x: 0.3, y: 0.25}
+      ];
+      
+      // Interpolate between points
+      const totalPoints = brainPoints.length - 1;
+      const pointIndex = Math.min(Math.floor(outlineT * totalPoints), totalPoints - 1);
+      const localT = (outlineT * totalPoints) - pointIndex;
+      
+      const p1 = brainPoints[pointIndex];
+      const p2 = brainPoints[pointIndex + 1];
+      
+      // Smooth interpolation
+      const smoothT = localT * localT * (3 - 2 * localT);
+      
+      x = centerX + (p1.x + (p2.x - p1.x) * smoothT) * brainWidth;
+      y = centerY + (p1.y + (p2.y - p1.y) * smoothT) * brainHeight;
+      
+    } else if (t < 0.82) {
+      // Cerebellum
+      const cerebT = (t - 0.7) / 0.12;
+      
+      // Simple cerebellum shape at bottom back
+      const layer = Math.floor(cerebT * 3);
+      const layerT = (cerebT * 3) % 1;
+      
+      x = centerX - brainWidth * 0.3 + layerT * brainWidth * 0.1;
+      y = centerY + brainHeight * 0.3 + (layer - 1) * brainHeight * 0.03;
+      
+    } else if (t < 0.9) {
+      // Brain stem
+      const stemT = (t - 0.82) / 0.08;
+      
+      x = centerX - brainWidth * 0.1;
+      y = centerY + brainHeight * 0.38 + stemT * brainHeight * 0.12;
+      
     } else {
-      // Right hemisphere
-      const adjustedTheta = theta - Math.PI;
-      x = centerX + a/4 - a * Math.cos(adjustedTheta) * (0.8 + 0.2 * Math.cos(3 * adjustedTheta));
-      y = centerY + b * Math.sin(adjustedTheta) * (0.9 + 0.1 * Math.sin(2 * adjustedTheta));
-    }
-    
-    // Add some variation for internal structure
-    if (index % 3 === 0) {
-      // Some particles slightly inside
-      const factor = 0.85 + Math.random() * 0.1;
-      x = centerX + (x - centerX) * factor;
-      y = centerY + (y - centerY) * factor;
-    }
-    
-    // Add central fissure
-    if (Math.abs(x - centerX) < brainWidth * 0.05) {
-      y += (Math.random() - 0.5) * brainHeight * 0.1;
+      // Internal folds - simple curved lines
+      const internalT = (t - 0.9) / 0.1;
+      
+      if (internalT < 0.5) {
+        const foldT = internalT * 2;
+        x = centerX - brainWidth * 0.2 + foldT * brainWidth * 0.3;
+        y = centerY - brainHeight * 0.15 + Math.sin(foldT * Math.PI) * brainHeight * 0.05;
+      } else {
+        const foldT = (internalT - 0.5) * 2;
+        x = centerX - brainWidth * 0.15 + foldT * brainWidth * 0.25;
+        y = centerY + brainHeight * 0.05 + Math.sin(foldT * Math.PI) * brainHeight * 0.04;
+      }
     }
     
     return { x, y };
@@ -198,10 +253,9 @@ layout: default
   // Particle class
   class Particle {
     constructor(index) {
-      // Random starting position with increased spread
-      const spread = 1.3;
-      this.x = (Math.random() - 0.5) * canvas.width * spread + canvas.width/2;
-      this.y = (Math.random() - 0.5) * canvas.height * spread + canvas.height/2;
+      // Start particles at random positions
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * canvas.height;
       this.randomX = this.x;
       this.randomY = this.y;
       
@@ -223,18 +277,29 @@ layout: default
       this.opacity = 0.9;
       
       // Physics
-      this.vx = (Math.random() - 0.5) * 0.5;
-      this.vy = (Math.random() - 0.5) * 0.5;
+      this.vx = 0;
+      this.vy = 0;
+      
+      // For outward diffusion
+      this.diffusionStarted = false;
       
       // Trail for this particle
       this.trail = [];
     }
     
-    updateRandomPosition() {
-      // Increase diffusion - particles spread beyond canvas bounds
-      const spread = 1.3; // 30% more spread
-      this.randomX = (Math.random() - 0.5) * canvas.width * spread + canvas.width/2;
-      this.randomY = (Math.random() - 0.5) * canvas.height * spread + canvas.height/2;
+    startDiffusion() {
+      // Initialize outward velocity from center
+      const centerX = canvas.width / 2;
+      const centerY = canvas.height / 2;
+      const dx = this.x - centerX;
+      const dy = this.y - centerY;
+      const distance = Math.sqrt(dx * dx + dy * dy) || 1;
+      
+      // Set initial velocity outward from center
+      const speed = 3 + Math.random() * 2; // Random speed between 3-5
+      this.vx = (dx / distance) * speed;
+      this.vy = (dy / distance) * speed;
+      this.diffusionStarted = true;
     }
     
     updateFormationPosition(index, formationType) {
@@ -253,28 +318,33 @@ layout: default
         this.currentX += (this.targetX - this.currentX) * speed;
         this.currentY += (this.targetY - this.currentY) * speed;
       } else {
-        // Smooth interpolation towards random target
-        const dx = this.randomX - this.currentX;
-        const dy = this.randomY - this.currentY;
-        const distance = Math.sqrt(dx * dx + dy * dy);
+        // Outward diffusion with physics
         
-        // Smooth acceleration towards target (reduced by 0.75x)
-        if (distance > 1) {
-          this.vx += (dx / distance) * 0.1125; // 0.15 * 0.75
-          this.vy += (dy / distance) * 0.1125;
-        }
-        
-        // Add small random perturbation for organic movement
-        this.vx += (Math.random() - 0.5) * 0.02;
-        this.vy += (Math.random() - 0.5) * 0.02;
-        
-        // Apply damping
-        this.vx *= 0.92;
-        this.vy *= 0.92;
+        // Apply very subtle deceleration
+        this.vx *= 0.995;
+        this.vy *= 0.995;
         
         // Update position
         this.currentX += this.vx;
         this.currentY += this.vy;
+        
+        // Edge bouncing with energy loss
+        const bounceDamping = 0.7;
+        if (this.currentX - this.radius <= 0 && this.vx < 0) {
+          this.vx = Math.abs(this.vx) * bounceDamping;
+          this.currentX = this.radius;
+        } else if (this.currentX + this.radius >= canvas.width && this.vx > 0) {
+          this.vx = -Math.abs(this.vx) * bounceDamping;
+          this.currentX = canvas.width - this.radius;
+        }
+        
+        if (this.currentY - this.radius <= 0 && this.vy < 0) {
+          this.vy = Math.abs(this.vy) * bounceDamping;
+          this.currentY = this.radius;
+        } else if (this.currentY + this.radius >= canvas.height && this.vy > 0) {
+          this.vy = -Math.abs(this.vy) * bounceDamping;
+          this.currentY = canvas.height - this.radius;
+        }
       }
       
       this.x = this.currentX;
@@ -382,6 +452,7 @@ layout: default
           transitionProgress = 1;
         }
         particles.forEach(particle => {
+          particle.diffusionStarted = false; // Reset diffusion flag
           particle.update(true, 0.08);
         });
         break;
@@ -390,6 +461,8 @@ layout: default
         if (phaseTimer > 90) { // 1.5 seconds
           animationPhase = 3;
           phaseTimer = 0;
+          // Start diffusion for all particles
+          particles.forEach(particle => particle.startDiffusion());
         }
         particles.forEach(particle => {
           particle.update(true, 0.1);
@@ -439,20 +512,97 @@ layout: default
   }
   
   function drawProximityConnections() {
-    const connectionDistance = 20;
-    for (let i = 0; i < particles.length; i++) {
-      for (let j = i + 1; j < Math.min(i + 10, particles.length); j++) {
-        const dx = particles[i].x - particles[j].x;
-        const dy = particles[i].y - particles[j].y;
-        const distance = Math.sqrt(dx * dx + dy * dy);
+    // Special connections for brain formation
+    if (currentFormation === 1) {
+      // Draw specific connections to enhance brain structure
+      ctx.strokeStyle = `rgba(120, 120, 120, ${0.3 * transitionProgress})`;
+      ctx.lineWidth = 0.8;
+      
+      // Connect outline points (first 70% of particles)
+      const outlineCount = Math.floor(particles.length * 0.7);
+      for (let i = 0; i < outlineCount - 1; i++) {
+        ctx.beginPath();
+        ctx.moveTo(particles[i].x, particles[i].y);
+        ctx.lineTo(particles[i + 1].x, particles[i + 1].y);
+        ctx.stroke();
+      }
+      // Close the outline
+      if (outlineCount > 0) {
+        ctx.beginPath();
+        ctx.moveTo(particles[outlineCount - 1].x, particles[outlineCount - 1].y);
+        ctx.lineTo(particles[0].x, particles[0].y);
+        ctx.stroke();
+      }
+      
+      // Connect cerebellum layers with distinctive pattern
+      const cerebStart = Math.floor(particles.length * 0.7);
+      const cerebEnd = Math.floor(particles.length * 0.82);
+      ctx.strokeStyle = `rgba(100, 100, 100, ${0.25 * transitionProgress})`;
+      ctx.lineWidth = 0.6;
+      
+      for (let i = cerebStart; i < cerebEnd - 4; i += 4) {
+        // Horizontal ridges for cerebellum
+        for (let j = 0; j < 4 && i + j < cerebEnd; j++) {
+          if (i + j + 1 < cerebEnd) {
+            ctx.beginPath();
+            ctx.moveTo(particles[i + j].x, particles[i + j].y);
+            ctx.lineTo(particles[i + j + 1].x, particles[i + j + 1].y);
+            ctx.stroke();
+          }
+        }
+      }
+      
+      // Connect brain stem
+      const stemStart = Math.floor(particles.length * 0.82);
+      const stemEnd = Math.floor(particles.length * 0.9);
+      ctx.strokeStyle = `rgba(110, 110, 110, ${0.2 * transitionProgress})`;
+      for (let i = stemStart; i < stemEnd - 1; i++) {
+        ctx.beginPath();
+        ctx.moveTo(particles[i].x, particles[i].y);
+        ctx.lineTo(particles[i + 1].x, particles[i + 1].y);
+        ctx.stroke();
+      }
+      
+      // Draw internal brain folds
+      const foldsStart = Math.floor(particles.length * 0.9);
+      const foldsEnd = particles.length;
+      ctx.strokeStyle = `rgba(90, 90, 90, ${0.15 * transitionProgress})`;
+      ctx.lineWidth = 0.8;
+      
+      // Connect points in each fold
+      const foldSize = Math.floor((foldsEnd - foldsStart) / 3);
+      for (let fold = 0; fold < 3; fold++) {
+        const foldStart = foldsStart + fold * foldSize;
+        const foldEnd = Math.min(foldStart + foldSize, foldsEnd);
         
-        if (distance < connectionDistance) {
-          const opacity = (1 - distance / connectionDistance) * 0.3 * transitionProgress;
-          ctx.strokeStyle = `rgba(150, 150, 150, ${opacity})`;
+        // Draw each fold as a connected line
+        if (foldEnd - foldStart > 1) {
           ctx.beginPath();
-          ctx.moveTo(particles[i].x, particles[i].y);
-          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.moveTo(particles[foldStart].x, particles[foldStart].y);
+          for (let i = foldStart + 1; i < foldEnd; i++) {
+            ctx.lineTo(particles[i].x, particles[i].y);
+          }
           ctx.stroke();
+        }
+      }
+      
+    } else {
+      // Regular proximity connections for other formations
+      const connectionDistance = 20;
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < Math.min(i + 10, particles.length); j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          
+          if (distance < connectionDistance) {
+            const opacity = (1 - distance / connectionDistance) * 0.3 * transitionProgress;
+            ctx.strokeStyle = `rgba(150, 150, 150, ${opacity})`;
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.stroke();
+          }
         }
       }
     }
