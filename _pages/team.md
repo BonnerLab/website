@@ -37,27 +37,27 @@ Jump to [Lab](#staff), [Alumni](#alumni), [Collaborators](#collaborators), [Form
 <div style="display: flex; align-items: center;">
   {% if member.gscholar %}
   <a href="{{ member.gscholar }}">
-    <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/gscholar.png" alt="Google Scholar Logo" style="width: 25px; height: 25px; margin-right: 15px; box-shadow: none;"/>
+    <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/gscholar.png" alt="Google Scholar Logo" style="width: 31.3px; height: 31.3px; margin-right: 15px; box-shadow: none;"/>
   </a>
   {% endif %}
   {% if member.website %}
   <a href="{{ member.website }}">
-    <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/website.png" alt="Personal Website" style="width: 25px; height: 25px; margin-right: 15px; box-shadow: none;"/>
+    <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/website.png" alt="Personal Website" style="width: 31.3px; height: 31.3px; margin-right: 15px; box-shadow: none;"/>
   </a>
   {% endif %}
   {% if member.twitter %}
   <a href="https://twitter.com/{{ member.twitter }}">
-      <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/x_logo.svg" alt="X" style="width: 22px; height: 22px; margin-right: 15px; box-shadow: none;"/>
+      <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/x_logo.svg" alt="X" style="width: 27.5px; height: 27.5px; margin-right: 15px; box-shadow: none;"/>
     </a>
   {% endif %}
   {% if member.cv %}
   <a href="{{ site.url }}{{ site.baseurl }}/downloads/{{member.cv}}">
-      <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/cv_logo.png" alt="CV" style="width: 27px; height: 27px; box-shadow: none;"/>
+      <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/cv_logo.png" alt="CV" style="width: 33.8px; height: 33.8px; box-shadow: none;"/>
     </a>
   {% endif %}
   {% if member.github %}
   <a href="{{ site.url }}{{ site.baseurl }}/images/logopic/github_logo.png">
-      <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/github_logo.png" alt="Github" style="width: 27px; height: 27px; box-shadow: none;"/>
+      <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/github_logo.png" alt="Github" style="width: 33.8px; height: 33.8px; box-shadow: none;"/>
     </a>
   {% endif %}
 </div>
@@ -100,27 +100,27 @@ Jump to [Lab](#staff), [Alumni](#alumni), [Collaborators](#collaborators), [Form
 <div style="display: flex; align-items: center;">
   {% if member.gscholar %}
   <a href="{{ member.gscholar }}">
-    <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/gscholar.png" alt="Google Scholar Logo" style="width: 25px; height: 25px; margin-right: 14px; box-shadow: none;"/>
+    <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/gscholar.png" alt="Google Scholar Logo" style="width: 31.3px; height: 31.3px; margin-right: 14px; box-shadow: none;"/>
   </a>
   {% endif %}
   {% if member.website %}
   <a href="{{ member.website }}">
-    <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/website.png" alt="Personal Website" style="width: 25px; height: 25px; margin-right: 10px; box-shadow: none;"/>
+    <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/website.png" alt="Personal Website" style="width: 31.3px; height: 31.3px; margin-right: 10px; box-shadow: none;"/>
   </a>
   {% endif %}
   {% if member.email %}
   <a href="mailto:{{ member.email }}">
-      <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/gmail.png" alt="Email" style="width: 40px; height: 28px; margin-right: 6px; box-shadow: none;"/>
+      <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/gmail.png" alt="Email" style="width: 50px; height: 35px; margin-right: 6px; box-shadow: none;"/>
     </a>
   {% endif %}
   {% if member.twitter %}
   <a href="https://twitter.com/{{ member.twitter }}">
-      <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/x_logo.svg" alt="X" style="width: 22px; height: 22px; margin-right: 6px; box-shadow: none;"/>
+      <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/x_logo.svg" alt="X" style="width: 27.5px; height: 27.5px; margin-right: 6px; box-shadow: none;"/>
     </a>
   {% endif %}
   {% if member.cv %}
   <a href="{{ site.url }}{{ site.baseurl }}/downloads/{{member.cv}}">
-      <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/cv_logo.png" alt="CV" style="width: 25px; height: 25px; box-shadow: none;"/>
+      <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/cv_logo.png" alt="CV" style="width: 31.3px; height: 31.3px; box-shadow: none;"/>
     </a>
   {% endif %}
 </div>

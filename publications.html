@@ -591,61 +591,67 @@ document.addEventListener('DOMContentLoaded', function() {
 		const searchTerm = searchInput.value.toLowerCase();
 		let visibleArticleCount = 0;
 
+		// Handle the "All" filter with no search term
 		if (activeFilter === 'all' && !searchTerm) {
-			// Special sorting for the "All" filter with no search term for the .publications-list
-			const itemsInArticleList = Array.from(articlesListContainer.querySelectorAll('.pub-item'));
+			// Ensure all featured items are visible
+			document.querySelectorAll('.featured-section .pub-item.featured-item').forEach(pub => {
+				pub.classList.remove('hidden');
+			});
+
+			// Sort and display all articles in the .publications-list
+			const itemsInArticleList = Array.from(articlesListContainer.querySelectorAll('.pub-item:not(.featured-item)'));
 			
 			itemsInArticleList.sort((a, b) => {
 				const yearA_str = a.dataset.year;
 				const yearB_str = b.dataset.year;
-
-				// Treat non-numeric years (e.g., "in press") as very recent for sorting
 				const yearA = isNaN(parseInt(yearA_str)) ? Number.MAX_SAFE_INTEGER : parseInt(yearA_str);
 				const yearB = isNaN(parseInt(yearB_str)) ? Number.MAX_SAFE_INTEGER : parseInt(yearB_str);
-
 				if (yearA !== yearB) {
 					return yearB - yearA; // Sort by year descending
 				}
-				// For items with the same year, original relative order is maintained by stable sort.
 				return 0; 
 			});
 
-			// Re-populate the .publications-list with sorted items
 			articlesListContainer.innerHTML = ''; // Clear current items
 			itemsInArticleList.forEach(pub => {
 				articlesListContainer.appendChild(pub);
-				pub.classList.remove('hidden'); // Ensure it's visible
+				pub.classList.remove('hidden');
 				visibleArticleCount++;
 			});
-
-			// Ensure all items in the dedicated "Featured Research" section are also visible
-			document.querySelectorAll('.featured-section .pub-item').forEach(pub => {
-				 pub.classList.remove('hidden');
-			});
-
 		} else {
-			// Standard filtering for specific year filters or when a search term is present
-			// This applies to ALL .pub-item elements on the page
+			// Handle specific year filters or when a search term is present
 			allPubItemsOnPage.forEach(pub => {
-				const title = pub.querySelector('.pub-title')?.textContent.toLowerCase() || pub.querySelector('.pubtit')?.textContent.toLowerCase() || '';
-				const authors = pub.querySelector('.pub-authors')?.textContent.toLowerCase() || '';
+				const isFeatured = pub.classList.contains('featured-item');
 				const year = pub.dataset.year || '';
-				const text = pub.textContent.toLowerCase();
+				const textContent = pub.textContent.toLowerCase(); 
+				const matchesSearch = !searchTerm || textContent.includes(searchTerm);
 				
-				const matchesSearch = !searchTerm || text.includes(searchTerm);
-				let matchesFilterCriteria = activeFilter === 'all'; // Default for "All" if search term exists
+				let showItem = false;
 
-				if (activeFilter === 'older') {
-					const numericYear = parseInt(year);
-					matchesFilterCriteria = !isNaN(numericYear) && numericYear <= 2020;
-				} else if (activeFilter !== 'all') { // Specific year
-					matchesFilterCriteria = year === activeFilter;
+				if (isFeatured) {
+					// Featured items: always show. Search term and year filter are ignored for their visibility.
+					showItem = true;
+				} else {
+					// Non-featured items (articles): show if they match search term AND year filter.
+					let matchesYearFilter = false;
+					if (activeFilter === 'all') { // This implies a search term is present
+						matchesYearFilter = true; 
+					} else if (activeFilter === 'older') {
+						const numericYear = parseInt(year);
+						matchesYearFilter = !isNaN(numericYear) && numericYear <= 2020;
+					} else { // Specific year filter (e.g., "2024")
+						matchesYearFilter = year === activeFilter;
+					}
+
+					if (matchesSearch && matchesYearFilter) {
+						showItem = true;
+					}
 				}
-				
-				if (matchesSearch && matchesFilterCriteria) {
+
+				if (showItem) {
 					pub.classList.remove('hidden');
-					// Count visible items only if they are within the .publications-list
-					if (pub.closest('.publications-list')) {
+					// Count visible items only if they are NOT featured AND part of the .publications-list
+					if (!isFeatured && pub.closest('.publications-list')) {
 						visibleArticleCount++;
 					}
 				} else {
