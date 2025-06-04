@@ -8,12 +8,12 @@ permalink: /team/
 
 <div class="team-page">
 
-# Group Members
+# Team
 
  <!-- **We are  looking for new PhD students, Postdocs, and Master students to join the team** [(see openings)]({{ site.url }}{{ site.baseurl }}/vacancies) **!** -->
 
 
-Jump to [Staff](#staff), [Alumni](#alumni), [Collaborators](#collaborators), [Former students](#former-hopkins-students), [Administrative support](#administrative-support)
+Jump to [Lab](#staff), [Alumni](#alumni), [Collaborators](#collaborators), [Former students](#former-hopkins-students), [Administrative support](#administrative-support)
 
 
 <div class="team-section team-pi">
@@ -81,7 +81,7 @@ Jump to [Staff](#staff), [Alumni](#alumni), [Collaborators](#collaborators), [Fo
 {% endif %}
 </div>
 
-## Staff
+## Lab
 <div class="team-section team-staff">
 {% assign number_printed = 0 %}
 {% for member in site.data.team_members %}
