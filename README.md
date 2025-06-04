@@ -1,233 +1,231 @@
 # Bonner Lab Website
 
-[![Jekyll](https://img.shields.io/badge/jekyll-%3E%3D%203.8-blue.svg)](https://jekyllrb.com/)
-[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-deployed-brightgreen)](https://www.bonnerlab.org)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-
-Welcome to the Bonner Lab website repository! This is the official website for our cognitive science research group at Johns Hopkins University. The site showcases our research, team, publications, and lab news.
+This is the website for the Bonner Lab at Johns Hopkins University. If you're updating the website, this guide will help you make changes even if you've never used Jekyll before.
 
 🔗 **Live Site**: [www.bonnerlab.org](https://www.bonnerlab.org)
 
-## 🚀 Quick Start
+## 🚀 Getting Started (First Time Setup)
 
-### Prerequisites
+### What You'll Need
 
-- **Ruby** 2.6+ and **Bundler**
-- **Git** for version control
-- A text editor (VS Code, Sublime Text, etc.)
+1. **A text editor** - Any will work (VS Code, Sublime Text, even TextEdit/Notepad)
+2. **Terminal/Command Line** - Already on your computer (Terminal on Mac, Command Prompt on Windows)
+3. **Ruby** - We'll install this together
 
-### Setup in 3 Steps
+### Step-by-Step Setup
 
+#### 1️⃣ Get the website code
 ```bash
-# 1. Clone the repository
+# Open Terminal and run:
 git clone https://github.com/bonnerlab/website.git
 cd website
+```
 
-# 2. Install dependencies
-gem install bundler
+#### 2️⃣ Install Ruby (if you don't have it)
+**Mac:**
+```bash
+# Check if you have Ruby
+ruby --version
+
+# If not, install it:
+brew install ruby
+```
+
+**Windows:** Download from [RubyInstaller.org](https://rubyinstaller.org/)
+
+#### 3️⃣ Install Jekyll (the website builder)
+```bash
+gem install bundler jekyll
 bundle install
+```
 
-# 3. Run the development server
+#### 4️⃣ View the website locally
+```bash
 bundle exec jekyll serve
 ```
+Open your browser and go to: [http://localhost:4000](http://localhost:4000)
 
-Visit [http://localhost:4000](http://localhost:4000) to see your local copy! 🎉
+## 📝 How to Update Content (No Coding Required!)
 
-## 📝 Common Tasks
+### Adding a New Team Member
 
-### Adding Team Members
+#### Step 1: Add their photo
+1. Get a square photo (ideally 400x400 pixels)
+2. Name it `firstname.jpg` (e.g., `jane.jpg`)
+3. Put it in the `images/teampic/` folder
 
-Team data is stored in YAML files in the `_data/` directory:
+#### Step 2: Add their info
+1. Open the appropriate file:
+   - **Postdocs/Staff**: `_data/team_members.yml`
+   - **Students**: `_data/students.yml`
+   - **Alumni**: `_data/alumni_members.yml`
 
-**Current Members** (`_data/team_members.yml`):
+2. Copy this template and fill it in:
 ```yaml
 - name: Jane Doe
-  photo: jane.jpg  # Add photo to /images/teampic/
-  info: Postdoctoral Fellow
-  email: jdoe@jhu.edu
+  photo: jane.jpg
+  role: Postdoctoral Fellow
+  email: jane@jhu.edu
+  website: https://janedoe.com
+  gscholar: https://scholar.google.com/citations?user=XXXXX
+  twitter: janedoe
   number_educ: 2
-  education1: PhD in Neuroscience, University X (2023)
-  education2: BS in Psychology, University Y (2018)
+  education1: PhD in Neuroscience, Harvard (2023)
+  education2: BS in Biology, MIT (2018)
 ```
 
-**File Locations**:
-- PI info: `_data/team_lead.yml`
-- PhD/Postdocs: `_data/team_members.yml`
-- Current students: `_data/students.yml`
-- Alumni: `_data/alumni_members.yml`, `alumni_msc.yml`, `alumni_bsc.yml`
+3. Save the file!
 
-### Adding Publications
+### Adding a Publication
 
-Edit `_data/publist.yml`:
+#### Step 1: Add the paper image
+1. Get a figure from your paper (PNG or JPG)
+2. Resize to ~600px wide
+3. Put it in `images/pubpic/`
+
+#### Step 2: Add publication info
+1. Open `_data/publist.yml`
+2. Add at the TOP of the file:
 ```yaml
-- title: "Your Paper Title Here"
-  image: paper_thumbnail.png  # Add to /images/pubpic/
-  description: Brief description of key findings
-  authors: J. Doe, J. Smith, M. Bonner
+- title: "Your Exact Paper Title"
+  image: yourfigure.png
+  description: One sentence about what you discovered
+  authors: J. Doe, A. Smith, M. Bonner
   link:
-    url: https://doi.org/10.1234/journal.2024.001
-    display: Journal Name (2024)
-  highlight: 1  # Feature on homepage
+    url: https://doi.org/YOUR-DOI-HERE
+    display: Nature Neuroscience (2024)
+  highlight: 1  # Use 1 to show on homepage, 0 to not show
 ```
 
-### Adding Lab News
+### Adding News
 
-Edit `_data/news.yml`:
+1. Open `_data/news.yml`
+2. Add at the TOP:
 ```yaml
-- date: 1. January 2024
-  headline: "Lab receives NSF grant for perception research"
+- date: 15. January 2024
+  headline: "Your news here (keep it short!)"
 ```
 
-### Updating Content Pages
+**Date format**: Day. Month Year (e.g., "3. March 2024")
 
-Main pages are in `_pages/`:
-- `home.md` - Homepage content
-- `team.md` - Team page introduction
-- `research.md` - Research overview
-- `publications.md` - Publications intro
-- `openings.md` - Job opportunities
+### Updating Page Content
 
-## 🏗️ Project Structure
+To edit any page text:
+1. Find the file in `_pages/`
+2. Open in your text editor
+3. Edit the text (it's in Markdown format)
+4. Save!
+
+**Main pages:**
+- `home.md` → Homepage text
+- `research.md` → Research descriptions
+- `openings.md` → Job postings
+
+## 📁 Where Things Are
 
 ```
 website/
-├── _data/              # 📊 Data files (team, publications, news)
-├── _pages/             # 📄 Static content pages
-├── _layouts/           # 🎨 Page templates
-├── _includes/          # 🧩 Reusable components
-├── _plugins/           # 🔧 Custom Jekyll plugins
-├── images/             # 🖼️ All images
-│   ├── teampic/       # Team member photos
-│   ├── pubpic/        # Publication figures
-│   └── newspic/       # News images
-├── _sass/             # 💅 Stylesheets
-└── _config.yml        # ⚙️ Site configuration
+├── _data/              # YOUR MAIN WORK AREA!
+│   ├── team_members.yml    # Postdocs and staff
+│   ├── students.yml        # Current students  
+│   ├── alumni_members.yml  # Former postdocs/staff
+│   ├── publist.yml         # Publications
+│   └── news.yml            # Lab news
+├── _pages/             # Website pages (home, research, etc.)
+├── images/             
+│   ├── teampic/       # Team photos go here
+│   └── pubpic/        # Publication images go here
+└── [other folders you can ignore]
 ```
 
-## 🖼️ Image Guidelines
+## 🖼️ Image Tips
 
-| Type | Location | Recommended Size |
-|------|----------|------------------|
-| Team Photos | `/images/teampic/` | Square, 400x400px |
-| Publication Figures | `/images/pubpic/` | 600px wide |
-| News Images | `/images/newspic/` | 800px wide |
-| Homepage Slider | `/images/slider7001400/` | 700x1400px |
+- **Team photos**: Make them square (crop if needed)
+- **Publication figures**: Should be readable at 600px wide
+- **File names**: Use lowercase, no spaces (e.g., `john_doe.jpg` not `John Doe.JPG`)
 
-## 🚢 Deployment
+## 🌐 Making Your Changes Live
 
-The site auto-deploys via GitHub Pages when you push to `gh-pages`:
+After editing files:
 
 ```bash
-# Make your changes
+# 1. Save your changes
 git add .
-git commit -m "Update team members"
+
+# 2. Commit with a message
+git commit -m "Add new team member Jane Doe"
+
+# 3. Push to GitHub
 git push origin gh-pages
 ```
 
-Changes appear at [www.bonnerlab.org](https://www.bonnerlab.org) within 5-10 minutes.
+**Your changes will appear at www.bonnerlab.org in ~5 minutes!**
 
-## 🛠️ Development
-
-### Local Development Commands
+## 💻 Testing Your Changes Locally
 
 ```bash
-# Start development server
+# Start the local server
 bundle exec jekyll serve
 
-# Build the site
-bundle exec jekyll build
-
-# Clean build artifacts
-bundle exec jekyll clean
-
-# Run with a different port
-bundle exec jekyll serve --port 4001
+# View at: http://localhost:4000
 ```
 
-### Platform-Specific Setup
+**Pro tip**: Keep this running while you work - it auto-updates when you save files!
 
-<details>
-<summary><b>macOS Setup</b></summary>
+## ❓ Common Problems & Solutions
 
+**"I can't see my changes locally"**
+- Did you save the file?
+- Is Jekyll still running? (Check your terminal)
+- Try refreshing your browser (Cmd+R or Ctrl+R)
+
+**"Jekyll won't start"**
 ```bash
-# Install Homebrew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-# Install Ruby
-brew install ruby
-
-# Add Ruby to PATH
-echo 'export PATH="/opt/homebrew/opt/ruby/bin:$PATH"' >> ~/.zshrc
-source ~/.zshrc
-```
-</details>
-
-<details>
-<summary><b>Windows Setup</b></summary>
-
-1. Download Ruby+Devkit from [RubyInstaller](https://rubyinstaller.org/)
-2. Run the installer and follow prompts
-3. Open a new command prompt and continue with the general setup
-</details>
-
-## 🐛 Troubleshooting
-
-### Common Issues
-
-**"command not found: bundle"**
-```bash
-gem install bundler
-```
-
-**Missing dependencies error**
-```bash
+# Try this:
 bundle install
+bundle exec jekyll serve
 ```
 
-**Port already in use**
-```bash
-bundle exec jekyll serve --port 4001
+**"My image doesn't show up"**
+- Check the filename matches exactly (case-sensitive!)
+- Make sure it's in the right folder
+- Use .jpg or .png format
+
+**"The website looks broken"**
+- You might have a typo in the YAML file
+- Check that all quotes are closed
+- Make sure indentation is consistent
+
+## 📚 Quick Reference
+
+### Markdown Basics (for editing pages)
+```markdown
+# Big Heading
+## Medium Heading
+### Small Heading
+
+**Bold text**
+*Italic text*
+[Link text](https://url.com)
+
+- Bullet point
+- Another point
 ```
 
-**SASS deprecation warnings**
-These are from Bootstrap and can be safely ignored.
+### YAML Basics (for data files)
+```yaml
+- name: "Use quotes for safety"
+  info: Keep the same spacing
+  key: value
+```
 
-## 🤝 Contributing
+## 🆘 Need Help?
 
-1. **Create a feature branch**:
-   ```bash
-   git checkout -b feature/update-publications
-   ```
-
-2. **Make changes and test locally**
-
-3. **Commit with clear messages**:
-   ```bash
-   git add .
-   git commit -m "Add: New publication on visual perception"
-   ```
-
-4. **Push and create PR**:
-   ```bash
-   git push origin feature/update-publications
-   ```
-
-## 📚 Resources
-
-- [Jekyll Documentation](https://jekyllrb.com/)
-- [GitHub Pages Guide](https://docs.github.com/en/pages)
-- [Markdown Guide](https://www.markdownguide.org/)
-
-## 📧 Support
-
-- **Technical Issues**: Open a [GitHub issue](https://github.com/bonnerlab/website/issues)
-- **Content Questions**: Contact the lab's web maintainer
-- **Research Inquiries**: See contact info on the [website](https://www.bonnerlab.org)
-
-## 📄 License
-
-This project is licensed under the MIT License. The design is based on the Allan Lab template from Leiden University.
+1. Check this README again
+2. Ask a lab member who's done this before
+3. Email the web maintainer
+4. For bugs: Open an [issue on GitHub](https://github.com/bonnerlab/website/issues)
 
 ---
 
-*Last updated: January 2025*
+*Last updated: June 2025*
