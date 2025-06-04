@@ -1,3 +1,4 @@
+# Featured/Highlighted Publications (highlight: 1)
 - title: "High-dimensional structure underlying individual differences in naturalistic visual experience"
   image: 
   description: 
@@ -7,22 +8,22 @@
     display: Preprint (2025)
   highlight: 1
 
-- title: "Universal scale-free representations in human visual cortex"
-  image: scale_free_reps.png
-  description: Is it possible to deeply understand neural representations through dimensionality reduction? Our recent work demonstrates that the visual representations in the human brain require interpretation within high-dimensional spaces. Moreover, we reveal that traditional methods like representational similarity analysis fail to detect this high-dimensional information in cortical activity; instead, a spectral approach is necessary. This research uncovers a vast expanse of uncharted dimensions that conventional techniques have overlooked but may be crucial for decoding the cortical code of human vision.
-  authors: Raj Magesh Gauthaman, Brice Ménard, Michael F. Bonner
-  link:
-    url: https://arxiv.org/abs/2409.06843
-    display: Science Advances (in press)
-  highlight: 1
-
-
 - title: "Universal dimensions of visual representation"
   image: universal_dim.png
   description: We examined whether visual neural networks align with brain representations due to shared constraints or universal features. Analysis of diverse networks revealed shared latent dimensions for image representation. Comparing these to human fMRI data showed brain-aligned representations are universal across networks. This suggests similarities between artificial and biological vision arise from core universal image representations learned convergently.
   authors: Zirui Chen, Michael F. Bonner
   link:
     url: https://arxiv.org/abs/2408.12804
+    display: Science Advances (2025)
+  highlight: 1
+  code: https://github.com/zche377/universal_dimensions
+
+- title: "Universal scale-free representations in human visual cortex"
+  image: scale_free_reps.png
+  description: Is it possible to deeply understand neural representations through dimensionality reduction? Our recent work demonstrates that the visual representations in the human brain require interpretation within high-dimensional spaces. Moreover, we reveal that traditional methods like representational similarity analysis fail to detect this high-dimensional information in cortical activity; instead, a spectral approach is necessary. This research uncovers a vast expanse of uncharted dimensions that conventional techniques have overlooked but may be crucial for decoding the cortical code of human vision.
+  authors: Raj Magesh Gauthaman, Brice Ménard, Michael F. Bonner
+  link:
+    url: https://arxiv.org/abs/2409.06843
     display: Arxiv (2024)
   highlight: 1
 
@@ -31,9 +32,11 @@
   description: We find that untrained convolutional neural networks can produce brain-like visual representations. This challenges the view that extensive training is necessary for such similarities. The key factors are the networks' architecture, specifically how they compress spatial information and expand feature information. This suggests that the basic structure of convolutional networks mimics biological vision constraints, allowing for cortex-like representations even without learning from experience.
   authors: Atlas Kazemian, Eric Elmoznino, Michael F. Bonner
   link:
-    url: https://www.biorxiv.org/content/biorxiv/early/2024/05/14/2024.05.10.593623.full.pdf
+    url: https://www.biorxiv.org/content/10.1101/2024.05.10.593623v2
     display: BioRxiv (2024)
-  highlight: 1  
+  highlight: 1
+  code: https://github.com/akazemian/untrained_models_of_visual_cortex
+  twitter: https://x.com/AtlasKazemian/status/1792247850958754080
 
 - title: "High-performing neural network models of visual cortex benefit from high latent dimensionality"
   image: high_dimensionality.png
@@ -41,9 +44,22 @@
   authors: Eric Elmoznino, Michael F. Bonner
   link:
     url: https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1011792
-    display: PLOS Computational Biology (2023)
-  highlight: 1   
+    display: PLOS Computational Biology (2024)
+  highlight: 1
+  code: https://github.com/EricElmoznino/encoder_dimensionality
 
+- title: Hierarchical organization of social action features along the lateral visual pathway
+  authors: Emalie McMahon, Michael F. Bonner, Leyla Isik
+  image: social_action_features.png
+  description: The lateral stream's organization, thought to be hierarchical like in the ventral and dorsal streams, has not been thoroughly studied for naturalistic, social visuals. We compiled 250 3-second videos of everyday interactions between two people, annotated for visual features from low-level to high-level, including scene properties, social dynamics, and emotional content.
+  link:
+    url: https://pubmed.ncbi.nlm.nih.gov/37918399/
+    display: Cell Current Biology (2023)
+  highlight: 1
+  pdf: papers/hierarchical_org.pdf
+  code: https://osf.io/4j29y/
+
+# Non-highlighted publications (highlight: 0)
 - title: "A spatiotemporal hierarchy for social interaction perception in the lateral visual stream"
   image: 
   description: 
@@ -72,25 +88,16 @@
   highlight: 0
   news1: Visit ^website for tutorial materials.
 
-
-- title: Hierarchical organization of social action features along the lateral visual pathway
-  authors: Emalie McMahon, Michael F. Bonner, Leyla Isik
-  image: social_action_features.png
-  description: The lateral stream's organization, thought to be hierarchical like in the ventral and dorsal streams, has not been thoroughly studied for naturalistic, social visuals. We compiled 250 3-second videos of everyday interactions between two people, annotated for visual features from low-level to high-level, including scene properties, social dynamics, and emotional content.
-  link:
-    url: https://pubmed.ncbi.nlm.nih.gov/37918399/
-    display: Cell Current Biology (2023)
-  highlight: 1 
-
-
 - title: Perceived Distance Alters Memory for Scene Boundaries
   authors: Alon Hafri, Shreya Wadhwa, Michael F. Bonner
   image: perceived_distance.png
   description: What factors determine when visual memories will include details that go beyond perceptual experience? Here, seven experiments (N = 1,100 adults) explored whether spatial scale-specifically, perceived viewing distance-drives boundary extension. We created fake miniatures by exploiting tilt shift, a photographic effect that selectively reduces perceived distance while preserving other scene properties (e.g., making a distant railway appear like a model train). We found that visual memory is modulated by the spatial scale at which the environment is viewed.
   link:
-    url: https://pubmed.ncbi.nlm.nih.gov/36206190/
+    url: https://psyarxiv.com/hy3qs
     display: Psychological Science (2022)
   highlight: 0
+  pdf: https://osf.io/preprints/psyarxiv/hy3qs
+  code: https://osf.io/jrtqw/?view_only=975375af587143bead39dd01dc7307f8
 
 - title: Object representations in the human brain reflect the co-occurrence statistics of vision and language
   authors: Michael F. Bonner, Russell Epstein
@@ -99,25 +106,31 @@
   link:
     url: https://www.nature.com/articles/s41467-021-24368-2
     display: Nature Communications (2021)
-  highlight: 0 
+  highlight: 0
+  pdf: https://www.nature.com/articles/s41467-021-24368-2
+  code: https://osf.io/ug5zd/
+  twitter: https://twitter.com/michaelfbonner/status/1412485639153414144?s=20
 
 - title: "Modeling social vision highlights gaps between deep learning and humans"
   authors: K. Garcia, E. McMahon, C. Conwell, M.F. Bonner, L. Isik
   image: 
   description: 
   link:
-    url: https://openreview.net/forum?id=wAXsx2MYgV
+    url: https://osf.io/4mpd9/download
     display: ICLR (2025)
   highlight: 0
+  pdf: https://osf.io/4mpd9/download
+  twitter: https://x.com/NeuroKathyG/status/1800918510639698227
 
 - title: "Contextual coherence increases perceived numerosity independent of semantic content"
   authors: C. Qu, M.F. Bonner, N.K. DeWind, E.M. Brannon
-  image: 
+  image: context_coherence.png
   description: 
   link:
-    url: https://pubmed.ncbi.nlm.nih.gov/38990676/
+    url: https://psyarxiv.com/tcn8q/
     display: Journal of Vision (2024)
   highlight: 0
+  pdf: https://psyarxiv.com/tcn8q/
 
 - title: "A phone in a basket looks like a knife in a cup: The perception of abstract relations"
   authors: A.A. Hafri, M.F. Bonner, B. Landau, C. Firestone
@@ -127,6 +140,79 @@
     url: https://direct.mit.edu/opmi/article/doi/10.1162/opmi_a_00146/123216/A-Phone-in-a-Basket-Looks-Like-a-Knife-in-a-Cup
     display: Open Mind (2024)
   highlight: 0
+  pdf: https://psyarxiv.com/jx4yg/
+  twitter: https://x.com/AlonHafri/status/1780683523890053444
+
+- title: "Emergent selectivity for scenes, object properties, and contour statistics in feedforward models of scene-preferring cortex"
+  authors: S.P.D. Li, M.F. Bonner
+  image: 
+  description: 
+  link:
+    url: https://www.biorxiv.org/content/10.1101/2021.09.24.461733v2
+    display: bioRxiv (2023)
+  highlight: 0
+  pdf: https://www.biorxiv.org/content/10.1101/2021.09.24.461733v2
+
+- title: "A sparse null code emerges in deep neural networks"
+  authors: B.S. Robinson, N. Drenkow, C. Conwell, M.F. Bonner
+  image: 
+  description: 
+  link:
+    url: https://openreview.net/forum?id=GIuSksGwEp
+    display: NeurIPS UniReps Workshop (2023)
+  highlight: 0
+  pdf: https://openreview.net/forum?id=GIuSksGwEp
+
+- title: "Scene context is predictive of unconstrained object similarity judgments"
+  authors: C. Magri, E. Elmoznino, M.F. Bonner
+  image: 
+  description: 
+  link:
+    url: https://www.sciencedirect.com/science/article/pii/S0010027723001695
+    display: Cognition (2023)
+  highlight: 0
+  pdf: papers/scene_context.pdf
+
+- title: "Scene memories are biased toward high-probability views"
+  authors: F. Lin, A.A. Hafri, M.F. Bonner
+  image: 
+  description: 
+  link:
+    url: https://psyarxiv.com/c3r8j/
+    display: "Journal of Experimental Psychology: Human Perception and Performance (2022)"
+  highlight: 0
+  pdf: https://psyarxiv.com/c3r8j/download
+  code: https://osf.io/y9pue/
+
+- title: "Early electrophysiological markers of navigational affordances in scenes"
+  authors: A. Harel, J. Nador, M.F. Bonner, R.A. Epstein
+  image: navigational_affordances.png
+  description: 
+  link:
+    url: https://ieeexplore.ieee.org/document/9809913
+    display: Journal of Cognitive Neuroscience (2022)
+  highlight: 0
+  pdf: https://ieeexplore.ieee.org/document/9809913
+
+- title: "Unveiling functions of the visual cortex using task-specific deep neural networks"
+  authors: K. Dwivedi, M.F. Bonner, R.M. Cichy, G. Roig
+  image: 
+  description: 
+  link:
+    url: https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1009267
+    display: PLOS Computational Biology (2021)
+  highlight: 0
+  pdf: https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1009267
+
+- title: "Similarly oriented objects appear more numerous"
+  authors: N.K. DeWind, M.F. Bonner, E.M. Brannon
+  image: 
+  description: 
+  link:
+    url: http://s/DeWind-2020-Similarly-oriented-objects-appear-more-numerous.PDF
+    display: Journal of Vision (2020)
+  highlight: 0
+  pdf: http://s/DeWind-2020-Similarly-oriented-objects-appear-more-numerous.PDF
 
 - title: "Visual representations derived from multiplicative interactions"
   authors: E. Elmoznino, M.F. Bonner
@@ -146,3 +232,200 @@
     display: NeurIPS SVRHM Workshop (2020)
   highlight: 0
 
+- title: "Computational mechanisms underlying cortical responses to the affordance properties of visual scenes"
+  authors: M.F. Bonner, R.A. Epstein
+  image: 
+  description: 
+  link:
+    url: http://s/Bonner-2018-Computational-mechanisms-underlying-cortical-responses-to-the-affordance-properties-of-v.PDF
+    display: PLOS Computational Biology (2018)
+  highlight: 0
+  pdf: http://s/Bonner-2018-Computational-mechanisms-underlying-cortical-responses-to-the-affordance-properties-of-v.PDF
+
+- title: "Coding of navigational affordances in the human visual system"
+  authors: M.F. Bonner, R.A. Epstein
+  image: 
+  description: 
+  link:
+    url: http://s/Bonner-2017-Coding-of-navigational-affordances-in-the-human-visual-system-y223.PDF
+    display: Proceedings of the National Academy of Sciences (2017)
+  highlight: 0
+  pdf: http://s/Bonner-2017-Coding-of-navigational-affordances-in-the-human-visual-system-y223.PDF
+  code: https://github.com/NeuromatchAcademy/course-content/blob/master/projects/fMRI/load_bonner_navigational_affordances.ipynb
+
+- title: "Neural coding of fine-grained object knowledge in perirhinal cortex"
+  authors: A.R. Price, M.F. Bonner, J.E. Peelle, M. Grossman
+  image: 
+  description: 
+  link:
+    url: https://www.biorxiv.org/content/early/2017/09/27/194829
+    display: bioRxiv (2017)
+  highlight: 0
+  pdf: https://www.biorxiv.org/content/early/2017/09/27/194829
+
+- title: "Causal evidence for a mechanism of semantic integration in the angular gyrus revealed by high-definition transcranial direct current stimulation (HD-tDCS)"
+  authors: A.R. Price, J.E. Peelle, M.F. Bonner, M. Grossman, R.H. Hamilton
+  image: 
+  description: 
+  link:
+    url: http://s/Price-2016-Causal-Evidence-for-a-Mechanism-of-Semantic-Integration-in-the-Angular-Gyrus-as-Revealed-sxhj.PDF
+    display: Journal of Neuroscience (2016)
+  highlight: 0
+  pdf: http://s/Price-2016-Causal-Evidence-for-a-Mechanism-of-Semantic-Integration-in-the-Angular-Gyrus-as-Revealed-sxhj.PDF
+
+- title: "Semantics of the visual environment encoded in parahippocampal cortex"
+  authors: M.F. Bonner, A.R. Price, J.E. Peelle, M. Grossman
+  image: 
+  description: 
+  link:
+    url: http://s/Bonner-2016-Semantics-of-the-Visual-Environment-Encoded-in-Parahippocampal-Cortex-wylx.PDF
+    display: Journal of Cognitive Neuroscience (2016)
+  highlight: 0
+  pdf: http://s/Bonner-2016-Semantics-of-the-Visual-Environment-Encoded-in-Parahippocampal-Cortex-wylx.PDF
+
+- title: "Semantic memory: cognitive and neuroanatomical perspectives"
+  authors: A.R. Price, M.F. Bonner, M. Grossman
+  image: 
+  description: 
+  link:
+    url: http://s/Price-2015-Semantic-memory-cognitive-and-neuroanatomic-perspectives.PDF
+    display: Brain Mapping - An Encyclopedic Reference (2015)
+  highlight: 0
+  pdf: http://s/Price-2015-Semantic-memory-cognitive-and-neuroanatomic-perspectives.PDF
+
+- title: "Converging evidence for the neuroanatomic basis of combinatorial semantics in the angular gyrus"
+  authors: A.R. Price, M.F. Bonner, J.E. Peelle, M. Grossman
+  image: 
+  description: 
+  link:
+    url: http://s/Price-2015-Converging-Evidence-for-the-Neuroanatomic-Basis-of-Combinatorial-Semantics-in-the-Angular.PDF
+    display: Journal of Neuroscience (2015)
+  highlight: 0
+  pdf: http://s/Price-2015-Converging-Evidence-for-the-Neuroanatomic-Basis-of-Combinatorial-Semantics-in-the-Angular.PDF
+
+- title: "The neural basis of semantic memory"
+  authors: M.F. Bonner, M. Grossman
+  image: 
+  description: 
+  link:
+    url: 
+    display: Dementia and Memory (2014)
+  highlight: 0
+
+- title: "Deficits in semantic memory associated with focal neurodegenerative diseases"
+  authors: M.F. Bonner, M. Grossman
+  image: 
+  description: 
+  link:
+    url: 
+    display: The Boston Process Approach to Neuropsychological Assessment - A Practitioner's Guide (2013)
+  highlight: 0
+
+- title: "Where is the anterior temporal lobe and what does it do?"
+  authors: M.F. Bonner, A.R. Price
+  image: 
+  description: 
+  link:
+    url: http://s/Bonner-2013-Where-Is-the-Anterior-Temporal-Lobe-and-What-Does-It-Do-ssdh.PDF
+    display: Journal of Neuroscience (2013)
+  highlight: 0
+  pdf: http://s/Bonner-2013-Where-Is-the-Anterior-Temporal-Lobe-and-What-Does-It-Do-ssdh.PDF
+
+- title: "Heteromodal conceptual processing in the angular gyrus"
+  authors: M.F. Bonner, J.E. Peelle, P.A. Cook, M. Grossman
+  image: 
+  description: 
+  link:
+    url: http://s/Bonner-2013-Heteromodal-conceptual-processing-in-the-angular-gyrus-a8ft.PDF
+    display: NeuroImage (2013)
+  highlight: 0
+  pdf: http://s/Bonner-2013-Heteromodal-conceptual-processing-in-the-angular-gyrus-a8ft.PDF
+
+- title: "Category-specific semantic memory: Converging evidence from BOLD fMRI and Alzheimer's disease"
+  authors: M. Grossman, J.E. Peelle, E.E. Smith, C.T. McMillan, P. Cook, J. Powers, M. Dreyfuss, M.F. Bonner, L. Richmond, A. Boller, E. Camp, L. Burkholder
+  image: 
+  description: 
+  link:
+    url: http://s/Grossman-2013-Category-specific-semantic-memory-Converging-evidence-from-BOLD-fMRI-and-Alzheimers-di-oqzb.PDF
+    display: NeuroImage (2013)
+  highlight: 0
+  pdf: http://s/Grossman-2013-Category-specific-semantic-memory-Converging-evidence-from-BOLD-fMRI-and-Alzheimers-di-oqzb.PDF
+
+- title: "Gray matter density of auditory association cortex relates to knowledge of sound concepts in primary progressive aphasia"
+  authors: M.F. Bonner, M. Grossman
+  image: 
+  description: 
+  link:
+    url: http://s/Bonner-2012-Gray-Matter-Density-of-Auditory-Association-Cortex-Relates-to-Knowledge-of-Sound-Concept-mz6u.PDF
+    display: Journal of Neuroscience (2012)
+  highlight: 0
+  pdf: http://s/Bonner-2012-Gray-Matter-Density-of-Auditory-Association-Cortex-Relates-to-Knowledge-of-Sound-Concept-mz6u.PDF
+
+- title: "Music and Semantic Dementia--Reply"
+  authors: M. Grossman, M.F. Bonner, J. Weinstein
+  image: 
+  description: 
+  link:
+    url: http://s/Grossman-2011-Music-and-semantic-dementia-reply-z4o7.PDF
+    display: Archives of Neurology (2011)
+  highlight: 0
+  pdf: http://s/Grossman-2011-Music-and-semantic-dementia-reply-z4o7.PDF
+
+- title: "Preserved musical semantic memory in semantic dementia"
+  authors: J. Weinstein, P. Koenig, D. Gunawardena, C. McMillan, M.F. Bonner, M. Grossman
+  image: 
+  description: 
+  link:
+    url: http://s/Weinstein-2011-Preserved-musical-semantic-memory-in-semantic-dementia-c1iq.PDF
+    display: Archives of Neurology (2011)
+  highlight: 0
+  pdf: http://s/Weinstein-2011-Preserved-musical-semantic-memory-in-semantic-dementia-c1iq.PDF
+
+- title: "The new classification of primary progressive aphasia into semantic, logopenic, or nonfluent/agrammatic variants"
+  authors: M.F. Bonner, S. Ash, M. Grossman
+  image: 
+  description: 
+  link:
+    url: http://s/Bonner-2010-The-new-classification-of-PPA-33i6.PDF
+    display: Current Neurology and Neuroscience Reports (2010)
+  highlight: 0
+  pdf: http://s/Bonner-2010-The-new-classification-of-PPA-33i6.PDF
+
+- title: "Hierarchical organization of scripts: converging evidence from fMRI and frontotemporal degeneration"
+  authors: C. Farag, V. Troiani, M.F. Bonner, C. Powers, B. Avants, J. Gee, M. Grossman
+  image: 
+  description: 
+  link:
+    url: http://s/Farag-2010-Hierarchical-organization-of-scripts-fqfh.PDF
+    display: Cerebral Cortex (2010)
+  highlight: 0
+  pdf: http://s/Farag-2010-Hierarchical-organization-of-scripts-fqfh.PDF
+
+- title: "Reversal of the concreteness effect in semantic dementia"
+  authors: M.F. Bonner, L. Vesely, C. Price, C. Anderson, L. Richmond, C. Farag, B. Avants, M. Grossman
+  image: 
+  description: 
+  link:
+    url: http://s/Bonner-2009-Reversal-of-the-concreteness-2yzf.PDF
+    display: Cognitive Neuropsychology (2009)
+  highlight: 0
+  pdf: http://s/Bonner-2009-Reversal-of-the-concreteness-2yzf.PDF
+
+- title: "Free association in semantic dementia: The importance of being abstract"
+  authors: L. Vesely, M.F. Bonner, J. Reilly, M. Grossman
+  image: 
+  description: 
+  link:
+    url: 
+    display: Brain and Language (2007)
+  highlight: 0
+
+- title: "HP1 proteins are essential for a dynamic nuclear response that rescues the function of perturbed heterochromatin in primary human cells"
+  authors: R. Zhang, S.T. Liu, W. Chen, M.F. Bonner, J. Pehrson, T.J. Yen, P.D. Adams
+  image: 
+  description: 
+  link:
+    url: http://s/Zhang-2007-HP1-proteins-are-essential-for-a-dynamic-nuclear-response-that-rescues-the-function-of-pe-7aub.PDF
+    display: Molecular and Cellular Biology (2007)
+  highlight: 0
+  pdf: http://s/Zhang-2007-HP1-proteins-are-essential-for-a-dynamic-nuclear-response-that-rescues-the-function-of-pe-7aub.PDF
