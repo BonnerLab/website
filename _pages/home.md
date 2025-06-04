@@ -52,7 +52,7 @@ Welcome to the Bonner Lab at the [Cognitive Science Department](https://cogsci.j
   </a>
 </div>
 
-Our goal is to uncover the core statistical principles governing visual representation in the brain. Our recent investigations have revealed that these representations are intrinsically high-dimensional and that new theoretical perspectives and methods are needed to understand the full complexity of human brain representations. These findings challenge traditional views of neural representations as low-dimensional objects, and they have inspired new directions of research into the computational and neural underpinnings of biological vision. Our ongoing work builds on these discoveries and seeks to push neuroscience research beyond the characterization of a handful of representational dimensions and toward a more comprehensive understanding of how the human brain operates in high dimensions.
+Our goal is to **uncover the core statistical principles governing visual representation** in the brain. Our [recent investigations](https://arxiv.org/abs/2409.06843) have revealed that these representations are intrinsically high-dimensional and that new theoretical perspectives and methods are needed to understand the full complexity of human brain representations. These findings challenge traditional views of neural representations as low-dimensional objects, and they have inspired new directions of research into the computational and neural underpinnings of biological vision. Our ongoing work builds on these discoveries and seeks to push neuroscience research beyond the characterization of a handful of representational dimensions and toward a more comprehensive understanding of how the human brain operates in high dimensions.
 
 
 <figure class="fourth">
