@@ -103,100 +103,121 @@ layout: default
   
   // Brain formation - traced from reference image
   function getBrainPosition(index, total, centerX, centerY) {
-    const brainWidth = Math.min(canvas.width * 0.6, 180);
-    const brainHeight = Math.min(canvas.height * 0.5, 150);
+    const brainWidth = Math.min(canvas.width * 0.65, 190); // Slightly wider for more detail
+    const brainHeight = Math.min(canvas.height * 0.55, 160); // Slightly taller
     
     const t = index / total;
     
     let x, y;
     
-    if (t < 0.7) {
-      // Main brain outline - manually traced points
-      const outlineT = t / 0.7;
+    // New particle allocation:
+    // Outline: 0% - 65%
+    // Cerebellum: 65% - 80%
+    // Brain Stem: 80% - 88%
+    // Internal Folds: 88% - 100%
+
+    if (t < 0.65) { // Main brain outline (65% of particles)
+      const outlineT = t / 0.65;
       
-      // Define key points for brain outline (normalized -0.5 to 0.5)
       const brainPoints = [
-        // Start at front bottom (temporal lobe)
-        {x: 0.3, y: 0.25},
-        {x: 0.35, y: 0.15},
-        {x: 0.4, y: 0.05},
-        {x: 0.42, y: -0.05},
-        // Frontal lobe bulge
-        {x: 0.43, y: -0.15},
-        {x: 0.4, y: -0.25},
-        {x: 0.35, y: -0.35},
-        // Top front
-        {x: 0.25, y: -0.42},
-        {x: 0.15, y: -0.45},
-        // Top
-        {x: 0.05, y: -0.47},
-        {x: -0.05, y: -0.47},
-        {x: -0.15, y: -0.45},
-        // Back top
-        {x: -0.25, y: -0.4},
-        {x: -0.32, y: -0.32},
-        // Occipital lobe
-        {x: -0.38, y: -0.2},
-        {x: -0.4, y: -0.1},
-        {x: -0.4, y: 0},
-        {x: -0.38, y: 0.1},
-        // Bottom back (above cerebellum)
-        {x: -0.35, y: 0.2},
-        {x: -0.3, y: 0.25},
-        // Under temporal area
-        {x: -0.2, y: 0.3},
-        {x: -0.1, y: 0.32},
-        {x: 0, y: 0.33},
-        {x: 0.1, y: 0.32},
-        {x: 0.2, y: 0.3},
-        // Close the loop
-        {x: 0.3, y: 0.25}
+        // Start at front-bottom of temporal lobe, moving upwards along anterior edge
+        {x: 0.25, y: 0.35},  // 0: Temporal lobe base, anterior
+        {x: 0.35, y: 0.20},  // 1: Rising edge of temporal
+        {x: 0.42, y: 0.05},  // 2: Approaching frontal lobe (Sylvian fissure area low)
+        {x: 0.48, y: -0.10}, // 3: Lower frontal lobe prominence
+        // Frontal lobe - more pronounced curve
+        {x: 0.45, y: -0.25}, // 4: Mid-frontal
+        {x: 0.35, y: -0.40}, // 5: Upper frontal
+        {x: 0.20, y: -0.48}, // 6: Superior frontal peak
+        // Parietal lobe - top of brain
+        {x: 0.05, y: -0.50}, // 7: Mid-superior (highest point)
+        {x: -0.10, y: -0.48},// 8: Posterior-superior
+        {x: -0.25, y: -0.42},// 9: Descending parietal
+        // Occipital lobe - posterior bulge
+        {x: -0.38, y: -0.30},// 10: Upper occipital
+        {x: -0.45, y: -0.10},// 11: Max occipital bulge
+        {x: -0.42, y: 0.10}, // 12: Lower occipital - where cerebrum starts to curve over cerebellum
+        // Inferior edge, leading to cerebellum/brainstem junction - REFINED for less overlap
+        {x: -0.36, y: 0.15}, // 13: Further Raised cerebrum curve OVER cerebellum (was 0.18)
+        {x: -0.22, y: 0.33}, // 14: Adjusted curve into temporal base from higher point 13 (was x:-0.20, y:0.35)
+        // Temporal lobe - inferior surface, curving back to start
+        {x: -0.12, y: 0.42}, // 15: 
+        {x: 0.05,  y: 0.40}, // 16: Mid-inferior
+        {x: 0.15,  y: 0.38}, // 17: Anterior-inferior temporal
+        {x: 0.25, y: 0.35}   // 18: Close loop (match point 0)
       ];
       
-      // Interpolate between points
       const totalPoints = brainPoints.length - 1;
       const pointIndex = Math.min(Math.floor(outlineT * totalPoints), totalPoints - 1);
       const localT = (outlineT * totalPoints) - pointIndex;
-      
       const p1 = brainPoints[pointIndex];
       const p2 = brainPoints[pointIndex + 1];
-      
-      // Smooth interpolation
-      const smoothT = localT * localT * (3 - 2 * localT);
+      const smoothT = localT * localT * (3 - 2 * localT); // Cubic easing
       
       x = centerX + (p1.x + (p2.x - p1.x) * smoothT) * brainWidth;
       y = centerY + (p1.y + (p2.y - p1.y) * smoothT) * brainHeight;
       
-    } else if (t < 0.82) {
-      // Cerebellum
-      const cerebT = (t - 0.7) / 0.12;
+    } else if (t < 0.80) { // Cerebellum (15% of particles: 0.65 to 0.80)
+      const cerebT = (t - 0.65) / 0.15; // Normalized 0-1 for cerebellum particles
+
+      const numLayers = 3;
+      const layer = Math.floor(cerebT * numLayers); // 0, 1, 2
+      const progressInLayer = (cerebT * numLayers) % 1;
+
+      // Position cerebellum more tucked under the brain, and further down
+      const baseX = centerX - brainWidth * 0.18; // Adjusted X for centering (was 0.19)
+      const baseY = centerY + brainHeight * 0.38; // Lowered cerebellum base further (was 0.36)
+
+      const layerWidth = brainWidth * 0.23; // Slightly adjusted width (was 0.24)
+      const layerHeightSeparation = brainHeight * 0.040; // Increased separation (was 0.038)
+      const arcDepth = brainHeight * 0.055; // Kept arc depth moderate
+
+      // Particles in each layer form a downward arc
+      // progressInLayer goes from 0 to 1. We want peak of arc at 0.5.
+      const xOffset = (progressInLayer - 0.5) * layerWidth; // from -layerWidth/2 to +layerWidth/2
+      const yOffset = Math.sin(progressInLayer * Math.PI) * arcDepth; // 0 at ends, arcDepth at middle
+
+      x = baseX + xOffset;
+      y = baseY + layer * layerHeightSeparation + yOffset;
       
-      // Simple cerebellum shape at bottom back
-      const layer = Math.floor(cerebT * 3);
-      const layerT = (cerebT * 3) % 1;
+    } else if (t < 0.88) { // Brain stem (8% of particles: 0.80 to 0.88)
+      const stemT = (t - 0.80) / 0.08; // Normalized 0-1 for stem particles
       
-      x = centerX - brainWidth * 0.3 + layerT * brainWidth * 0.1;
-      y = centerY + brainHeight * 0.3 + (layer - 1) * brainHeight * 0.03;
+      // Position brainstem emerging clearly below other structures
+      const stemTopX = centerX - brainWidth * 0.07; // Fine-tuned X (was 0.075)
+      const stemTopY = centerY + brainHeight * 0.48;  // Lowered stem top significantly (was 0.45)
       
-    } else if (t < 0.9) {
-      // Brain stem
-      const stemT = (t - 0.82) / 0.08;
+      const stemLength = brainHeight * 0.13; // Reduced length (was 0.14)
       
-      x = centerX - brainWidth * 0.1;
-      y = centerY + brainHeight * 0.38 + stemT * brainHeight * 0.12;
+      // Keeping stem simple: a vertical line of particles
+      x = stemTopX;
+      y = stemTopY + stemT * stemLength;
       
-    } else {
-      // Internal folds - simple curved lines
-      const internalT = (t - 0.9) / 0.1;
+    } else { // Internal Folds (12% of particles: 0.88 to 1.00)
+      const internalT = (t - 0.88) / 0.12; 
       
-      if (internalT < 0.5) {
-        const foldT = internalT * 2;
-        x = centerX - brainWidth * 0.2 + foldT * brainWidth * 0.3;
-        y = centerY - brainHeight * 0.15 + Math.sin(foldT * Math.PI) * brainHeight * 0.05;
-      } else {
-        const foldT = (internalT - 0.5) * 2;
-        x = centerX - brainWidth * 0.15 + foldT * brainWidth * 0.25;
-        y = centerY + brainHeight * 0.05 + Math.sin(foldT * Math.PI) * brainHeight * 0.04;
+      // Two main internal folds, more curved and integrated
+      if (internalT < 0.5) { // First fold (e.g., superior, 6% of particles)
+        const foldT = internalT * 2; // 0-1 for this fold
+        
+        const x_start1 = -0.30 * brainWidth; 
+        const x_len1 = 0.60 * brainWidth; // Wider fold
+        const y_center1 = -0.12 * brainHeight; // Slightly higher central axis
+        const y_amp1 = 0.05 * brainHeight; // Amplitude of the wave
+        
+        x = centerX + x_start1 + foldT * x_len1;
+        y = centerY + y_center1 + Math.sin(foldT * Math.PI * 3) * y_amp1; // 1.5 sine waves for a wavy line
+
+      } else { // Second fold (e.g., inferior/middle, 6% of particles)
+        const foldT = (internalT - 0.5) * 2; // 0-1 for this fold
+        
+        const x_start2 = -0.25 * brainWidth; 
+        const x_len2 = 0.50 * brainWidth; // Slightly shorter, offset start
+        const y_center2 = 0.03 * brainHeight; // Lower central axis for separation
+        const y_amp2 = 0.045 * brainHeight; // Slightly smaller amplitude
+        
+        x = centerX + x_start2 + foldT * x_len2;
+        y = centerY + y_center2 + Math.sin(foldT * Math.PI * 2.5) * y_amp2; // 1.25 sine waves, different character
       }
     }
     
@@ -518,8 +539,8 @@ layout: default
       ctx.strokeStyle = `rgba(120, 120, 120, ${0.3 * transitionProgress})`;
       ctx.lineWidth = 0.8;
       
-      // Connect outline points (first 70% of particles)
-      const outlineCount = Math.floor(particles.length * 0.7);
+      // Connect outline points (first 65% of particles)
+      const outlineCount = Math.floor(particles.length * 0.65);
       for (let i = 0; i < outlineCount - 1; i++) {
         ctx.beginPath();
         ctx.moveTo(particles[i].x, particles[i].y);
@@ -535,26 +556,55 @@ layout: default
       }
       
       // Connect cerebellum layers with distinctive pattern
-      const cerebStart = Math.floor(particles.length * 0.7);
-      const cerebEnd = Math.floor(particles.length * 0.82);
-      ctx.strokeStyle = `rgba(100, 100, 100, ${0.25 * transitionProgress})`;
-      ctx.lineWidth = 0.6;
-      
-      for (let i = cerebStart; i < cerebEnd - 4; i += 4) {
-        // Horizontal ridges for cerebellum
-        for (let j = 0; j < 4 && i + j < cerebEnd; j++) {
-          if (i + j + 1 < cerebEnd) {
-            ctx.beginPath();
-            ctx.moveTo(particles[i + j].x, particles[i + j].y);
-            ctx.lineTo(particles[i + j + 1].x, particles[i + j + 1].y);
-            ctx.stroke();
+      // Cerebellum particles are from 65% to 80%
+      const cerebStart = Math.floor(particles.length * 0.65);
+      const cerebEnd = Math.floor(particles.length * 0.80);
+      const numCerebParticles = cerebEnd - cerebStart;
+      const numCerebLayers = 3; // Must match getBrainPosition
+      const particlesPerLayer = numCerebParticles > 0 && numCerebLayers > 0 ? Math.max(1, Math.floor(numCerebParticles / numCerebLayers)) : 0;
+
+      if (particlesPerLayer > 1) { // Need at least 2 particles to draw a line
+        // Horizontal connections within each layer
+        ctx.strokeStyle = `rgba(100, 100, 100, ${0.25 * transitionProgress})`;
+        ctx.lineWidth = 0.6;
+        for (let l = 0; l < numCerebLayers; l++) {
+          const layerParticleStartIndex = cerebStart + l * particlesPerLayer;
+          for (let i = 0; i < particlesPerLayer - 1; i++) {
+            const p1Index = layerParticleStartIndex + i;
+            const p2Index = layerParticleStartIndex + i + 1;
+            // Ensure p2Index does not exceed the particles allocated for the current layer or cerebellum bounds
+            if (p1Index < cerebEnd && p2Index < cerebEnd && p2Index < (layerParticleStartIndex + particlesPerLayer)) {
+              if (particles[p1Index] && particles[p2Index]) {
+                     ctx.beginPath();
+                     ctx.moveTo(particles[p1Index].x, particles[p1Index].y);
+                     ctx.lineTo(particles[p2Index].x, particles[p2Index].y);
+                     ctx.stroke();
+                }
+              }
+            }
           }
-        }
+
+          // Vertical connections between layers
+          ctx.strokeStyle = `rgba(100, 100, 100, ${0.20 * transitionProgress})`;
+          ctx.lineWidth = 0.5;
+          for (let l = 0; l < numCerebLayers - 1; l++) {
+              for (let i = 0; i < particlesPerLayer; i++) {
+                  const p1Index = cerebStart + l * particlesPerLayer + i;
+                  const p2Index = cerebStart + (l + 1) * particlesPerLayer + i;
+                  if (p1Index < cerebEnd && p2Index < cerebEnd && particles[p1Index] && particles[p2Index]) {
+                      ctx.beginPath();
+                      ctx.moveTo(particles[p1Index].x, particles[p1Index].y);
+                      ctx.lineTo(particles[p2Index].x, particles[p2Index].y);
+                      ctx.stroke();
+                  }
+              }
+          }
       }
       
       // Connect brain stem
-      const stemStart = Math.floor(particles.length * 0.82);
-      const stemEnd = Math.floor(particles.length * 0.9);
+      // Brain stem particles are from 80% to 88%
+      const stemStart = Math.floor(particles.length * 0.80);
+      const stemEnd = Math.floor(particles.length * 0.88);
       ctx.strokeStyle = `rgba(110, 110, 110, ${0.2 * transitionProgress})`;
       for (let i = stemStart; i < stemEnd - 1; i++) {
         ctx.beginPath();
@@ -564,25 +614,33 @@ layout: default
       }
       
       // Draw internal brain folds
-      const foldsStart = Math.floor(particles.length * 0.9);
-      const foldsEnd = particles.length;
-      ctx.strokeStyle = `rgba(90, 90, 90, ${0.15 * transitionProgress})`;
-      ctx.lineWidth = 0.8;
+      // Internal fold particles are from 88% to 100%
+      const foldsStart = Math.floor(particles.length * 0.88);
+      const foldsEnd = particles.length; // Goes to the end of particle list
+      ctx.strokeStyle = `rgba(90, 90, 90, ${0.25 * transitionProgress})`; // Slightly more visible
+      ctx.lineWidth = 0.9; // Slightly thicker
       
-      // Connect points in each fold
-      const foldSize = Math.floor((foldsEnd - foldsStart) / 3);
-      for (let fold = 0; fold < 3; fold++) {
-        const foldStart = foldsStart + fold * foldSize;
-        const foldEnd = Math.min(foldStart + foldSize, foldsEnd);
-        
-        // Draw each fold as a connected line
-        if (foldEnd - foldStart > 1) {
-          ctx.beginPath();
-          ctx.moveTo(particles[foldStart].x, particles[foldStart].y);
-          for (let i = foldStart + 1; i < foldEnd; i++) {
-            ctx.lineTo(particles[i].x, particles[i].y);
+      const numInternalFolds = 2; 
+      const particlesForFolds = foldsEnd - foldsStart;
+      const foldSize = particlesForFolds > 0 && numInternalFolds > 0 ? Math.max(1, Math.floor(particlesForFolds / numInternalFolds)) : 0;
+
+      if (foldSize > 1) { // Need at least 2 particles to draw a line
+        for (let fold = 0; fold < numInternalFolds; fold++) {
+          const foldStartParticleIndex = foldsStart + fold * foldSize;
+          const foldEndParticleIndex = Math.min(foldStartParticleIndex + foldSize, foldsEnd);
+          
+          if (foldEndParticleIndex - foldStartParticleIndex > 1) {
+            ctx.beginPath();
+            if (particles[foldStartParticleIndex]) { // Check if particle exists
+                ctx.moveTo(particles[foldStartParticleIndex].x, particles[foldStartParticleIndex].y);
+            }
+            for (let i = foldStartParticleIndex + 1; i < foldEndParticleIndex; i++) {
+              if (particles[i]) { // Check if particle exists
+                  ctx.lineTo(particles[i].x, particles[i].y);
+              }
+            }
+            ctx.stroke();
           }
-          ctx.stroke();
         }
       }
       
