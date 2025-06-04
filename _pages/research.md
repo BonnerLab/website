@@ -52,6 +52,4 @@ permalink: /research/
    - **Summary:** 
      Deep neural networks (DNNs) are the leading computational models of visual cortex but are trained using biologically implausible backpropagation. We are developing an algorithm for building a hierarchy of visual features using only local unsupervised learning, without backpropagation. Our work identifies a new approach for learning a visual hierarchy consistent with principles of learning in biology, requires no labels or tasks, and may sufficiently account for a large fraction of visual cortex representations.
 
-![]({{ site.url }}{{ site.baseurl }}/images/respic/SciPost.png){: style="width: 70%; float: center; margin: 0px"}
-
 

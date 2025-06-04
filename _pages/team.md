@@ -6,15 +6,17 @@ sitemap: false
 permalink: /team/
 ---
 
+<div class="team-page">
+
 # Group Members
 
  <!-- **We are  looking for new PhD students, Postdocs, and Master students to join the team** [(see openings)]({{ site.url }}{{ site.baseurl }}/vacancies) **!** -->
 
 
-Jump to [Staff](#staff), [Hopkins students](#hopkins-students), [Alumni](#alumni), [Collaborators](#collaborators), [Former students](#former-hopkins-students), [Administrative support](#administrative-support)
+Jump to [Staff](#staff), [Alumni](#alumni), [Collaborators](#collaborators), [Former students](#former-hopkins-students), [Administrative support](#administrative-support)
 
 
-## Principal Investigator
+<div class="team-section team-pi">
 {% assign number_printed = 0 %}
 {% for member in site.data.team_lead %}
 
@@ -26,7 +28,7 @@ Jump to [Staff](#staff), [Hopkins students](#hopkins-students), [Alumni](#alumni
 
 
 <div class="col-sm-6 clearfix">
-<img src="{{ site.url }}{{ site.baseurl }}/images/teampic/{{ member.photo }}" class="img-responsive" width="35%" style="float: left" />
+<img src="{{ site.url }}{{ site.baseurl }}/images/teampic/{{ member.photo }}" class="img-responsive" style="float: left" />
 <h3>{{ member.name }}</h3>
   <i>{{ member.role }}<br>
   <i>{{ member.info }}</i><br>
@@ -77,9 +79,10 @@ Jump to [Staff](#staff), [Hopkins students](#hopkins-students), [Alumni](#alumni
 {% if even_odd == 1 %}
 </div>
 {% endif %}
-
+</div>
 
 ## Staff
+<div class="team-section team-staff">
 {% assign number_printed = 0 %}
 {% for member in site.data.team_members %}
 
@@ -91,7 +94,7 @@ Jump to [Staff](#staff), [Hopkins students](#hopkins-students), [Alumni](#alumni
 
 
 <div class="col-sm-6 clearfix">
-<img src="{{ site.url }}{{ site.baseurl }}/images/teampic/{{ member.photo }}" class="img-responsive" width="30%" style="float: left" />
+<img src="{{ site.url }}{{ site.baseurl }}/images/teampic/{{ member.photo }}" class="img-responsive" style="float: left" />
 <h4>{{ member.name }}</h4>
 <i>{{ member.role }}</i>
 <div style="display: flex; align-items: center;">
@@ -138,82 +141,11 @@ Jump to [Staff](#staff), [Hopkins students](#hopkins-students), [Alumni](#alumni
 {% if even_odd == 1 %}
 </div>
 {% endif %}
-
-
-
-## Bsc / Master students
-{% assign number_printed = 0 %}
-{% for member in site.data.students %}
-
-{% assign even_odd = number_printed | modulo: 2 %}
-
-{% if even_odd == 0 %}
-<div class="row">
-{% endif %}
-
-
-<div class="col-sm-6 clearfix">
-<img src="{{ site.url }}{{ site.baseurl }}/images/teampic/{{ member.photo }}" class="img-responsive" width="25%" style="float: left" />
-<h4>{{ member.name }}</h4>
-{% if member.email %}
-  <i>{{ member.info }}<br>email: <a href="mailto:{{ member.email }}">{{ member.email }}</a></i>
-{% else %}
-  <i>{{ member.info }}</i>
-{% endif %}
-<ul style="overflow: hidden">
-
-
-
-  {% if member.number_educ == 1 %}
-  <li> {{ member.education1 }} </li>
-  {% endif %}
-
-  {% if member.number_educ == 2 %}
-  <li> {{ member.education1 | markdownify}} </li>
-  <li> {{ member.education2 | markdownify}} </li>
-  {% endif %}
-
-  {% if member.number_educ == 3 %}
-  <li> {{ member.education1 }} </li>
-  <li> {{ member.education2 }} </li>
-  <li> {{ member.education3 }} </li>
-  {% endif %}
-
-  {% if member.number_educ == 4 %}
-  <li> {{ member.education1 }} </li>
-  <li> {{ member.education2 }} </li>
-  <li> {{ member.education3 }} </li>
-  <li> {{ member.education4 }} </li>
-  {% endif %}
-
-  {% if member.number_educ == 5 %}
-  <li> {{ member.education1 }} </li>
-  <li> {{ member.education2 }} </li>
-  <li> {{ member.education3 }} </li>
-  <li> {{ member.education4 }} </li>
-  <li> {{ member.education5 }} </li>
-  {% endif %}
-
-  </ul>
 </div>
-
-{% assign number_printed = number_printed | plus: 1 %}
-
-{% if even_odd == 1 %}
-</div>
-{% endif %}
-
-{% endfor %}
-
-{% assign even_odd = number_printed | modulo: 2 %}
-{% if even_odd == 1 %}
-</div>
-{% endif %}
-
-
 
 
 ## Alumni
+<div class="team-section team-alumni">
 
 {% assign number_printed = 0 %}
 {% for member in site.data.alumni_members %}
@@ -225,11 +157,14 @@ Jump to [Staff](#staff), [Hopkins students](#hopkins-students), [Alumni](#alumni
 {% endif %}
 
 <div class="col-sm-6 clearfix">
-  <img src="{{ site.url }}{{ site.baseurl }}/images/teampic/{{ member.photo }}" class="img-responsive" width="25%" style="float: left" />
+  <img src="{{ site.url }}{{ site.baseurl }}/images/teampic/{{ member.photo }}" class="img-responsive" style="float: left" />
   <h4>{{ member.name }}</h4>
-  <i>{{ member.duration }} <br> Current Role: </i><strong>{{ member.info }}</strong>
-  <br>
-  <a href="{{ member.website }}" target="_blank">website</a>
+  {% assign duration_parts = member.duration | split: ", " %}
+  {% assign role_part = duration_parts[0] %}
+  {% assign date_part = duration_parts[1] %}
+  <p><i><span class="alumni-role">{{ role_part }}</span><span class="alumni-dates">, {{ date_part }}</span></i></p>
+  <p>Current Role: <strong>{{ member.info }}</strong></p>
+  <p><a href="{{ member.website }}" target="_blank">website</a></p>
   <ul style="overflow: hidden">
   
   </ul>
@@ -248,7 +183,7 @@ Jump to [Staff](#staff), [Hopkins students](#hopkins-students), [Alumni](#alumni
 {% if even_odd == 1 %}
 </div>
 {% endif %}
-
+</div>
 
 ## Collaborators
 {% assign number_printed = 0 %}
@@ -262,7 +197,7 @@ Jump to [Staff](#staff), [Hopkins students](#hopkins-students), [Alumni](#alumni
 
 <div class="col-sm-6 clearfix">
   <h4>{{ member.name }}</h4>
-  <i>{{ member.info }} <!-- <br>email: <{{ member.email }}></i> -->
+  <i>{{ member.info }}</i> <!-- <br>email: <{{ member.email }}> -->
   <ul style="overflow: hidden">
 
   {% if member.number_educ == 1 %}
@@ -315,9 +250,18 @@ Jump to [Staff](#staff), [Hopkins students](#hopkins-students), [Alumni](#alumni
 
 <div class="col-sm-6 clearfix">
 <h4>Master students</h4>
-{% for member in site.data.alumni_msc %}
+<div class="row">
+<div class="col-sm-6">
+{% for member in site.data.alumni_msc limit:4 %}
 {{ member.name }}
 {% endfor %}
+</div>
+<div class="col-sm-6">
+{% for member in site.data.alumni_msc offset:4 %}
+{{ member.name }}
+{% endfor %}
+</div>
+</div>
 </div>
 
 </div>
@@ -325,3 +269,5 @@ Jump to [Staff](#staff), [Hopkins students](#hopkins-students), [Alumni](#alumni
 
 ## Administrative Support
 <a href="mailto:sciotol3@jhu.edu">Sarah Ciotola</a> and <a href="mailto:csampso7@jhu.edu">Chamera Sampson</a> are helping us (and other groups) with administration.
+
+</div>

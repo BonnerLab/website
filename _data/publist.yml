@@ -1,10 +1,19 @@
+- title: "High-dimensional structure underlying individual differences in naturalistic visual experience"
+  image: 
+  description: 
+  authors: Chihye Han, Michael F. Bonner
+  link:
+    url: 
+    display: Preprint (2025)
+  highlight: 1
+
 - title: "Universal scale-free representations in human visual cortex"
   image: scale_free_reps.png
   description: Is it possible to deeply understand neural representations through dimensionality reduction? Our recent work demonstrates that the visual representations in the human brain require interpretation within high-dimensional spaces. Moreover, we reveal that traditional methods like representational similarity analysis fail to detect this high-dimensional information in cortical activity; instead, a spectral approach is necessary. This research uncovers a vast expanse of uncharted dimensions that conventional techniques have overlooked but may be crucial for decoding the cortical code of human vision.
   authors: Raj Magesh Gauthaman, Brice Ménard, Michael F. Bonner
   link:
     url: https://arxiv.org/abs/2409.06843
-    display: Arxiv (2024)
+    display: Science Advances (in press)
   highlight: 1
 
 
@@ -35,6 +44,24 @@
     display: PLOS Computational Biology (2023)
   highlight: 1   
 
+- title: "A spatiotemporal hierarchy for social interaction perception in the lateral visual stream"
+  image: 
+  description: 
+  authors: Emalie McMahon, Elizabeth Jiwon Im, Michael F. Bonner, Leyla Isik
+  link:
+    url: https://psyarxiv.com/
+    display: PsyArXiv (2025)
+  highlight: 0
+
+- title: "Neural networks and brains share the gist but not the details: a surprising benefit of image ensembles for encoding models of visual cortex"
+  image: 
+  description: 
+  authors: Yingqi Rong, Colin Conwell, Michael F. Bonner
+  link:
+    url: 
+    display: CCN Proceedings (in press)
+  highlight: 0
+
 - title: "TUTORIAL: A High-Dimensional View of Neuroscience."
   image: mick_ccn.png
   description: With technological advances allowing us to capture neural responses to thousands of stimuli across numerous channels (e.g., human fMRI, mouse two-photon imaging, monkey neuropixel probes), we face the challenge of analyzing vast, costly datasets. We must consider which computational tools are best suited for high-dimensional neural representation studies and what theoretical insights we can derive about neural representations from these large-scale datasets.
@@ -42,7 +69,7 @@
   link:
     url: https://bonnerlab.github.io/ccn-tutorial/
     display: Cognitive Computational Neuroscience (2023)
-  highlight: 1
+  highlight: 0
   news1: Visit ^website for tutorial materials.
 
 
@@ -63,7 +90,7 @@
   link:
     url: https://pubmed.ncbi.nlm.nih.gov/36206190/
     display: Psychological Science (2022)
-  highlight: 1
+  highlight: 0
 
 - title: Object representations in the human brain reflect the co-occurrence statistics of vision and language
   authors: Michael F. Bonner, Russell Epstein
@@ -72,5 +99,50 @@
   link:
     url: https://www.nature.com/articles/s41467-021-24368-2
     display: Nature Communications (2021)
-  highlight: 1
+  highlight: 0 
+
+- title: "Modeling social vision highlights gaps between deep learning and humans"
+  authors: K. Garcia, E. McMahon, C. Conwell, M.F. Bonner, L. Isik
+  image: 
+  description: 
+  link:
+    url: https://openreview.net/forum?id=wAXsx2MYgV
+    display: ICLR (2025)
+  highlight: 0
+
+- title: "Contextual coherence increases perceived numerosity independent of semantic content"
+  authors: C. Qu, M.F. Bonner, N.K. DeWind, E.M. Brannon
+  image: 
+  description: 
+  link:
+    url: https://pubmed.ncbi.nlm.nih.gov/38990676/
+    display: Journal of Vision (2024)
+  highlight: 0
+
+- title: "A phone in a basket looks like a knife in a cup: The perception of abstract relations"
+  authors: A.A. Hafri, M.F. Bonner, B. Landau, C. Firestone
+  image: 
+  description: 
+  link:
+    url: https://direct.mit.edu/opmi/article/doi/10.1162/opmi_a_00146/123216/A-Phone-in-a-Basket-Looks-Like-a-Knife-in-a-Cup
+    display: Open Mind (2024)
+  highlight: 0
+
+- title: "Visual representations derived from multiplicative interactions"
+  authors: E. Elmoznino, M.F. Bonner
+  image: 
+  description: 
+  link:
+    url: 
+    display: NeurIPS SVRHM Workshop (2020)
+  highlight: 0
+
+- title: "Curvature as an Organizing Principle of Mid-level Visual Representation: A Semantic-preference Mapping Approach"
+  authors: S.P.D. Li, M.F. Bonner
+  image: 
+  description: 
+  link:
+    url: 
+    display: NeurIPS SVRHM Workshop (2020)
+  highlight: 0
 

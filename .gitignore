@@ -2,3 +2,5 @@ _site
 .sass-cache
 .jekyll-metadata
 CLAUDE.md
+vendor/bundle
+.bundle

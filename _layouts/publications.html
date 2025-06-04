@@ -1,6 +1,204 @@
 ---
 layout: default
 ---
-<div id="publications" class="col-sm-12">
-  {{ content }}
+<div id="gridid" class="col-sm-12">
+  <style>
+/* Publications Search and Filter Styling */
+.pub-search-container {
+	background: #f8f9fa;
+	border-radius: 8px;
+	padding: 20px;
+	margin-bottom: 30px;
+	box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+}
+
+.pub-search {
+	width: 100%;
+	padding: 12px 20px;
+	border: 1px solid #ddd;
+	border-radius: 25px;
+	font-size: 16px;
+	outline: none;
+	transition: all 0.3s ease;
+}
+
+.pub-search:focus {
+	border-color: #007bff;
+	box-shadow: 0 0 0 3px rgba(0,123,255,0.1);
+}
+
+.pub-filters {
+	margin-top: 15px;
+	display: flex;
+	gap: 10px;
+	flex-wrap: wrap;
+}
+
+.pub-filter-btn {
+	padding: 6px 16px;
+	border: 1px solid #ddd;
+	background: white;
+	border-radius: 20px;
+	cursor: pointer;
+	font-size: 14px;
+	transition: all 0.2s ease;
+}
+
+.pub-filter-btn:hover {
+	background: #f8f9fa;
+	border-color: #007bff;
+}
+
+.pub-filter-btn.active {
+	background: #007bff;
+	color: white;
+	border-color: #007bff;
+}
+
+.pub-stats {
+	text-align: right;
+	color: #6c757d;
+	font-size: 14px;
+	margin-top: 10px;
+}
+
+/* Publications List Styling */
+.publications-list {
+	margin-top: 30px;
+}
+
+.pub-entry {
+	padding: 20px;
+	margin-bottom: 15px;
+	background: white;
+	border-radius: 8px;
+	box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+	transition: all 0.3s ease;
+}
+
+.pub-entry:hover {
+	box-shadow: 0 4px 8px rgba(0,0,0,0.12);
+	transform: translateY(-2px);
+}
+
+.pub-header {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	margin-bottom: 10px;
+}
+
+.pub-year-badge {
+	background: #e9ecef;
+	color: #495057;
+	padding: 6px 12px;
+	border-radius: 20px;
+	font-weight: 600;
+	font-size: 14px;
+	white-space: nowrap;
+}
+
+.pub-content {
+	flex: 1;
+	margin-right: 20px;
+}
+
+.pub-title {
+	font-size: 18px;
+	font-weight: 600;
+	color: #212529;
+	margin-bottom: 5px;
+	line-height: 1.4;
+}
+
+.pub-authors {
+	color: #6c757d;
+	font-size: 15px;
+	margin-bottom: 5px;
+}
+
+.pub-venue-info {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 10px;
+	margin-bottom: 10px;
+}
+
+.pub-venue {
+	padding: 4px 12px;
+	border-radius: 20px;
+	font-size: 14px;
+	display: inline-block;
+	background: #e9ecef;
+	color: #495057;
+}
+
+.pub-venue.preprint {
+	background: #fff3cd;
+	color: #856404;
+}
+
+.pub-venue.journal {
+	background: #d1ecf1;
+	color: #0c5460;
+}
+
+.pub-venue.conference {
+	background: #d4edda;
+	color: #155724;
+}
+
+.pub-links {
+	display: flex;
+	gap: 15px;
+}
+
+.pub-link {
+	display: inline-flex;
+	align-items: center;
+	gap: 5px;
+	color: #6c757d;
+	text-decoration: none;
+	font-size: 14px;
+	transition: all 0.2s ease;
+}
+
+.pub-link:hover {
+	color: #007bff;
+	text-decoration: none;
+}
+
+.pub-link i {
+	font-size: 16px;
+}
+
+/* Hide elements for search */
+.hidden {
+	display: none !important;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+	.pub-filters {
+		justify-content: center;
+	}
+	
+	.pub-stats {
+		text-align: center;
+		margin-top: 15px;
+	}
+	
+	.pub-header {
+		flex-direction: column;
+	}
+	
+	.pub-year-badge {
+		margin-bottom: 10px;
+	}
+}
+</style>
+
+{{ content }}
+
 </div>

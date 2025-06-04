@@ -1,0 +1,733 @@
+---
+title: "Bonner Lab - Publications"
+layout: default
+excerpt: "Bonner Lab -- Publications."
+sitemap: false
+permalink: /publications/
+---
+
+<div id="gridid" class="col-sm-12">
+  <style>
+/* Publications Search and Filter Styling */
+.pub-search-container {
+	background: transparent;
+	border-radius: 0;
+	padding: 0;
+	margin-bottom: 40px;
+	margin-top: 8px;
+	box-shadow: none;
+}
+
+.pub-search {
+	width: 100%;
+	padding: 10px 16px 10px 40px;
+	border: 1px solid #e0e0e0;
+	border-radius: 6px;
+	font-size: 15px;
+	outline: none;
+	transition: all 0.2s ease;
+	background: #fafafa;
+	background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>');
+	background-repeat: no-repeat;
+	background-position: 12px center;
+	background-size: 18px 18px;
+}
+
+.pub-search:focus {
+	border-color: #333;
+	box-shadow: none;
+	background-color: white;
+}
+
+.pub-filters {
+	margin-top: 12px;
+	display: flex;
+	gap: 8px;
+	flex-wrap: wrap;
+}
+
+.pub-filter-btn {
+	padding: 5px 14px;
+	border: 1px solid #e0e0e0;
+	background: white;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 13px;
+	transition: all 0.15s ease;
+	font-weight: 400;
+}
+
+.pub-filter-btn:hover {
+	background: #f5f5f5;
+	border-color: #999;
+}
+
+.pub-filter-btn.active {
+	background: #333;
+	color: white;
+	border-color: #333;
+}
+
+.pub-stats {
+	text-align: right;
+	color: #999;
+	font-size: 13px;
+	margin-top: 10px;
+}
+
+/* Publications List Styling */
+.publications-list {
+	margin-top: 20px;
+}
+
+.pub-entry {
+	padding: 16px 20px;
+	margin-bottom: 12px;
+	background: white;
+	border: 1px solid #eee;
+	border-radius: 6px;
+	box-shadow: none;
+	transition: all 0.2s ease;
+}
+
+.pub-entry:hover {
+	border-color: #ddd;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+	transform: none;
+}
+
+.pub-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 0;
+}
+
+.pub-year-badge {
+	background: transparent;
+	color: #999;
+	padding: 4px 0;
+	border-radius: 0;
+	font-weight: 500;
+	font-size: 14px;
+	white-space: nowrap;
+	min-width: 45px;
+	text-align: right;
+}
+
+.pub-content {
+	flex: 1;
+	margin-right: 20px;
+}
+
+.pub-title {
+	font-size: 16px;
+	font-weight: 500;
+	color: #1a1a1a;
+	margin-bottom: 4px;
+	line-height: 1.3;
+}
+
+.pub-authors {
+	color: #666;
+	font-size: 14px;
+	margin-bottom: 6px;
+	line-height: 1.4;
+}
+
+.pub-meta {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.pub-venue-info {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	margin-bottom: 0;
+}
+
+.pub-venue {
+	padding: 2px 8px;
+	border-radius: 3px;
+	font-size: 12px;
+	display: inline-block;
+	font-weight: 500;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+}
+
+.pub-venue {
+	background: #f0f0f0;
+	color: #555;
+}
+
+.pub-venue.preprint {
+	background: #fef6e7;
+	color: #b07c0a;
+}
+
+.pub-venue.journal {
+	background: #e8f4f8;
+	color: #0c7490;
+}
+
+.pub-venue.conference {
+	background: #edf7ed;
+	color: #2e7d2e;
+}
+
+.pub-links {
+	display: inline-flex;
+	gap: 12px;
+	margin-left: 10px;
+}
+
+.pub-link {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	color: #888;
+	text-decoration: none;
+	font-size: 13px;
+	transition: all 0.15s ease;
+}
+
+.pub-link:hover {
+	color: #333;
+	text-decoration: none;
+}
+
+.pub-link i {
+	font-size: 14px;
+}
+
+/* Remove icon from PDF links for cleaner look */
+.pub-link i.fa-file-pdf {
+	display: none;
+}
+
+.pub-link:first-child {
+	font-weight: 500;
+	color: #0066cc;
+}
+
+.pub-link:first-child:hover {
+	color: #0052a3;
+	text-decoration: underline;
+}
+
+/* Hide elements for search */
+.hidden {
+	display: none !important;
+}
+
+/* Add subtle borders to separate sections */
+.publications-list {
+	border-top: 1px solid #f0f0f0;
+	padding-top: 30px;
+}
+
+h3#articles {
+	font-size: 20px;
+	font-weight: 500;
+	color: #333;
+	margin-bottom: 20px;
+	margin-top: 40px;
+}
+
+/* Featured Research Styling */
+h2#featured-research {
+	font-size: 22px;
+	font-weight: 500;
+	color: #333;
+	margin-bottom: 20px;
+	margin-top: 10px;
+}
+
+.featured-item .well {
+	background: white;
+	border: 1px solid #e8e8e8;
+	border-radius: 6px;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+	padding: 16px 18px;
+	margin-bottom: 4px;
+	transition: all 0.2s ease;
+	height: 100%;
+	overflow: hidden;
+}
+
+.featured-item .well:hover {
+	border-color: #d0d0d0;
+	box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+	transform: translateY(-1px);
+}
+
+.featured-item pubtit {
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 1.25;
+	display: block;
+	margin-bottom: 5px;
+}
+
+.featured-item pubtit a {
+	color: #1a1a1a;
+	text-decoration: none;
+	transition: color 0.2s ease;
+}
+
+.featured-item pubtit a:hover {
+	color: #0066cc;
+	text-decoration: none;
+}
+
+.featured-item .pub-authors {
+	color: #666;
+	font-size: 13px;
+	margin-bottom: 10px !important;
+}
+
+.featured-item .pub-authors em {
+	font-style: normal;
+}
+
+.featured-item p {
+	font-size: 13px;
+	line-height: 1.4;
+	color: #555;
+	margin-bottom: 6px;
+}
+
+.featured-item img {
+	width: 90px !important;
+	height: 90px !important;
+	min-width: 90px;
+	min-height: 90px;
+	max-width: 90px;
+	max-height: 90px;
+	object-fit: cover;
+	margin: 0 12px 8px 0;
+	border-radius: 4px;
+	border: 1px solid #f0f0f0;
+	float: left !important;
+	clear: left;
+	display: block;
+}
+
+.featured-item .pub-venue-line {
+	font-size: 13px;
+	color: #666;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	clear: both;
+}
+
+.featured-item .venue-and-links {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.featured-item .pub-year {
+	display: flex;
+	align-items: center;
+	color: #ff6600;
+	font-size: 13px;
+	font-weight: 700;
+}
+
+.featured-item .pub-venue {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	color: #666;
+}
+
+.featured-item .pub-venue i {
+	font-size: 14px;
+	color: #999;
+}
+
+.featured-item .pub-links-inline {
+	display: flex;
+	gap: 12px;
+	align-items: center;
+}
+
+.featured-item .pub-links-inline a {
+	color: #888;
+	text-decoration: none;
+	transition: color 0.15s ease;
+	font-size: 16px;
+}
+
+.featured-item .pub-links-inline a:hover {
+	color: #333;
+}
+
+/* Make featured items more compact */
+.featured-item p:last-child {
+	margin-bottom: 0;
+}
+
+.featured-item .text-danger {
+	display: none;
+}
+
+/* Adjust row spacing for featured items */
+.row {
+	margin-bottom: 0;
+}
+
+.featured-section .row {
+	margin-bottom: 4px;
+}
+
+.featured-item {
+	margin-bottom: 4px;
+}
+
+/* Featured content layout */
+.featured-content {
+	display: block;
+}
+
+.featured-item .pub-description {
+	margin-bottom: 8px;
+	text-align: justify;
+	hyphens: auto;
+	line-height: 1.4;
+	font-size: 13px;
+}
+
+/* Featured section container */
+.featured-section {
+	margin-bottom: 8px;
+	padding-bottom: 4px;
+	border-bottom: 1px solid #f0f0f0;
+}
+
+/* Responsive featured items */
+@media (min-width: 992px) {
+	.featured-item .well {
+		min-height: 150px;
+	}
+}
+
+@media (max-width: 767px) {
+	.featured-item img {
+		width: 70px !important;
+		height: 70px !important;
+		min-width: 70px;
+		min-height: 70px;
+		max-width: 70px;
+		max-height: 70px;
+		margin: 0 10px 8px 0;
+	}
+	
+	.featured-item pubtit {
+		font-size: 15px;
+	}
+	
+	.featured-item .pub-venue-line {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 5px;
+	}
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+	.pub-filters {
+		justify-content: center;
+	}
+	
+	.pub-stats {
+		text-align: center;
+		margin-top: 15px;
+	}
+	
+	.pub-header {
+		flex-direction: column;
+	}
+	
+	.pub-year-badge {
+		margin-bottom: 10px;
+	}
+	
+	.pub-meta {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 6px;
+	}
+	
+	.pub-links {
+		margin-left: 0;
+	}
+}
+</style>
+
+<div class="featured-section">
+<h2 id="featured-research">Featured Research</h2>
+
+{% assign number_printed = 0 %}
+{% for publi in site.data.publist %}
+
+{% assign even_odd = number_printed | modulo: 2 %}
+{% if publi.highlight == 1 %}
+
+{% if even_odd == 0 %}
+<div class="row">
+{% endif %}
+
+<div class="col-sm-6 clearfix pub-item featured-item" data-year="{{ publi.year }}" data-type="article" data-featured="true">
+ <div class="well">
+  <div class="featured-content">
+    <pubtit><a href="{{ publi.link.url }}">{{ publi.title }}</a></pubtit>
+    <p class="pub-authors"><em>{{ publi.authors }}</em></p>
+    {% if publi.image and publi.image != "" %}
+    <img src="{{ site.url }}{{ site.baseurl }}/images/pubpic/{{ publi.image }}" class="img-responsive" />
+    {% endif %}
+    <p class="pub-description">{{ publi.description }}</p>
+    <div class="pub-venue-line">
+      <div class="venue-and-links">
+        <div class="pub-venue">
+          <i class="fas fa-book"></i>
+          <span>{{ publi.link.display }}</span>
+        </div>
+        <div class="pub-links-inline">
+          {% if publi.link.url %}
+          <a href="{{ publi.link.url }}" target="_blank" title="PDF">
+            <i class="fas fa-file-pdf"></i>
+          </a>
+          {% endif %}
+          {% if publi.code %}
+          <a href="{{ publi.code }}" target="_blank" title="Code">
+            <i class="fab fa-github"></i>
+          </a>
+          {% endif %}
+          {% if publi.twitter %}
+          <a href="{{ publi.twitter }}" target="_blank" title="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+          {% endif %}
+        </div>
+      </div>
+      {% if publi.year %}
+      <div class="pub-year">
+        {{ publi.year }}
+      </div>
+      {% elsif publi.link.display %}
+        {% assign display_parts = publi.link.display | split: "(" %}
+        {% if display_parts.size > 1 %}
+          {% assign year_part = display_parts[1] | split: ")" | first %}
+          <div class="pub-year">
+            {{ year_part }}
+          </div>
+        {% endif %}
+      {% endif %}
+    </div>
+  </div>
+ </div>
+</div>
+
+{% assign number_printed = number_printed | plus: 1 %}
+
+{% if even_odd == 1 %}
+</div>
+{% endif %}
+
+{% endif %}
+{% endfor %}
+
+{% assign even_odd = number_printed | modulo: 2 %}
+{% if even_odd == 1 %}
+</div>
+{% endif %}
+
+</div>
+
+<div class="pub-search-container">
+<input type="text" class="pub-search" placeholder="Search publications by title, author, or keyword..." id="pub-search">
+<div class="pub-filters">
+<button class="pub-filter-btn active" data-filter="all">All</button>
+<button class="pub-filter-btn" data-filter="2024">2024</button>
+<button class="pub-filter-btn" data-filter="2023">2023</button>
+<button class="pub-filter-btn" data-filter="2022">2022</button>
+<button class="pub-filter-btn" data-filter="2021">2021</button>
+<button class="pub-filter-btn" data-filter="older">Before 2021</button>
+<button class="pub-filter-btn" data-filter="preprint">Preprints</button>
+</div>
+<div class="pub-stats">
+<span id="result-count">Showing all publications</span>
+</div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+	const searchInput = document.getElementById('pub-search');
+	const filterButtons = document.querySelectorAll('.pub-filter-btn');
+	const publications = document.querySelectorAll('.pub-item');
+	const resultCount = document.getElementById('result-count');
+	
+	let activeFilter = 'all';
+	
+	// Search functionality
+	searchInput.addEventListener('input', function() {
+		filterPublications();
+	});
+	
+	// Filter buttons
+	filterButtons.forEach(button => {
+		button.addEventListener('click', function(event) {
+			// Prevent page jumping
+			event.preventDefault();
+			// Update active state
+			filterButtons.forEach(btn => btn.classList.remove('active'));
+			this.classList.add('active');
+			activeFilter = this.dataset.filter;
+			filterPublications();
+		});
+	});
+	
+	function filterPublications() {
+		const searchTerm = searchInput.value.toLowerCase();
+		let visibleCount = 0;
+		
+		publications.forEach(pub => {
+			// Skip featured items - they should always be visible
+			if (pub.dataset.featured === 'true') {
+				return;
+			}
+			
+			const title = pub.querySelector('.pub-title')?.textContent.toLowerCase() || pub.querySelector('.pubtit')?.textContent.toLowerCase() || '';
+			const authors = pub.querySelector('.pub-authors')?.textContent.toLowerCase() || '';
+			const venue = pub.querySelector('.pub-venue')?.textContent.toLowerCase() || '';
+			const year = pub.dataset.year || '';
+			const type = pub.dataset.type || '';
+			const text = pub.textContent.toLowerCase();
+			
+			// Check search term
+			const matchesSearch = !searchTerm || text.includes(searchTerm);
+			
+			// Check filter
+			let matchesFilter = activeFilter === 'all';
+			if (activeFilter === 'preprint') {
+				matchesFilter = type === 'preprint';
+			} else if (activeFilter === 'older') {
+				matchesFilter = parseInt(year) < 2021;
+			} else if (activeFilter !== 'all') {
+				matchesFilter = year === activeFilter;
+			}
+			
+			// Show/hide publication
+			if (matchesSearch && matchesFilter) {
+				pub.classList.remove('hidden');
+				visibleCount++;
+			} else {
+				pub.classList.add('hidden');
+			}
+		});
+		
+		// Update result count
+		if (searchTerm || activeFilter !== 'all') {
+			resultCount.textContent = `Showing ${visibleCount} publication${visibleCount !== 1 ? 's' : ''}`;
+		} else {
+			resultCount.textContent = 'Showing all publications';
+		}
+	}
+});
+</script>
+
+<h3 id="articles">Articles</h3>
+
+<div class="publications-list">
+
+{% for publi in site.data.publist %}
+{% if publi.highlight != 1 %}
+
+{% comment %}
+Extract year from link.display if year field is not present
+Expected format: "Journal Name (2024)" or similar
+{% endcomment %}
+{% assign pub_year = publi.year %}
+{% unless pub_year %}
+  {% assign display_parts = publi.link.display | split: "(" %}
+  {% if display_parts.size > 1 %}
+    {% assign year_part = display_parts[1] | split: ")" | first %}
+    {% assign pub_year = year_part %}
+  {% else %}
+    {% assign pub_year = "" %}
+  {% endif %}
+{% endunless %}
+
+{% comment %}
+Determine publication type based on venue
+{% endcomment %}
+{% assign pub_type = "article" %}
+{% if publi.link.display contains "arXiv" or publi.link.display contains "bioRxiv" or publi.link.display contains "PsyArXiv" or publi.link.display contains "Preprint" %}
+  {% assign pub_type = "preprint" %}
+{% endif %}
+
+{% comment %}
+Extract venue name from link.display by removing year
+{% endcomment %}
+{% assign venue_name = publi.link.display | split: " (" | first %}
+
+<div class="pub-item pub-entry" data-year="{{ pub_year }}" data-type="{{ pub_type }}">
+<div class="pub-header">
+<div class="pub-content">
+<div class="pub-title">{{ publi.title }}</div>
+<div class="pub-authors">{{ publi.authors }}</div>
+<div class="pub-meta">
+<div class="pub-venue-info">
+{% if pub_type == "preprint" %}
+  {% if venue_name contains "arXiv" %}
+    <span class="pub-venue preprint">arXiv</span>
+  {% elsif venue_name contains "bioRxiv" %}
+    <span class="pub-venue preprint">bioRxiv</span>
+  {% elsif venue_name contains "PsyArXiv" %}
+    <span class="pub-venue preprint">PsyArXiv</span>
+  {% else %}
+    <span class="pub-venue preprint">Preprint</span>
+  {% endif %}
+{% else %}
+  {% if venue_name contains "Conference" or venue_name contains "Workshop" or venue_name contains "NeurIPS" %}
+    <span class="pub-venue conference">{{ venue_name }}</span>
+  {% else %}
+    <span class="pub-venue journal">{{ venue_name }}</span>
+  {% endif %}
+{% endif %}
+</div>
+{% if publi.link.url and publi.link.url != "" %}
+<div class="pub-links">
+<a href="{{ publi.link.url }}" target="_blank" class="pub-link">
+<i class="fas fa-file-pdf"></i> Paper
+</a>
+{% if publi.code %}
+<a href="{{ publi.code }}" target="_blank" class="pub-link">
+<i class="fab fa-github"></i> Code
+</a>
+{% endif %}
+{% if publi.twitter %}
+<a href="{{ publi.twitter }}" target="_blank" class="pub-link">
+<i class="fab fa-twitter"></i> Twitter
+</a>
+{% endif %}
+</div>
+{% endif %}
+</div>
+</div>
+<div class="pub-year-badge">{{ pub_year }}</div>
+</div>
+</div>
+
+{% endif %}
+{% endfor %}
+
+</div>
+
+</div>
