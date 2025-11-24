@@ -8,6 +8,7 @@
     display: Preprint
   year: 2025
   highlight: 1
+  code: https://github.com/kelseyhan-jhu/idiosyncratic-neural-geometry
 
 - title: "Universal dimensions of visual representation"
   image: universal_dim.png
@@ -20,27 +21,39 @@
   highlight: 1
   code: https://github.com/zche377/universal_dimensions
 
-- title: "Universal scale-free representations in human visual cortex"
-  image: scale_free_reps.png
-  description: Is it possible to deeply understand neural representations through dimensionality reduction? Our recent work demonstrates that the visual representations in the human brain require interpretation within high-dimensional spaces. Moreover, we reveal that traditional methods like representational similarity analysis fail to detect this high-dimensional information in cortical activity; instead, a spectral approach is necessary. This research uncovers a vast expanse of uncharted dimensions that conventional techniques have overlooked but may be crucial for decoding the cortical code of human vision.
-  authors: Raj Magesh Gauthaman, Brice Ménard, Michael F. Bonner
-  link:
-    url: https://arxiv.org/abs/2409.06843
-    display: Preprint
-  year: 2024
-  highlight: 1
-
 - title: "Convolutional architectures are cortex-aligned de novo"
   image: untrained_cortex_alignment.png
   description: We find that untrained convolutional neural networks can produce brain-like visual representations. This challenges the view that extensive training is necessary for such similarities. The key factors are the networks' architecture, specifically how they compress spatial information and expand feature information. This suggests that the basic structure of convolutional networks mimics biological vision constraints, allowing for cortex-like representations even without learning from experience.
   authors: Atlas Kazemian, Eric Elmoznino, Michael F. Bonner
   link:
-    url: https://www.biorxiv.org/content/10.1101/2024.05.10.593623v2
-    display: Preprint
-  year: 2024
+    url: https://www.nature.com/articles/s42256-025-01142-3
+    display: Nature Machine Intelligence
+  year: 2025
   highlight: 1
   code: https://github.com/akazemian/untrained_models_of_visual_cortex
   twitter: https://x.com/AtlasKazemian/status/1792247850958754080
+
+- title: "Universal scale-free representations in human visual cortex"
+  image: scale_free_reps.png
+  description: Is it possible to deeply understand neural representations through dimensionality reduction? Our recent work demonstrates that the visual representations in the human brain require interpretation within high-dimensional spaces. Moreover, we reveal that traditional methods like representational similarity analysis fail to detect this high-dimensional information in cortical activity; instead, a spectral approach is necessary. This research uncovers a vast expanse of uncharted dimensions that conventional techniques have overlooked but may be crucial for decoding the cortical code of human vision.
+  authors: Raj Magesh Gauthaman, Brice Ménard, Michael F. Bonner
+  link:
+    url: https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1013714
+    display: PLOS Computational Biology
+  code: https://github.com/BonnerLab/scale-free-visual-cortex
+  year: 2025
+  highlight: 1
+
+- title: "Neural networks and brains share the gist but not the details: a surprising benefit of image ensembles for encoding models of visual cortex"
+  image: 
+  description: Artificial neural networks resemble ventral-stream activity but still miss aspects of cortical processing. We show that test-time augmentation (TTA)—averaging features from multiple augmented views of the same image—reliably boosts model–brain similarity without changing the model. This holds across CNNs, ResNets, ViTs, and robust models. Surprisingly, averaging features from semantically similar but visually varied augmentations, including text-guided diffusion samples, can outperform the original image. This suggests that semantic gist, not precise visual detail, drives the improved alignment with high-level visual cortex. 
+  authors: Yingqi Rong, Colin Conwell, Michael F. Bonner
+  link:
+    url: https://openreview.net/forum?id=DtEeVWfgNM 
+    display: CCN Proceedings
+  code: https://github.com/BonnerLab/diffuse-encoder
+  year: 2025
+  highlight: 1 
 
 - title: "High-performing neural network models of visual cortex benefit from high latent dimensionality"
   image: high_dimensionality.png
@@ -53,17 +66,30 @@
   highlight: 1
   code: https://github.com/EricElmoznino/encoder_dimensionality
 
-- title: Hierarchical organization of social action features along the lateral visual pathway
-  authors: Emalie McMahon, Michael F. Bonner, Leyla Isik
-  image: social_action_features.png
-  description: The lateral stream's organization, thought to be hierarchical like in the ventral and dorsal streams, has not been thoroughly studied for naturalistic, social visuals. We compiled 250 3-second videos of everyday interactions between two people, annotated for visual features from low-level to high-level, including scene properties, social dynamics, and emotional content.
+- title: Perceived Distance Alters Memory for Scene Boundaries
+  authors: Alon Hafri, Shreya Wadhwa, Michael F. Bonner
+  image: perceived_distance.png
+  description: What factors determine when visual memories will include details that go beyond perceptual experience? Here, seven experiments (N = 1,100 adults) explored whether spatial scale-specifically, perceived viewing distance-drives boundary extension. We created fake miniatures by exploiting tilt shift, a photographic effect that selectively reduces perceived distance while preserving other scene properties (e.g., making a distant railway appear like a model train). We found that visual memory is modulated by the spatial scale at which the environment is viewed.
   link:
-    url: https://pubmed.ncbi.nlm.nih.gov/37918399/
-    display: Cell Current Biology
-  year: 2023
+    url: https://psyarxiv.com/hy3qs
+    display: Psychological Science
+  year: 2022
   highlight: 1
-  pdf: papers/hierarchical_org.pdf
-  code: https://osf.io/4j29y/
+  pdf: https://osf.io/preprints/psyarxiv/hy3qs
+  code: https://osf.io/jrtqw/?view_only=975375af587143bead39dd01dc7307f8
+
+
+- title: "Scene context is predictive of unconstrained object similarity judgments"
+  authors: C. Magri, E. Elmoznino, M.F. Bonner
+  image: 
+  description: Human judgments of which objects “go together” rely heavily on context, not just visual appearance or word meaning. By modeling which scenes objects tend to appear in, we built contextual prototypes—the average CNN response to the scenes surrounding each object. These prototypes strongly predicted human similarity judgments across many categories, matching or exceeding models based on object images or word embeddings. This shows that natural scene context is a powerful driver of intuitive object similarity.
+  link:
+    url: https://www.sciencedirect.com/science/article/pii/S0010027723001695
+    display: Cognition
+  year: 2023
+  highlight: 1 
+  pdf: papers/scene_context.pdf
+
 
 # Non-highlighted publications (highlight: 0)
 - title: "A spatiotemporal hierarchy for social interaction perception in the lateral visual stream"
@@ -76,15 +102,17 @@
   year: 2025
   highlight: 0
 
-- title: "Neural networks and brains share the gist but not the details: a surprising benefit of image ensembles for encoding models of visual cortex"
-  image: 
-  description: 
-  authors: Yingqi Rong, Colin Conwell, Michael F. Bonner
+- title: Hierarchical organization of social action features along the lateral visual pathway
+  authors: Emalie McMahon, Michael F. Bonner, Leyla Isik
+  image: social_action_features.png
+  description: The lateral stream's organization, thought to be hierarchical like in the ventral and dorsal streams, has not been thoroughly studied for naturalistic, social visuals. We compiled 250 3-second videos of everyday interactions between two people, annotated for visual features from low-level to high-level, including scene properties, social dynamics, and emotional content.
   link:
-    url: 
-    display: CCN Proceedings
-  year: 2025
-  highlight: 0
+    url: https://pubmed.ncbi.nlm.nih.gov/37918399/
+    display: Cell Current Biology
+  year: 2023
+  highlight: 0 
+  pdf: papers/hierarchical_org.pdf
+  code: https://osf.io/4j29y/
 
 - title: "Modeling social vision highlights gaps between deep learning and humans"
   authors: K. Garcia, E. McMahon, C. Conwell, M.F. Bonner, L. Isik
@@ -142,29 +170,6 @@
   year: 2023
   highlight: 0
   pdf: https://openreview.net/forum?id=GIuSksGwEp
-
-- title: "Scene context is predictive of unconstrained object similarity judgments"
-  authors: C. Magri, E. Elmoznino, M.F. Bonner
-  image: 
-  description: 
-  link:
-    url: https://www.sciencedirect.com/science/article/pii/S0010027723001695
-    display: Cognition
-  year: 2023
-  highlight: 0
-  pdf: papers/scene_context.pdf
-
-- title: Perceived Distance Alters Memory for Scene Boundaries
-  authors: Alon Hafri, Shreya Wadhwa, Michael F. Bonner
-  image: perceived_distance.png
-  description: What factors determine when visual memories will include details that go beyond perceptual experience? Here, seven experiments (N = 1,100 adults) explored whether spatial scale-specifically, perceived viewing distance-drives boundary extension. We created fake miniatures by exploiting tilt shift, a photographic effect that selectively reduces perceived distance while preserving other scene properties (e.g., making a distant railway appear like a model train). We found that visual memory is modulated by the spatial scale at which the environment is viewed.
-  link:
-    url: https://psyarxiv.com/hy3qs
-    display: Psychological Science
-  year: 2022
-  highlight: 0
-  pdf: https://osf.io/preprints/psyarxiv/hy3qs
-  code: https://osf.io/jrtqw/?view_only=975375af587143bead39dd01dc7307f8
 
 - title: "Scene memories are biased toward high-probability views"
   authors: F. Lin, A.A. Hafri, M.F. Bonner
