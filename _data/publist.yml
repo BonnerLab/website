@@ -90,6 +90,17 @@
   highlight: 1 
   pdf: papers/scene_context.pdf
 
+- title: "Scene memories are biased toward high-probability views"
+  authors: F. Lin, A.A. Hafri, M.F. Bonner
+  image: 
+  description: "People systematically misremember scene depth - views closer than the typical (“modal”) depth are remembered as farther away (boundary extension), and deeper views are remembered as closer (boundary contraction). These biases align with the statistical distribution of natural scene viewpoints, suggesting memory is pulled toward high-probability views to compensate for noisy or incomplete representations."
+  link:
+    url: https://psyarxiv.com/c3r8j/
+    display: Human Perception and Performance
+  year: 2022
+  highlight: 1 
+  pdf: https://psyarxiv.com/c3r8j/download
+  code: https://osf.io/y9pue/
 
 # Non-highlighted publications (highlight: 0)
 - title: "A spatiotemporal hierarchy for social interaction perception in the lateral visual stream"
@@ -108,7 +119,7 @@
   description: The lateral stream's organization, thought to be hierarchical like in the ventral and dorsal streams, has not been thoroughly studied for naturalistic, social visuals. We compiled 250 3-second videos of everyday interactions between two people, annotated for visual features from low-level to high-level, including scene properties, social dynamics, and emotional content.
   link:
     url: https://pubmed.ncbi.nlm.nih.gov/37918399/
-    display: Cell Current Biology
+    display: Current Biology
   year: 2023
   highlight: 0 
   pdf: papers/hierarchical_org.pdf
@@ -171,17 +182,6 @@
   highlight: 0
   pdf: https://openreview.net/forum?id=GIuSksGwEp
 
-- title: "Scene memories are biased toward high-probability views"
-  authors: F. Lin, A.A. Hafri, M.F. Bonner
-  image: 
-  description: 
-  link:
-    url: https://psyarxiv.com/c3r8j/
-    display: "Journal of Experimental Psychology: Human Perception and Performance"
-  year: 2022
-  highlight: 0
-  pdf: https://psyarxiv.com/c3r8j/download
-  code: https://osf.io/y9pue/
 
 - title: "Early electrophysiological markers of navigational affordances in scenes"
   authors: A. Harel, J. Nador, M.F. Bonner, R.A. Epstein
