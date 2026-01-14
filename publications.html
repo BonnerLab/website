@@ -340,10 +340,15 @@ permalink: /publications/
 		}
 
 		.featured-item .pub-venue {
-			display: flex;
-			align-items: center;
-			gap: 5px;
-			color: #666;
+			display: inline-block;
+			padding: 2px 8px;
+			border-radius: 3px;
+			font-size: 12px;
+			font-weight: 600;
+			text-transform: uppercase;
+			letter-spacing: 0.5px;
+			background: #f0f0f0;
+			color: #1a1a1a;
 		}
 
 		.featured-item .pub-venue i {
@@ -383,11 +388,16 @@ permalink: /publications/
 		}
 
 		.featured-section .row {
-			margin-bottom: 2px;
+			margin-bottom: 0;
 		}
 
 		.featured-item {
-			margin-bottom: 2px;
+			margin-bottom: 4px;
+			padding-bottom: 0;
+		}
+
+		.featured-item .well {
+			margin-bottom: 0;
 		}
 
 		/* Featured content layout */
@@ -437,6 +447,56 @@ permalink: /publications/
 				align-items: flex-start;
 				gap: 5px;
 			}
+		}
+
+		/* Press and Commentary Links */
+		.pub-extra-links {
+			margin-top: 8px;
+			padding-top: 8px;
+			border-top: 1px solid #f0f0f0;
+			display: flex;
+			flex-wrap: wrap;
+			gap: 16px;
+			clear: both;
+		}
+
+		.pub-extra-link {
+			display: inline-flex;
+			align-items: center;
+			gap: 6px;
+			font-size: 12.5px;
+			color: #555;
+			text-decoration: none;
+			transition: all 0.15s ease;
+		}
+
+		.pub-extra-link:hover {
+			color: #0066cc;
+			text-decoration: none;
+		}
+
+		.pub-extra-link i {
+			font-size: 13px;
+			color: #888;
+		}
+
+		.pub-extra-link:hover i {
+			color: #0066cc;
+		}
+
+		.pub-extra-link .link-label {
+			font-weight: 500;
+			color: #666;
+		}
+
+		.pub-extra-link .link-source {
+			color: #0066cc;
+		}
+
+		/* Featured item extra links */
+		.featured-item .pub-extra-links {
+			margin-top: 10px;
+			padding-top: 10px;
 		}
 
 		/* Responsive design */
@@ -531,6 +591,24 @@ permalink: /publications/
 							{% endif %}
 							{% endif %}
 						</div>
+						{% if publi.press or publi.commentary %}
+						<div class="pub-extra-links">
+							{% if publi.press %}
+							<a href="{{ publi.press.url }}" target="_blank" class="pub-extra-link">
+								<i class="fas fa-newspaper"></i>
+								<span class="link-label">Press:</span>
+								<span class="link-source">{{ publi.press.display }}</span>
+							</a>
+							{% endif %}
+							{% if publi.commentary %}
+							<a href="{{ publi.commentary.url }}" target="_blank" class="pub-extra-link">
+								<i class="fas fa-comment-dots"></i>
+								<span class="link-label">Commentary:</span>
+								<span class="link-source">{{ publi.commentary.display }}</span>
+							</a>
+							{% endif %}
+						</div>
+						{% endif %}
 					</div>
 				</div>
 			</div>
@@ -749,6 +827,24 @@ permalink: /publications/
 					</div>
 					{% endif %}
 				</div>
+				{% if publi.press or publi.commentary %}
+				<div class="pub-extra-links">
+					{% if publi.press %}
+					<a href="{{ publi.press.url }}" target="_blank" class="pub-extra-link">
+						<i class="fas fa-newspaper"></i>
+						<span class="link-label">Press:</span>
+						<span class="link-source">{{ publi.press.display }}</span>
+					</a>
+					{% endif %}
+					{% if publi.commentary %}
+					<a href="{{ publi.commentary.url }}" target="_blank" class="pub-extra-link">
+						<i class="fas fa-comment-dots"></i>
+						<span class="link-label">Commentary:</span>
+						<span class="link-source">{{ publi.commentary.display }}</span>
+					</a>
+					{% endif %}
+				</div>
+				{% endif %}
 			</div>
 			<div class="pub-year-badge">{{ pub_year }}</div>
 		</div>

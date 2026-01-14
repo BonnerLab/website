@@ -4,3 +4,4 @@ _site
 CLAUDE.md
 vendor/bundle
 .bundle
+.DS_Store

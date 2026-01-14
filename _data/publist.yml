@@ -4,8 +4,8 @@
   description: We show that individual differences in visual experience emerge from high-dimensional neural activity patterns during naturalistic movie viewing, with distinct latent dimensions capturing behaviorally relevant aspects of perception. This multidimensional geometry, revealed through spectral decomposition, explains inter-individual variability beyond what conventional methods capture.
   authors: Chihye Han, Michael F. Bonner
   link:
-    url: https://arxiv.org/abs/2505.12653 
-    display: Preprint
+    url: https://arxiv.org/abs/2505.12653
+    display: Current Biology
   year: 2025
   highlight: 1
   code: https://github.com/kelseyhan-jhu/idiosyncratic-neural-geometry
@@ -32,6 +32,12 @@
   highlight: 1
   code: https://github.com/akazemian/untrained_models_of_visual_cortex
   twitter: https://x.com/AtlasKazemian/status/1792247850958754080
+  press:
+    url: https://www.baltimoresun.com/2025/12/11/brainlike-ai/?share=abnwboo2e0wcbastpm0w
+    display: The Baltimore Sun
+  commentary:
+    url: https://www.nature.com/articles/s42256-025-01155-y
+    display: Nature Machine Intelligence
 
 - title: "Universal scale-free representations in human visual cortex"
   image: scale_free_reps.png
