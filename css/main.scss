@@ -662,6 +662,13 @@ h3#articles {
 }
 .pub-venue { color: var(--ink); font-weight: 600; }
 .pub-venue.preprint { color: var(--slate); font-weight: 500; }
+.pub-status {
+  color: var(--amber);
+  font-weight: 500;
+  font-size: 0.82rem;
+  letter-spacing: 0.01em;
+}
+.pub-venue-info { display: inline-flex; align-items: baseline; gap: 10px; }
 .pub-links { display: inline-flex; gap: 14px; }
 .pub-link { color: var(--slate); }
 .pub-link:hover { color: var(--blue); text-decoration: none; }
@@ -737,6 +744,22 @@ h3#articles {
 
 /* Motion ------------------------------------------------------------------ */
 
+/* Cross-document view transitions: when moving between pages the browser
+   snapshots the old page and cross-fades to the new one. The fixed header and
+   footer are given stable names so they stay put instead of re-rendering. */
+@view-transition { navigation: auto; }
+
+.navbar.navbar-default { view-transition-name: site-header; }
+#footer { view-transition-name: site-footer; }
+
+::view-transition-old(root),
+::view-transition-new(root) { animation-duration: 160ms; }
+::view-transition-old(site-header),
+::view-transition-new(site-header),
+::view-transition-old(site-footer),
+::view-transition-new(site-footer) { animation: none; }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation: none !important; }
+  @view-transition { navigation: none; }
 }

@@ -218,7 +218,7 @@
     var dt = Math.min(0.05, t - lastT);
     lastT = t;
     if (!dragging) {
-      if (!reduceMotion) group.rotation.y += 0.0016 + velY;
+      if (!reduceMotion) group.rotation.y += 0.0032 + velY;
       velY *= 0.9;
     }
     group.rotation.x += (targetTilt - group.rotation.x) * 0.06;

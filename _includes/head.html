@@ -12,6 +12,20 @@
   <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl | prepend: site.url}}">
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <!-- Prerender the main tabs as soon as the pointer moves toward them so the
+       switch is instant; the view transition above then cross-fades content. -->
+  <script type="speculationrules">
+  {
+    "prerender": [{
+      "where": { "and": [
+        { "href_matches": "/*" },
+        { "not": { "href_matches": "/*.pdf" } },
+        { "not": { "selector_matches": "[target=_blank]" } }
+      ]},
+      "eagerness": "moderate"
+    }]
+  }
+  </script>
 
 {% if jekyll.environment == 'production' %}
 {% include analytics.html %}

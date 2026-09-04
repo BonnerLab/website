@@ -1,4 +1,16 @@
 # Featured/Highlighted Publications (highlight: 1)
+- title: "An extremely coarse feedback signal is sufficient for learning human-aligned visual representations"
+  image: 
+  description: How fine-grained does a learning signal need to be for a neural network to see like a human? We trained hundreds of convolutional and transformer networks on tasks that distinguish only a handful of broad, data-driven categories and compared them with macaque electrophysiology, human fMRI, and human similarity judgments. Networks trained on as few as 8 categories match or exceed the neural alignment of 1,000-class models, and they align more closely with human perception than fine-grained, self-supervised, or large-scale vision models. Human-like vision can emerge from remarkably coarse feedback.
+  authors: Yash Mehta, Michael F. Bonner
+  link:
+    url: https://arxiv.org/abs/2605.05556
+    display: arXiv
+  status: Under review
+  year: 2026
+  highlight: 1
+  pdf: https://arxiv.org/pdf/2605.05556
+
 - title: "High-dimensional structure underlying individual differences in naturalistic visual experience"
   image: id_kelsey.png
   description: We show that individual differences in visual experience emerge from high-dimensional neural activity patterns during naturalistic movie viewing, with distinct latent dimensions capturing behaviorally relevant aspects of perception. This multidimensional geometry, revealed through spectral decomposition, explains inter-individual variability beyond what conventional methods capture.
@@ -80,7 +92,7 @@
     url: https://psyarxiv.com/hy3qs
     display: Psychological Science
   year: 2022
-  highlight: 1
+  highlight: 0
   pdf: https://osf.io/preprints/psyarxiv/hy3qs
   code: https://osf.io/jrtqw/?view_only=975375af587143bead39dd01dc7307f8
 
@@ -104,7 +116,7 @@
     url: https://psyarxiv.com/c3r8j/
     display: Human Perception and Performance
   year: 2022
-  highlight: 1 
+  highlight: 0
   pdf: https://psyarxiv.com/c3r8j/download
   code: https://osf.io/y9pue/
 

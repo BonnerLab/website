@@ -29,6 +29,7 @@ permalink: /publications/
 				<div class="pub-venue-line">
 					{% if publi.year %}<span class="pub-year">{{ publi.year }}</span>{% endif %}
 					<span class="pub-venue">{{ publi.link.display }}</span>
+					{% if publi.status %}<span class="pub-status">{{ publi.status }}</span>{% endif %}
 					<span class="pub-links-inline">
 						{% if publi.link.url %}<a href="{{ publi.link.url }}" target="_blank"><i class="fas fa-file-lines"></i>Paper</a>{% endif %}
 						{% if publi.code %}<a href="{{ publi.code }}" target="_blank"><i class="fab fa-github"></i>Code</a>{% endif %}
@@ -52,6 +53,7 @@ permalink: /publications/
 		id="pub-search">
 	<div class="pub-filters">
 		<button class="pub-filter-btn active" data-filter="all">All</button>
+		<button class="pub-filter-btn" data-filter="2026">2026</button>
 		<button class="pub-filter-btn" data-filter="2025">2025</button>
 		<button class="pub-filter-btn" data-filter="2024">2024</button>
 		<button class="pub-filter-btn" data-filter="2023">2023</button>
@@ -226,6 +228,7 @@ permalink: /publications/
 						<span class="pub-venue journal">{{ venue_name }}</span>
 						{% endif %}
 						{% endif %}
+						{% if publi.status %}<span class="pub-status">{{ publi.status }}</span>{% endif %}
 					</div>
 					{% if publi.link.url and publi.link.url != "" %}
 					<div class="pub-links">
