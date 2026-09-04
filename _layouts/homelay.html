@@ -8,15 +8,11 @@ layout: default
       <h1>Cognitive Neuroscience and Deep Learning Group</h1>
       <p class="hero-lede">Department of Cognitive Science, Johns Hopkins University</p>
     </div>
-    <div id="animation-container" aria-hidden="true">
-      <canvas id="network-animation"></canvas>
-    </div>
+    <figure class="brain-figure">
+      <div id="brain-container" data-base="{{ site.url }}{{ site.baseurl }}" aria-hidden="true"></div>
+      <figcaption>Activity spreading from primary visual cortex along the ventral and dorsal pathways.</figcaption>
+    </figure>
   </div>
-
-  <figure class="brain-figure">
-    <div id="brain-container" data-base="{{ site.url }}{{ site.baseurl }}" aria-hidden="true"></div>
-    <figcaption>Cortical surface (fsaverage) with activity spreading from primary visual cortex along the ventral and dorsal visual pathways. Drag to rotate.</figcaption>
-  </figure>
 
   <div class="home-body">
     <div id="homeid">
@@ -28,6 +24,5 @@ layout: default
   </div>
 </div>
 
-<script src="{{ site.url }}{{ site.baseurl }}/js/hero-particles.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="{{ site.url }}{{ site.baseurl }}/js/brain.js"></script>

@@ -214,13 +214,15 @@ body > .container-fluid { padding-top: 1.5rem; }
 
 .home-hero {
   display: grid;
-  grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
-  gap: 40px;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: 32px;
   align-items: center;
-  padding: 1.5rem 0 2rem;
+  padding: 0.5rem 0 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--hair);
 }
 .home-hero h1 {
-  font-size: 2.9rem;
+  font-size: 2.8rem;
   line-height: 1.08;
   margin: 0 0 1rem;
   text-wrap: balance;
@@ -231,31 +233,21 @@ body > .container-fluid { padding-top: 1.5rem; }
   max-width: 44ch;
   margin: 0;
 }
-#animation-container {
-  position: relative;
-  width: 100%;
-  height: 340px;
-  overflow: hidden;
-}
-#network-animation { position: absolute; inset: 0; display: block; }
 
-.brain-figure { margin: 0 0 3rem !important; }
+.brain-figure { margin: 0 !important; }
 #brain-container {
   position: relative;
   width: 100%;
-  height: 480px;
-  border-radius: 8px;
+  height: 400px;
   overflow: hidden;
-  background: radial-gradient(ellipse at 50% 40%, #131a2b 0%, #0a0e18 70%, #070a12 100%);
   touch-action: none;
 }
 #brain-container canvas { display: block; width: 100% !important; height: 100% !important; }
 .brain-figure figcaption {
-  text-align: left;
-  font-size: 0.88rem;
+  text-align: right;
+  font-size: 0.85rem;
   color: var(--slate);
-  margin-top: 10px;
-  max-width: 70ch;
+  margin-top: 0;
 }
 
 .home-body {
@@ -272,8 +264,8 @@ body > .container-fluid { padding-top: 1.5rem; }
 @media (max-width: 991px) {
   .home-hero { grid-template-columns: 1fr; gap: 8px; padding-top: 1rem; }
   .home-hero h1 { font-size: 2.3rem; }
-  #animation-container { height: 260px; }
-  #brain-container { height: 340px; }
+  #brain-container { height: 300px; }
+  .brain-figure figcaption { text-align: left; }
   .home-body { grid-template-columns: 1fr; gap: 40px; }
 }
 

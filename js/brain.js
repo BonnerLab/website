@@ -21,15 +21,15 @@
 
   var scene = new THREE.Scene();
   var camera = new THREE.PerspectiveCamera(28, 1, 0.1, 100);
-  camera.position.set(0, 0.22, 3.9);
+  camera.position.set(0, 0.2, 3.7);
   camera.lookAt(0, 0, 0);
 
-  var hemi = new THREE.HemisphereLight(0xffffff, 0x2a3350, 0.7);
+  var hemi = new THREE.HemisphereLight(0xffffff, 0x9aa3b5, 0.55);
   scene.add(hemi);
-  var key = new THREE.DirectionalLight(0xffffff, 0.65);
+  var key = new THREE.DirectionalLight(0xffffff, 0.8);
   key.position.set(-1.5, 2.2, 2.5);
   scene.add(key);
-  var rim = new THREE.DirectionalLight(0x8fb0ff, 0.35);
+  var rim = new THREE.DirectionalLight(0xc9d6f5, 0.3);
   rim.position.set(2, -0.5, -2);
   scene.add(rim);
 
@@ -40,8 +40,8 @@
 
   // Colours are authored in sRGB and converted to linear for the sRGB-encoded output.
   function srgb(hex) { return new THREE.Color(hex).convertSRGBToLinear(); }
-  var cBase0 = srgb(0x7d838f);   // sulcal floor
-  var cBase1 = srgb(0xe4e4ea);   // gyral crest
+  var cBase0 = srgb(0x5f6676);   // sulcal floor
+  var cBase1 = srgb(0xd7dae2);   // gyral crest
   var ramp = [
     srgb(0x8a1a1a), srgb(0xd4341c), srgb(0xf5801c), srgb(0xffc63a), srgb(0xfff4c2)
   ];
