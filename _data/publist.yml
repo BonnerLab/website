@@ -1,6 +1,6 @@
 # Featured/Highlighted Publications (highlight: 1)
 - title: "An extremely coarse feedback signal is sufficient for learning human-aligned visual representations"
-  image: 
+  image: coarse_feedback.png
   description: How fine-grained does a learning signal need to be for a neural network to see like a human? We trained hundreds of convolutional and transformer networks on tasks that distinguish only a handful of broad, data-driven categories and compared them with macaque electrophysiology, human fMRI, and human similarity judgments. Networks trained on as few as 8 categories match or exceed the neural alignment of 1,000-class models, and they align more closely with human perception than fine-grained, self-supervised, or large-scale vision models. Human-like vision can emerge from remarkably coarse feedback.
   authors: Yash Mehta, Michael F. Bonner
   link:
@@ -10,6 +10,7 @@
   year: 2026
   highlight: 1
   pdf: https://arxiv.org/pdf/2605.05556
+  code: https://github.com/yashsmehta/visreps
 
 - title: "High-dimensional structure underlying individual differences in naturalistic visual experience"
   image: id_kelsey.png
