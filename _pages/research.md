@@ -12,25 +12,19 @@ We study the computational principles of the visual brain by combining large-sca
 
 ## Current Projects
 
-1. **High-dimensional structure of individual differences in visual experience**
-   - **Led by:** [Kelsey Han](https://kelseyhan-jhu.github.io/), PhD student
-   - **Recent work:** ["High-dimensional structure underlying individual differences in naturalistic visual experience"](https://arxiv.org/abs/2505.12653), *Current Biology* (2025) · [code](https://github.com/kelseyhan-jhu/idiosyncratic-neural-geometry)
-   - **Summary:**
-     While a prominent theory proposes that the visual system transforms high-dimensional sensory inputs into simpler, low-dimensional representations, recent theoretical and empirical work suggests that the dimensionality of visual cortical representations may be more extensive than previously thought. Using cross-decomposition, we show that even low-variance dimensions in cortical population activity are critical to human vision and that reliable individual differences in visual experience are captured by these high-dimensional codes.
-
-2. **Universal dimensions of vision**
+1. **Universal dimensions of vision**
    - **Led by:** [Ray Chen (Zirui Chen)](https://zche377.github.io/), PhD student
    - **Recent work:** ["Universal dimensions of visual representation"](https://arxiv.org/abs/2408.12804), *Science Advances* (2025) · [code](https://github.com/zche377/universal_dimensions)
    - **Summary:**
      We observe that diverse designs of neural networks all yield similarly good models of the human visual cortex. This suggests that the subset of model representations that align with cortical activity is general-purpose and can be learned independent of the task or architectural constraints on these models. By comparing the representations of widely varied models, we provide evidence that the universality of a feature among many neural networks is a strong indicator of its presence in human cortical representation.
 
-3. **High-dimensional representations and the dynamics of neural alignment**
+2. **Feedback signals for learning brain-like vision, and automated search for models of visual cortex**
    - **Led by:** [Yash Mehta](https://yashsmehta.github.io/), PhD student
    - **Recent work:** ["An extremely coarse feedback signal is sufficient for learning human-aligned visual representations"](https://arxiv.org/abs/2605.05556)
    - **Summary:**
-     Training artificial deep neural networks for object recognition enhances their alignment with the visual cortex. During training, a recent study made an intriguing observation: only the first few eigenvalues of the weight matrices change significantly, while the rest remain close to their initial values. Could this be a key factor in achieving a high brain-alignment score, and how does it evolve over training? This project explores the evolution of high-dimensional representations in deep networks during learning and their relationship to visual-system alignment.
+     How much feedback does a network need before its representations line up with the human visual system? Far less than standard training provides: an extremely coarse signal is enough. We are now turning the same question on the modelling process itself. Long-running agents propose simple, interpretable computational models of visual cortex, score them by how well they predict neural responses in different brain regions, and revise them. The search is open-ended and aimed at the underlying computation, not at fitting a particular dataset or scaling up training.
 
-4. **Local unsupervised learning for building a visual hierarchy**
+3. **Local unsupervised learning for building a visual hierarchy**
    - **Led by:** [Ananya Passi](https://cogsci.jhu.edu/directory/ananya-passi/), PhD student
    - **Recent work:** ["Efficient coding along the visual hierarchy"](https://arxiv.org/abs/2605.19155)
    - **Summary:**
@@ -62,3 +56,9 @@ These projects were led by former members of the lab (see [Alumni]({{ site.url }
    - **Led by:** [Colin Conwell](https://colinconwell.github.io/) (former PostDoc, now Research Scientist)
    - **Summary:**
      Many different deep neural network models -- with different architectures, tasks, and training diets -- are all comparably good predictors of image-evoked brain activity in the ventral visual cortex. Using metrics derived from statistical physics and high-dimensional geometry, we derive more proximate, structural intuitions for what makes one model more brain-like than another, providing computationally principled explanations of what makes a brain-like representation brain-like in the first place.
+
+5. **High-dimensional structure of individual differences in visual experience**
+   - **Led by:** [Kelsey Han](https://kelseyhan-jhu.github.io/) (PhD, now PostDoc Scientist, NIH)
+   - **Recent work:** ["High-dimensional structure underlying individual differences in naturalistic visual experience"](https://arxiv.org/abs/2505.12653), *Current Biology* (2025) · [code](https://github.com/kelseyhan-jhu/idiosyncratic-neural-geometry)
+   - **Summary:**
+     While a prominent theory proposes that the visual system transforms high-dimensional sensory inputs into simpler, low-dimensional representations, recent theoretical and empirical work suggests that the dimensionality of visual cortical representations may be more extensive than previously thought. Using cross-decomposition, we show that even low-variance dimensions in cortical population activity are critical to human vision and that reliable individual differences in visual experience are captured by these high-dimensional codes.
