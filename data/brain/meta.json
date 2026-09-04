@@ -1,0 +1,14 @@
+{
+ "nVerts": 20484,
+ "nFaces": 40960,
+ "posScale": 0.0027163771390914917,
+ "distMax": 140.0,
+ "layout": [
+  "pos:int16x3",
+  "faces:uint16x3",
+  "sulc:uint8",
+  "dist:uint8",
+  "stream:uint8"
+ ],
+ "source": "fsaverage5 pial surface (FreeSurfer) via nilearn; Destrieux 2009 atlas"
+}

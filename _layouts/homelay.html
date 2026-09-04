@@ -3,20 +3,23 @@ layout: default
 ---
 
 <div class="home-page">
-  <div class="home-banner">
-    <img src="{{ site.url }}{{ site.baseurl }}/images/slider7001400/jhu_gilman.jpg" alt="Gilman Hall, Johns Hopkins University">
-    <div class="home-banner-text">
+  <div class="home-hero">
+    <div class="home-hero-text">
       <h1>Cognitive Neuroscience and Deep Learning Group</h1>
-      <p>Johns Hopkins University</p>
+      <p class="hero-lede">Department of Cognitive Science, Johns Hopkins University</p>
+    </div>
+    <div id="animation-container" aria-hidden="true">
+      <canvas id="network-animation"></canvas>
     </div>
   </div>
 
+  <figure class="brain-figure">
+    <div id="brain-container" data-base="{{ site.url }}{{ site.baseurl }}" aria-hidden="true"></div>
+    <figcaption>Cortical surface (fsaverage) with activity spreading from primary visual cortex along the ventral and dorsal visual pathways. Drag to rotate.</figcaption>
+  </figure>
+
   <div class="home-body">
     <div id="homeid">
-      <figure class="brain-figure">
-        <div id="brain-container" aria-hidden="true"></div>
-        <figcaption>Activity spreading from primary visual cortex along the ventral and dorsal streams. Drag to rotate.</figcaption>
-      </figure>
       {{ content }}
     </div>
     <div id="newsid">
@@ -25,5 +28,6 @@ layout: default
   </div>
 </div>
 
+<script src="{{ site.url }}{{ site.baseurl }}/js/hero-particles.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="{{ site.url }}{{ site.baseurl }}/js/brain.js"></script>
