@@ -2,15 +2,23 @@
 layout: default
 ---
 
-<div class="row" style="padding-top: 0;">
-  <div id="homeid" class="col-sm-7">
-    <h2 style="margin-top: 0; margin-bottom: 12px; font-size: 2.2em;">Cognitive Neuroscience and Deep Learning Group</h2>
-    {{ content }}
-  </div>
-  <div id="newsid" class="col-sm-5">
-    {% include news.html %}
-    <div id="animation-container" style="position: relative; width: 100%; height: 375px; margin-top: 20px; background-color: white; border: 1px solid #f0f0f0; border-radius: 4px; overflow: hidden;">
+<div class="home-page" style="width:100%">
+  <div class="home-hero">
+    <div>
+      <h1>Cognitive Neuroscience and Deep Learning Group</h1>
+      <p class="hero-lede">Department of Cognitive Science, Johns Hopkins University</p>
+    </div>
+    <div id="animation-container" aria-hidden="true">
       <canvas id="network-animation"></canvas>
+    </div>
+  </div>
+
+  <div class="home-body">
+    <div id="homeid">
+      {{ content }}
+    </div>
+    <div id="newsid">
+      {% include news.html %}
     </div>
   </div>
 </div>
@@ -42,7 +50,7 @@ layout: default
   let transitionProgress = 0;
   
   // Modern blue color for all particles
-  const particleColor = 'rgba(59, 130, 246, 0.9)'; // Modern blue
+  const particleColor = 'rgba(31, 79, 154, 0.9)'; // Modern blue
   
   // Get formation positions based on current formation type
   function getFormationPosition(index, total, formationType) {
@@ -391,9 +399,9 @@ layout: default
     draw() {
       // Draw smaller Gaussian circles (glow effect)
       const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.radius * 3);
-      gradient.addColorStop(0, 'rgba(59, 130, 246, 0.3)');
-      gradient.addColorStop(0.5, 'rgba(59, 130, 246, 0.1)');
-      gradient.addColorStop(1, 'rgba(59, 130, 246, 0)');
+      gradient.addColorStop(0, 'rgba(31, 79, 154, 0.3)');
+      gradient.addColorStop(0.5, 'rgba(31, 79, 154, 0.1)');
+      gradient.addColorStop(1, 'rgba(31, 79, 154, 0)');
       
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.radius * 3, 0, Math.PI * 2);

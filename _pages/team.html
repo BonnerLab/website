@@ -1,0 +1,91 @@
+---
+title: "Bonner Lab - Team"
+layout: gridlay
+excerpt: "Bonner Lab: Team members"
+sitemap: false
+permalink: /team/
+---
+
+<div class="team-page">
+
+<h1>Team</h1>
+
+<p class="jumplinks">Jump to <a href="#lab">Lab</a>, <a href="#alumni">Alumni</a>, <a href="#collaborators">Collaborators</a>, <a href="#former-hopkins-students">Former students</a>, <a href="#administrative-support">Administrative support</a></p>
+
+{% for member in site.data.team_lead %}
+<div class="member member-pi">
+<img src="{{ site.url }}{{ site.baseurl }}/images/teampic/{{ member.photo }}" class="portrait" alt="{{ member.name }}">
+<div>
+<h3>{{ member.name }}</h3>
+<div class="role">{{ member.role }}<br>{{ member.info }}<br>email: <a href="mailto:{{ member.email }}">{{ member.email }}</a></div>
+{% include member_links.html member=member %}
+</div>
+</div>
+{% endfor %}
+
+<h2 id="lab">Lab</h2>
+<div class="member-grid">
+{% for member in site.data.team_members %}
+<div class="member">
+<img src="{{ site.url }}{{ site.baseurl }}/images/teampic/{{ member.photo }}" class="portrait" alt="{{ member.name }}">
+<div>
+<h4>{{ member.name }}</h4>
+<div class="role">{{ member.role }}</div>
+{% include member_links.html member=member %}
+</div>
+</div>
+{% endfor %}
+</div>
+
+<h2 id="alumni">Alumni</h2>
+<div class="member-grid">
+{% for member in site.data.alumni_members %}
+{% assign duration_parts = member.duration | split: ", " %}
+<div class="member">
+<img src="{{ site.url }}{{ site.baseurl }}/images/teampic/{{ member.photo }}" class="portrait" alt="{{ member.name }}">
+<div>
+<h4>{{ member.name }}</h4>
+<div class="role"><span class="alumni-role">{{ duration_parts[0] }}</span>{% if duration_parts[1] %}<span class="alumni-dates">, {{ duration_parts[1] }}</span>{% endif %}</div>
+<div class="meta">Current role: <strong>{{ member.info }}</strong></div>
+{% if member.website %}<div class="meta"><a href="{{ member.website }}" target="_blank">website</a></div>{% endif %}
+</div>
+</div>
+{% endfor %}
+</div>
+
+<h2 id="collaborators">Collaborators</h2>
+<div class="member-grid">
+{% for member in site.data.collaborators %}
+<div>
+<h4>{{ member.name }}</h4>
+<div class="role">{{ member.info }}</div>
+{% if member.number_educ >= 1 %}<div class="meta">{{ member.education1 }}</div>{% endif %}
+{% if member.number_educ >= 2 %}<div class="meta">{{ member.education2 }}</div>{% endif %}
+{% if member.number_educ >= 3 %}<div class="meta">{{ member.education3 }}</div>{% endif %}
+{% if member.number_educ >= 4 %}<div class="meta">{{ member.education4 }}</div>{% endif %}
+</div>
+{% endfor %}
+</div>
+
+<h2 id="former-hopkins-students">Former Hopkins students</h2>
+<div class="member-grid">
+<div>
+<h4>Bachelor students</h4>
+<ul class="plain-list">
+{% for member in site.data.alumni_bsc %}<li>{{ member.name }}</li>
+{% endfor %}
+</ul>
+</div>
+<div>
+<h4>Master students</h4>
+<ul class="plain-list two-col-list">
+{% for member in site.data.alumni_msc %}<li>{{ member.name }}</li>
+{% endfor %}
+</ul>
+</div>
+</div>
+
+<h2 id="administrative-support">Administrative Support</h2>
+<p><a href="mailto:sciotol3@jhu.edu">Sarah Ciotola</a> and <a href="mailto:csampso7@jhu.edu">Chamera Sampson</a> are helping us (and other groups) with administration.</p>
+
+</div>

@@ -1,0 +1,24 @@
+---
+title: "Mick Bonner"
+layout: gridlay
+excerpt: "PI: Mick Bonner"
+sitemap: false
+permalink: /mick/
+---
+
+<h2>Principal Investigator</h2>
+{% for member in site.data.team_lead %}
+<div class="member member-pi">
+  <img src="{{ site.url }}{{ site.baseurl }}/images/teampic/{{ member.photo }}" class="portrait" alt="{{ member.name }}">
+  <div>
+    <h3>{{ member.name }}</h3>
+    <div class="role">{{ member.role }}<br>{{ member.info }}<br>email: <a href="mailto:{{ member.email }}">{{ member.email }}</a></div>
+    {% include member_links.html member=member %}
+  </div>
+</div>
+{% endfor %}
+
+<h3>About</h3>
+<h3>Talks</h3>
+<h3>Funding and Awards</h3>
+<h3>Teaching</h3>

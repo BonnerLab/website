@@ -9,7 +9,7 @@ permalink: /
 Welcome to the Bonner Lab at the [Cognitive Science Department](https://cogsci.jhu.edu) of Johns Hopkins University, led by Assistant Professor Mick Bonner. Our research focuses on the intersection of **neuroscience**, **artificial intelligence**, and **computational vision**. We are dedicated to understanding how visual information is processed and represented in biological systems. Our approach combines neuroimaging and computational modeling to investigate the brain's mechanisms for vision. We utilize advanced imaging techniques and deep learning models to explore the complex neural and computational underpinnings of visual perception.
 
 
-<div markdown="0" id="carousel" class="carousel slide" data-ride="carousel" data-interval="4000" data-pause="hover" style="margin-top: 20px;">
+<div markdown="0" id="carousel" class="carousel slide" data-ride="carousel" data-interval="4000" data-pause="hover">
     <!-- Menu -->
     <ol class="carousel-indicators">
         <li data-target="#carousel" data-slide-to="0" class="active"></li>

@@ -7,22 +7,22 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-    
-      <a class="navbar-brand" href="{{ site.url }}{{ site.baseurl }}/" style="display: flex; align-items: center;">
-        <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/jhu_shield.png" alt="Hopkins Logo" style="height:30px; margin-top: 25px; margin-left: -10px;">
-        <span>Bonner Lab @ Johns Hopkins</span>
+
+      <a class="navbar-brand site-brand" href="{{ site.url }}{{ site.baseurl }}/">
+        <img src="{{ site.url }}{{ site.baseurl }}/images/logopic/jhu_shield.png" alt="Johns Hopkins shield">
+        <span>
+          <span class="brand-name">Bonner Lab</span>
+          <span class="brand-sub">Johns Hopkins University</span>
+        </span>
       </a>
     </div>
     <div class="collapse navbar-collapse" id="navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <!-- <li><a href="{{ site.url }}{{ site.baseurl }}/">Home</a></li> -->
-        <li><a href="{{ site.url }}{{ site.baseurl }}/research">Research</a></li>
-        <li><a href="{{ site.url }}{{ site.baseurl }}/publications">Publications</a></li>
-        <li><a href="{{ site.url }}{{ site.baseurl }}/team">Team</a></li>
+        <li{% if page.url contains '/research' %} class="active"{% endif %}><a href="{{ site.url }}{{ site.baseurl }}/research/">Research</a></li>
+        <li{% if page.url contains '/publications' %} class="active"{% endif %}><a href="{{ site.url }}{{ site.baseurl }}/publications/">Publications</a></li>
+        <li{% if page.url contains '/team' %} class="active"{% endif %}><a href="{{ site.url }}{{ site.baseurl }}/team/">Team</a></li>
         <li><a href="https://bonnerlab.github.io/ccn-tutorial/">CCN Tutorial</a></li>
-        <!-- <li><a href="{{ site.url }}{{ site.baseurl }}/vacancies">Join Us</a></li> -->
       </ul>
     </div>
   </div>
 </div>
-

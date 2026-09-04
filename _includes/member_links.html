@@ -1,0 +1,13 @@
+{% comment %}
+  Icon row for a team member. Pass the member object as `member`.
+{% endcomment %}
+{% if member.gscholar or member.website or member.email or member.twitter or member.cv or member.github %}
+<div class="member-links">
+  {% if member.website %}<a href="{{ member.website }}" title="Website" aria-label="Website"><i class="fas fa-globe"></i></a>{% endif %}
+  {% if member.gscholar %}<a href="{{ member.gscholar }}" title="Google Scholar" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>{% endif %}
+  {% if member.email %}<a href="mailto:{{ member.email }}" title="Email" aria-label="Email"><i class="fas fa-envelope"></i></a>{% endif %}
+  {% if member.twitter %}<a href="https://twitter.com/{{ member.twitter }}" title="X / Twitter" aria-label="X / Twitter"><i class="fab fa-x-twitter"></i></a>{% endif %}
+  {% if member.github %}<a href="{{ member.github }}" title="GitHub" aria-label="GitHub"><i class="fab fa-github"></i></a>{% endif %}
+  {% if member.cv %}<a href="{{ site.url }}{{ site.baseurl }}/downloads/{{ member.cv }}" title="CV" aria-label="CV"><i class="fas fa-file-alt"></i></a>{% endif %}
+</div>
+{% endif %}

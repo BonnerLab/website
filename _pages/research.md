@@ -1,16 +1,16 @@
 ---
 title: "Bonner Lab - Research"
-layout: textlay
+layout: research
 excerpt: "Bonner Lab -- Research"
 sitemap: false
 permalink: /research/
 ---
 
-## Research
+# Research
 
 We study the computational principles of the visual brain by combining large-scale human neuroimaging with deep neural network models. Below are the primary projects currently led by members of the lab.
 
-### Current Projects
+## Current Projects
 
 1. **High-dimensional structure of individual differences in visual experience**
    - **Led by:** [Kelsey Han](https://kelseyhan-jhu.github.io/), PhD student
@@ -36,7 +36,7 @@ We study the computational principles of the visual brain by combining large-sca
    - **Summary:**
      Deep neural networks (DNNs) are the leading computational models of visual cortex but are trained using biologically implausible backpropagation. We are developing an algorithm for building a hierarchy of visual features using only local unsupervised learning, without backpropagation. Our work identifies a new approach for learning a visual hierarchy consistent with principles of learning in biology, requires no labels or tasks, and may account for a large fraction of visual cortex representations.
 
-### Past Projects
+## Past Projects
 
 These projects were led by former members of the lab (see [Alumni]({{ site.url }}{{ site.baseurl }}/team/#alumni)).
 
