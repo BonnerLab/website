@@ -21,7 +21,7 @@
 
   var scene = new THREE.Scene();
   var camera = new THREE.PerspectiveCamera(28, 1, 0.1, 100);
-  camera.position.set(0, 0.2, 3.7);
+  camera.position.set(0, 0.2, 3.5);
   camera.lookAt(0, 0, 0);
 
   var hemi = new THREE.HemisphereLight(0xffffff, 0x9aa3b5, 0.55);
