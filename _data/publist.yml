@@ -1,4 +1,38 @@
 # Featured/Highlighted Publications (highlight: 1)
+- title: "Efficient coding along the visual hierarchy"
+  image: 
+  description: Biological visual systems learn from limited experience, unlike deep networks that need millions of labeled images. We asked whether efficient coding—the idea that neural representations capture the statistical structure of natural inputs—can build a hierarchy of human-aligned visual features from limited data. We developed an unsupervised procedure in which each layer of a deep network compresses its inputs onto the dominant modes of variation in natural images, using only local statistics and no labels, tasks, or backpropagation. The resulting features progress from edges and colors to textures and shapes, are readily recognized by human observers, and predict fMRI responses in human visual cortex. Combining efficient coding with supervised fine-tuning yields better brain alignment in low-data settings and faster category learning, suggesting that efficient coding may shape representations across the entire visual hierarchy.
+  authors: Ananya Passi, Brian S. Robinson, Michael F. Bonner
+  link:
+    url: https://arxiv.org/abs/2605.19155
+    display: arXiv
+  status: Under review
+  year: 2026
+  highlight: 1
+  pdf: https://arxiv.org/pdf/2605.19155
+
+- title: "Advancing NeuroAI through developmental alignment"
+  image: 
+  description: NeuroAI aims to uncover the factors that give rise to human-level intelligence, yet current models overwhelmingly simulate adulthood—the end state of intelligence—without considering how that state was achieved. In this review, we argue that understanding adult intelligence requires modeling the developmental process by which it arose. We describe how developmental changes in children's neural architecture, experiences, and learning objectives are adaptively suited to support rapid learning, illustrate how these principles can be built into AI engineering, and propose the early-developing capacities of children as an ideal set of benchmarks for evaluating AI models.
+  authors: Vladislav Ayzenberg, Michael F. Bonner, Laurie Bayet
+  link:
+    url: https://www.cell.com/neuron/abstract/S0896-6273(26)00532-5
+    display: Neuron
+  year: 2026
+  highlight: 1
+
+- title: "Multidimensional dynamics of object representations in the human visual system"
+  image: 
+  description: Natural image representations are distributed across many dimensions of visual cortex activity, but little is known about how this multidimensional structure evolves over time after stimulus onset. We examined the temporal dynamics and latent dimensional structure of natural object representations in large-scale EEG and MEG data and compared them with leading representational models from human similarity judgments and deep neural networks. We find a rapid expansion of stimulus dimensionality in the brain that peaks within 100 milliseconds and gradually decays over hundreds of milliseconds, tracking decoding accuracy for both behavioral embeddings and network features. The dimensionality of these neural representations could not be fully explained by leading models, and the remaining variance carried additional perceptually relevant information—revealing previously unrecognized complexity in dynamic brain responses to natural objects.
+  authors: Zirui Chen, Leyla Isik, Michael F. Bonner
+  link:
+    url: https://www.biorxiv.org/content/10.64898/2026.04.27.720701v1
+    display: bioRxiv
+  status: Under review
+  year: 2026
+  highlight: 1
+  pdf: https://www.biorxiv.org/content/10.64898/2026.04.27.720701v1.full.pdf
+
 - title: "An extremely coarse feedback signal is sufficient for learning human-aligned visual representations"
   image: coarse_feedback.png
   description: How fine-grained does a learning signal need to be for a neural network to see like a human? We trained hundreds of convolutional and transformer networks on tasks that distinguish only a handful of broad, data-driven categories and compared them with macaque electrophysiology, human fMRI, and human similarity judgments. Networks trained on as few as 8 categories match or exceed the neural alignment of 1,000-class models, and they align more closely with human perception than fine-grained, self-supervised, or large-scale vision models. Human-like vision can emerge from remarkably coarse feedback.
@@ -122,6 +156,18 @@
   code: https://osf.io/y9pue/
 
 # Non-highlighted publications (highlight: 0)
+- title: "Characterizing universal object representations across vision models"
+  image: 
+  description: Deep neural networks trained with different architectures, objectives, and datasets converge on similar visual representations—but which properties do they converge on, and why? We decompose the object similarity structure of 162 diverse vision models into a small set of non-negative dimensions and estimate how often each reappears across models. Universal dimensions are more interpretable and more strongly driven by conceptual image properties than model-specific ones, and models with more universal dimensions better predict macaque IT activity and human similarity judgments, suggesting that universality reflects representations relevant to biological vision.
+  authors: Florian P. Mahner, Johannes Roth, Ka Chun Lam, Michael F. Bonner, Francisco Pereira, Martin N. Hebart
+  link:
+    url: https://arxiv.org/abs/2605.13675
+    display: arXiv
+  status: Under review
+  year: 2026
+  highlight: 0
+  pdf: https://arxiv.org/pdf/2605.13675
+
 - title: "A spatiotemporal hierarchy for social interaction perception in the lateral visual stream"
   image: 
   description: 
