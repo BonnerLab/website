@@ -33,7 +33,7 @@
   highlight: 1
   pdf: https://www.biorxiv.org/content/10.64898/2026.04.27.720701v1.full.pdf
 
-- title: "An extremely coarse feedback signal is sufficient for learning human-aligned visual representations"
+- title: "Extremely coarse learning objectives induce human-aligned representations in AI vision models"
   image: coarse_feedback.png
   description: How fine-grained does a learning signal need to be for a neural network to see like a human? We trained hundreds of convolutional and transformer networks on tasks that distinguish only a handful of broad, data-driven categories and compared them with macaque electrophysiology, human fMRI, and human similarity judgments. Networks trained on as few as 8 categories match or exceed the neural alignment of 1,000-class models, and they align more closely with human perception than fine-grained, self-supervised, or large-scale vision models. Human-like vision can emerge from remarkably coarse feedback.
   authors: Yash Mehta, Michael F. Bonner

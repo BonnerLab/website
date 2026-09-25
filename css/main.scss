@@ -580,17 +580,57 @@ body > .container-fluid { padding-top: 1.5rem; }
 .member .links { margin-top: 8px; }
 
 /* PI block */
-.member.member-pi {
-  grid-template-columns: 180px 1fr;
-  gap: 28px;
-  margin-bottom: 0.5rem;
+.pi-card {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  gap: 36px;
+  align-items: start;
+  padding: 32px;
+  background: #fff;
+  border: 1px solid var(--hair);
+  border-radius: 10px;
 }
-.member.member-pi img.portrait { width: 180px; height: 220px; }
-.member.member-pi h3 { font-size: 1.7rem; margin-bottom: 4px; }
-.member.member-pi .role { font-size: 1rem; }
-.member.member-pi { align-items: start; }
-.team-page .pi-bio { max-width: var(--measure); margin-top: 1rem; font-size: 0.98rem; }
-.team-page .pi-bio p { margin-bottom: 0.8rem; }
+.pi-portrait {
+  grid-row: span 2;
+  width: 200px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin: 0;
+  display: block;
+}
+.pi-kicker {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--amber);
+  margin: 0 0 0.3rem;
+}
+.team-page .pi-name { font-size: 1.9rem; margin: 0 0 0.3rem; }
+.pi-role { color: var(--slate); font-size: 1rem; margin: 0; }
+.pi-card .member-links { margin-top: 10px; }
+.team-page .pi-bio {
+  grid-column: 2;
+  margin-top: -14px;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--hair);
+  max-width: 68ch;
+}
+.team-page .pi-bio p {
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: var(--ink-soft);
+  margin: 0;
+}
+.team-page .pi-bio a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--hair-strong);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  transition: text-decoration-color 120ms ease, color 120ms ease;
+}
+.team-page .pi-bio a:hover { color: var(--blue); text-decoration-color: var(--blue); }
 
 /* Icon row */
 .member-links {
@@ -660,12 +700,12 @@ body > .container-fluid { padding-top: 1.5rem; }
   .people-list { gap: 0; }
   .member { grid-template-columns: 80px 1fr; gap: 14px; }
   .member img.portrait { width: 80px; height: 100px; }
-  .member.member-pi { grid-template-columns: 120px 1fr; gap: 18px; }
-  .member.member-pi img.portrait { width: 120px; height: 150px; }
-  .member.member-pi h3 { font-size: 1.4rem; }
-  .member.member-pi .role { font-size: 0.95rem; }
-  .team-page .pi-bio { margin-left: -138px; }
   .two-col-list { columns: 1; }
+  .pi-card { grid-template-columns: 112px minmax(0, 1fr); gap: 18px; padding: 18px; }
+  .pi-portrait { grid-row: auto; width: 112px; height: 140px; }
+  .team-page .pi-name { font-size: 1.45rem; }
+  .pi-role { font-size: 0.92rem; }
+  .team-page .pi-bio { grid-column: 1 / -1; margin-top: 0; }
 }
 
 /* Publications ----------------------------------------------------------- */

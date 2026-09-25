@@ -13,15 +13,16 @@ permalink: /team/
 <p class="jumplinks">Jump to <a href="#lab">Lab</a>, <a href="#alumni">Alumni</a>, <a href="#collaborators">Collaborators</a>, <a href="#former-hopkins-students">Former students</a>, <a href="#administrative-support">Administrative support</a></p>
 
 {% for member in site.data.team_lead %}
-<div class="member member-pi">
-<img src="{{ site.url }}{{ site.baseurl }}/images/teampic/{{ member.photo }}" class="portrait" alt="{{ member.name }}">
-<div>
-<h3>{{ member.name }}</h3>
-<div class="role">{{ member.role }} · <a href="mailto:{{ member.email }}">{{ member.email }}</a></div>
+<section class="pi-card">
+<img src="{{ site.url }}{{ site.baseurl }}/images/teampic/{{ member.photo }}" class="pi-portrait" alt="{{ member.name }}">
+<div class="pi-main">
+<p class="pi-kicker">Principal Investigator</p>
+<h3 class="pi-name">{{ member.name }}</h3>
+<p class="pi-role">{{ member.role }} · <a href="mailto:{{ member.email }}">{{ member.email }}</a></p>
 {% include member_links.html member=member %}
+</div>
 {% if member.bio %}<div class="pi-bio">{{ member.bio | markdownify }}</div>{% endif %}
-</div>
-</div>
+</section>
 {% endfor %}
 
 <h2 id="lab">Lab</h2>

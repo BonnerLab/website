@@ -26,10 +26,10 @@ permalink: /research/
 <div class="project-text">
 <h3>Feedback signals for learning brain-like vision, and automated search for models of visual cortex</h3>
 <p class="project-meta project-meta-row"><span>Led by</span><span><a href="https://yashsmehta.github.io/">Yash Mehta</a>, PhD student</span></p>
-<p class="project-meta project-meta-row"><span>Recent work</span><span><a href="https://arxiv.org/abs/2605.05556">An extremely coarse feedback signal is sufficient for learning human-aligned visual representations</a></span></p>
+<p class="project-meta project-meta-row"><span>Recent work</span><span><a href="https://arxiv.org/abs/2605.05556">Extremely coarse learning objectives induce human-aligned representations in AI vision models</a></span></p>
 <p>How much feedback does a network need before its representations line up with the human visual system? Far less than standard training provides: an extremely coarse signal is enough. We are now turning the same question on the modelling process itself. Long-running agents propose simple, interpretable computational models of visual cortex, score them by how well they predict neural responses in different brain regions, and revise them. The search is open-ended and aimed at the underlying computation, not at fitting a particular dataset or scaling up training.</p>
 </div>
-<img class="project-fig" src="{{ site.url }}{{ site.baseurl }}/images/pubpic/coarse_feedback.png" alt="Figure from An extremely coarse feedback signal is sufficient for learning human-aligned visual representations">
+<img class="project-fig" src="{{ site.url }}{{ site.baseurl }}/images/pubpic/coarse_feedback.png" alt="Figure from Extremely coarse learning objectives induce human-aligned representations in AI vision models">
 </div>
 
 <div class="project">
