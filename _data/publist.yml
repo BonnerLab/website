@@ -116,7 +116,7 @@
     url: https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1011792
     display: PLOS Computational Biology
   year: 2024
-  highlight: 0
+  highlight: 1
   code: https://github.com/EricElmoznino/encoder_dimensionality
 
 - title: Perceived Distance Alters Memory for Scene Boundaries
@@ -293,26 +293,6 @@
   year: 2020
   highlight: 0
 
-- title: "Visual representations derived from multiplicative interactions"
-  authors: E. Elmoznino, M.F. Bonner
-  image: 
-  description: 
-  link:
-    url: 
-    display: NeurIPS SVRHM Workshop
-  year: 2020
-  highlight: 0
-
-- title: "Curvature as an Organizing Principle of Mid-level Visual Representation: A Semantic-preference Mapping Approach"
-  authors: S.P.D. Li, M.F. Bonner
-  image: 
-  description: 
-  link:
-    url: 
-    display: NeurIPS SVRHM Workshop
-  year: 2020
-  highlight: 0
-
 - title: "Computational mechanisms underlying cortical responses to the affordance properties of visual scenes"
   authors: M.F. Bonner, R.A. Epstein
   image: 
@@ -383,26 +363,6 @@
     url: https://doi.org/10.1523/JNEUROSCI.3446-14.2015
     display: Journal of Neuroscience
   year: 2015
-  highlight: 0
-
-- title: "The neural basis of semantic memory"
-  authors: M.F. Bonner, M. Grossman
-  image: 
-  description: 
-  link:
-    url: 
-    display: Dementia and Memory
-  year: 2014
-  highlight: 0
-
-- title: "Deficits in semantic memory associated with focal neurodegenerative diseases"
-  authors: M.F. Bonner, M. Grossman
-  image: 
-  description: 
-  link:
-    url: 
-    display: The Boston Process Approach to Neuropsychological Assessment - A Practitioner's Guide
-  year: 2013
   highlight: 0
 
 - title: "Where is the anterior temporal lobe and what does it do?"

@@ -119,7 +119,6 @@ To edit any page text:
 **Main pages:**
 - `home.md` → Homepage text
 - `research.md` → Research descriptions
-- `openings.md` → Job postings
 
 ## 📁 Where Things Are
 
