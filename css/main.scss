@@ -467,6 +467,7 @@ body > .container-fluid { padding-top: 1.5rem; }
 .member.member-pi img.portrait { width: 180px; height: 220px; }
 .member.member-pi h3 { font-size: 1.7rem; margin-bottom: 4px; }
 .member.member-pi .role { font-size: 1rem; }
+.team-page .pi-bio { max-width: var(--measure); margin: 0.75rem 0 1.5rem; }
 
 /* Icon row */
 .member-links {

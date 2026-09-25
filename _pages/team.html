@@ -21,6 +21,7 @@ permalink: /team/
 {% include member_links.html member=member %}
 </div>
 </div>
+{% if member.bio %}<p class="pi-bio">{{ member.bio }}</p>{% endif %}
 {% endfor %}
 
 <h2 id="lab">Lab</h2>

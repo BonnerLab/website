@@ -7,7 +7,7 @@
 
 # Site settings
 title: Bonner JHU CogNeuro and Deep Learning Lab
-email: mfbonner@jh.edu
+email: mfbonner@jhu.edu
 description: > # this means to ignore newlines until "baseurl:"
   Website of the cognitive neuroscience and deep learning group at Johns Hopkins University.
 baseurl: ""

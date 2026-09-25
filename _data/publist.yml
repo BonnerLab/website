@@ -106,7 +106,7 @@
     display: CCN Proceedings
   code: https://github.com/BonnerLab/diffuse-encoder
   year: 2025
-  highlight: 1 
+  highlight: 0
 
 - title: "High-performing neural network models of visual cortex benefit from high latent dimensionality"
   image: high_dimensionality.png
@@ -116,7 +116,7 @@
     url: https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1011792
     display: PLOS Computational Biology
   year: 2024
-  highlight: 1
+  highlight: 0
   code: https://github.com/EricElmoznino/encoder_dimensionality
 
 - title: Perceived Distance Alters Memory for Scene Boundaries
@@ -140,7 +140,7 @@
     url: https://www.sciencedirect.com/science/article/pii/S0010027723001695
     display: Cognition
   year: 2023
-  highlight: 1 
+  highlight: 0
   pdf: papers/scene_context.pdf
 
 - title: "Scene memories are biased toward high-probability views"
@@ -173,7 +173,7 @@
   description: 
   authors: Emalie McMahon, Elizabeth Jiwon Im, Michael F. Bonner, Leyla Isik
   link:
-    url: https://psyarxiv.com/
+    url: https://doi.org/10.31234/osf.io/mdt4u_v3
     display: PsyArXiv
   year: 2025
   highlight: 0
@@ -288,11 +288,10 @@
   image: 
   description: 
   link:
-    url: http://s/DeWind-2020-Similarly-oriented-objects-appear-more-numerous.PDF
+    url: https://doi.org/10.1167/jov.20.4.4
     display: Journal of Vision
   year: 2020
   highlight: 0
-  pdf: http://s/DeWind-2020-Similarly-oriented-objects-appear-more-numerous.PDF
 
 - title: "Visual representations derived from multiplicative interactions"
   authors: E. Elmoznino, M.F. Bonner
@@ -319,22 +318,20 @@
   image: 
   description: 
   link:
-    url: http://s/Bonner-2018-Computational-mechanisms-underlying-cortical-responses-to-the-affordance-properties-of-v.PDF
+    url: https://doi.org/10.1371/journal.pcbi.1006111
     display: PLOS Computational Biology
   year: 2018
   highlight: 0
-  pdf: http://s/Bonner-2018-Computational-mechanisms-underlying-cortical-responses-to-the-affordance-properties-of-v.PDF
 
 - title: "Coding of navigational affordances in the human visual system"
   authors: M.F. Bonner, R.A. Epstein
   image: 
   description: 
   link:
-    url: http://s/Bonner-2017-Coding-of-navigational-affordances-in-the-human-visual-system-y223.PDF
+    url: https://doi.org/10.1073/pnas.1618228114
     display: Proceedings of the National Academy of Sciences
   year: 2017
   highlight: 0
-  pdf: http://s/Bonner-2017-Coding-of-navigational-affordances-in-the-human-visual-system-y223.PDF
   code: https://github.com/NeuromatchAcademy/course-content/blob/master/projects/fMRI/load_bonner_navigational_affordances.ipynb
 
 - title: "Neural coding of fine-grained object knowledge in perirhinal cortex"
@@ -353,44 +350,40 @@
   image: 
   description: 
   link:
-    url: http://s/Price-2016-Causal-Evidence-for-a-Mechanism-of-Semantic-Integration-in-the-Angular-Gyrus-as-Revealed-sxhj.PDF
+    url: https://doi.org/10.1523/JNEUROSCI.3120-15.2016
     display: Journal of Neuroscience
   year: 2016
   highlight: 0
-  pdf: http://s/Price-2016-Causal-Evidence-for-a-Mechanism-of-Semantic-Integration-in-the-Angular-Gyrus-as-Revealed-sxhj.PDF
 
 - title: "Semantics of the visual environment encoded in parahippocampal cortex"
   authors: M.F. Bonner, A.R. Price, J.E. Peelle, M. Grossman
   image: 
   description: 
   link:
-    url: http://s/Bonner-2016-Semantics-of-the-Visual-Environment-Encoded-in-Parahippocampal-Cortex-wylx.PDF
+    url: https://doi.org/10.1162/jocn_a_00908
     display: Journal of Cognitive Neuroscience
   year: 2016
   highlight: 0
-  pdf: http://s/Bonner-2016-Semantics-of-the-Visual-Environment-Encoded-in-Parahippocampal-Cortex-wylx.PDF
 
 - title: "Semantic memory: cognitive and neuroanatomical perspectives"
   authors: A.R. Price, M.F. Bonner, M. Grossman
   image: 
   description: 
   link:
-    url: http://s/Price-2015-Semantic-memory-cognitive-and-neuroanatomic-perspectives.PDF
+    url: https://doi.org/10.1016/B978-0-12-397025-1.00280-3
     display: Brain Mapping - An Encyclopedic Reference
   year: 2015
   highlight: 0
-  pdf: http://s/Price-2015-Semantic-memory-cognitive-and-neuroanatomic-perspectives.PDF
 
 - title: "Converging evidence for the neuroanatomic basis of combinatorial semantics in the angular gyrus"
   authors: A.R. Price, M.F. Bonner, J.E. Peelle, M. Grossman
   image: 
   description: 
   link:
-    url: http://s/Price-2015-Converging-Evidence-for-the-Neuroanatomic-Basis-of-Combinatorial-Semantics-in-the-Angular.PDF
+    url: https://doi.org/10.1523/JNEUROSCI.3446-14.2015
     display: Journal of Neuroscience
   year: 2015
   highlight: 0
-  pdf: http://s/Price-2015-Converging-Evidence-for-the-Neuroanatomic-Basis-of-Combinatorial-Semantics-in-the-Angular.PDF
 
 - title: "The neural basis of semantic memory"
   authors: M.F. Bonner, M. Grossman
@@ -417,106 +410,97 @@
   image: 
   description: 
   link:
-    url: http://s/Bonner-2013-Where-Is-the-Anterior-Temporal-Lobe-and-What-Does-It-Do-ssdh.PDF
+    url: https://doi.org/10.1523/JNEUROSCI.0041-13.2013
     display: Journal of Neuroscience
   year: 2013
   highlight: 0
-  pdf: http://s/Bonner-2013-Where-Is-the-Anterior-Temporal-Lobe-and-What-Does-It-Do-ssdh.PDF
 
 - title: "Heteromodal conceptual processing in the angular gyrus"
   authors: M.F. Bonner, J.E. Peelle, P.A. Cook, M. Grossman
   image: 
   description: 
   link:
-    url: http://s/Bonner-2013-Heteromodal-conceptual-processing-in-the-angular-gyrus-a8ft.PDF
+    url: https://doi.org/10.1016/j.neuroimage.2013.01.006
     display: NeuroImage
   year: 2013
   highlight: 0
-  pdf: http://s/Bonner-2013-Heteromodal-conceptual-processing-in-the-angular-gyrus-a8ft.PDF
 
 - title: "Category-specific semantic memory: Converging evidence from BOLD fMRI and Alzheimer's disease"
   authors: M. Grossman, J.E. Peelle, E.E. Smith, C.T. McMillan, P. Cook, J. Powers, M. Dreyfuss, M.F. Bonner, L. Richmond, A. Boller, E. Camp, L. Burkholder
   image: 
   description: 
   link:
-    url: http://s/Grossman-2013-Category-specific-semantic-memory-Converging-evidence-from-BOLD-fMRI-and-Alzheimers-di-oqzb.PDF
+    url: https://doi.org/10.1016/j.neuroimage.2012.11.057
     display: NeuroImage
   year: 2013
   highlight: 0
-  pdf: http://s/Grossman-2013-Category-specific-semantic-memory-Converging-evidence-from-BOLD-fMRI-and-Alzheimers-di-oqzb.PDF
 
 - title: "Gray matter density of auditory association cortex relates to knowledge of sound concepts in primary progressive aphasia"
   authors: M.F. Bonner, M. Grossman
   image: 
   description: 
   link:
-    url: http://s/Bonner-2012-Gray-Matter-Density-of-Auditory-Association-Cortex-Relates-to-Knowledge-of-Sound-Concept-mz6u.PDF
+    url: https://doi.org/10.1523/JNEUROSCI.6241-11.2012
     display: Journal of Neuroscience
   year: 2012
   highlight: 0
-  pdf: http://s/Bonner-2012-Gray-Matter-Density-of-Auditory-Association-Cortex-Relates-to-Knowledge-of-Sound-Concept-mz6u.PDF
 
 - title: "Music and Semantic Dementia--Reply"
   authors: M. Grossman, M.F. Bonner, J. Weinstein
   image: 
   description: 
   link:
-    url: http://s/Grossman-2011-Music-and-semantic-dementia-reply-z4o7.PDF
+    url: https://doi.org/10.1001/archneurol.2011.196
     display: Archives of Neurology
   year: 2011
   highlight: 0
-  pdf: http://s/Grossman-2011-Music-and-semantic-dementia-reply-z4o7.PDF
 
 - title: "Preserved musical semantic memory in semantic dementia"
   authors: J. Weinstein, P. Koenig, D. Gunawardena, C. McMillan, M.F. Bonner, M. Grossman
   image: 
   description: 
   link:
-    url: http://s/Weinstein-2011-Preserved-musical-semantic-memory-in-semantic-dementia-c1iq.PDF
+    url: https://doi.org/10.1001/archneurol.2010.364
     display: Archives of Neurology
   year: 2011
   highlight: 0
-  pdf: http://s/Weinstein-2011-Preserved-musical-semantic-memory-in-semantic-dementia-c1iq.PDF
 
 - title: "The new classification of primary progressive aphasia into semantic, logopenic, or nonfluent/agrammatic variants"
   authors: M.F. Bonner, S. Ash, M. Grossman
   image: 
   description: 
   link:
-    url: http://s/Bonner-2010-The-new-classification-of-PPA-33i6.PDF
+    url: https://doi.org/10.1007/s11910-010-0140-4
     display: Current Neurology and Neuroscience Reports
   year: 2010
   highlight: 0
-  pdf: http://s/Bonner-2010-The-new-classification-of-PPA-33i6.PDF
 
 - title: "Hierarchical organization of scripts: converging evidence from fMRI and frontotemporal degeneration"
   authors: C. Farag, V. Troiani, M.F. Bonner, C. Powers, B. Avants, J. Gee, M. Grossman
   image: 
   description: 
   link:
-    url: http://s/Farag-2010-Hierarchical-organization-of-scripts-fqfh.PDF
+    url: https://doi.org/10.1093/cercor/bhp313
     display: Cerebral Cortex
   year: 2010
   highlight: 0
-  pdf: http://s/Farag-2010-Hierarchical-organization-of-scripts-fqfh.PDF
 
 - title: "Reversal of the concreteness effect in semantic dementia"
   authors: M.F. Bonner, L. Vesely, C. Price, C. Anderson, L. Richmond, C. Farag, B. Avants, M. Grossman
   image: 
   description: 
   link:
-    url: http://s/Bonner-2009-Reversal-of-the-concreteness-2yzf.PDF
+    url: https://doi.org/10.1080/02643290903512305
     display: Cognitive Neuropsychology
   year: 2009
   highlight: 0
-  pdf: http://s/Bonner-2009-Reversal-of-the-concreteness-2yzf.PDF
 
 - title: "Free association in semantic dementia: The importance of being abstract"
   authors: L. Vesely, M.F. Bonner, J. Reilly, M. Grossman
   image: 
   description: 
   link:
-    url: 
+    url: https://doi.org/10.1016/j.bandl.2007.07.092
     display: Brain and Language
   year: 2007
   highlight: 0
@@ -526,8 +510,7 @@
   image: 
   description: 
   link:
-    url: http://s/Zhang-2007-HP1-proteins-are-essential-for-a-dynamic-nuclear-response-that-rescues-the-function-of-pe-7aub.PDF
+    url: https://doi.org/10.1128/MCB.01639-06
     display: Molecular and Cellular Biology
   year: 2007
   highlight: 0
-  pdf: http://s/Zhang-2007-HP1-proteins-are-essential-for-a-dynamic-nuclear-response-that-rescues-the-function-of-pe-7aub.PDF

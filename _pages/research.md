@@ -10,6 +10,10 @@ permalink: /research/
 
 We study the computational principles of the visual brain by combining large-scale human neuroimaging with deep neural network models. Below are the primary projects currently led by members of the lab.
 
+## Tutorial: A High-Dimensional View of Neuroscience
+
+Our [keynote tutorial at CCN 2023](https://bonnerlab.github.io/ccn-tutorial/), by Raj Magesh Gauthaman, Florentin Guth, Atlas Kazemian, Zirui Chen, and Mick Bonner, asks what computational tools we can use to study neural representations in high dimensions. It walks through five computational notebooks, which you can read on the site or run in Google Colab: introducing PCA, exploring neural data, dealing with noise, comparing representations, and analyzing neural networks. · [tutorial site](https://bonnerlab.github.io/ccn-tutorial/) · [video](https://www.youtube.com/watch?v=6cxX6M5VFYE&t=643s)
+
 ## Current Projects
 
 1. **Universal dimensions of vision**
@@ -53,7 +57,7 @@ These projects were led by former members of the lab (see [Alumni]({{ site.url }
      Beyond the classical ventral (what) and dorsal (where/how) visual streams, a third visual stream on the lateral surface of the brain appears specialized for processing social information. Using a condition-rich fMRI experiment and within-subject encoding models, we find that low-level visual features are represented in early visual cortex and area MT, mid-level social features in EBA and LOC, and high-level social interaction information along the superior temporal sulcus (STS). These findings support the representation of increasingly abstract social visual content along the lateral visual stream.
 
 4. **Neural manifold geometries underlying emergent model-to-brain similarity**
-   - **Led by:** [Colin Conwell](https://colinconwell.github.io/) (former PostDoc, now Research Scientist)
+   - **Led by:** [Colin Conwell](https://colinconwell.github.io/) (former PostDoc, now Research Scientist, MIT)
    - **Summary:**
      Many different deep neural network models -- with different architectures, tasks, and training diets -- are all comparably good predictors of image-evoked brain activity in the ventral visual cortex. Using metrics derived from statistical physics and high-dimensional geometry, we derive more proximate, structural intuitions for what makes one model more brain-like than another, providing computationally principled explanations of what makes a brain-like representation brain-like in the first place.
 
