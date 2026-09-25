@@ -1,29 +1,14 @@
-#- name:
-#  photo: rock.jpg
-#  info:
-#  email:
-#  number_educ:
-#  education1:
-#  education2:
-#  education3:
-#  education4:
+- name: Brice Ménard
+  info: Physics & Astronomy, Johns Hopkins
+  website: https://physics-astronomy.jhu.edu/directory/brice-menard/
 
-- name: Brice Menard
-  photo: rock.jpg
-  info: Astrophysics, Hopkins
-  number_educ: 0
-  education1:
-
-- name: Brian Robinson
-  photo: rock.jpg
-  info: Applied Physics Laboratory (APL)
-  number_educ: 0
-  education1:
+- name: Matthieu Wyart
+  info: Physics & Astronomy, Johns Hopkins
+  website: https://physics-astronomy.jhu.edu/directory/matthieu-wyart/
 
 - name: Martin Hebart
   info: Justus Liebig University Giessen, Germany
-  number_educ: 0
+  website: https://www.hebartlab.com/
 
-- name: Matthieu Wyart
-  info: Physics & Astronomy, Hopkins
-  number_educ: 0
+- name: Brian Robinson
+  info: Johns Hopkins Applied Physics Laboratory

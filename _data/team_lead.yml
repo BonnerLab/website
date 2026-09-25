@@ -1,15 +1,12 @@
 - name: Michael Bonner
   photo: mick.jpg
-  role: Assistant professor
+  role: Assistant Professor, Cognitive Science
   info: PhD, University of Pennsylvania
   email: mfbonner@jhu.edu
   gscholar: https://scholar.google.com/citations?user=zMTnSe8AAAAJ&hl=en&inst=7575085548378563675
   cv: mick_resume.pdf
   twitter: michaelfbonner
-  bio: >-
-    Mick Bonner is an Assistant Professor of Cognitive Science at Johns Hopkins University, where he has run the lab since 2019.
-    His research asks how the brain represents the visual world. To get at this, he compares human brains with deep neural networks:
-    large-scale neuroimaging reveals what visual cortex encodes, and networks provide testable hypotheses about how those representations are learned and computed.
-    His recent work shows that visual cortex is far higher-dimensional than once thought, and that very different networks converge on a shared set of universal features that the brain also uses.
-    Before Hopkins, he earned a PhD in Neuroscience at the University of Pennsylvania, studying semantic memory with Murray Grossman, and stayed at Penn as a postdoctoral fellow, working on how the visual system represents scenes and the actions they afford.
-    He has been awarded a Humboldt Research Fellowship for research in Germany and a Johns Hopkins Catalyst Award, and has given keynote talks at CCN (2023), the Vision Sciences Society workshop on AI in vision science (2025), and NEAT (2026).
+  bio: |
+    Mick Bonner is an Assistant Professor of Cognitive Science at Johns Hopkins University, where he has run the lab since 2019. His research asks how the brain represents the visual world. To get at this, he compares human brains with deep neural networks: large-scale neuroimaging reveals what visual cortex encodes, and networks provide testable hypotheses about how those representations are learned and computed. His recent work shows that visual cortex is far higher-dimensional than once thought, and that very different networks converge on a shared set of universal features that the brain also uses.
+
+    Before Hopkins, he earned a PhD in Neuroscience at the University of Pennsylvania, studying semantic memory with Murray Grossman, and stayed at Penn as a postdoctoral fellow, working on how the visual system represents scenes and the actions they afford. He has been awarded a Humboldt Research Fellowship for research in Germany and a Johns Hopkins Catalyst Award, and has given keynote talks at CCN (2023), the Vision Sciences Society workshop on AI in vision science (2025), and NEAT (2026).

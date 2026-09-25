@@ -6,6 +6,7 @@ layout: default
   <div class="home-hero">
     <div class="home-hero-text">
       <h1>Cognitive Neuroscience and Deep Learning Group</h1>
+      <p class="hero-tagline">We study how brains and deep networks learn to represent the visual world.</p>
       <ul class="hero-affil">
         <li>Department of Cognitive Science</li>
         <li>Johns Hopkins University</li>
@@ -14,13 +15,29 @@ layout: default
     </div>
     <figure class="brain-figure">
       <div id="brain-container" data-base="{{ site.url }}{{ site.baseurl }}" aria-hidden="true"></div>
-      <figcaption>Our goal is to understand neural computations in the visual cortex.</figcaption>
     </figure>
   </div>
 
   <div class="home-body">
     <div id="homeid">
       {{ content }}
+      <section class="recent-work">
+        <h2 class="recent-work-title">Recent work</h2>
+        <div class="recent-grid">
+        {% assign shown = 0 %}
+        {% for publi in site.data.publist %}
+          {% if publi.highlight == 1 and publi.image and publi.image != "" and shown < 3 %}
+          {% assign shown = shown | plus: 1 %}
+          <a class="recent-card" href="{{ publi.link.url }}">
+            <img src="{{ site.url }}{{ site.baseurl }}/images/pubpic/{{ publi.image }}" alt="">
+            <span class="recent-venue">{{ publi.link.display }} · {{ publi.year }}</span>
+            <span class="recent-name">{{ publi.title }}</span>
+          </a>
+          {% endif %}
+        {% endfor %}
+        </div>
+        <p class="recent-more"><a href="{{ site.url }}{{ site.baseurl }}/publications/">All publications →</a></p>
+      </section>
     </div>
     <div id="newsid">
       {% include news.html %}

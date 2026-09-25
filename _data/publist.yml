@@ -1,6 +1,6 @@
 # Featured/Highlighted Publications (highlight: 1)
 - title: "Efficient coding along the visual hierarchy"
-  image: 
+  image: efficient_coding.png
   description: Brains learn to see from far less experience than deep networks, which need millions of labeled images. We asked whether a simple principle called efficient coding, where each layer just captures the main patterns of variation in natural images, could explain this. We built a deep network that learns this way, layer by layer, with no labels, tasks, or backpropagation. Its features look a lot like those in biological vision, from edges and colors up to textures and shapes, and they predict activity in human visual cortex. Adding a small amount of supervised training on top of this leads to faster learning and better brain alignment when data is scarce.
   authors: Ananya Passi, Brian S. Robinson, Michael F. Bonner
   link:

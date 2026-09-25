@@ -16,16 +16,21 @@ permalink: /publications/
 		{% for publi in site.data.publist %}
 		{% if publi.highlight == 1 %}
 			<div class="pub-item featured-item" data-year="{{ publi.year }}" data-type="article" data-featured="true">
-				<div class="featured-head{% unless publi.image and publi.image != "" %} no-image{% endunless %}">
+				<div class="featured-head">
 					<div>
 						<div class="pub-title"><a href="{{ publi.link.url }}">{{ publi.title }}</a></div>
 						<p class="pub-authors">{{ publi.authors }}</p>
 					</div>
 					{% if publi.image and publi.image != "" %}
 					<img src="{{ site.url }}{{ site.baseurl }}/images/pubpic/{{ publi.image }}" class="thumb" alt="">
+					{% else %}
+					<div class="thumb thumb-venue" aria-hidden="true"><span>{{ publi.link.display }}</span><span class="thumb-year">{{ publi.year }}</span></div>
 					{% endif %}
 				</div>
-				<p class="pub-description">{{ publi.description }}</p>
+				<div class="pub-description-wrap">
+					<p class="pub-description" id="desc-{{ forloop.index }}">{{ publi.description }}</p>
+					<button type="button" class="pub-more" aria-expanded="false" aria-controls="desc-{{ forloop.index }}">More</button>
+				</div>
 				<div class="pub-venue-line">
 					{% if publi.year %}<span class="pub-year">{{ publi.year }}</span>{% endif %}
 					<span class="pub-venue">{{ publi.link.display }}</span>
@@ -101,6 +106,7 @@ permalink: /publications/
 
 				// Sort and display all articles in the .publications-list
 				const itemsInArticleList = Array.from(articlesListContainer.querySelectorAll('.pub-item:not(.featured-item)'));
+				// Featured papers are already shown above, so the default list leaves them out.
 
 				itemsInArticleList.sort((a, b) => {
 					const yearA_str = a.dataset.year;
@@ -116,8 +122,12 @@ permalink: /publications/
 				articlesListContainer.innerHTML = ''; // Clear current items
 				itemsInArticleList.forEach(pub => {
 					articlesListContainer.appendChild(pub);
-					pub.classList.remove('hidden');
-					visibleArticleCount++;
+					if (pub.classList.contains('is-featured')) {
+						pub.classList.add('hidden');
+					} else {
+						pub.classList.remove('hidden');
+						visibleArticleCount++;
+					}
 				});
 			} else {
 				// Handle specific year filters or when a search term is present
@@ -162,11 +172,26 @@ permalink: /publications/
 			}
 
 			// Update result count based on items in .publications-list
-			resultCount.textContent = `Showing ${visibleArticleCount} publication${visibleArticleCount !== 1 ? 's' : ''}`;
+			const plural = visibleArticleCount !== 1 ? 's' : '';
+			resultCount.textContent = (activeFilter === 'all' && !searchInput.value.trim())
+				? `${visibleArticleCount} more publication${plural}; featured papers are shown above`
+				: `Showing ${visibleArticleCount} publication${plural}`;
 		}
 
 		// Initial filter application on load
 		filterPublications();
+
+		// Featured descriptions are clamped to a few lines; "More" expands one.
+		document.querySelectorAll('.pub-description-wrap').forEach(wrap => {
+			const desc = wrap.querySelector('.pub-description');
+			const btn = wrap.querySelector('.pub-more');
+			if (desc.scrollHeight <= desc.clientHeight + 2) { btn.remove(); return; }
+			btn.addEventListener('click', () => {
+				const open = wrap.classList.toggle('is-open');
+				btn.setAttribute('aria-expanded', open);
+				btn.textContent = open ? 'Less' : 'More';
+			});
+		});
 	});
 </script>
 
@@ -203,10 +228,10 @@ permalink: /publications/
 	{% endcomment %}
 	{% assign venue_name = publi.link.display | split: " (" | first %}
 
-	<div class="pub-item pub-entry" data-year="{{ pub_year }}" data-type="{{ pub_type }}">
+	<div class="pub-item pub-entry{% if publi.highlight == 1 %} is-featured{% endif %}" data-year="{{ pub_year }}" data-type="{{ pub_type }}">
 		<div class="pub-header">
 			<div class="pub-content">
-				<div class="pub-title">{{ publi.title }}</div>
+				<div class="pub-title">{% if publi.highlight == 1 %}<span class="pub-star" title="Featured above">★</span>{% endif %}{{ publi.title }}</div>
 				<div class="pub-authors">{{ publi.authors }}</div>
 				<div class="pub-meta">
 					<div class="pub-venue-info">
