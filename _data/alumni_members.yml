@@ -1,49 +1,49 @@
 - name: Kelsey Han
   photo: kelsey.jpg
-  duration: PhD Student, 2020 - 2026
-  info: PostDoc Scientist, NIH
+  duration: PhD Student, 2020–2026
+  info: Postdoctoral Scientist, NIH
   website: https://kelseyhan-jhu.github.io/
   number_educ: 0
 
 - name: Raj Magesh Gauthaman
   photo: raj.jpg
-  duration: PhD Student, 2020 - 2025
-  info: PostDoc in Behrmann Lab, CMU / UPitt
+  duration: PhD Student, 2020–2025
+  info: Postdoc, Behrmann Lab, CMU / Pitt
   website: https://raj-magesh.org/
   number_educ: 0
 
 - name: Colin Conwell
   photo: colin.jpg
-  duration: PostDoc, Aug 2023 - 2024
+  duration: Postdoc, 2023–2024
   info: Research Scientist, MIT
   website: https://colinconwell.github.io/
   number_educ: 0
 
 - name: Emalie McMahon
   photo: emalie.jpg
-  duration: PhD Student (jointly with Leyla Isik), 2019 - 2024
-  info: PostDoc in Kanwisher Lab, MIT
+  duration: PhD Student (with Leyla Isik), 2019–2024
+  info: Postdoc, Kanwisher Lab, MIT
   website: https://emaliemcmahon.github.io/
   number_educ: 0
 
 - name: Atlas Kazemian
   photo: atlasd.jpg
-  duration: Lab Manager, Jun 2022 - Jun 2024
-  info: PhD student, Stanford
+  duration: Lab Manager, 2022–2024
+  info: PhD Student, Stanford
   website: https://akazemian.github.io/personal_profile/
   number_educ: 0
 
 - name: Eric Elmoznino
   photo: eric.jpg
-  duration: Lab Manager, Jan 2018 to June 2022
-  info: PhD student with Yoshua Bengio at MILA
+  duration: Lab Manager, 2018–2022
+  info: PhD Student, Mila (Yoshua Bengio)
   website: https://ericelmoznino.github.io/
   number_educ: 0
 
 - name: Alon Hafri
   photo: alon.jpg
-  duration: PostDoc, 2019 - 2021
-  info: Assistant Professor, UoDelaware
+  duration: Postdoc, 2019–2021
+  info: Assistant Professor, University of Delaware
   website: https://pal.lingcogsci.udel.edu/
   number_educ: 1 
   education1: PhD, UPenn
@@ -53,16 +53,16 @@
 
 - name: Donald Li
   photo: donald.jpg
-  duration: PhD student, May 2019 to June 2021
+  duration: PhD Student, 2019–2021
   info: Visiting Assistant Professor, Johns Hopkins
   website: https://cogsci.jhu.edu/directory/shi-pui-donald-li/
   number_educ: 0
 
 - name: Caterina Magri
   photo: cat.png
-  duration: PostDoc, December 2019 to February 2021
+  duration: Postdoc, 2019–2021
   website: https://catmagri.wixsite.com/caterinamagri
-  info: Quant UX researcher, Google
+  info: Quantitative UX Researcher, Google
   number_educ: 1
   education1: PhD, Harvard University
   education2:

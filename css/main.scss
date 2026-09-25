@@ -526,14 +526,6 @@ body > .container-fluid { padding-top: 1.5rem; }
 
 .team-page { max-width: 960px; }
 
-.team-page h1 { margin-bottom: 0.4rem; }
-
-.team-page .jumplinks {
-  color: var(--slate);
-  font-size: 0.95rem;
-  margin-bottom: 2.5rem;
-}
-
 .team-page h2 {
   font-size: 1.6rem;
   margin: 2.75rem 0 1.25rem;
@@ -583,42 +575,42 @@ body > .container-fluid { padding-top: 1.5rem; }
 .pi-card {
   display: grid;
   grid-template-columns: 200px minmax(0, 1fr);
-  gap: 36px;
+  gap: 40px;
   align-items: start;
-  padding: 32px;
+  padding: 30px 34px;
   background: #fff;
   border: 1px solid var(--hair);
-  border-radius: 10px;
+  border-radius: 12px;
+  box-shadow: 0 1px 2px rgba(23, 32, 42, 0.04), 0 8px 24px -12px rgba(23, 32, 42, 0.08);
 }
+.pi-aside { display: flex; flex-direction: column; align-items: center; }
 .pi-portrait {
-  grid-row: span 2;
   width: 200px;
   height: 250px;
   object-fit: cover;
-  border-radius: 6px;
+  border-radius: 8px;
   margin: 0;
   display: block;
 }
+.pi-aside .member-links { margin: 12px 0 0; justify-content: center; }
 .pi-kicker {
-  font-size: 0.78rem;
+  font-size: 0.75rem;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   color: var(--amber);
-  margin: 0 0 0.3rem;
+  margin: 0 0 0.35rem;
 }
-.team-page .pi-name { font-size: 1.9rem; margin: 0 0 0.3rem; }
+.team-page .pi-name { font-size: 2rem; margin: 0 0 0.35rem; letter-spacing: -0.01em; }
 .pi-role { color: var(--slate); font-size: 1rem; margin: 0; }
-.pi-card .member-links { margin-top: 10px; }
 .team-page .pi-bio {
-  grid-column: 2;
-  margin-top: -14px;
-  padding-top: 1.1rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
   border-top: 1px solid var(--hair);
-  max-width: 68ch;
 }
 .team-page .pi-bio p {
-  font-size: 1.02rem;
-  line-height: 1.75;
+  font-size: 0.98rem;
+  line-height: 1.62;
   color: var(--ink-soft);
   margin: 0;
 }
@@ -650,18 +642,49 @@ body > .container-fluid { padding-top: 1.5rem; }
   font-size: 15px;
   transition: color 120ms ease, background 120ms ease;
 }
+.member-links a.link-cv {
+  width: auto;
+  height: 22px;
+  margin: 4px 0 0 4px;
+  padding: 0 7px;
+  border: 1px solid var(--hair-strong);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  line-height: 1;
+}
+.member-links a.link-cv:hover { border-color: var(--blue); }
 .member-links a:hover, .member-links a:focus {
   color: var(--blue);
   background: var(--wash);
   text-decoration: none;
 }
 
-.member-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px 28px; }
+.member-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px 32px; }
+.member-grid-3 .member { grid-template-columns: 84px 1fr; gap: 16px; }
+.member-grid-3 .member img.portrait { width: 84px; height: 105px; }
 
 @media (min-width: 768px) and (max-width: 991px) { .member-grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
-.alumni-role { color: var(--ink-soft); font-weight: 600; }
 .alumni-dates { color: var(--slate); }
+.alumni-dates::before { content: "·"; margin: 0 0.4em; color: var(--hair-strong); }
+.member h4 a { color: var(--ink); transition: color 120ms ease; }
+.member h4 a:hover { color: var(--blue); text-decoration: none; }
+.member .now {
+  margin-top: 6px;
+  font-size: 0.93rem;
+  line-height: 1.45;
+  color: var(--ink);
+}
+.now-label {
+  display: inline-block;
+  margin-right: 6px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--slate);
+}
 
 /* Name + affiliation lists (collaborators, former students, admin) */
 .people-list {
@@ -701,11 +724,12 @@ body > .container-fluid { padding-top: 1.5rem; }
   .member { grid-template-columns: 80px 1fr; gap: 14px; }
   .member img.portrait { width: 80px; height: 100px; }
   .two-col-list { columns: 1; }
-  .pi-card { grid-template-columns: 112px minmax(0, 1fr); gap: 18px; padding: 18px; }
-  .pi-portrait { grid-row: auto; width: 112px; height: 140px; }
-  .team-page .pi-name { font-size: 1.45rem; }
+  .pi-card { grid-template-columns: 1fr; gap: 20px; padding: 22px; }
+  .pi-aside { flex-direction: row; align-items: flex-end; gap: 14px; }
+  .pi-portrait { width: 112px; height: 140px; }
+  .pi-aside .member-links { margin: 0; }
+  .team-page .pi-name { font-size: 1.6rem; }
   .pi-role { font-size: 0.92rem; }
-  .team-page .pi-bio { grid-column: 1 / -1; margin-top: 0; }
 }
 
 /* Publications ----------------------------------------------------------- */

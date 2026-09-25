@@ -8,20 +8,18 @@ permalink: /team/
 
 <div class="team-page">
 
-<h1>Team</h1>
-
-<p class="jumplinks">Jump to <a href="#lab">Lab</a>, <a href="#alumni">Alumni</a>, <a href="#collaborators">Collaborators</a>, <a href="#former-hopkins-students">Former students</a>, <a href="#administrative-support">Administrative support</a></p>
-
 {% for member in site.data.team_lead %}
 <section class="pi-card">
+<div class="pi-aside">
 <img src="{{ site.url }}{{ site.baseurl }}/images/teampic/{{ member.photo }}" class="pi-portrait" alt="{{ member.name }}">
+{% include member_links.html member=member hide_email=true %}
+</div>
 <div class="pi-main">
 <p class="pi-kicker">Principal Investigator</p>
 <h3 class="pi-name">{{ member.name }}</h3>
 <p class="pi-role">{{ member.role }} · <a href="mailto:{{ member.email }}">{{ member.email }}</a></p>
-{% include member_links.html member=member %}
-</div>
 {% if member.bio %}<div class="pi-bio">{{ member.bio | markdownify }}</div>{% endif %}
+</div>
 </section>
 {% endfor %}
 
@@ -40,16 +38,15 @@ permalink: /team/
 </div>
 
 <h2 id="alumni">Alumni</h2>
-<div class="member-grid">
+<div class="member-grid member-grid-3">
 {% for member in site.data.alumni_members %}
 {% assign duration_parts = member.duration | split: ", " %}
 <div class="member">
 <img src="{{ site.url }}{{ site.baseurl }}/images/teampic/{{ member.photo }}" class="portrait" alt="{{ member.name }}">
 <div>
-<h4>{{ member.name }}</h4>
-<div class="role"><span class="alumni-role">{{ duration_parts[0] }}</span>{% if duration_parts[1] %}<span class="alumni-dates">, {{ duration_parts[1] }}</span>{% endif %}</div>
-<div class="meta">Current role: <strong>{{ member.info }}</strong></div>
-{% if member.website %}<div class="meta"><a href="{{ member.website }}" target="_blank">website</a></div>{% endif %}
+<h4>{% if member.website %}<a href="{{ member.website }}">{{ member.name }}</a>{% else %}{{ member.name }}{% endif %}</h4>
+<div class="role">{{ duration_parts[0] }}{% if duration_parts[1] %}<span class="alumni-dates">{{ duration_parts[1] }}</span>{% endif %}</div>
+<div class="now"><span class="now-label">Now</span>{{ member.info }}</div>
 </div>
 </div>
 {% endfor %}
@@ -78,11 +75,5 @@ permalink: /team/
 </ul>
 </div>
 </div>
-
-<h2 id="administrative-support">Administrative Support</h2>
-<ul class="people-list">
-<li><span class="people-name"><a href="mailto:sciotol3@jhu.edu">Sarah Ciotola</a></span></li>
-<li><span class="people-name"><a href="mailto:csampso7@jhu.edu">Chamera Sampson</a></span></li>
-</ul>
 
 </div>

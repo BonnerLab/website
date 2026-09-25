@@ -12,7 +12,7 @@
   pdf: https://arxiv.org/pdf/2605.19155
 
 - title: "Advancing NeuroAI through developmental alignment"
-  image: 
+  image: developmental_alignment.png
   description: Most AI models of the brain try to match the adult brain, the end state of intelligence. In this review, we argue that we should also model how intelligence develops in the first place. Children learn quickly because their brains, experiences, and learning goals change in ways that are well suited to learning. We describe how these developmental principles could be built into AI systems. We also propose the abilities of young children as a natural set of benchmarks for evaluating AI models.
   authors: Vladislav Ayzenberg, Michael F. Bonner, Laurie Bayet
   link:
@@ -22,7 +22,7 @@
   highlight: 1
 
 - title: "Multidimensional dynamics of object representations in the human visual system"
-  image: 
+  image: multidimensional_dynamics.png
   description: When we see an object, the brain's response unfolds over a few hundred milliseconds. We used large EEG and MEG datasets to track how the complexity, or dimensionality, of these responses changes over time. We found that dimensionality expands rapidly, peaking within about 100 milliseconds, and then slowly decays. The more dimensions there are, the more information about the object can be read out from the brain. Neither deep neural networks nor models built from human similarity judgments fully explain these responses, which means there is still a lot about dynamic brain activity left to understand.
   authors: Zirui Chen, Leyla Isik, Michael F. Bonner
   link:
