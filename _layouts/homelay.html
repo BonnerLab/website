@@ -26,7 +26,7 @@ layout: default
         <div class="recent-grid">
         {% assign shown = 0 %}
         {% for publi in site.data.publist %}
-          {% if publi.highlight == 1 and publi.image and publi.image != "" and shown < 3 %}
+          {% if publi.highlight == 1 and publi.status == nil and publi.image and publi.image != "" and shown < 3 %}
           {% assign shown = shown | plus: 1 %}
           <a class="recent-card" href="{{ publi.link.url }}">
             <img src="{{ site.url }}{{ site.baseurl }}/images/pubpic/{{ publi.image }}" alt="">
