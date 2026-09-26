@@ -533,6 +533,12 @@ body > .container-fluid { padding-top: 1.5rem; }
   border-top: 1px solid var(--hair);
 }
 
+.team-page .pi-card + h2 {
+  margin-top: 2.25rem;
+  padding-top: 0;
+  border-top: 0;
+}
+
 .member-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
