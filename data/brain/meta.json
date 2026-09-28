@@ -1,14 +1,23 @@
 {
  "nVerts": 20484,
  "nFaces": 40960,
- "posScale": 0.0027163771390914917,
+ "posScale": 0.0026527931913733482,
  "distMax": 140.0,
  "layout": [
   "pos:int16x3",
   "faces:uint16x3",
   "sulc:uint8",
   "dist:uint8",
-  "stream:uint8"
+  "group:uint8",
+  "retino:uint8"
  ],
- "source": "fsaverage5 pial surface (FreeSurfer) via nilearn; Destrieux 2009 atlas"
+ "groups": {
+  "1": "V1",
+  "2": "early (V2-V4)",
+  "3": "ventral",
+  "4": "lateral (MT+ complex)",
+  "5": "dorsal",
+  "255": "not visual"
+ },
+ "source": "fsaverage5 pial (FreeSurfer) via nilearn; visual areas from HCP-MMP1.0 (Glasser et al. 2016)"
 }
