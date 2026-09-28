@@ -658,6 +658,7 @@ body > .container-fluid { padding-top: 1.5rem; }
   color: var(--ink-soft);
   margin: 0;
 }
+.team-page .pi-bio p + p { margin-top: 0.75rem; }
 .team-page .pi-bio a {
   color: var(--ink);
   text-decoration: underline;
