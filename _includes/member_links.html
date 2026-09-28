@@ -3,7 +3,7 @@
 {% endcomment %}
 {% if member.gscholar or member.website or member.email or member.twitter or member.cv or member.github %}
 <div class="member-links">
-  {% if member.website %}<a href="{{ member.website }}" title="Website" aria-label="Website"><i class="fas fa-globe"></i></a>{% endif %}
+  {% if member.website and include.hide_website != true %}<a href="{{ member.website }}" title="Website" aria-label="Website"><i class="fas fa-globe"></i></a>{% endif %}
   {% if member.gscholar %}<a href="{{ member.gscholar }}" title="Google Scholar" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>{% endif %}
   {% if member.email and include.hide_email != true %}<a href="mailto:{{ member.email }}" title="Email" aria-label="Email"><i class="fas fa-envelope"></i></a>{% endif %}
   {% if member.twitter %}<a href="https://twitter.com/{{ member.twitter }}" title="X / Twitter" aria-label="X / Twitter"><i class="fab fa-x-twitter"></i></a>{% endif %}

@@ -29,9 +29,9 @@ permalink: /team/
 <div class="member">
 <img src="{{ site.url }}{{ site.baseurl }}/images/teampic/{{ member.photo }}" class="portrait" alt="{{ member.name }}">
 <div>
-<h4>{{ member.name }}</h4>
+<h4>{% if member.website %}<a href="{{ member.website }}">{{ member.name }}</a>{% else %}{{ member.name }}{% endif %}</h4>
 <div class="role">{{ member.role }}</div>
-{% include member_links.html member=member %}
+{% include member_links.html member=member hide_website=true %}
 </div>
 </div>
 {% endfor %}
