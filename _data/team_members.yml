@@ -1,3 +1,11 @@
+- name: Zirui Chen
+  photo: ray.jpg
+  role: PhD Student
+  website: https://zche377.github.io/
+  twitter: RayChen44
+  email: zchen160@jhu.edu
+
+
 - name: Yash Mehta
   photo: yash.jpg
   role: PhD Student
@@ -7,18 +15,8 @@
   cv: yash_resume.pdf
 
 
-- name: Zirui Chen
-  photo: ray.jpg
-  role: PhD Student
-  website: https://zche377.github.io/
-  twitter: RayChen44
-  email: zchen160@jhu.edu
-
-
 - name: Ananya Passi
   photo: ananya.jpg
   role: PhD Student
   website: https://scholar.google.com/citations?user=qbvt7EUAAAAJ&hl=en&inst=7575085548378563675
   email: apassi1@jhu.edu
-
-
