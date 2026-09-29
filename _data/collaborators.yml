@@ -1,3 +1,7 @@
+- name: Leyla Isik
+  info: Cognitive Science, Johns Hopkins
+  website: https://www.isiklab.org/
+
 - name: Brice Ménard
   info: Physics & Astronomy, Johns Hopkins
   website: https://physics-astronomy.jhu.edu/directory/brice-menard/
@@ -13,7 +17,3 @@
 - name: Brian Robinson
   info: Johns Hopkins Applied Physics Laboratory
   website: https://www.jhuapl.edu/about/people/brian-s-robinson
-
-- name: Leyla Isik
-  info: Cognitive Science, Johns Hopkins
-  website: https://www.isiklab.org/
