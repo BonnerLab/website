@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
       if (video.readyState >= 1) rest(); else video.addEventListener('loadedmetadata', rest, { once: true });
       return;
     }
+    if (video.closest('[data-scroller]')) return;   // the home page slideshow plays its own clips (js/scroller.js)
     if ('IntersectionObserver' in window) {
       var seen = new IntersectionObserver(function (entries) {
         if (!entries[0].isIntersecting) return;

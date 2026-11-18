@@ -7,18 +7,41 @@ permalink: /publications/
 ---
 
 <div id="gridid" class="col-sm-12 pubs-page">
-	<h1>Publications</h1>
-	
-
 	<div class="featured-section">
-		<h2 id="featured-research">Featured Research</h2>
+		<h1 id="featured-research">Featured Research</h1>
 		<div class="featured-grid">
 		{% for publi in site.data.publist %}
 		{% if publi.highlight == 1 %}
-			<div class="pub-item featured-item{% if publi.teaser %} has-clip{% endif %}" data-year="{{ publi.year }}" data-type="article" data-featured="true">
+			<div class="pub-item featured-item{% if publi.teaser %} has-clip{% endif %}"{% if publi.teaser %} id="paper-{{ publi.teaser | remove: '.mp4' }}"{% endif %} data-year="{{ publi.year }}" data-type="article" data-featured="true">
+				{% capture featured_meta %}
+				<div class="featured-meta">
+					<div class="pub-venue-line">
+						<span class="pub-venue-info">
+							{% if publi.status %}<span class="pub-status">{{ publi.status }}</span>{% endif %}
+							<span class="pub-venue">{{ publi.link.display }}</span>
+							{% if publi.year %}<span class="pub-year">{{ publi.year }}</span>{% endif %}
+						</span>
+						<span class="pub-links-inline">
+							{% if publi.link.url %}<a href="{{ publi.link.url }}" target="_blank"><i class="fas fa-file-lines"></i>Paper</a>{% endif %}
+							{% if publi.code %}<a href="{{ publi.code }}" target="_blank"><i class="fab fa-github"></i>Code</a>{% endif %}
+							{% if publi.twitter %}<a href="{{ publi.twitter }}" target="_blank"><i class="fab fa-x-twitter"></i>Thread</a>{% endif %}
+						</span>
+					</div>
+					{% if publi.press or publi.commentary %}
+					<div class="pub-extra-links">
+						{% if publi.press %}<a href="{{ publi.press.url }}" target="_blank" class="pub-extra-link"><i class="fas fa-newspaper"></i>Press: <span class="link-source">{{ publi.press.display }}</span></a>{% endif %}
+						{% if publi.commentary %}<a href="{{ publi.commentary.url }}" target="_blank" class="pub-extra-link"><i class="fas fa-comment-dots"></i>Commentary: <span class="link-source">{{ publi.commentary.display }}</span></a>{% endif %}
+					</div>
+					{% endif %}
+				</div>
+				{% endcapture %}
 				{% if publi.teaser %}
-				<div class="pub-clip">
-					<video data-teaser src="{{ site.url }}{{ site.baseurl }}/images/pubvid/{{ publi.teaser }}" poster="{{ site.url }}{{ site.baseurl }}/images/pubvid/{{ publi.teaser | replace: '.mp4', '.jpg' }}" muted playsinline preload="metadata" aria-label="{{ publi.teaser_alt | escape }}"></video>
+				{% comment %} Clip with the venue, year and links beneath it; on phones the meta drops below the summary (CSS order). {% endcomment %}
+				<div class="featured-side">
+					<div class="pub-clip">
+						<video data-teaser src="{{ site.url }}{{ site.baseurl }}/images/pubvid/{{ publi.teaser }}" poster="{{ site.url }}{{ site.baseurl }}/images/pubvid/{{ publi.teaser | replace: '.mp4', '.jpg' }}" muted playsinline preload="metadata" aria-label="{{ publi.teaser_alt | escape }}"></video>
+					</div>
+					{{ featured_meta }}
 				</div>
 				{% endif %}
 				<div class="featured-body">
@@ -39,26 +62,14 @@ permalink: /publications/
 					<div class="thumb thumb-venue" aria-hidden="true"><span>{{ publi.link.display }}</span><span class="thumb-year">{{ publi.year }}</span></div>
 					{% endif %}
 				</div>
-				<div class="pub-venue-line">
-					{% if publi.year %}<span class="pub-year">{{ publi.year }}</span>{% endif %}
-					<span class="pub-venue">{{ publi.link.display }}</span>
-					{% if publi.status %}<span class="pub-status">{{ publi.status }}</span>{% endif %}
-					<span class="pub-links-inline">
-						{% if publi.link.url %}<a href="{{ publi.link.url }}" target="_blank"><i class="fas fa-file-lines"></i>Paper</a>{% endif %}
-						{% if publi.code %}<a href="{{ publi.code }}" target="_blank"><i class="fab fa-github"></i>Code</a>{% endif %}
-						{% if publi.twitter %}<a href="{{ publi.twitter }}" target="_blank"><i class="fab fa-x-twitter"></i>Thread</a>{% endif %}
-					</span>
-				</div>
-				<div class="pub-description-wrap">
-					<button type="button" class="pub-more" aria-expanded="false" aria-controls="desc-{{ forloop.index }}">Summary</button>
-					<p class="pub-description" id="desc-{{ forloop.index }}">{{ publi.description }}</p>
-				</div>
-				{% if publi.press or publi.commentary %}
-				<div class="pub-extra-links">
-					{% if publi.press %}<a href="{{ publi.press.url }}" target="_blank" class="pub-extra-link"><i class="fas fa-newspaper"></i>Press: <span class="link-source">{{ publi.press.display }}</span></a>{% endif %}
-					{% if publi.commentary %}<a href="{{ publi.commentary.url }}" target="_blank" class="pub-extra-link"><i class="fas fa-comment-dots"></i>Commentary: <span class="link-source">{{ publi.commentary.display }}</span></a>{% endif %}
-				</div>
+				{% if publi.summary %}
+				<dl class="pub-qa">
+					<div><dt>Question</dt><dd>{{ publi.summary.question }}</dd></div>
+					<div><dt>What we did</dt><dd>{{ publi.summary.did }}</dd></div>
+					<div><dt>What we found</dt><dd>{{ publi.summary.found }}</dd></div>
+				</dl>
 				{% endif %}
+				{% unless publi.teaser %}{{ featured_meta }}{% endunless %}
 				</div>
 			</div>
 		{% endif %}
@@ -193,16 +204,6 @@ permalink: /publications/
 
 		// Initial filter application on load
 		filterPublications();
-
-		// Featured summaries are hidden until asked for.
-		document.querySelectorAll('.pub-description-wrap').forEach(wrap => {
-			const btn = wrap.querySelector('.pub-more');
-			btn.addEventListener('click', () => {
-				const open = wrap.classList.toggle('is-open');
-				btn.setAttribute('aria-expanded', open);
-				btn.textContent = open ? 'Hide summary' : 'Summary';
-			});
-		});
 	});
 </script>
 

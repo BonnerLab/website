@@ -2,6 +2,10 @@
 - title: "Extremely coarse learning objectives induce human-aligned representations in AI vision models"
   image: coarse_feedback.png
   teaser: coarse2026.mp4
+  summary:
+    question: "How fine-grained does a learning signal need to be for a neural network to see like a human?"
+    did: "We trained hundreds of convolutional and transformer networks to distinguish only a handful of broad, data-driven categories, and compared them with monkey and human brain recordings and human similarity judgments."
+    found: "Networks trained on as few as 8 categories match or exceed the neural alignment of 1,000-class models and align more closely with human perception."
   teaser_alt: "Animated diagram: a cloud of image embeddings is split along its first three principal components into 2, 4, then 8 coarse classes; a network trained on those 8 classes matches human similarity judgments better (RSA 0.581) than the same network trained on 1,000 classes (0.367), and is on par or better in visual cortex."
   description: How fine-grained does a learning signal need to be for a neural network to see like a human? We trained hundreds of convolutional and transformer networks on tasks that distinguish only a handful of broad, data-driven categories and compared them with macaque electrophysiology, human fMRI, and human similarity judgments. Networks trained on as few as 8 categories match or exceed the neural alignment of 1,000-class models, and they align more closely with human perception than fine-grained, self-supervised, or large-scale vision models. Human-like vision can emerge from remarkably coarse feedback.
   authors: Yash Mehta, Michael F. Bonner
@@ -17,6 +21,10 @@
 - title: "Efficient coding along the visual hierarchy"
   image: efficient_coding.png
   teaser: efficient_coding2026.mp4
+  summary:
+    question: "Can efficient coding, a simple principle in which each layer captures the main patterns of variation in its input, explain how brains learn to see from so little experience?"
+    did: "We built a deep network that learns this way, layer by layer, with no labels, tasks, or backpropagation."
+    found: "Its features progress from edges and colors to textures and shapes and predict activity in human visual cortex, and a little supervised training on top gives faster learning and better brain alignment when data is scarce."
   teaser_alt: "Animated schematic of a deep network whose eleven layers are learned one at a time by principal component analysis on natural images, with no labels or backpropagation. Its features progress from edges and colors to textures and shapes, and the network predicts responses in human visual cortex."
   description: Brains learn to see from far less experience than deep networks, which need millions of labeled images. We asked whether a simple principle called efficient coding, where each layer just captures the main patterns of variation in natural images, could explain this. We built a deep network that learns this way, layer by layer, with no labels, tasks, or backpropagation. Its features look a lot like those in biological vision, from edges and colors up to textures and shapes, and they predict activity in human visual cortex. Adding a small amount of supervised training on top of this leads to faster learning and better brain alignment when data is scarce.
   authors: Ananya Passi, Brian S. Robinson, Michael F. Bonner
@@ -31,6 +39,10 @@
 - title: "Advancing NeuroAI through developmental alignment"
   image: developmental_alignment.png
   teaser: developmental2026.mp4
+  summary:
+    question: "Should AI models of the brain match only the adult end state of intelligence, or also how intelligence develops?"
+    did: "We review how children's brains, experiences, and learning goals change over development, and describe how these principles could be built into AI systems."
+    found: "We argue that models should be aligned with the developmental trajectory, and propose the abilities of young children as benchmarks for evaluating them."
   teaser_alt: "Two parallel timelines, child development from newborn to adult and model training, are first linked only at the adult end state; links then appear at the newborn, infant and child stages, labelled developmental alignment. Below the model timeline, architecture, experience and learning objective are marked as developing across training."
   description: Most AI models of the brain try to match the adult brain, the end state of intelligence. In this review, we argue that we should also model how intelligence develops in the first place. Children learn quickly because their brains, experiences, and learning goals change in ways that are well suited to learning. We describe how these developmental principles could be built into AI systems. We also propose the abilities of young children as a natural set of benchmarks for evaluating AI models.
   authors: Vladislav Ayzenberg, Michael F. Bonner, Laurie Bayet
@@ -43,6 +55,10 @@
 - title: "Multidimensional dynamics of object representations in the human visual system"
   image: multidimensional_dynamics.png
   teaser: dynamics2026.mp4
+  summary:
+    question: "How does the complexity, or dimensionality, of the brain's response to an object change in the few hundred milliseconds after we see it?"
+    did: "We tracked the dimensionality of brain responses over time in large EEG and MEG datasets."
+    found: "Dimensionality expands rapidly, peaks within about 100 milliseconds, and then slowly decays, and neither deep neural networks nor models of human similarity judgments fully explain it."
   teaser_alt: "Animated schematic of the dimensionality of the brain's response to an image over time: it stays at zero just after image onset, rises steeply to a peak within 100 ms, holds there, then gradually decays. A fan of spokes representing dimensions fills completely at 100 ms, and a second fan late in the response has only a few left."
   description: When we see an object, the brain's response unfolds over a few hundred milliseconds. We used large EEG and MEG datasets to track how the complexity, or dimensionality, of these responses changes over time. We found that dimensionality expands rapidly, peaking within about 100 milliseconds, and then slowly decays. The more dimensions there are, the more information about the object can be read out from the brain. Neither deep neural networks nor models built from human similarity judgments fully explain these responses, which means there is still a lot about dynamic brain activity left to understand.
   authors: Zirui Chen, Leyla Isik, Michael F. Bonner
@@ -57,6 +73,10 @@
 - title: "High-dimensional structure underlying individual differences in naturalistic visual experience"
   image: id_kelsey.png
   teaser: individual_differences2026.mp4
+  summary:
+    question: "What underlies the differences between people in how they experience the same visual scenes?"
+    did: "We decomposed the brain responses of people watching the same movies into a spectrum of latent dimensions and measured how similar people are along it."
+    found: "Reliable individual differences span many dimensions, with distinct patterns in different ranges of the spectrum that conventional methods miss."
   teaser_alt: "Animated schematic: people watch the same movies and their shared brain responses are split into a spectrum of latent dimensions ordered by rank. At each of five ranges of the spectrum, a matrix of similarity between people shows a different pattern, and each pattern reappears when measured in other movies, so individual differences are reliable across many dimensions."
   description: We show that individual differences in visual experience emerge from high-dimensional neural activity patterns during naturalistic movie viewing, with distinct latent dimensions capturing behaviorally relevant aspects of perception. This multidimensional geometry, revealed through spectral decomposition, explains inter-individual variability beyond what conventional methods capture.
   authors: Chihye Han, Michael F. Bonner
@@ -70,6 +90,10 @@
 - title: "Universal dimensions of visual representation"
   image: universal_dim.png
   teaser: universal2025.mp4
+  summary:
+    question: "Do neural networks resemble the brain because of representations specific to particular models, or because of features that all networks learn?"
+    did: "We measured how widely each latent dimension is shared across networks with different architectures and training tasks, and compared these dimensions with human fMRI data."
+    found: "Most dimensions are specific to one network, and the ones that align with the brain are those shared universally across networks."
   teaser_alt: "Animated diagram: a few latent dimensions are shared across four different neural networks and with the human brain, while most are specific to one network. In a plot of brain similarity against universality, most dimensions cluster near zero and only the highly universal ones show high brain similarity."
   description: We examined whether visual neural networks align with brain representations due to shared constraints or universal features. Analysis of diverse networks revealed shared latent dimensions for image representation. Comparing these to human fMRI data showed brain-aligned representations are universal across networks. This suggests similarities between artificial and biological vision arise from core universal image representations learned convergently.
   authors: Zirui Chen, Michael F. Bonner
@@ -83,6 +107,10 @@
 - title: "Convolutional architectures are cortex-aligned de novo"
   image: untrained_cortex_alignment.png
   teaser: denovo2025.mp4
+  summary:
+    question: "Is extensive training necessary for a neural network to develop brain-like visual representations?"
+    did: "We compared untrained convolutional networks with visual cortex responses in monkeys and humans while varying their architecture."
+    found: "Untrained convolutional networks can produce cortex-like representations, driven by how the architecture compresses spatial information and expands feature information."
   teaser_alt: "Animated schematic: the last layer of an untrained convolutional network with random filters is widened, and its prediction of monkey visual cortex responses rises to just below a pre-trained AlexNet, while untrained transformer and fully connected networks improve only slightly."
   description: We find that untrained convolutional neural networks can produce brain-like visual representations. This challenges the view that extensive training is necessary for such similarities. The key factors are the networks' architecture, specifically how they compress spatial information and expand feature information. This suggests that the basic structure of convolutional networks mimics biological vision constraints, allowing for cortex-like representations even without learning from experience.
   authors: Atlas Kazemian, Eric Elmoznino, Michael F. Bonner
@@ -103,6 +131,10 @@
 - title: "Universal scale-free representations in human visual cortex"
   image: scale_free_reps.png
   teaser: scalefree2025.mp4
+  summary:
+    question: "Can the visual representations of the human brain be understood in just a few dimensions?"
+    did: "We used a spectral approach to measure how variance in fMRI responses to natural scenes is spread across latent dimensions."
+    found: "Variance decays as a power law across nearly four orders of magnitude of dimensions, in a pattern shared across people, revealing high-dimensional structure that conventional methods miss."
   teaser_alt: "Animated log-log plot of variance against the rank of latent dimensions in human visual cortex responses: the points fall on a straight power-law line that continues far beyond the few leading dimensions seen by conventional analyses, across nearly four orders of magnitude, and the spectra of eight people fall on the same line."
   description: Is it possible to deeply understand neural representations through dimensionality reduction? Our recent work demonstrates that the visual representations in the human brain require interpretation within high-dimensional spaces. Moreover, we reveal that traditional methods like representational similarity analysis fail to detect this high-dimensional information in cortical activity; instead, a spectral approach is necessary. This research uncovers a vast expanse of uncharted dimensions that conventional techniques have overlooked but may be crucial for decoding the cortical code of human vision.
   authors: Raj Magesh Gauthaman, Brice Ménard, Michael F. Bonner
@@ -127,6 +159,10 @@
 - title: "High-performing neural network models of visual cortex benefit from high latent dimensionality"
   image: high_dimensionality.png
   teaser: dimensionality2024.mp4
+  summary:
+    question: "Do better neural network models of visual cortex have lower- or higher-dimensional representations?"
+    did: "We measured the effective dimensionality of many deep networks and tested how well each predicts cortical responses."
+    found: "Higher-dimensional networks predict cortical responses better and learn new categories of stimuli more easily."
   teaser_alt: "Animated scatter plot in which each dot is one neural network layer: layers with higher effective dimensionality, illustrated by a point cloud filling a volume rather than lying along a line, predict visual cortex responses better, shown by a rising trend line."
   description: Investigating deep neural networks (DNNs) as models for the visual cortex, we found that higher-dimensional representations in these networks better predict cortical responses and improve learning of new stimuli, challenging the idea that lower dimensionality enhances performance. This indicates that high-dimensional geometries might be advantageous for DNN models of visual processing.
   authors: Eric Elmoznino, Michael F. Bonner
