@@ -1,0 +1,125 @@
+<!doctype html><meta charset="utf-8">
+<!-- Teaser clip: "Universal scale-free representations in human visual cortex" (Gauthaman, Menard, Bonner 2025).
+     One idea: the covariance spectrum of visual cortex responses is a power law (a straight line on log-log axes)
+     that keeps going far past the few leading dimensions conventional methods see, and is the same in all 8 subjects.
+     Render:  FFMPEG=_teasers/bin/ffmpeg python3 _teasers/render.py _teasers/scalefree2025 images/pubvid/scalefree2025 -->
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&display=block" rel="stylesheet">
+<style>
+html,body{margin:0;width:640px;height:448px;overflow:hidden;background:#fbfbf9}
+svg{display:block;font-family:"Source Sans 3","Helvetica Neue",Arial,sans-serif}
+.serif{font-family:"Source Serif 4",Georgia,serif}
+</style>
+<svg id="s" width="640" height="448" viewBox="0 0 640 448" xmlns="http://www.w3.org/2000/svg">
+  <text class="serif" x="36" y="72" font-size="27" font-weight="500" fill="#17202a">A <tspan fill="#b45f06">scale-free</tspan> code in human visual cortex</text>
+  <g id="stat"></g><!-- things drawn once -->
+  <g id="dyn"></g><!-- cleared and redrawn every frame -->
+</svg>
+<script>
+(function(){
+/* Colour roles: blue = measured cortical spectra (one shade per person); amber = the scale-free power law;
+   grey = the low-rank range conventional methods are sensitive to. */
+var C={paper:'#fbfbf9', wash:'#f2f3f0', panel:'#ffffff', hair:'#e3e5e8', hairStrong:'#cfd3d8',
+       ink:'#17202a', inkSoft:'#3d4653', slate:'#66707d',
+       blue:'#1f4f9a', blueDeep:'#143a75', amber:'#b45f06', orange:'#d9822b', green:'#2f8f6b', red:'#c2413b', violet:'#6b4fa0'};
+var RGB={paper:[251,251,249], wash:[242,243,240], hair:[227,229,232], ink:[23,32,42], slate:[102,112,125],
+         blue:[31,79,154], blueDeep:[20,58,117], blueLight:[126,170,222], amber:[180,95,6]};
+
+var NS='http://www.w3.org/2000/svg';
+function el(n,a,p){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+function txt(s,a,p){var e=el('text',a,p);e.textContent=s;return e}
+function rng(seed){var s=seed>>>0;return function(){s=(s+0x6D2B79F5)>>>0;var t=Math.imul(s^(s>>>15),1|s);t=(t+Math.imul(t^(t>>>7),61|t))^t;return((t^(t>>>14))>>>0)/4294967296}}
+function cl(x){return x<0?0:x>1?1:x}
+function ease(x){x=cl(x);return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2}
+function seg(t,a,b){return cl((t-a)/(b-a))}
+function lerp(a,b,k){return a+(b-a)*k}
+function mix(c1,c2,k){var o=[];for(var i=0;i<3;i++)o.push(Math.round(c1[i]+(c2[i]-c1[i])*k));return 'rgb('+o+')'}
+
+/* ---- geometry: log-log axes. l = log10(rank). One decade of rank = DX px, one decade of variance = DY px. ---- */
+var X0=96, DX=118, YB=340, YT=104, DY=33, XR=584;
+var SLOPE=1.6;                              /* decades of variance lost per decade of rank (paper's fitted index, Fig 3) */
+var L0=.18, LSTEP=.36, NP=11;               /* 11 log-spaced bins from rank ~1.5 to ~6000, as in the paper's Fig 3 */
+var LEND=L0+LSTEP*(NP-1);                   /* 3.78 */
+function X(l){return X0+l*DX}
+function YL(l){return 124+(l-L0)*SLOPE*DY}  /* the power-law line */
+
+var stat=document.getElementById('stat'), dyn=document.getElementById('dyn');
+
+/* low-rank band: the first decade of ranks (about 10 dimensions) */
+el('rect',{x:X(0),y:YT,width:DX,height:YB-YT,fill:'#eceeea'},stat);
+el('line',{x1:X(1),y1:YT,x2:X(1),y2:YB,stroke:C.hairStrong,'stroke-width':1.5,'stroke-dasharray':'3 4'},stat);
+txt('conventional',{x:X(.5),y:272,'font-size':16,'font-weight':500,fill:C.slate,'text-anchor':'middle'},stat);
+txt('view',{x:X(.5),y:292,'font-size':16,'font-weight':500,fill:C.slate,'text-anchor':'middle'},stat);
+
+/* axes with log ticks (unlabelled) */
+el('path',{d:'M '+X0+' '+YT+' V '+YB+' H '+XR,fill:'none',stroke:C.inkSoft,'stroke-width':1.75,'stroke-linecap':'round','stroke-linejoin':'round'},stat);
+for(var d=0;d<=4;d++){
+  el('line',{x1:X(d),y1:YB,x2:X(d),y2:YB+8,stroke:C.inkSoft,'stroke-width':1.75,'stroke-linecap':'round'},stat);
+  if(d<4) for(var m=2;m<=9;m++){var xm=X(d+Math.log(m)/Math.LN10);
+    el('line',{x1:xm,y1:YB,x2:xm,y2:YB+4,stroke:C.slate,'stroke-width':1.5,opacity:.7},stat)}
+}
+for(var k=1;k<=7;k++) el('line',{x1:X0-7,y1:YB-DY*k,x2:X0,y2:YB-DY*k,stroke:C.inkSoft,'stroke-width':1.75,'stroke-linecap':'round'},stat);
+txt('rank of latent dimension (log)',{x:(X0+XR)/2,y:369,'font-size':16,fill:C.inkSoft,'text-anchor':'middle'},stat);
+txt('variance (log)',{x:62,y:(YT+YB)/2,'font-size':16,fill:C.inkSoft,'text-anchor':'middle',transform:'rotate(-90 62 '+((YT+YB)/2)+')'},stat);
+
+/* ---- synthetic spectra: 8 people, all scattered tightly about the same power law ---- */
+var NS_=8, R=rng(20251), PTS=[];
+for(var s=0;s<NS_;s++){ var off=s===0?0:(R()-.5)*8, row=[];
+  for(var i=0;i<NP;i++){ var l=L0+LSTEP*i, j=s===0?(R()-.5)*3:(R()-.5)*13, dx=s===0?0:(R()-.5)*13;
+    row.push({l:l,x:X(l)+dx,y:YL(l)+off+j}) }
+  PTS.push(row) }
+function shade(s){return mix(RGB.blueDeep,RGB.blueLight,s/(NS_-1))}
+
+/* timeline */
+var T_LINE0=.6, T_LINE1=3.3;      /* spectrum of the first person runs on past the band; power law follows */
+var T_PL=3.2;                     /* "power law" label */
+var T_OTH=4.0;                    /* the other seven people land on the same line */
+var T_LEG=5.0;                    /* "8 people, one spectrum" */
+var T_SPAN0=6.0, T_SPAN1=6.9;     /* span of the power law */
+var ANG=Math.atan2(SLOPE*DY,DX)*180/Math.PI;
+
+window.DURATION=8.5;
+window.renderAt=function(t){
+  while(dyn.firstChild)dyn.removeChild(dyn.firstChild);
+
+  /* power-law line (amber, dashed), growing from rank 1 */
+  var lt=lerp(0,LEND+.07,seg(t,T_LINE0,T_LINE1));
+  if(lt>0.01) el('line',{x1:X(0),y1:YL(0),x2:X(lt),y2:YL(lt),stroke:C.amber,'stroke-width':2.5,'stroke-dasharray':'7 6','stroke-linecap':'round',opacity:.9},dyn);
+
+  /* the other seven people */
+  for(var s=NS_-1;s>=1;s--){
+    for(var i=0;i<NP;i++){ var p=PTS[s][i], t0=T_OTH+.14*(s-1)+.035*i, a=ease(seg(t,t0,t0+.5));
+      if(a<=0) continue;
+      el('circle',{cx:p.x,cy:p.y-14*(1-a),r:4.6,fill:shade(s),stroke:C.paper,'stroke-width':1,opacity:a},dyn) }
+  }
+  /* the first person: three leading bins are there from the start, the rest appear as the line passes */
+  for(var i=0;i<NP;i++){ var p=PTS[0][i], a=1;
+    if(i>=3){ var tp=T_LINE0+(T_LINE1-T_LINE0)*(p.l/(LEND+.07)); a=ease(seg(t,tp-.12,tp+.28)) }
+    if(a<=0) continue;
+    el('circle',{cx:p.x,cy:p.y,r:5*(.6+.4*a),fill:shade(0),stroke:C.paper,'stroke-width':1.25,opacity:a},dyn) }
+
+  /* "power law", set along the line */
+  var a1=ease(seg(t,T_PL,T_PL+.6));
+  if(a1>0){ var lx=2.02, px=X(lx), py=YL(lx);
+    txt('power law',{x:px,y:py-21,'font-size':18,'font-weight':600,fill:C.amber,opacity:a1,
+      transform:'rotate('+ANG.toFixed(2)+' '+px+' '+py+')'},dyn) }
+
+  /* "8 people, one spectrum" */
+  var a2=ease(seg(t,T_LEG,T_LEG+.6));
+  if(a2>0){ var g=el('g',{opacity:a2},dyn);
+    for(var s=0;s<NS_;s++) el('circle',{cx:586-(NS_-1-s)*15,cy:128,r:5,fill:shade(s)},g);
+    txt('8 people, one spectrum',{x:592,y:158,'font-size':18,'font-weight':600,fill:C.blue,'text-anchor':'end'},g) }
+
+  /* span of the power law: a dimension line under the axis */
+  var k3=ease(seg(t,T_SPAN0,T_SPAN1)), a3=ease(seg(t,T_SPAN0+.2,T_SPAN0+.75));
+  if(k3>0){ var ys=398, xa=X(0), xb=lerp(X(0),X(LEND),k3), mid=(X(0)+X(LEND))/2, hw=112;
+    var g2=el('g',{stroke:C.amber,'stroke-width':2,'stroke-linecap':'round',fill:'none'},dyn);
+    el('line',{x1:xa,y1:ys-6,x2:xa,y2:ys+6},g2);
+    el('line',{x1:xa,y1:ys,x2:Math.min(xb,mid-hw),y2:ys},g2);
+    if(xb>mid+hw) el('line',{x1:mid+hw,y1:ys,x2:xb,y2:ys},g2);
+    if(k3>=1) el('line',{x1:xb,y1:ys-6,x2:xb,y2:ys+6},g2);
+    if(a3>0) txt('nearly 4 orders of magnitude',{x:mid,y:ys+6,'font-size':17,'font-weight':600,fill:C.amber,'text-anchor':'middle',opacity:a3},dyn);
+  }
+};
+window.renderAt(0);
+})();
+</script>

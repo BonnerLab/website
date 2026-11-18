@@ -23,28 +23,34 @@ layout: default
   <div class="home-body">
     <div id="homeid">
       {{ content }}
-      <section class="recent-work">
-        <h2 class="recent-work-title">Recent work</h2>
-        <div class="recent-grid">
-        {% assign shown = 0 %}
-        {% for publi in site.data.publist %}
-          {% if publi.highlight == 1 and publi.status == nil and publi.image and publi.image != "" and shown < 3 %}
-          {% assign shown = shown | plus: 1 %}
-          <a class="recent-card" href="{{ publi.link.url }}">
-            <img src="{{ site.url }}{{ site.baseurl }}/images/pubpic/{{ publi.image }}" alt="">
-            <span class="recent-venue">{{ publi.link.display }} · {{ publi.year }}</span>
-            <span class="recent-name">{{ publi.title }}</span>
-          </a>
-          {% endif %}
-        {% endfor %}
-        </div>
-        <p class="recent-more"><a href="{{ site.url }}{{ site.baseurl }}/publications/">All publications →</a></p>
-      </section>
     </div>
     <div id="newsid">
       {% include news.html %}
     </div>
   </div>
+  <section class="recent-work">
+    <div class="recent-head">
+      <h2 class="recent-work-title">Recent work</h2>
+      <a class="recent-more" href="{{ site.url }}{{ site.baseurl }}/publications/">All publications →</a>
+    </div>
+    <div class="recent-grid">
+    {% assign shown = 0 %}
+    {% for publi in site.data.publist %}
+      {% if publi.highlight == 1 and publi.status == nil and publi.image and publi.image != "" and shown < 3 %}
+      {% assign shown = shown | plus: 1 %}
+      <a class="recent-card" href="{{ publi.link.url }}">
+        {% if publi.teaser %}
+        <span class="pub-clip"><video data-teaser src="{{ site.url }}{{ site.baseurl }}/images/pubvid/{{ publi.teaser }}" poster="{{ site.url }}{{ site.baseurl }}/images/pubvid/{{ publi.teaser | replace: '.mp4', '.jpg' }}" muted playsinline preload="metadata" aria-label="{{ publi.teaser_alt | escape }}"></video></span>
+        {% else %}
+        <img src="{{ site.url }}{{ site.baseurl }}/images/pubpic/{{ publi.image }}" alt="">
+        {% endif %}
+        <span class="recent-venue">{{ publi.link.display }} · {{ publi.year }}</span>
+        <span class="recent-name">{{ publi.title }}</span>
+      </a>
+      {% endif %}
+    {% endfor %}
+    </div>
+  </section>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>

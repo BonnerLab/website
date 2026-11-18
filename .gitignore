@@ -5,3 +5,5 @@ CLAUDE.md
 vendor/bundle
 .bundle
 .DS_Store
+_teasers/bin/
+_teasers/*/still_*.png

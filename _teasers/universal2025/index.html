@@ -1,0 +1,164 @@
+<!doctype html><meta charset="utf-8">
+<!-- Teaser clip: "Universal dimensions of visual representation" (Chen & Bonner, Science Advances 2025).
+     Render:  FFMPEG=_teasers/bin/ffmpeg python3 _teasers/render.py _teasers/universal2025 images/pubvid/universal2025 -->
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&display=block" rel="stylesheet">
+<style>
+html,body{margin:0;width:640px;height:448px;overflow:hidden;background:#fbfbf9}
+svg{display:block;font-family:"Source Sans 3","Helvetica Neue",Arial,sans-serif}
+.serif{font-family:"Source Serif 4",Georgia,serif}
+</style>
+<svg id="s" width="640" height="448" viewBox="0 0 640 448" xmlns="http://www.w3.org/2000/svg">
+  <text class="serif" x="36" y="72" font-size="27" font-weight="500" fill="#17202a">Brain-aligned dimensions are <tspan fill="#b45f06">universal</tspan></text>
+  <g id="stat"></g><!-- things drawn once -->
+  <g id="dyn"></g><!-- cleared and redrawn every frame -->
+</svg>
+<script>
+(function(){
+var C={paper:'#fbfbf9', wash:'#f2f3f0', panel:'#ffffff', hair:'#e3e5e8', hairStrong:'#cfd3d8',
+       ink:'#17202a', inkSoft:'#3d4653', slate:'#66707d',
+       blue:'#1f4f9a', blueDeep:'#143a75', amber:'#b45f06', orange:'#d9822b', green:'#2f8f6b', red:'#c2413b', violet:'#6b4fa0'};
+var RGB={paper:[251,251,249], wash:[242,243,240], hair:[227,229,232], ink:[23,32,42], slate:[102,112,125],
+         blue:[31,79,154], amber:[180,95,6], orange:[217,130,43], green:[47,143,107], red:[194,65,59], violet:[107,79,160],
+         grey:[166,173,182], white:[255,255,255]};
+
+var NS='http://www.w3.org/2000/svg';
+function el(n,a,p){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+function txt(s,a,p){var e=el('text',a,p);e.textContent=s;return e}
+function rng(seed){var s=seed>>>0;return function(){s=(s+0x6D2B79F5)>>>0;var t=Math.imul(s^(s>>>15),1|s);t=(t+Math.imul(t^(t>>>7),61|t))^t;return((t^(t>>>14))>>>0)/4294967296}}
+function cl(x){return x<0?0:x>1?1:x}
+function ease(x){x=cl(x);return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2}
+function seg(t,a,b){return cl((t-a)/(b-a))}
+function lerp(a,b,k){return a+(b-a)*k}
+function mix(c1,c2,k){var o=[];for(var i=0;i<3;i++)o.push(Math.round(c1[i]+(c2[i]-c1[i])*k));return 'rgb('+o+')'}
+
+var stat=document.getElementById('stat'), dyn=document.getElementById('dyn');
+
+/* ---------- layout ---------- */
+var ROWY=[146,190,234,278], NCOL=8, COLX0=96, COLDX=21.5, DOTR=6;
+var PX0=36, PX1=262;                      /* left panel extent */
+var BRY=344, BRH=36;                      /* brain bar */
+var UNI=[[1,5],[3,6],[0,4],[2,7]];        /* columns of the two universal dimensions in each network */
+var BRX=[166,226];                        /* where the two shared dimensions land in the brain bar */
+function colX(c){return COLX0+c*COLDX}
+
+/* scatter: universality (x) vs brain similarity (y); schematic units */
+var AX=338, AY=382, AXR=604, AYT=116;
+function SX(u){return 348+(u+0.1)/1.1*246}
+function SY(b){return 370-(b+0.1)/0.82*246}
+function trend(u){var p=u>0?u:0;return 0.15*u+0.50*Math.pow(p,7)}
+
+/* ---------- synthetic dimensions ---------- */
+var R=rng(20250812);
+function gauss(){return (R()+R()+R()+R()-2)*0.866}
+var DOTS=[];   /* dots that live in the network rows and fly to the scatter */
+for(var r=0;r<4;r++)for(var c=0;c<NCOL;c++){
+  var which=UNI[r].indexOf(c), u;
+  if(which>=0) u=0.87+0.11*R(); else u=-0.07+0.34*R();
+  var b=trend(u)+gauss()*(0.03+0.06*Math.pow(Math.max(u,0),3));
+  DOTS.push({r:r,c:c,uni:which>=0,which:which,u:u,b:b,x0:colX(c),y0:ROWY[r],x1:SX(u),y1:SY(b),o:R()});
+}
+var EXTRA=[];  /* the many other dimensions, shown only in the scatter */
+for(var i=0;i<120;i++){
+  var q=R(), u2=-0.09+1.05*Math.pow(q,2.8);
+  var b2=trend(u2)+gauss()*(0.03+0.06*Math.pow(Math.max(u2,0),3));
+  EXTRA.push({u:u2,b:b2,x:SX(u2),y:SY(b2),o:R()});
+}
+function dotCol(u){return mix(RGB.grey,RGB.amber,ease(seg(u,0.38,0.86)))}
+
+/* ---------- static layer ---------- */
+txt('different networks',{x:PX0,y:116,'font-size':15,fill:C.slate},stat);
+function glyph(i,cx,cy,p){
+  var a={fill:'none',stroke:C.inkSoft,'stroke-width':2,'stroke-linejoin':'round'};
+  if(i===0){a.x=cx-8;a.y=cy-8;a.width=16;a.height=16;a.rx=2.5;el('rect',a,p)}
+  else if(i===1){a.cx=cx;a.cy=cy;a.r=8.5;el('circle',a,p)}
+  else if(i===2){a.points=(cx)+','+(cy-9)+' '+(cx+9.5)+','+(cy+7.5)+' '+(cx-9.5)+','+(cy+7.5);el('polygon',a,p)}
+  else{a.points=(cx)+','+(cy-10)+' '+(cx+10)+','+cy+' '+cx+','+(cy+10)+' '+(cx-10)+','+cy;el('polygon',a,p)}
+}
+ROWY.forEach(function(y,i){
+  el('rect',{x:PX0,y:y-17,width:PX1-PX0,height:34,rx:9,fill:C.panel,stroke:C.hair,'stroke-width':1.5},stat);
+  glyph(i,58,y,stat);
+});
+/* axes */
+el('path',{d:'M '+AX+' '+AYT+' V '+AY+' H '+AXR,fill:'none',stroke:C.inkSoft,'stroke-width':2,'stroke-linecap':'round','stroke-linejoin':'round'},stat);
+txt('universality',{x:(AX+AXR)/2,y:408,'font-size':16,'font-weight':600,'text-anchor':'middle',fill:C.amber},stat);
+txt('brain similarity',{x:0,y:0,'font-size':16,'font-weight':600,'text-anchor':'middle',fill:C.blue,
+  transform:'translate('+(AX-16)+' '+((AY+AYT)/2)+') rotate(-90)'},stat);
+
+/* trend curve geometry */
+var TR=[]; for(var k=0;k<=60;k++){var uu=-0.06+1.05*k/60; TR.push([SX(uu),SY(trend(uu))])}
+
+window.DURATION=9;
+window.renderAt=function(t){
+  while(dyn.firstChild)dyn.removeChild(dyn.firstChild);
+
+  /* beat 1: the universal dimensions light up and are linked across networks (0.6 - 2.4) */
+  /* beat 2: the same dimensions are found in the brain (2.5 - 3.5) */
+  /* beat 3: every dimension is placed by universality and brain similarity (3.8 - 6.6) */
+  /* beat 4: labels (6.7 - 7.7), hold */
+  var lit=function(r){return ease(seg(t,0.6+r*0.42,1.1+r*0.42))};
+  var brainK=ease(seg(t,2.5,3.3));
+
+  /* brain bar */
+  el('rect',{x:PX0,y:BRY-BRH/2,width:PX1-PX0,height:BRH,rx:10,fill:mix(RGB.paper,RGB.blue,0.07+0.07*brainK),stroke:C.blue,'stroke-width':2},dyn);
+  txt('human brain',{x:PX0+14,y:BRY+5.5,'font-size':16,'font-weight':600,fill:C.blue},dyn);
+
+  /* links between the shared dimensions, network to network, then down to the brain */
+  for(var w=0;w<2;w++){
+    var pts=[]; for(var r=0;r<4;r++)pts.push([colX(UNI[r][w]),ROWY[r]]);
+    for(var r=0;r<3;r++){
+      var k=ease(seg(t,0.85+r*0.42,1.35+r*0.42)); if(k<=0)continue;
+      var a=pts[r], b=pts[r+1];
+      el('line',{x1:a[0],y1:a[1],x2:lerp(a[0],b[0],k),y2:lerp(a[1],b[1],k),stroke:C.amber,'stroke-width':2.5,'stroke-linecap':'round',opacity:.9},dyn);
+    }
+    if(brainK>0){
+      var a2=pts[3], b2=[BRX[w],BRY];
+      el('line',{x1:a2[0],y1:a2[1],x2:lerp(a2[0],b2[0],brainK),y2:lerp(a2[1],b2[1],brainK),stroke:C.amber,'stroke-width':2.5,'stroke-linecap':'round',opacity:.9},dyn);
+    }
+  }
+  /* shared dimensions inside the brain bar */
+  var bd=ease(seg(t,3.05,3.5));
+  if(bd>0)for(var w=0;w<2;w++)
+    el('circle',{cx:BRX[w],cy:BRY,r:DOTR*bd,fill:C.amber,stroke:C.panel,'stroke-width':1.5},dyn);
+
+  /* dimension dots in the network rows (they stay put) */
+  DOTS.forEach(function(d){
+    var k=d.uni?lit(d.r):0;
+    el('circle',{cx:d.x0,cy:d.y0,r:DOTR+0.8*k,fill:mix(RGB.grey,RGB.amber,k),stroke:C.panel,'stroke-width':1.5},dyn);
+  });
+
+  /* scatter: the other dimensions fade in, low universality first */
+  EXTRA.forEach(function(d){
+    var s=4.0+1.5*seg(d.u,-0.09,0.97)+0.35*d.o, k=ease(seg(t,s,s+0.6));
+    if(k<=0)return;
+    el('circle',{cx:d.x,cy:d.y,r:4.3*k,fill:dotCol(d.u),opacity:.78*k},dyn);
+  });
+  /* scatter: copies of the row dots fly over; network-specific ones first, universal ones last */
+  DOTS.forEach(function(d){
+    var s=d.uni?(5.15+d.r*0.12+d.which*0.2):(3.8+d.o*0.9), dur=d.uni?1.05:0.95;
+    var k=ease(seg(t,s,s+dur)); if(k<=0)return;
+    var x=lerp(d.x0,d.x1,k), y=lerp(d.y0,d.y1,k)-22*Math.sin(Math.PI*k);
+    el('circle',{cx:x,cy:y,r:lerp(DOTR,d.uni?5.4:4.3,k),fill:d.uni?C.amber:dotCol(d.u),opacity:lerp(1,d.uni?1:.78,k)*seg(k,0,.08)},dyn);
+  });
+
+  /* trend curve */
+  var tk=ease(seg(t,6.5,7.3));
+  if(tk>0){
+    var n=Math.max(2,Math.round(tk*TR.length)), p='';
+    for(var i=0;i<n;i++)p+=(i?' L ':'M ')+TR[i][0].toFixed(1)+' '+TR[i][1].toFixed(1);
+    el('path',{d:p,fill:'none',stroke:C.ink,'stroke-width':2,'stroke-linecap':'round','stroke-linejoin':'round',opacity:.8},dyn);
+  }
+
+  /* labels */
+  var l0=ease(seg(t,2.0,2.5));
+  if(l0>0)txt('shared by all',{x:PX0,y:394,'font-size':16,'font-weight':600,fill:C.amber,opacity:l0},dyn);
+  var l1=ease(seg(t,5.0,5.5));
+  if(l1>0)txt('network-specific',{x:SX(-0.07),y:SY(0.165),'font-size':15,fill:C.slate,opacity:l1},dyn);
+  var l2=ease(seg(t,7.1,7.7));
+  if(l2>0){
+    txt('universal',{x:SX(0.79),y:SY(0.62),'font-size':17,'font-weight':600,'text-anchor':'end',fill:C.amber,opacity:l2},dyn);
+    txt('and brain-aligned',{x:SX(0.79),y:SY(0.62)+21,'font-size':17,'font-weight':600,'text-anchor':'end',fill:C.blue,opacity:l2},dyn);
+  }
+};
+window.renderAt(0);
+})();
+</script>

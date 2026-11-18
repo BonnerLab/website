@@ -1,0 +1,142 @@
+<!doctype html><meta charset="utf-8">
+<!-- Teaser clip: Chen, Isik & Bonner (2026), "Multidimensional dynamics of object representations in the
+     human visual system". One idea: the dimensionality of the brain's response to an image rises rapidly,
+     peaks within 100 ms, is sustained, then gradually decays (Fig. 2a,b). The curve is a schematic of Fig. 2a.
+     Render:  FFMPEG=_teasers/bin/ffmpeg python3 _teasers/render.py _teasers/dynamics2026 images/pubvid/dynamics2026 -->
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&display=block" rel="stylesheet">
+<style>
+html,body{margin:0;width:640px;height:448px;overflow:hidden;background:#fbfbf9}
+svg{display:block;font-family:"Source Sans 3","Helvetica Neue",Arial,sans-serif}
+.serif{font-family:"Source Serif 4",Georgia,serif}
+</style>
+<svg id="s" width="640" height="448" viewBox="0 0 640 448" xmlns="http://www.w3.org/2000/svg">
+  <text class="serif" x="36" y="72" font-size="27" font-weight="500" fill="#17202a">Neural dimensionality peaks <tspan fill="#b45f06">within 100 ms</tspan></text>
+  <g id="stat"></g><!-- things drawn once -->
+  <g id="dyn"></g><!-- cleared and redrawn every frame -->
+</svg>
+<script>
+(function(){
+/* Colour roles: blue = the brain response (its dimensionality, its dimensions); amber = the 100 ms mark;
+   grey / slate = scaffolding (axes, unused dimensions, labels). */
+var C={paper:'#fbfbf9', wash:'#f2f3f0', panel:'#ffffff', hair:'#e3e5e8', hairStrong:'#cfd3d8',
+       ink:'#17202a', inkSoft:'#3d4653', slate:'#66707d',
+       blue:'#1f4f9a', blueDeep:'#143a75', amber:'#b45f06', orange:'#d9822b', green:'#2f8f6b', red:'#c2413b', violet:'#6b4fa0'};
+
+var NS='http://www.w3.org/2000/svg';
+function el(n,a,p){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+function txt(s,a,p){var e=el('text',a,p);e.textContent=s;return e}
+function cl(x){return x<0?0:x>1?1:x}
+function ease(x){x=cl(x);return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2}
+function sine(x){x=cl(x);return .5-.5*Math.cos(Math.PI*x)}
+function seg(t,a,b){return cl((t-a)/(b-a))}
+function lerp(a,b,k){return a+(b-a)*k}
+
+/* ---- geometry ---- */
+var X0=92, PX=0.62;                 /* image onset at x=92; linear time axis, 0.62 px per ms */
+var YB=384, YH=140;                 /* baseline y and peak height of the curve */
+var MS0=-50, MS_PEAK=100, MS_END=760;
+function X(ms){return X0+ms*PX}
+function Y(d){return YB-d*YH}
+var NSP=15, R=40, FY=146;           /* spokes per fan, fan radius, fan centre y */
+var BX=X(MS_PEAK), EX=X(MS_END);    /* fan centres sit above the times they depict */
+var D_END=2/NSP;
+
+/* Schematic dimensionality time course after Fig. 2a: flat at zero, sharp rise that is complete by 100 ms,
+   sustained plateau, then a gradual decay. Normalised to a peak of 1. */
+function D(ms){
+  if(ms<=50) return 0;
+  if(ms<100){var u=(ms-50)/50; return u*u*(3-2*u)}
+  if(ms<=300) return 1;
+  var v=cl((ms-300)/(MS_END-300));
+  return 1-(1-D_END)*(1-Math.pow(1-Math.pow(v,1.5),2.5));
+}
+
+/* ---- static scaffolding ---- */
+var stat=document.getElementById('stat'), dyn=document.getElementById('dyn');
+el('line',{x1:60,y1:YB,x2:600,y2:YB,stroke:C.slate,'stroke-width':1.8,'stroke-linecap':'round'},stat);
+el('polygon',{points:'607,'+YB+' 597,'+(YB-5)+' 597,'+(YB+5),fill:C.slate},stat);
+el('line',{x1:60,y1:YB,x2:60,y2:226,stroke:C.slate,'stroke-width':1.8,'stroke-linecap':'round'},stat);
+el('polygon',{points:'60,219 55,229 65,229',fill:C.slate},stat);
+txt('dimensionality',{x:46,y:305,'font-size':16,fill:C.inkSoft,'text-anchor':'middle',transform:'rotate(-90 46 305)'},stat);
+txt('time',{x:606,y:405,'font-size':16,fill:C.inkSoft,'text-anchor':'end'},stat);
+/* image onset: tick, dashed guide, label */
+el('line',{x1:X0,y1:YB,x2:X0,y2:166,stroke:C.hairStrong,'stroke-width':1.6,'stroke-dasharray':'4 5'},stat);
+el('line',{x1:X0,y1:YB,x2:X0,y2:YB+6,stroke:C.slate,'stroke-width':1.8,'stroke-linecap':'round'},stat);
+txt('onset',{x:X0,y:405,'font-size':16,fill:C.inkSoft,'text-anchor':'middle'},stat);
+
+function imageIcon(g,cx,cy,op){
+  var q=el('g',{opacity:op},g), s=13;
+  el('rect',{x:cx-s,y:cy-s,width:2*s,height:2*s,rx:4,fill:C.panel,stroke:C.ink,'stroke-width':2},q);
+  el('circle',{cx:cx-5,cy:cy-5,r:2.6,fill:C.ink},q);
+  el('polyline',{points:(cx-s+3)+','+(cy+8)+' '+(cx-3)+','+(cy)+' '+(cx+2)+','+(cy+5)+' '+(cx+6)+','+(cy+1)+' '+(cx+s-3)+','+(cy+8),
+    fill:'none',stroke:C.ink,'stroke-width':2,'stroke-linejoin':'round','stroke-linecap':'round'},q);
+}
+
+/* A fan of spokes: each spoke is one dimension. Grey = not in use, blue = carrying reliable signal.
+   d is the normalised dimensionality (0..1). */
+function fan(g,cx,cy,d,op){
+  var q=el('g',{opacity:op},g), i, a, k;
+  for(i=0;i<NSP;i++){
+    a=-Math.PI/2+i*2*Math.PI/NSP;
+    el('line',{x1:cx,y1:cy,x2:cx+Math.cos(a)*R,y2:cy+Math.sin(a)*R,stroke:C.hairStrong,'stroke-width':1.5,'stroke-linecap':'round'},q);
+  }
+  for(var r=0;r<NSP;r++){
+    k=ease(cl(d*NSP-r)); if(k<=.002) continue;
+    i=(r*4)%NSP; a=-Math.PI/2+i*2*Math.PI/NSP;
+    var tx=cx+Math.cos(a)*R*k, ty=cy+Math.sin(a)*R*k;
+    el('line',{x1:cx,y1:cy,x2:tx,y2:ty,stroke:C.blue,'stroke-width':2.6,'stroke-linecap':'round'},q);
+    el('circle',{cx:tx,cy:ty,r:3.2*Math.min(1,k*2.5),fill:C.blue},q);
+  }
+  el('circle',{cx:cx,cy:cy,r:4,fill:C.ink},q);
+}
+
+/* time marker position (ms after onset) as a function of clip time */
+function tau(t){
+  if(t<2.6) return lerp(MS0,MS_PEAK,ease(seg(t,.6,2.6)));
+  return lerp(MS_PEAK,MS_END,sine(seg(t,3.4,7.4)));
+}
+
+window.DURATION=9;
+window.renderAt=function(t){
+  while(dyn.firstChild)dyn.removeChild(dyn.firstChild);
+  var ms=tau(t), d=D(ms), i, m;
+
+  /* image icon lights up at onset */
+  imageIcon(dyn,X0,149,lerp(.45,1,cl((ms+12)/12)));
+
+  /* curve drawn up to the marker, with a light wash under it */
+  var pts=[];
+  for(m=MS0;m<ms;m+=3) pts.push([X(m),Y(D(m))]);
+  pts.push([X(ms),Y(d)]);
+  var line=pts.map(function(p){return p[0].toFixed(1)+','+p[1].toFixed(1)}).join(' ');
+  el('polygon',{points:X(MS0).toFixed(1)+','+YB+' '+line+' '+X(ms).toFixed(1)+','+YB,fill:C.blue,opacity:.09},dyn);
+
+  /* 100 ms guide and label */
+  var k100=ease(seg(t,2.45,2.95));
+  if(k100>0){
+    el('line',{x1:BX,y1:YB,x2:BX,y2:FY+R+8,stroke:C.amber,'stroke-width':1.8,'stroke-dasharray':'4 5',opacity:k100},dyn);
+    el('line',{x1:BX,y1:YB,x2:BX,y2:YB+6,stroke:C.amber,'stroke-width':1.8,'stroke-linecap':'round',opacity:k100},dyn);
+    txt('100 ms',{x:BX,y:405,'font-size':16,'font-weight':600,fill:C.amber,'text-anchor':'middle',opacity:k100},dyn);
+  }
+  /* end guide */
+  var kend=ease(seg(t,7.3,7.8));
+  if(kend>0) el('line',{x1:EX,y1:Y(D_END)-10,x2:EX,y2:FY+R+8,stroke:C.hairStrong,'stroke-width':1.6,'stroke-dasharray':'4 5',opacity:kend},dyn);
+
+  el('polyline',{points:line,fill:'none',stroke:C.blue,'stroke-width':3,'stroke-linejoin':'round','stroke-linecap':'round'},dyn);
+  el('circle',{cx:X(ms),cy:Y(d),r:6.5,fill:C.blue},dyn);
+
+  /* fans: the response at 100 ms, and the response as it decays */
+  fan(dyn,BX,FY,D(Math.min(ms,MS_PEAK)),1);
+  var kE=ease(seg(t,4.7,5.2));
+  if(kE>0) fan(dyn,EX,FY,d,kE);
+
+  /* labels */
+  var kMany=ease(seg(t,2.8,3.3)), kSus=ease(seg(t,4.2,4.7)), kDec=ease(seg(t,5.7,6.2)), kFew=ease(seg(t,7.4,7.9));
+  if(kMany>0) txt('many dimensions',{x:BX+R+14,y:FY+6,'font-size':17,'font-weight':500,fill:C.blue,opacity:kMany},dyn);
+  if(kSus>0) txt('sustained',{x:X(200),y:Y(1)-13,'font-size':16,fill:C.inkSoft,'text-anchor':'middle',opacity:kSus},dyn);
+  if(kDec>0) txt('gradual decay',{x:X(515),y:Y(D(515))-26,'font-size':16,fill:C.inkSoft,opacity:kDec},dyn);
+  if(kFew>0) txt('few',{x:EX-R-14,y:FY+6,'font-size':17,'font-weight':500,fill:C.blue,'text-anchor':'end',opacity:kFew},dyn);
+};
+window.renderAt(0);
+})();
+</script>

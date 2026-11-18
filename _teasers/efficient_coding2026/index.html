@@ -1,0 +1,182 @@
+<!doctype html><meta charset="utf-8">
+<!-- Teaser clip: "Efficient coding along the visual hierarchy" (Passi, Robinson & Bonner), arXiv 2605.19155.
+     One idea: a deep network whose layers are learned one at a time by PCA on natural-image activations
+     (no labels, no backpropagation) develops features from edges and colors to textures and shapes,
+     and those features predict fMRI responses in human visual cortex.
+     Render:  FFMPEG=_teasers/bin/ffmpeg python3 _teasers/render.py _teasers/efficient_coding2026 images/pubvid/efficient_coding2026 -->
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&display=block" rel="stylesheet">
+<style>
+html,body{margin:0;width:640px;height:448px;overflow:hidden;background:#fbfbf9}
+svg{display:block;font-family:"Source Sans 3","Helvetica Neue",Arial,sans-serif}
+.serif{font-family:"Source Serif 4",Georgia,serif}
+</style>
+<svg id="s" width="640" height="448" viewBox="0 0 640 448" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <clipPath id="cpGlyph"><rect x="150" y="100" width="76" height="62" rx="7"/></clipPath>
+    <clipPath id="cpTile"><rect x="0" y="0" width="56" height="56" rx="7"/></clipPath>
+    <clipPath id="cpImg"><rect x="0" y="0" width="48" height="48" rx="5"/></clipPath>
+    <clipPath id="cpBrain"><path id="brainClipPath" d=""/></clipPath>
+  </defs>
+  <text class="serif" x="36" y="72" font-size="27" font-weight="500" fill="#17202a">A visual hierarchy, learned <tspan fill="#b45f06">without labels</tspan></text>
+  <g id="stat"></g><!-- things drawn once -->
+  <g id="dyn"></g><!-- cleared and redrawn every frame -->
+</svg>
+<script>
+(function(){
+/* Palette (the site's own, plus two semantic colours). Roles here: amber = the model and what it learns,
+   blue = the brain; green and violet appear only inside the "colors" feature tile. */
+var C={paper:'#fbfbf9', wash:'#f2f3f0', panel:'#ffffff', hair:'#e3e5e8', hairStrong:'#cfd3d8',
+       ink:'#17202a', inkSoft:'#3d4653', slate:'#66707d',
+       blue:'#1f4f9a', blueDeep:'#143a75', amber:'#b45f06', orange:'#d9822b', green:'#2f8f6b', red:'#c2413b', violet:'#6b4fa0'};
+var RGB={paper:[251,251,249], wash:[242,243,240], panel:[255,255,255], hair:[227,229,232], hairStrong:[207,211,216], ink:[23,32,42], slate:[102,112,125],
+         blue:[31,79,154], amber:[180,95,6], orange:[217,130,43], green:[47,143,107], red:[194,65,59], violet:[107,79,160]};
+
+var NS='http://www.w3.org/2000/svg';
+function el(n,a,p){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+function txt(s,a,p){var e=el('text',a,p);e.textContent=s;return e}
+function rng(seed){var s=seed>>>0;return function(){s=(s+0x6D2B79F5)>>>0;var t=Math.imul(s^(s>>>15),1|s);t=(t+Math.imul(t^(t>>>7),61|t))^t;return((t^(t>>>14))>>>0)/4294967296}}
+function cl(x){return x<0?0:x>1?1:x}
+function ease(x){x=cl(x);return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2}
+function seg(t,a,b){return cl((t-a)/(b-a))}            /* 0..1 progress of t through the window [a,b] */
+function lerp(a,b,k){return a+(b-a)*k}
+function mix(c1,c2,k){var o=[];for(var i=0;i<3;i++)o.push(Math.round(c1[i]+(c2[i]-c1[i])*k));return 'rgb('+o+')'}
+
+var stat=document.getElementById('stat'), dyn=document.getElementById('dyn');
+
+/* ---------- geometry ---------- */
+var NL=11, SX=134, SW=18, PITCH=26, SY=196, SH=84, CY=SY+SH/2;       /* the 11-layer stack: x 134..412 */
+function slabX(i){return SX+i*PITCH}
+var GX=150, GY=100, GW=76, GH=62, GCX=GX+GW/2, GCY=GY+GH/2;           /* PCA glyph panel */
+var TY=310, TS=56, TX=[134,200,290,356];                              /* feature tiles */
+var BX=490, BY=CY-46;                                                 /* brain origin (local box 118 x 88) */
+
+/* ---------- timing ---------- */
+var T0=1.0, DT=0.4;                       /* layer i is learned during [T0+i*DT, T0+(i+1)*DT] */
+function ls(i){return T0+i*DT}
+var TEND=ls(NL);                          /* 5.4 */
+
+/* ---------- static: natural images, input arrow ---------- */
+function arrow(g,x1,y1,x2,y2,col,w,op){
+  var dx=x2-x1,dy=y2-y1,L=Math.hypot(dx,dy); if(L<2) return; dx/=L; dy/=L;
+  var h=Math.min(9,L*.6), bx=x2-dx*h, by=y2-dy*h, nx=-dy*h*.52, ny=dx*h*.52;
+  el('line',{x1:x1,y1:y1,x2:bx,y2:by,stroke:col,'stroke-width':w,'stroke-linecap':'round',opacity:op},g);
+  el('polygon',{points:x2+','+y2+' '+(bx+nx)+','+(by+ny)+' '+(bx-nx)+','+(by-ny),fill:col,opacity:op},g);
+}
+(function(){
+  var ix=40, iy=CY-30;
+  el('rect',{x:ix,y:iy,width:48,height:48,rx:5,fill:C.wash,stroke:C.hairStrong,'stroke-width':1.5},stat);
+  el('rect',{x:ix+6,y:iy+6,width:48,height:48,rx:5,fill:C.wash,stroke:C.hairStrong,'stroke-width':1.5},stat);
+  var g=el('g',{transform:'translate('+(ix+12)+','+(iy+12)+')'},stat);
+  var c=el('g',{'clip-path':'url(#cpImg)'},g);
+  el('rect',{x:0,y:0,width:48,height:48,fill:'#e9ecef'},c);
+  el('circle',{cx:34,cy:14,r:5.5,fill:'#ffffff'},c);
+  el('path',{d:'M -2 40 L 14 20 L 24 31 L 31 24 L 50 44 L 50 50 L -2 50 Z',fill:'#aab1ba'},c);
+  el('path',{d:'M -2 44 Q 16 34 30 41 T 50 39 L 50 50 L -2 50 Z',fill:C.slate},c);
+  el('rect',{x:0,y:0,width:48,height:48,rx:5,fill:'none',stroke:C.slate,'stroke-width':1.5},g);
+  txt('natural',{x:ix+30,y:CY+53,'font-size':17,fill:C.slate,'text-anchor':'middle'},stat);
+  txt('images',{x:ix+30,y:CY+72,'font-size':17,fill:C.slate,'text-anchor':'middle'},stat);
+  arrow(stat,108,CY,126,CY,C.slate,2,1);
+})();
+
+/* ---------- PCA glyph data: an elongated cloud, re-oriented for each layer ---------- */
+var R=rng(260519), CLOUD=[];
+function gauss(){var a=0;for(var i=0;i<6;i++)a+=R();return (a-3)/0.707}
+for(var j=0;j<34;j++) CLOUD.push([gauss(),gauss()]);
+(function(){ /* centre the cloud and give it fixed spreads, so the axes sit on its centroid */
+  var m=[0,0],sd=[0,0],n=CLOUD.length;
+  CLOUD.forEach(function(p){m[0]+=p[0]/n;m[1]+=p[1]/n});
+  CLOUD.forEach(function(p){sd[0]+=Math.pow(p[0]-m[0],2)/n;sd[1]+=Math.pow(p[1]-m[1],2)/n});
+  CLOUD=CLOUD.map(function(p){ var u=(p[0]-m[0])/Math.sqrt(sd[0])*13, v=(p[1]-m[1])/Math.sqrt(sd[1])*4.6;
+    return [Math.max(-27,Math.min(27,u)),Math.max(-10,Math.min(10,v))] });
+})();
+var ANG=[-24,18,-40,8,34,-14,-46,22,-6,40,-20].map(function(d){return d*Math.PI/180});
+function cloudAngle(t){
+  var a=ANG[0];
+  for(var i=1;i<NL;i++){ a=lerp(a,ANG[i],ease(seg(t,ls(i),ls(i)+DT*.7))) }
+  return a;
+}
+
+/* ---------- brain (side view, front to the right) in a local 118 x 88 box ---------- */
+var BRAIN='M 16 60 C 3 54 1 35 12 23 C 25 8 49 2 71 4 C 97 6 117 20 117 37 C 117 47 108 53 96 52 C 101 61 96 70 84 72 C 70 76 50 74 38 69 C 30 67 22 64 16 60 Z';
+var CEREB='M 24 67 C 22 79 37 86 49 80 C 54 77 54 73 50 72';
+var SULCI=['M 96 52 C 84 51 70 47 58 46','M 64 6 C 60 16 62 26 57 35','M 34 14 C 40 24 36 34 42 42','M 88 14 C 82 22 86 30 80 38','M 46 58 C 58 62 72 62 84 60'];
+document.getElementById('brainClipPath').setAttribute('d',BRAIN);
+
+/* ---------- feature tiles ---------- */
+function tile(g,x,kind){
+  var t=el('g',{transform:'translate('+x+','+TY+')'},g);
+  var c=el('g',{'clip-path':'url(#cpTile)'},t);
+  el('rect',{x:0,y:0,width:TS,height:TS,fill:C.panel},c);
+  if(kind==='edges'){
+    for(var i=-8;i<10;i++) el('line',{x1:i*11-4,y1:60,x2:i*11+60,y2:-4,stroke:C.inkSoft,'stroke-width':4.6},c);
+  } else if(kind==='colors'){
+    el('rect',{x:0,y:0,width:TS,height:TS,fill:C.green},c);
+    el('path',{d:'M 62 -6 L 62 62 L -6 62 Z',fill:C.violet},c);
+  } else if(kind==='textures'){
+    for(var r=0;r<6;r++) for(var q=0;q<6;q++) el('circle',{cx:q*12+(r%2?10:4)-2,cy:r*10.4+2,r:3.3,fill:C.inkSoft},c);
+  } else {
+    el('path',{d:'M 12 44 C 12 24 26 11 46 11 C 46 31 32 44 12 44 Z',fill:C.inkSoft},c);
+    el('path',{d:'M 14 42 L 44 13',stroke:C.panel,'stroke-width':1.6,fill:'none'},c);
+  }
+  el('rect',{x:0,y:0,width:TS,height:TS,rx:7,fill:'none',stroke:C.amber,'stroke-width':2},t);
+}
+
+window.DURATION=9;
+window.renderAt=function(t){
+  while(dyn.firstChild)dyn.removeChild(dyn.firstChild);
+
+  /* --- the stack: each layer is learned in turn, front to back --- */
+  var cur=-1; for(var i=0;i<NL;i++){ if(t>=ls(i)) cur=i }
+  for(i=0;i<NL;i++){
+    var k=ease(seg(t,ls(i)+DT*.15,ls(i)+DT*.95));
+    el('rect',{x:slabX(i),y:SY,width:SW,height:SH,rx:4,
+      fill:mix(RGB.panel,[236,205,166],k), stroke:mix(RGB.hairStrong,RGB.amber,k), 'stroke-width':lerp(1.5,2,k)},dyn);
+  }
+  /* caret marking the layer being learned */
+  var cx=slabX(0)+SW/2;
+  for(i=1;i<NL;i++) cx=lerp(cx,slabX(i)+SW/2,ease(seg(t,ls(i)-DT*.1,ls(i)+DT*.45)));
+  var cop=seg(t,.45,.9)*(1-seg(t,TEND,TEND+.5));
+  if(cop>0) el('polygon',{points:(cx-6)+','+(SY-15)+' '+(cx+6)+','+(SY-15)+' '+cx+','+(SY-6),fill:C.amber,opacity:cop},dyn);
+
+  /* --- PCA glyph: cloud of activations and its principal axes --- */
+  el('rect',{x:GX,y:GY,width:GW,height:GH,rx:7,fill:C.panel,stroke:C.hairStrong,'stroke-width':1.5},dyn);
+  var a=cloudAngle(t), ca=Math.cos(a), sa=Math.sin(a);
+  var gg=el('g',{'clip-path':'url(#cpGlyph)'},dyn);
+  CLOUD.forEach(function(p){ el('circle',{cx:GCX+p[0]*ca-p[1]*sa,cy:GCY+p[0]*sa+p[1]*ca,r:2,fill:'#9aa2ad'},gg) });
+  var ak=ease(seg(t,.35,1.0));
+  if(ak>0){
+    arrow(gg,GCX,GCY,GCX+ca*28*ak,GCY+sa*28*ak,C.amber,2.2,1);
+    arrow(gg,GCX,GCY,GCX+sa*16*ak,GCY-ca*16*ak,C.amber,2.2,1);
+  }
+  txt('PCA, layer by layer',{x:GX+GW+14,y:GCY-3,'font-size':18,'font-weight':500,fill:C.ink},dyn);
+  txt('no backprop',{x:GX+GW+14,y:GCY+19,'font-size':17,fill:C.slate},dyn);
+
+  /* --- features that emerge: early layers, then later layers --- */
+  var f1=ease(seg(t,ls(3)+.1,ls(3)+.8)), f2=ease(seg(t,ls(9)+.1,ls(9)+.8));
+  if(f1>0){ var g1=el('g',{opacity:f1,transform:'translate(0,'+(1-f1)*8+')'},dyn);
+    tile(g1,TX[0],'edges'); tile(g1,TX[1],'colors');
+    txt('edges, colors',{x:(TX[0]+TX[1]+TS)/2,y:TY+TS+24,'font-size':17,fill:C.ink,'text-anchor':'middle'},g1); }
+  if(f2>0){ var g2=el('g',{opacity:f2,transform:'translate(0,'+(1-f2)*8+')'},dyn);
+    tile(g2,TX[2],'textures'); tile(g2,TX[3],'shapes');
+    txt('textures, shapes',{x:(TX[2]+TX[3]+TS)/2,y:TY+TS+24,'font-size':17,fill:C.ink,'text-anchor':'middle'},g2); }
+
+  /* --- comparison to the brain --- */
+  var b=ease(seg(t,5.9,6.7)), ar=ease(seg(t,6.3,7.0)), hi=ease(seg(t,6.9,7.6));
+  if(b>0){
+    var bg=el('g',{transform:'translate('+BX+','+BY+')',opacity:b},dyn);
+    el('path',{d:BRAIN,fill:C.panel,stroke:'none'},bg);
+    var hc=el('g',{'clip-path':'url(#cpBrain)'},bg);
+    el('ellipse',{cx:26,cy:50,rx:34,ry:25,fill:C.blue,opacity:.34*hi},hc);
+    el('path',{d:CEREB,fill:'none',stroke:C.blue,'stroke-width':2,'stroke-linecap':'round'},bg);
+    SULCI.forEach(function(d){ el('path',{d:d,fill:'none',stroke:C.blue,'stroke-width':1.5,'stroke-linecap':'round',opacity:.55},bg) });
+    el('path',{d:BRAIN,fill:'none',stroke:C.blue,'stroke-width':2.2,'stroke-linejoin':'round'},bg);
+    txt('visual cortex',{x:59,y:112,'font-size':17,fill:C.blue,'text-anchor':'middle',opacity:hi},bg);
+  }
+  if(ar>0){
+    arrow(dyn,422,CY,lerp(430,480,ar),CY,C.ink,2.2,cl(ar*3));
+    txt('predicts',{x:450,y:CY-12,'font-size':17,fill:C.ink,'text-anchor':'middle',opacity:ease(seg(t,6.5,7.1))},dyn);
+  }
+};
+window.renderAt(0);
+})();
+</script>

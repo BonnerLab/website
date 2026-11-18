@@ -1,0 +1,138 @@
+<!doctype html><meta charset="utf-8">
+<!-- Teaser clip: "Advancing NeuroAI through developmental alignment" (Ayzenberg, Bonner, Bayet; Neuron 2026).
+     Idea shown: models are usually compared with humans only at the adult end state; the review proposes also
+     matching the trajectory, comparing models at different points in training with children at different points
+     in development, with developmental changes in architecture, experience and learning objective built in.
+     Render:  FFMPEG=_teasers/bin/ffmpeg python3 _teasers/render.py _teasers/developmental2026 images/pubvid/developmental2026 -->
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&display=block" rel="stylesheet">
+<style>
+html,body{margin:0;width:640px;height:448px;overflow:hidden;background:#fbfbf9}
+svg{display:block;font-family:"Source Sans 3","Helvetica Neue",Arial,sans-serif}
+.serif{font-family:"Source Serif 4",Georgia,serif}
+</style>
+<svg id="s" width="640" height="448" viewBox="0 0 640 448" xmlns="http://www.w3.org/2000/svg">
+  <text class="serif" x="36" y="72" font-size="27" font-weight="500" fill="#17202a">Match the <tspan fill="#2f8f6b">trajectory</tspan>, not just the end state</text>
+  <g id="stat"></g><!-- things drawn once -->
+  <g id="dyn"></g><!-- cleared and redrawn every frame -->
+</svg>
+<script>
+(function(){
+/* Colour roles: blue = children, amber = model, green = comparisons along the trajectory, slate = end-state comparison. */
+var C={paper:'#fbfbf9', wash:'#f2f3f0', panel:'#ffffff', hair:'#e3e5e8', hairStrong:'#cfd3d8',
+       ink:'#17202a', inkSoft:'#3d4653', slate:'#66707d',
+       blue:'#1f4f9a', blueDeep:'#143a75', amber:'#b45f06', orange:'#d9822b', green:'#2f8f6b', red:'#c2413b', violet:'#6b4fa0'};
+var RGB={paper:[251,251,249], wash:[242,243,240], hair:[227,229,232], ink:[23,32,42], slate:[102,112,125],
+         blue:[31,79,154], amber:[180,95,6], orange:[217,130,43], green:[47,143,107], red:[194,65,59], violet:[107,79,160]};
+
+var NS='http://www.w3.org/2000/svg';
+function el(n,a,p){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+function txt(s,a,p){var e=el('text',a,p);e.textContent=s;return e}
+function cl(x){return x<0?0:x>1?1:x}
+function ease(x){x=cl(x);return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2}
+function seg(t,a,b){return cl((t-a)/(b-a))}
+function lerp(a,b,k){return a+(b-a)*k}
+function mix(c1,c2,k){var o=[];for(var i=0;i<3;i++)o.push(Math.round(c1[i]+(c2[i]-c1[i])*k));return 'rgb('+o+')'}
+
+/* Layout */
+var X=[184,310,436,562];             /* the four stages */
+var YC=172, YM=306;                  /* child track, model track */
+var X0=146;                          /* where both tracks start */
+var STAGE=['newborn','infant','child','adult'];
+var CR=[8,10,12,14];                 /* child node radius grows with age */
+var SQ=13;                           /* half side of a model node */
+var FILL=[.25,.5,.75,1];             /* how far through training each model node is (schematic) */
+var YP=239;                          /* centre line of the label pills */
+
+var stat=document.getElementById('stat'), dyn=document.getElementById('dyn');
+
+/* ---- static: row labels, child track ---- */
+txt('child',{x:36,y:YC-3,'font-size':18,'font-weight':600,fill:C.blue},stat);
+txt('development',{x:36,y:YC+15,'font-size':15,fill:C.slate},stat);
+txt('model',{x:36,y:YM-3,'font-size':18,'font-weight':600,fill:C.amber},stat);
+txt('training',{x:36,y:YM+15,'font-size':15,fill:C.slate},stat);
+
+el('line',{x1:X0,y1:YC,x2:X[3],y2:YC,stroke:C.blue,'stroke-width':2.5,'stroke-linecap':'round'},stat);
+for(var i=0;i<4;i++){
+  el('circle',{cx:X[i],cy:YC,r:CR[i],fill:C.blue,stroke:C.paper,'stroke-width':2.5},stat);
+  txt(STAGE[i],{x:X[i],y:YC-26,'font-size':16,'text-anchor':'middle',fill:C.inkSoft},stat);
+}
+el('line',{x1:X0,y1:YM,x2:X[3],y2:YM,stroke:C.amber,'stroke-width':2.5,'stroke-linecap':'round'},stat);
+
+/* ---- helpers ---- */
+/* a model node: rounded square whose fill level shows progress through training; k = 0 dim .. 1 lit */
+function modelNode(g,x,level,k){
+  var edge=mix([222,196,160],RGB.amber,k), body=mix([236,216,188],RGB.amber,k), s=SQ, h=2*s*level;
+  el('rect',{x:x-s,y:YM-s,width:2*s,height:2*s,rx:4,fill:C.paper,stroke:C.paper,'stroke-width':5},g);
+  var id='c'+Math.round(x);
+  var cp=el('clipPath',{id:id},g); el('rect',{x:x-s,y:YM-s,width:2*s,height:2*s,rx:4},cp);
+  el('rect',{x:x-s,y:YM+s-h,width:2*s,height:h,fill:body,'clip-path':'url(#'+id+')'},g);
+  el('rect',{x:x-s,y:YM-s,width:2*s,height:2*s,rx:4,fill:'none',stroke:edge,'stroke-width':2.5},g);
+}
+/* a vertical comparison link with a head at each end, drawn from the child end downwards; k = 0..1 */
+function link(g,x,y0,y1,col,k){
+  if(k<=0) return;
+  var ye=lerp(y0,y1,k), h=8, w=5;
+  el('line',{x1:x,y1:y0+h-1,x2:x,y2:Math.max(y0+h-1,ye-(k>=1?h-1:0)),stroke:col,'stroke-width':2.5,'stroke-linecap':'butt'},g);
+  var a=seg(k,0,.15);
+  el('polygon',{points:x+','+y0+' '+(x-w)+','+(y0+h)+' '+(x+w)+','+(y0+h),fill:col,opacity:a},g);
+  var b=seg(k,.85,1);
+  if(b>0) el('polygon',{points:x+','+y1+' '+(x-w)+','+(y1-h)+' '+(x+w)+','+(y1-h),fill:col,opacity:b},g);
+}
+function pill(g,cx,w,label,fillc,strokec,textc,weight,op,size){
+  if(op<=0) return;
+  var q=el('g',{opacity:op},g);
+  el('rect',{x:cx-w/2,y:YP-15,width:w,height:30,rx:15,fill:fillc,stroke:strokec,'stroke-width':1.5},q);
+  txt(label,{x:cx,y:YP+5.5,'font-size':size||16,'font-weight':weight,'text-anchor':'middle',fill:textc},q);
+}
+
+/* Timing */
+var LT=[[1.1,1.9],[2.2,3.0],[3.3,4.1]];   /* the three trajectory links */
+var CHIP=[['architecture',112],['experience',104],['learning objective',156]], GAP=12;
+
+window.DURATION=9;
+window.renderAt=function(t){
+  while(dyn.firstChild)dyn.removeChild(dyn.firstChild);
+
+  /* comparison links (behind the pills) */
+  var top=function(i){return YC+CR[i]+6}, bot=YM-SQ-6;
+  for(var i=0;i<3;i++) link(dyn,X[i],top(i),bot,C.green,ease(seg(t,LT[i][0],LT[i][1])));
+  link(dyn,X[3],top(3),bot,C.slate,1);
+
+  /* model nodes: the trained model is lit from the start, earlier points in training light up as they are compared */
+  for(var i=0;i<4;i++){
+    var k=i===3?1:ease(seg(t,LT[i][0]+.35,LT[i][1]+.1));
+    modelNode(dyn,X[i],FILL[i],k);
+  }
+
+  /* label pills */
+  pill(dyn,X[3],84,'end state',C.wash,C.hairStrong,C.inkSoft,500,1,16);
+  var pk=ease(seg(t,4.4,5.1));
+  if(pk>0){
+    /* opaque pill that widens from the middle link outwards (no see-through moment), text follows */
+    var xa=X[0]-26, xb=X[2]+26, cx=(xa+xb)/2, w=lerp(30,xb-xa,pk);
+    el('rect',{x:cx-w/2,y:YP-15,width:w,height:30,rx:15,fill:'rgb(229,241,235)',stroke:C.green,'stroke-width':1.5,opacity:seg(pk,0,.12)},dyn);
+    txt('developmental alignment',{x:cx,y:YP+5.5,'font-size':16,'font-weight':600,'text-anchor':'middle',fill:'#23705a',opacity:seg(pk,.7,1)},dyn);
+  }
+
+  /* what is built into the model: bracket under the model track, then three chips */
+  var bk=ease(seg(t,5.6,6.3));
+  if(bk>0){
+    var yb=YM+SQ+20, xm=(X[0]+X[3])/2, half=(X[3]-X[0])/2*bk;
+    el('path',{d:'M '+(xm-half)+' '+(yb-8)+' V '+yb+' H '+(xm+half)+' V '+(yb-8),fill:'none',stroke:C.amber,'stroke-width':2,
+      'stroke-linecap':'round','stroke-linejoin':'round',opacity:bk},dyn);
+    txt('developing',{x:36,y:YM+SQ+57.5,'font-size':16,'font-style':'italic',fill:C.inkSoft,opacity:bk},dyn);
+  }
+  var total=CHIP[0][1]+CHIP[1][1]+CHIP[2][1]+2*GAP, x=(X[0]+X[3])/2-total/2, yc=YM+SQ+36;
+  for(var i=0;i<3;i++){
+    var ck=ease(seg(t,6.3+i*.4,6.9+i*.4)), w=CHIP[i][1];
+    if(ck>0){
+      var g=el('g',{opacity:ck,transform:'translate(0,'+(8*(1-ck)).toFixed(2)+')'},dyn);
+      el('rect',{x:x,y:yc,width:w,height:32,rx:8,fill:C.panel,stroke:C.hairStrong,'stroke-width':1.5},g);
+      txt(CHIP[i][0],{x:x+w/2,y:yc+21.5,'font-size':16,'text-anchor':'middle',fill:C.ink},g);
+    }
+    x+=w+GAP;
+  }
+};
+window.renderAt(0);
+})();
+</script>

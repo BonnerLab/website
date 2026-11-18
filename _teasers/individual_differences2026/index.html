@@ -1,0 +1,133 @@
+<!doctype html><meta charset="utf-8">
+<!-- Teaser clip: Han & Bonner, "High-dimensional structure underlying individual differences in naturalistic
+     visual experience". One idea: person-by-person similarity patterns (individual differences matrices) are
+     reliable across movie sets at many ranges of latent dimension rank, with a distinct pattern at each range.
+     Render:  FFMPEG=_teasers/bin/ffmpeg python3 _teasers/render.py _teasers/individual_differences2026 images/pubvid/individual_differences2026 -->
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&display=block" rel="stylesheet">
+<style>
+html,body{margin:0;width:640px;height:448px;overflow:hidden;background:#fbfbf9}
+svg{display:block;font-family:"Source Sans 3","Helvetica Neue",Arial,sans-serif}
+.serif{font-family:"Source Serif 4",Georgia,serif}
+</style>
+<svg id="s" width="640" height="448" viewBox="0 0 640 448" xmlns="http://www.w3.org/2000/svg">
+  <text class="serif" x="36" y="72" font-size="27" font-weight="500" fill="#17202a">Individual differences span <tspan fill="#6b4fa0">many dimensions</tspan></text>
+  <g id="bg"></g><!-- column bands, redrawn every frame, beneath everything else -->
+  <g id="stat"></g><!-- things drawn once -->
+  <g id="dyn"></g><!-- cleared and redrawn every frame -->
+</svg>
+<script>
+(function(){
+/* Colour roles: blue = shared signal (covariance spectrum); violet = individual-difference patterns; green = reliable. */
+var C={paper:'#fbfbf9', wash:'#f2f3f0', panel:'#ffffff', hair:'#e3e5e8', hairStrong:'#cfd3d8',
+       ink:'#17202a', inkSoft:'#3d4653', slate:'#66707d',
+       blue:'#1f4f9a', blueDeep:'#143a75', amber:'#b45f06', orange:'#d9822b', green:'#2f8f6b', red:'#c2413b', violet:'#6b4fa0'};
+var RGB={paper:[251,251,249], wash:[242,243,240], hair:[227,229,232], hairStrong:[207,211,216], ink:[23,32,42], slate:[102,112,125],
+         blue:[31,79,154], amber:[180,95,6], orange:[217,130,43], green:[47,143,107], red:[194,65,59], violet:[107,79,160]};
+
+var NS='http://www.w3.org/2000/svg';
+function el(n,a,p){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+function txt(s,a,p){var e=el('text',a,p);e.textContent=s;return e}
+function rng(seed){var s=seed>>>0;return function(){s=(s+0x6D2B79F5)>>>0;var t=Math.imul(s^(s>>>15),1|s);t=(t+Math.imul(t^(t>>>7),61|t))^t;return((t^(t>>>14))>>>0)/4294967296}}
+function cl(x){return x<0?0:x>1?1:x}
+function ease(x){x=cl(x);return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2}
+function seg(t,a,b){return cl((t-a)/(b-a))}
+function lerp(a,b,k){return a+(b-a)*k}
+function mix(c1,c2,k){var o=[];for(var i=0;i<3;i++)o.push(Math.round(c1[i]+(c2[i]-c1[i])*k));return 'rgb('+o+')'}
+
+var stat=document.getElementById('stat'), dyn=document.getElementById('dyn'), bg=document.getElementById('bg');
+
+/* ---------- geometry ---------- */
+var X0=188, X1=602, NC=5, CW=(X1-X0)/NC;            /* five ranges of dimension rank = five columns */
+var PT=100, PB=196;                                   /* spectrum plot top / bottom (axis) */
+var MS=58, RA=232, RB=316;                            /* matrix size, top of row A, top of row B */
+var BANDW=70, BANDBOT=382;
+function cx(i){return X0+CW*(i+.5)}
+
+/* ---------- synthetic data (schematic) ---------- */
+/* covariance spectrum: a power law is a straight descending line on log-log axes */
+var ND=20, DOTS=[], R0=rng(4101);
+for(var j=0;j<ND;j++){ var u=(j+.5)/ND; DOTS.push([X0+u*(X1-X0), PT+12+u*(PB-PT-24)+(R0()-.5)*5]) }
+/* person-by-person similarity matrices: a different pattern in each range; the second movie set
+   reproduces each pattern, less exactly at higher ranks (reliability is highest at low ranks) */
+var NP=6, NOISE=[.10,.14,.19,.25,.31], MA=[], MB=[];
+for(var i=0;i<NC;i++){ var R=rng(977+i*7919), a=[], b=[];
+  for(var p=0;p<NP;p++){a.push([]);b.push([])}
+  for(var p=0;p<NP;p++)for(var q=p+1;q<NP;q++){
+    var v=R()<.48?.08+.22*R():.62+.38*R(), w=cl(v+(R()-.5)*2*NOISE[i]);
+    a[p][q]=a[q][p]=v; b[p][q]=b[q][p]=w }
+  MA.push(a); MB.push(b) }
+var LO=[238,235,246];
+function matrix(g,x,y,m,op){
+  var gg=el('g',{opacity:op},g), c=MS/NP;
+  el('rect',{x:x,y:y,width:MS,height:MS,fill:C.panel},gg);
+  for(var p=0;p<NP;p++)for(var q=0;q<NP;q++){
+    el('rect',{x:(x+q*c).toFixed(2),y:(y+p*c).toFixed(2),width:(c+.3).toFixed(2),height:(c+.3).toFixed(2),
+      fill:p===q?C.wash:mix(LO,RGB.violet,m[p][q])},gg) }
+  el('rect',{x:x,y:y,width:MS,height:MS,fill:'none',stroke:C.inkSoft,'stroke-width':1.5},gg);
+}
+
+/* ---------- static: movie, viewers, axes ---------- */
+txt('same movies',{x:86,y:112,'font-size':16,'text-anchor':'middle',fill:C.inkSoft},stat);
+el('rect',{x:62,y:122,width:48,height:32,rx:5,fill:C.panel,stroke:C.inkSoft,'stroke-width':2},stat);
+el('polygon',{points:'80,130 80,146 94,138',fill:C.inkSoft},stat);
+[52,86,120].forEach(function(px){
+  el('line',{x1:86+(px-86)*.35,y1:158,x2:px,y2:166,stroke:C.hairStrong,'stroke-width':1.5,'stroke-linecap':'round'},stat);
+  el('circle',{cx:px,cy:176,r:6,fill:C.slate},stat);
+  el('path',{d:'M '+(px-11)+' 198 a 11 13 0 0 1 22 0 z',fill:C.slate},stat) });
+
+var ylab=txt('covariance',{x:0,y:0,'font-size':15,'text-anchor':'middle',fill:C.slate,transform:'translate(174 '+((PT+PB)/2)+') rotate(-90)'},stat);
+txt('dimension rank',{x:(X0+X1)/2-8,y:217,'font-size':15,'text-anchor':'middle',fill:C.slate},stat);
+el('path',{d:'M '+((X0+X1)/2+46)+' 212 h 22 m -6 -4.5 l 6 4.5 l -6 4.5',fill:'none',stroke:C.slate,'stroke-width':1.5,'stroke-linecap':'round','stroke-linejoin':'round'},stat);
+
+window.DURATION=9;
+window.renderAt=function(t){
+  while(dyn.firstChild)dyn.removeChild(dyn.firstChild);
+  while(bg.firstChild)bg.removeChild(bg.firstChild);
+
+  /* timings */
+  function tA(i){return 1.9+.46*i}                  /* row A matrix i appears */
+  function tB(i){return 4.75+.36*i}                 /* row B matrix i appears */
+  function tM(i){return tB(i)+.42}                  /* its match mark */
+
+  /* column bands: start as rank ranges on the spectrum, extend down as each range gets its matrices */
+  for(var i=0;i<NC;i++){
+    var kA=ease(seg(t,tA(i)-.15,tA(i)+.45)), kB=ease(seg(t,tB(i)-.3,tB(i)+.25));
+    var bot=lerp(lerp(PB,RA+MS+8,kA),BANDBOT,kB);
+    var hl=seg(t,tA(i)-.15,tA(i)+.15)*(1-seg(t,tA(i)+.5,tA(i)+.95));        /* brief violet tint while introduced */
+    el('rect',{x:cx(i)-BANDW/2,y:PT,width:BANDW,height:bot-PT,rx:6,fill:mix(RGB.wash,[226,220,240],hl)},bg);
+  }
+  /* axes */
+  el('path',{d:'M '+X0+' '+(PT-2)+' V '+PB+' H '+X1,fill:'none',stroke:C.slate,'stroke-width':1.5,'stroke-linecap':'round','stroke-linejoin':'round'},dyn);
+  /* spectrum: dots fill in from the strongest dimensions to the weakest */
+  for(var j=0;j<ND;j++){
+    var k=ease(seg(t,.35+j*.055,.75+j*.055));
+    el('circle',{cx:DOTS[j][0].toFixed(1),cy:DOTS[j][1].toFixed(1),r:lerp(3,3.8,k),fill:mix(RGB.hairStrong,RGB.blue,k)},dyn);
+  }
+
+  /* row A: person-by-person similarity in each range */
+  var la=ease(seg(t,1.8,2.4));
+  if(la>0){ var g=el('g',{opacity:la},dyn);
+    txt('similarity',{x:36,y:256,'font-size':16,'font-weight':600,fill:C.violet},g);
+    txt('between people',{x:36,y:275,'font-size':16,'font-weight':600,fill:C.violet},g) }
+  for(var i=0;i<NC;i++){ var k=ease(seg(t,tA(i),tA(i)+.55));
+    if(k>0) matrix(dyn,cx(i)-MS/2,RA+(1-k)*-8,MA[i],k) }
+
+  /* row B: the same, measured in other movies */
+  var lb=ease(seg(t,4.5,5.1));
+  if(lb>0) txt('in other movies',{x:36,y:350,'font-size':16,fill:C.inkSoft,opacity:lb},dyn);
+  for(var i=0;i<NC;i++){ var k=ease(seg(t,tB(i),tB(i)+.5));
+    if(k>0) matrix(dyn,cx(i)-MS/2,RB+(1-k)*8,MB[i],k) }
+
+  /* match marks */
+  var lr=ease(seg(t,tM(0),tM(0)+.5));
+  if(lr>0) txt('reliable',{x:36,y:309,'font-size':16,'font-weight':600,fill:C.green,opacity:lr},dyn);
+  for(var i=0;i<NC;i++){ var k=ease(seg(t,tM(i),tM(i)+.4));
+    if(k>0) txt('≈',{x:cx(i),y:311,'font-size':24,'font-weight':600,'text-anchor':'middle',fill:C.green,opacity:k},dyn) }
+
+  /* takeaway */
+  var lt=ease(seg(t,7.1,7.8));
+  if(lt>0) txt('a distinct pattern at each range',{x:(X0+X1)/2,y:407,'font-size':17,'font-weight':600,'text-anchor':'middle',fill:C.violet,opacity:lt},dyn);
+};
+window.renderAt(0);
+})();
+</script>

@@ -19,7 +19,7 @@ permalink: /research/
 <p class="project-meta project-meta-row"><span>Recent work</span><span><a href="https://arxiv.org/abs/2408.12804">Universal dimensions of visual representation</a>, <em>Science Advances</em> (2025) · <a href="https://github.com/zche377/universal_dimensions">code</a></span></p>
 <p>We observe that diverse designs of neural networks all yield similarly good models of the human visual cortex. This suggests that the subset of model representations that align with cortical activity is general-purpose and can be learned independent of the task or architectural constraints on these models. By comparing the representations of widely varied models, we provide evidence that the universality of a feature among many neural networks is a strong indicator of its presence in human cortical representation.</p>
 </div>
-<img class="project-fig" src="{{ site.url }}{{ site.baseurl }}/images/pubpic/universal_dim.png" alt="Figure from Universal dimensions of visual representation">
+{% assign clip = site.data.publist | where: "teaser", "universal2025.mp4" | first %}<div class="project-fig pub-clip"><video data-teaser src="{{ site.url }}{{ site.baseurl }}/images/pubvid/universal2025.mp4" poster="{{ site.url }}{{ site.baseurl }}/images/pubvid/universal2025.jpg" muted playsinline preload="metadata" aria-label="{{ clip.teaser_alt | escape }}"></video></div>
 </div>
 
 <div class="project">
@@ -29,7 +29,7 @@ permalink: /research/
 <p class="project-meta project-meta-row"><span>Recent work</span><span><a href="https://arxiv.org/abs/2605.05556">Extremely coarse learning objectives induce human-aligned representations in AI vision models</a></span></p>
 <p>How much feedback does a network need before its representations line up with the human visual system? Far less than standard training provides: an extremely coarse signal is enough. We are now turning the same question on the modelling process itself. Long-running agents propose simple, interpretable computational models of visual cortex, score them by how well they predict neural responses in different brain regions, and revise them. The search is open-ended and aimed at the underlying computation, not at fitting a particular dataset or scaling up training.</p>
 </div>
-<img class="project-fig" src="{{ site.url }}{{ site.baseurl }}/images/pubpic/coarse_feedback.png" alt="Figure from Extremely coarse learning objectives induce human-aligned representations in AI vision models">
+{% assign clip = site.data.publist | where: "teaser", "coarse2026.mp4" | first %}<div class="project-fig pub-clip"><video data-teaser src="{{ site.url }}{{ site.baseurl }}/images/pubvid/coarse2026.mp4" poster="{{ site.url }}{{ site.baseurl }}/images/pubvid/coarse2026.jpg" muted playsinline preload="metadata" aria-label="{{ clip.teaser_alt | escape }}"></video></div>
 </div>
 
 <div class="project">
@@ -39,7 +39,7 @@ permalink: /research/
 <p class="project-meta project-meta-row"><span>Recent work</span><span><a href="https://arxiv.org/abs/2605.19155">Efficient coding along the visual hierarchy</a></span></p>
 <p>Deep neural networks (DNNs) are the leading computational models of visual cortex but are trained using biologically implausible backpropagation. We are developing an algorithm for building a hierarchy of visual features using only local unsupervised learning, without backpropagation. Our work identifies a new approach for learning a visual hierarchy consistent with principles of learning in biology, requires no labels or tasks, and may account for a large fraction of visual cortex representations.</p>
 </div>
-<img class="project-fig" src="{{ site.url }}{{ site.baseurl }}/images/pubpic/efficient_coding.png" alt="Images that most strongly drive channels learned by efficient coding">
+{% assign clip = site.data.publist | where: "teaser", "efficient_coding2026.mp4" | first %}<div class="project-fig pub-clip"><video data-teaser src="{{ site.url }}{{ site.baseurl }}/images/pubvid/efficient_coding2026.mp4" poster="{{ site.url }}{{ site.baseurl }}/images/pubvid/efficient_coding2026.jpg" muted playsinline preload="metadata" aria-label="{{ clip.teaser_alt | escape }}"></video></div>
 </div>
 
 <h2 id="tutorial">Tutorial</h2>
